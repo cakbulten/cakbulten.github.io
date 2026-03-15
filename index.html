@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Bülten Arşivi</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f0f11;
+  --surface: #17161a;
+  --surface2: #1f1e24;
+  --border: #2a2930;
+  --border2: #383740;
+  --text: #eae8f2;
+  --text2: #9d9ab5;
+  --text3: #5c5a70;
+  --gold: #c9a84c;
+  --gold-dim: #7a6330;
+  --red: #d95f5f;
+  --red-bg: #1e1111;
+  --red-border: #3d1f1f;
+  --green: #52b07a;
+  --blue: #5a9fd4;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+/* ─── MASTHEAD ─── */
+.masthead {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+.masthead-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.masthead-eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-dim);
+  opacity: 0.4;
+}
+.masthead-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.masthead-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.masthead-desc {
+  font-size: 14px;
+  color: var(--text3);
+  max-width: 420px;
+  line-height: 1.65;
+}
+
+/* ─── YEAR LABEL ─── */
+.year-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.year-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─── BULLETIN CARD ─── */
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 48px;
+}
+
+.bcard {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  margin-bottom: -1px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, background 0.15s;
+  position: relative;
+}
+.bcard:hover {
+  border-color: var(--gold-dim);
+  background: var(--surface);
+  z-index: 1;
+}
+.bcard:hover .bcard-arrow { color: var(--gold); }
+.bcard:hover .bcard-title { color: var(--gold); }
+
+.bcard-date {
+  width: 72px;
+  flex-shrink: 0;
+  padding: 20px 16px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+}
+.bcard-day {
+  font-family: 'Instrument Serif', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1;
+}
+.bcard-month {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-top: 4px;
+}
+
+.bcard-body {
+  flex: 1;
+  padding: 18px 20px;
+}
+.bcard-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid;
+}
+.tag-crisis  { color: var(--red);   border-color: var(--red-border);  background: var(--red-bg); }
+.tag-monthly { color: var(--blue);  border-color: #1a3650; background: #0e1e2e; }
+.tag-special { color: var(--green); border-color: #1e4030; background: #122318; }
+.tag-concept { color: var(--gold);  border-color: var(--gold-dim); background: #1a1508; }
+
+.bcard-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 6px;
+  transition: color 0.15s;
+}
+.bcard-desc {
+  font-size: 13px;
+  color: var(--text3);
+  line-height: 1.55;
+}
+
+.bcard-arrow {
+  width: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--border2);
+  font-size: 16px;
+  transition: color 0.15s;
+}
+
+/* ─── PINNED (LATEST) ─── */
+.bcard-pinned {
+  border-color: var(--gold-dim);
+  background: var(--surface);
+}
+.bcard-pinned .bcard-date { background: var(--surface2); }
+.bcard-pinned .bcard-day { color: var(--gold); }
+.bcard-pin-badge {
+  position: absolute;
+  top: -1px;
+  right: 44px;
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--bg);
+  padding: 3px 8px;
+}
+
+/* ─── FOOTER ─── */
+.site-footer {
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.site-footer-brand {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+.site-footer-disc {
+  font-size: 11px;
+  color: var(--text3);
+  text-align: right;
+  line-height: 1.5;
+}
+
+@media (max-width: 560px) {
+  .wrapper { padding-left: 20px; padding-right: 20px; }
+  .masthead-title { font-size: 36px; }
+  .bcard-arrow { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- ══════════ MASTHEAD ══════════ -->
+  <div class="masthead">
+    <div class="masthead-eyebrow">CAK · Kişisel Araştırma Notları</div>
+    <h1 class="masthead-title">Bülten<br><em>Arşivi</em></h1>
+    <p class="masthead-desc">Piyasa konjonktürü, aylık yönlendirme ve kriz notları. Herhangi bir kurumu temsil etmez, yatırım tavsiyesi değildir.</p>
+  </div>
+
+  <!-- ══════════ 2026 ══════════ -->
+  <div class="year-label">2026</div>
+
+  <div class="card-list">
+
+    <!-- Kara Cuma — En güncel, pinned -->
+    <a class="bcard bcard-pinned" href="bulten-kara-cuma-13mart2026.html">
+      <div class="bcard-pin-badge">Son Bülten</div>
+      <div class="bcard-date">
+        <div class="bcard-day">13</div>
+        <div class="bcard-month">Mar</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-crisis">⚠ Ara Bülten · Kara Cuma</div>
+        <div class="bcard-title">Üç Şok, Aynı Gün: Stagflasyon + Hürmüz + FOMC</div>
+        <div class="bcard-desc">−92K iş kaybı, yapışkan enflasyon ve Hürmüz krizi 13 Mart'ta çakıştı. Fed 18 Mart'ta köşeye sıkışıyor. Tüm yük tek pakette.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+
+    <!-- PPK Flash -->
+    <a class="bcard" href="ppk-flash-12mart2026.html">
+      <div class="bcard-date">
+        <div class="bcard-day">12</div>
+        <div class="bcard-month">Mar</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-special">⚡ Flash Analiz · PPK</div>
+        <div class="bcard-title">PPK Kararı Sonrası: Kritik Sinyal Metinde Saklı</div>
+        <div class="bcard-desc">Faiz sabit kaldı ama metnin değişen dili asıl haberi taşıyor. "Sıkılaştırılacaktır" ifadesi, CDS 240 bp ve rezerv erimesinin analizi.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+
+    <!-- Kriz Bülteni -->
+    <a class="bcard" href="bulten-mart-savas-2026.html">
+      <div class="bcard-date">
+        <div class="bcard-day">12</div>
+        <div class="bcard-month">Mar</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-crisis">⚠ Olağandışı · Kriz</div>
+        <div class="bcard-title">Savaş Gündemi: Ne Oluyor, Ne Yapalım?</div>
+        <div class="bcard-desc">ABD–İsrail–İran çatışması, Hürmüz Boğazı kapanışı, petrol şoku ve portföy tutumu. Güncel piyasa tablosu ile 2 haftalık kritik gündem.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+
+
+    <!-- Aylık Bülten -->
+    <a class="bcard" href="bulten-mart-2026.html">
+      <div class="bcard-date">
+        <div class="bcard-day">09</div>
+        <div class="bcard-month">Mar</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-monthly">Aylık Rehber</div>
+        <div class="bcard-title">Bu Ay Ne Alınır? — Mart 2026</div>
+        <div class="bcard-desc">BES, gayrimenkul, altın ve hisse tarafında konjonktür rehberi. Risk/fırsat haritası, 3 hazır plan şablonu, TEFAS/BEFAS pratik seçim çerçevesi.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+
+  </div>
+
+  <!-- ══════════ KAVRAM DİZİSİ ══════════ -->
+  <div class="year-label" style="margin-top:48px;">Kavram Dizisi</div>
+
+  <!-- Temel -->
+  <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin:20px 0 8px;display:flex;align-items:center;gap:10px;">Temel<span style="flex:1;height:1px;background:var(--border);display:inline-block;"></span></div>
+  <div class="card-list">
+    <a class="bcard" href="kavram-04-para-nedir.html">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--green);font-family:'DM Mono',monospace;">✦</div>
+        <div class="bcard-month">Mar 26</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-concept">Kavram · Temel</div>
+        <div class="bcard-title">Para Nedir?</div>
+        <div class="bcard-desc">Takastan fiat paraya: altın standardı neden terk edildi, kağıt paranın arkasında ne var, güven nasıl çalışır.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+    <a class="bcard" href="kavram-05-bankalar.html">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--green);font-family:'DM Mono',monospace;">✦</div>
+        <div class="bcard-month">Mar 26</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-concept">Kavram · Temel</div>
+        <div class="bcard-title">Bankalar Nasıl Para Yaratır?</div>
+        <div class="bcard-desc">Kısmi rezerv bankacılığı, para çarpanı ve merkez bankası ile ticari banka arasındaki fark. Çoğu insan bunu bilmez.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+    <a class="bcard" href="kavram-01-enflasyon.html">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--green);font-family:'DM Mono',monospace;">✦</div>
+        <div class="bcard-month">Mar 26</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-concept">Kavram · Temel</div>
+        <div class="bcard-title">Enflasyon — Paranın değeri neden erir</div>
+        <div class="bcard-desc">TÜFE, stagflasyon, merkez bankası sınırları. Kim kazanır, kim kaybeder — ve hiç enflasyon olmaması neden iyi değildir.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+    <a class="bcard" href="kavram-02-faiz.html">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--green);font-family:'DM Mono',monospace;">✦</div>
+        <div class="bcard-month">Mar 26</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-concept">Kavram · Temel</div>
+        <div class="bcard-title">Faiz — Tek sayı nasıl her şeyi hareket ettirir</div>
+        <div class="bcard-desc">Nominal vs reel faiz, merkez bankası zincirleme etkisi, sıfır faizin tehlikeli yan etkileri ve portföye yansımaları.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+    <a class="bcard" href="kavram-03-kur.html">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--green);font-family:'DM Mono',monospace;">✦</div>
+        <div class="bcard-month">Mar 26</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-concept">Kavram · Temel</div>
+        <div class="bcard-title">Kur — TL neden değer kaybeder, bu kaçınılmaz mı?</div>
+        <div class="bcard-desc">Döviz kurunu belirleyen 5 güç, kur rejimleri, dolarizasyon tuzağı ve Türkiye'nin 20 yıllık kur hafızası.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+  </div>
+
+  <!-- Yatırım -->
+  <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin:28px 0 8px;display:flex;align-items:center;gap:10px;">Yatırım<span style="flex:1;height:1px;background:var(--border);display:inline-block;"></span></div>
+  <div class="card-list" style="opacity:.45;pointer-events:none;">
+    <div class="bcard">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--blue);font-family:'DM Mono',monospace;">✦</div>
+        <div class="bcard-month">Yakında</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag" style="color:var(--text3);border-color:var(--border);background:transparent;">Kavram · Yatırım</div>
+        <div class="bcard-title" style="color:var(--text3);">Risk Nedir? · Çeşitlendirme · Bileşik Faiz</div>
+        <div class="bcard-desc">Hazırlanıyor</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Büyük Resim -->
+  <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:28px 0 8px;display:flex;align-items:center;gap:10px;">Büyük Resim<span style="flex:1;height:1px;background:var(--border);display:inline-block;"></span></div>
+  <div class="card-list" style="opacity:.45;pointer-events:none;">
+    <div class="bcard">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--gold);font-family:'DM Mono',monospace;">✦</div>
+        <div class="bcard-month">Yakında</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag" style="color:var(--text3);border-color:var(--border);background:transparent;">Kavram · Büyük Resim</div>
+        <div class="bcard-title" style="color:var(--text3);">Borç Döngüsü · Emtia · Para İllüzyonu</div>
+        <div class="bcard-desc">Hazırlanıyor</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ ABONE FORMU ══════════ -->
+  <div style="margin-bottom:48px;padding:32px 36px;border:1px solid var(--border);background:var(--surface);">
+    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);margin-bottom:14px;display:flex;align-items:center;gap:10px;">
+      Bültene Abone Ol
+      <span style="flex:1;height:1px;background:var(--border);display:inline-block;"></span>
+    </div>
+    <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:20px;">
+      Yeni bülten yayınlandığında e-posta ile haber al. Aylık veya önemli gelişmelerde gönderilir.
+    </p>
+    <form action="https://github.us12.list-manage.com/subscribe/post?u=4e0a4cc05f9505038495691af&amp;id=420b8aa109&amp;f_id=00b8e4e0f0" method="post" target="_blank" style="display:flex;gap:10px;flex-wrap:wrap;">
+      <!-- Bot koruması — dokunma -->
+      <div aria-hidden="true" style="position:absolute;left:-5000px;">
+        <input type="text" name="b_4e0a4cc05f9505038495691af_420b8aa109" tabindex="-1" value="">
+      </div>
+      <input
+        type="email"
+        name="EMAIL"
+        required
+        placeholder="e-posta adresin"
+        style="flex:1;min-width:200px;background:var(--bg);border:1px solid var(--border2);color:var(--text);font-family:'DM Mono',monospace;font-size:13px;padding:10px 14px;outline:none;letter-spacing:0.03em;"
+      >
+      <button
+        type="submit"
+        style="background:var(--gold);color:var(--bg);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;padding:10px 22px;border:none;cursor:pointer;white-space:nowrap;"
+      >
+        Abone Ol →
+      </button>
+    </form>
+    <p style="font-family:'DM Sans',sans-serif;font-size:11px;color:var(--text3);margin-top:12px;line-height:1.5;">
+      Aboneliğini istediğin zaman iptal edebilirsin. Adres üçüncü taraflarla paylaşılmaz.
+    </p>
+  </div>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <div class="site-footer">
+    <div class="site-footer-brand">CAK · Arşiv</div>
+    <div class="site-footer-disc">Kişisel araştırma notları.<br>Yatırım tavsiyesi değildir.</div>
+  </div>
+
+</div>
+</body>
+</html>
