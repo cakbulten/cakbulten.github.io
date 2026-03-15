@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Pazar Okuması #1 — Savaşta Kim Kazanıyor?</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #100f12;
+  --s1: #18171b;
+  --s2: #201f25;
+  --bd: #2c2b32;
+  --bd2: #3a3942;
+  --t1: #eae8f2;
+  --t2: #9d9ab5;
+  --t3: #5c5a6e;
+  --gold: #c9a84c;
+  --gold2: #7a6330;
+  --red: #d95f5f;
+  --red-bg: #1e1111;
+  --red-bd: #3d1f1f;
+  --green: #52b07a;
+  --green-bg: #0e1e14;
+  --green-bd: #1e3d28;
+  --blue: #5a9fd4;
+  --blue-bg: #0c1a26;
+  --blue-bd: #1a3650;
+  --amber: #d4954a;
+  --amber-bg: #1e1608;
+  --amber-bd: #3d2e12;
+  --purple: #9b7fd4;
+  --purple-bg: #1a1428;
+  --purple-bd: #352850;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;max-width:700px;margin:0 auto;padding:0 0 100px;}
+
+.nav{background:var(--s1);border-bottom:1px solid var(--bd);padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:var(--t3);text-decoration:none;}
+.nav a:hover{color:var(--gold);}
+.nav-series{color:var(--purple);margin-left:auto;}
+
+.hd{padding:44px 40px 32px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd);}
+.series-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--purple-bd);background:var(--purple-bg);padding:5px 12px;margin-bottom:18px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple);}
+h1{font-family:'Instrument Serif',serif;font-size:44px;font-weight:400;line-height:1.08;letter-spacing:-1px;margin-bottom:10px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--red);}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:18px;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;}
+
+.ticker{background:var(--s1);border-bottom:1px solid var(--bd);padding:14px 40px;display:grid;grid-template-columns:repeat(4,1fr);}
+.tc{padding:0 10px 0 0;border-right:1px solid var(--bd);}
+.tc:last-child{border-right:none;}
+.tc:first-child{padding-left:0;}
+.tl{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:3px;}
+.tv{font-family:'DM Mono',monospace;font-size:14px;color:var(--t1);}
+.tc-ch{font-family:'DM Mono',monospace;font-size:9px;margin-top:2px;}
+.dn{color:var(--red);}
+.nt{color:var(--t3);}
+
+.sec{padding:30px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+h2{font-family:'Instrument Serif',serif;font-size:24px;font-weight:400;line-height:1.2;margin-bottom:14px;color:var(--t1);}
+h3{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:var(--t1);margin:20px 0 8px;letter-spacing:.01em;}
+.body{font-size:14.5px;color:var(--t2);line-height:1.8;}
+.body p{margin-bottom:12px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+
+.box{border:1px solid;padding:16px 20px;margin:18px 0;font-size:13.5px;line-height:1.7;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;}
+.b-red{background:var(--red-bg);border-color:var(--red-bd);}
+.b-red .box-title{color:var(--red);}
+.b-red p{color:var(--t2);}
+.b-green{background:var(--green-bg);border-color:var(--green-bd);}
+.b-green .box-title{color:var(--green);}
+.b-green p{color:var(--t2);}
+.b-amber{background:var(--amber-bg);border-color:var(--amber-bd);}
+.b-amber .box-title{color:var(--amber);}
+.b-amber p{color:var(--t2);}
+.b-blue{background:var(--blue-bg);border-color:var(--blue-bd);}
+.b-blue .box-title{color:var(--blue);}
+.b-blue p{color:var(--t2);}
+.b-purple{background:var(--purple-bg);border-color:var(--purple-bd);}
+.b-purple .box-title{color:var(--purple);}
+.b-purple p{color:var(--t2);}
+.b-gold{background:#1a1508;border-color:var(--gold2);}
+.b-gold .box-title{color:var(--gold);}
+.b-gold p{color:var(--t2);}
+
+.actor-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);margin:18px 0;}
+.actor{background:var(--s1);padding:18px;}
+.actor-name{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+.actor-stance{font-size:11px;color:var(--t3);margin-bottom:10px;font-style:italic;}
+.actor-detail{font-size:13px;color:var(--t2);line-height:1.6;}
+
+.stat-row{display:flex;gap:1px;background:var(--bd);margin:18px 0;}
+.stat-cell{flex:1;background:var(--s1);padding:14px 16px;}
+.stat-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:5px;}
+.stat-val{font-family:'Instrument Serif',serif;font-size:24px;line-height:1.1;}
+.stat-note{font-size:11.5px;color:var(--t2);margin-top:3px;line-height:1.4;}
+
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:18px 22px;margin:18px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:18px;color:var(--t1);line-height:1.5;font-style:italic;}
+
+.verdict{background:var(--s1);border:1px solid var(--gold2);padding:26px 30px;margin-top:8px;}
+.verdict-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.verdict h2{font-size:20px;margin-bottom:14px;}
+.verdict .body{font-size:14px;}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;margin-top:8px;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.sec,.ft{padding-left:20px;padding-right:20px;}
+  .ticker{padding-left:20px;padding-right:20px;grid-template-columns:repeat(2,1fr);}
+  .tc:nth-child(2){border-right:none;}
+  h1{font-size:32px;}
+  .actor-grid{grid-template-columns:1fr;}
+  .stat-row{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:var(--bd2)">|</span>
+  <span class="nav-series">Pazar Okuması #1</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Pazar Okuması · 15 Mart 2026</div>
+  <div class="series-badge">16. Gün · Operation Roaring Lion</div>
+  <h1>Savaşta Kim <em>Gerçekten</em> Kazanıyor?</h1>
+  <p class="hd-sub">Neden başladı, nasıl savaşılıyor, nerede bitiyor — ve sahne arkasında kim ne yapıyor</p>
+  <div class="hd-meta">
+    <span>15 Mart 2026</span>
+    <span>·</span>
+    <span>~12 dk okuma</span>
+  </div>
+</div>
+
+<div class="ticker">
+  <div class="tc">
+    <div class="tl">Savaş Günü</div>
+    <div class="tv">16</div>
+    <div class="tc-ch dn">28 Şubat'tan beri</div>
+  </div>
+  <div class="tc">
+    <div class="tl">İran Kayıpları</div>
+    <div class="tv">1.444+</div>
+    <div class="tc-ch dn">18.551+ yaralı</div>
+  </div>
+  <div class="tc">
+    <div class="tl">Brent Petrol</div>
+    <div class="tv">~$93</div>
+    <div class="tc-ch dn">Zirve $120'dı</div>
+  </div>
+  <div class="tc">
+    <div class="tl">Hürmüz</div>
+    <div class="tv">Kapalı</div>
+    <div class="tc-ch nt">Trump koalisyon arıyor</div>
+  </div>
+</div>
+
+<!-- BÖLÜM 1: NEDEN BAŞLADI -->
+<div class="sec">
+  <div class="sec-label" style="color:var(--t3);">Katman 1 · Arka plan</div>
+  <h2>Savaş neden ve nasıl başladı?</h2>
+
+  <div class="body">
+    <p>Resmi gerekçe "nükleer ve balistik füze tehdidi" ama tablo daha karmaşık. Şubat 2026'da Umman arabuluculuğuyla yürütülen ABD-İran nükleer müzakerelerinde önemli bir ilerleme sağlanmıştı — Umman Dışişleri Bakanı, savaşın başlamasından sadece saatler önce "barış elimizin altında" demişti. İran'ın uranyum zenginleştirmeyi durdurmayı kabul ettiği bir taslak masadaydı.</p>
+    <p>Trump 27 Şubat'ta gazetecilere "İstediğimizi vermeye hazır değiller" dedi. Ertesi sabah operasyon başladı. <strong>Müzakereler kesilmedi — operasyon müzakereleri kesti.</strong></p>
+    <p>Ocak 2026'da İran'daki büyük protestolarda güvenlik güçlerinin binlerce kişiyi öldürmesi, Trump'a "rejim değişikliği" söylemini yeniden gündeme taşıma fırsatı vermişti. Operasyon "nükleer tehdit" çerçevesinde sunuldu ama hedef listesi nükleer tesislerin çok ötesine geçti: Hamaney öldürüldü, IRGC komuta zinciri dağıtıldı, iletişim altyapısı vuruldu.</p>
+  </div>
+
+  <div class="box b-amber">
+    <div class="box-title">Operasyon adı ve kapsamı</div>
+    <p>"Operation Roaring Lion" — ABD ve İsrail'in ortak adı. İlk 48 saatte Hamaney ve onlarca üst düzey komutan öldürüldü. 3 Mart'ta Yüksek Ulusal Güvenlik Konseyi binası, Yararlanma Kurulu binası ve "Min Zadai" adlı yeraltı nükleer tesisi vuruldu. Bu tesisin Buşehr Nükleer Santrali'ne 12 km mesafede olması Rusya'nın Rosatom'unu inşaatı durdurup personeli tahliye etmeye yöneltti.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2: NETANYAHU -->
+<div class="sec">
+  <div class="sec-label" style="color:var(--purple);">Katman 2 · Bilgi savaşı</div>
+  <h2>Netanyahu öldü mü? Altı parmak, yapay zeka ve modern savaşın yeni cephesi</h2>
+
+  <div class="body">
+    <p>12 Mart basın toplantısından sonra sosyal medyayı kasıp kavuran iddia: Netanyahu'nun görüntüsü yapay zeka ile üretilmişti ve Netanyahu ölmüştü. Kanıt: sağ elinde altı parmak.</p>
+    <p>PolitiFact, Snopes ve Times of Israel görüntüyü inceledi. Sonuç: kamera açısı ve ışığın yarattığı optik yanılsama. Netanyahu 13 Mart'ta bir kafede video çekti — Türkçeye "ölüyorum bu kahveye" gibi çevrilebilecek İbranice bir deyimle dedi ki "öldüm... kahveye" — hem ölüm iddiasını hem altı parmak iddiasını aynı anda dalga geçerek yanıtladı, iki elini de kameraya tuttu.</p>
+    <p><strong>Ama asıl hikaye bu değil.</strong> Asıl hikaye şu: üç gün boyunca dünya kamuoyunun önemli bir kesimi "acaba gerçekten öldü mü?" diye düşündü. İran'ın İngilizce propaganda kanalları, Rusya bağlantılı hesaplar ve koordineli sosyal medya operasyonu bu belirsizliği kasıtlı olarak büyüttü.</p>
+  </div>
+
+  <div class="box b-purple">
+    <div class="box-title">Bilgi savaşı neden bu kadar etkili?</div>
+    <p>Savaş ortamında doğrulama mekanizmaları çöküyor. İran internet bağlantısını %4'e düşürdü — içeriden haber çıkmıyor. Netanyahu'nun güvenlik gerekçesiyle günlerce kamuoyu önüne çıkmaması gerçek bir bilgi boşluğu yarattı. Bu boşluğa yalanlar doldu. Modern savaşta "gerçek mi, yalan mı?" sorusu artık ikinci bir cephe — ve bu cephede herkes hem saldırgan hem de hedef.</p>
+  </div>
+
+  <div class="body">
+    <p>Netanyahu'nun sağlık durumuna gelince: Şubat'ta prostat ameliyatı geçirdi, idrar yolu enfeksiyonu tedavisi devam ediyor. Kalbinden tamamen sağlıklı. Ama İran medyası Scott Ritter'ın (eski ABD istihbarat yetkilisi, Rusya yanlısı yorumlarıyla tanınır) iddiasını öne çıkardı: "Netanyahu'nun sığınağı bombalandı, kardeşi öldürüldü." Bu iddia Tasnim Haber Ajansı bile "resmi olarak doğrulanamadı" notu düştü. Netanyahu aynı gün Beersheba'da saha ziyareti yaptı, ailesiyle buluştu.</p>
+    <p><strong>Sonuç:</strong> Netanyahu hayatta, aktif ve operasyonu yönetiyor. Ama bu iddiaların neden bu kadar hızlı yayıldığı — koordineli bir psikolojik savaş operasyonunun varlığına işaret ediyor.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 3: RUSYA NE YAPIYOR -->
+<div class="sec">
+  <div class="sec-label" style="color:var(--blue);">Katman 3 · Sahne arkası aktörler</div>
+  <h2>Rusya savaşa girmedi — ama savaşıyor</h2>
+
+  <div class="body">
+    <p>Washington Post, üç üst düzey ABD yetkilisine dayanarak şunu yazdı: <strong>Rusya, ABD savaş gemilerinin ve uçaklarının tam koordinatlarını İran'a iletiyordu.</strong> Bunu nasıl yapıyor?</p>
+    <p>İran'ın kendi askeri keşif uydusu kapasitesi son derece sınırlı — hızla hareket eden deniz varlıklarını açık sularda takip edemez. Rusya bu açığı kapatıyor. "Khayyam" adıyla İran'a devredilen Rus Kanopus-V uydusu, Körfez'i sürekli optik ve radar görüntüyle tarıyor. <strong>Koordinatlar Rusya'dan geliyor, füze İran'dan atılıyor.</strong></p>
+    <p>Kuwait'taki ABD üssüne isabet eden ve altı Amerikan askerini öldüren drone'un hedefi herkese açık haritalarda yok. Pentagon yetkililerine göre bu tür hassas isabetler tesadüf değil — istihbarat destekli.</p>
+    <p>Putin, Trump'la telefonda "Rusya İran'a istihbarat paylaşmıyor" dedi. Trump buna kamuoyu önünde inanır göründü. Ama FDD analistleri şunu yazdı: "Rusya, ABD'nin Ukrayna'ya verdiği hedefleme istihbaratını — Rusya mevzilerini, Putin'in konutlarına yakın noktaları — nasıl değerlendirdiğini biliyor. Karşılıklılık prensibi çalışıyor."</p>
+  </div>
+
+  <div class="box b-blue">
+    <div class="box-title">Rusya'nın gerçek kazancı</div>
+    <p>Birincisi, Ukrayna: Batı'nın dikkati bölündü, ABD silah ve siyasi kapasitesinin önemli bir kısmı Orta Doğu'ya kaydı. Avrupa'da savunma tartışmaları Ukrayna'dan İran'a döndü. İkincisi, petrol: Rusya $93 Brent'ten milyarlarca dolar ek gelir yazıyor — üstelik 13 Mart'ta ABD, savaşın ekonomik yükünü hafifletmek için Rus petrolüne yönelik kısıtlamaları geçici olarak kaldırdı. Üçüncüsü, Ukrayna cephesinde fırsatlar: Ukrayna, bu çatışmada İran'a karşı ABD ve İsrail'i desteklediğini açıkladı — Rusya bu pozisyonu iç kamuoyunda Ukrayna aleyhine kullanıyor.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 4: ÇİN NE YAPIYOR -->
+<div class="sec">
+  <div class="sec-label" style="color:var(--blue);">Katman 3 · Sahne arkası aktörler</div>
+  <h2>Çin'in sessiz savaşı: Uydu, radar ve nükleer hesap</h2>
+
+  <div class="body">
+    <p>Rusya'dan farklı olarak Çin sesini yükseltmiyor ama etkisi daha derin. Al Jazeera'nın derinlemesine analizine göre Çin, yıllardır İran'ın elektronik savaş altyapısını yeniden şekillendirdi:</p>
+  </div>
+
+  <h3>BeiDou-3: GPS'i devre dışı bırakmak</h3>
+  <div class="body">
+    <p>İran ordusunun navigasyonu ABD GPS sisteminden Çin'in BeiDou-3 takımyıldızına taşındı. Bu şu anlama geliyor: ABD bir kriz anında GPS'i manipüle etse ya da karıştırsa İran'ın saldırı sistemleri etkilenmiyor. Çin bu altyapıyı birkaç yıl içinde kurdu — bugün sonuçlarını görüyoruz.</p>
+  </div>
+
+  <h3>YLC-8B: Görünmez uçakları görünür kılmak</h3>
+  <div class="body">
+    <p>ABD'nin B-21 Raider ve F-35C'si stealth teknolojisiyle tasarlandı — radar dalgalarını emen kaplamalar. Çin'in İran'a verdiği YLC-8B, düşük frekanslı UHF dalgalarıyla çalışıyor ve bu kaplamaları büyük ölçüde etkisizleştiriyor. İsrail Hava Kuvvetleri Tugenerali Amos Yadlin'in deyişiyle: "Her dakika, her saniye sayılır. Çin İran'ın saldırı zincirini tümüyle yeniden şekillendirdi."</p>
+  </div>
+
+  <h3>CM-302: Uçak gemisi avcıları</h3>
+  <div class="body">
+    <p>Reuters'a göre İran, Çin'in CM-302 süpersonik gemisavar füzesinden 50 adet satın almak için görüşüyor. Mach 3 hızında, deniz yüzeyine sıfır metre irtifada, bir gemiye tepki penceresi bırakmıyor. USS Abraham Lincoln ve USS Gerald R. Ford şu an bu füzelerin menzilinde. Satış henüz tamamlanmadı — ama müzakerenin kendisi ABD'ye güçlü bir mesaj.</p>
+  </div>
+
+  <div class="box b-purple">
+    <div class="box-title">Çin'in paradoksal çıkarı</div>
+    <p>CNBC'nin aktardığı Chatham House analizi ilginç bir tezi öne sürüyor: Zayıflamış bir İran aslında Çin'in çıkarına. Ne kadar zayıflarsa, Çin'e diplomatik, ekonomik ve teknolojik bağımlılığı o kadar artıyor. Üstelik Çin İran petrolünün %80'inden fazlasını alıyor — savaş fiyatları yükseltse de Çin uzun vadeli anlaşmalarla alım yapıyor. Ve en önemlisi: Çin bu tabloyu Trump'la Tayvan ve ticaret müzakerelerinde pazarlık kozu olarak kullanıyor. "İran'a baskı yaparız, ama karşılığında Tayvan meselesinde uzlaşı isteriz."</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 5: SAVUNMA SANAYİİ -->
+<div class="sec">
+  <div class="sec-label" style="color:var(--amber);">Katman 4 · Ekonomik kazananlar</div>
+  <h2>Savunma sanayii: Her atılan füze bir sipariş</h2>
+
+  <div class="body">
+    <p>Yüzeysel anlatı şu: "Silah şirketleri savaştan kazanıyor." Bu doğru ama yetersiz. Daha derin mekanizma şöyle çalışıyor:</p>
+  </div>
+
+  <h3>Iron Dome ve David's Sling tüketimi</h3>
+  <div class="body">
+    <p>İran 16 günde 2.500'den fazla füze ve drone fırlattı. Her birini düşürmek için kullanılan interceptor'ların maliyeti, düşürülen tehditle kıyaslanamayacak kadar yüksek. Semafor'un raporuna göre İsrail'in balistik füze önleme sistemleri kritik ölçüde tükendi — durum bu hafta ABD'ye iletildi. Şimdi acil sipariş gerekiyor. Raytheon'un Patriot interceptor'u birim başına $3-6 milyon, Iron Dome interceptor'u $40-50 bin. İran'ın $20 bin'lik drone'unu düşürmek için $40 bin harcıyorsunuz. Bu asimetri savunma şirketleri için sürdürülebilir bir iş modelidir.</p>
+  </div>
+
+  <h3>Körfez ülkelerinin yeniden silahlanması</h3>
+  <div class="body">
+    <p>Suudi Arabistan, BAE, Katar ve Bahreyn İran dronlarından vuruldu. Bu ülkeler onlarca yıldır ABD silahlarının en büyük alıcıları arasında. Savaş, zaten yüksek olan silah harcamalarını artırmak için yeni bir gerekçe sunuyor. F-35 satışı, Patriot sistemleri, C4ISR — Körfez ülkelerinin alım listesi uzayacak.</p>
+  </div>
+
+  <h3>Ukrayna paradoksu</h3>
+  <div class="body">
+    <p>İlginç bir bağlantı: İran, Rusya'ya yıllarca Shahed dronları sağladı. Rusya bu deneyimi İran'a aktarıyor. ABD ve İsrail İran'ı vururken aynı drone'lar hâlâ Ukrayna'da patlıyor. Savunma sanayii her iki cepheden de sipariş alıyor.</p>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">Hangi şirketler, ne kadar?</div>
+    <p>Raytheon (RTX), Lockheed Martin (LMT) ve Northrop Grumman (NOC) hisseleri operasyon başladığından bu yana belirgin yükseliş gösterdi. İsrael tarafında Elbit Systems ve Rafael — her ikisi de borsada rekor seviyelere yakın. Daha az görünür kazanan: FLIR Systems, L3Harris, Palantir — istihbarat, gözetleme ve hedefleme sistemleri. Savaş artık yazılım yoğun; bu şirketler hem ABD hem İsrail tarafına satıyor.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 6: ENERJİ -->
+<div class="sec">
+  <div class="sec-label" style="color:var(--amber);">Katman 4 · Ekonomik kazananlar</div>
+  <h2>Enerji: $93 petrol kimin kazancı, kimin kaybı?</h2>
+
+  <div class="body">
+    <p>Hürmüz Boğazı küresel petrol ticaretin yaklaşık %20'sinin, LNG ticaretinin ise %25'inin geçtiği dar koridor. "Kapalı" demek bu ticaretin zorlaştığı, sigortasının fırladığı ve alternatif güzergahların devreye girdiği anlamına geliyor — tamamen kapanmış değil, ama her varil daha pahalıya mal oluyor.</p>
+  </div>
+
+  <h3>Körfez üreticileri: Ne kaybettiler?</h3>
+  <div class="body">
+    <p>Irak ve Kuveyt üretimi kıstı. Aramco'nun Ras Tanura tesisi İran tarafından vuruldu — dünyanın en büyük petrol işleme tesislerinden biri. Suudi Arabistan geçici üretim artışıyla açığı kapatmaya çalışıyor ama Ras Tanura onarımı zaman alıyor. IEA 400 milyon varil acil rezerv serbest bıraktı — bu kısa vadeli baskıyı hafifletti, petrolün $120'dan $93'e inmesinde belirleyici oldu.</p>
+  </div>
+
+  <h3>Kim kazanıyor?</h3>
+  <div class="body">
+    <p>ABD şeyl üreticileri: $93 Brent, Texas ve Kuzey Dakota için son derece kârlı. Permian Basin'deki üreticilerin kırılma noktası $50-60 — şu an marjlar rekor seviyede. Norveç, Kanada, Kazakistan: Hürmüz dışı üretim yapan her ülke prim kazanıyor. Enerji şirketlerinin Q1 2026 karları büyük olasılıkla rekor kıracak.</p>
+  </div>
+
+  <h3>Kim kaybediyor?</h3>
+  <div class="body">
+    <p>Enerji ithalatçıları: Türkiye, Hindistan, Japonya, Güney Kore, Avrupa. Türkiye özelinde: her $10 petrol artışı cari açığa ~$4-5 milyar ek yük, enflasyona ~1-1,5 puan katkı. TCMB bu tabloda hem kur savunması hem enflasyon baskısıyla aynı anda mücadele ediyor. Savaş öncesi indirim beklentisi tamamen silindi.</p>
+  </div>
+
+  <div class="box b-red">
+    <div class="box-title">Kharg Adası riski</div>
+    <p>Trump 14 Mart'ta "Kharg'ı yeniden vururuz, eğlence için bile olsa" dedi. Kharg Adası İran'ın petrol ihracatının %90'ından fazlasının yapıldığı terminali barındırıyor. Bu tesisin ağır hasar görmesi küresel petrol piyasasında $150+ senaryosunu tetikler. Trump açıklaması ciddiye alınmasa bile piyasalar bu sinyali fiyatlıyor.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 7: NEREYE GİDİYOR -->
+<div class="sec">
+  <div class="sec-label" style="color:var(--t3);">Öne Bakış · Nerede biter?</div>
+  <h2>Bu savaş nerede ve nasıl biter?</h2>
+
+  <div class="body">
+    <p>Üç aktörün çıkarları birbirinden farklı olduğu için "ne zaman biter" sorusunun cevabı karmaşık.</p>
+  </div>
+
+  <h3>ABD ne istiyor?</h3>
+  <div class="body">
+    <p>İki seçenek arasında sıkışmış durumda: nükleer tesisleri kalıcı olarak imha etmek ve rejimi değiştirmek. Trump'ın "rejim değişikliği garantili değil" açıklaması (12 Mart basın toplantısı) hedefin ne kadar muğlak olduğunu gösteriyor. Cornell'den askeri tarih profesörü David Silbey'in tespiti yerinde: "Açık bir çıkış stratejisi yok." Bitiş çizgisi netleşmeden savaş netleşmez.</p>
+  </div>
+
+  <h3>İsrail ne istiyor?</h3>
+  <div class="body">
+    <p>İran'ın nükleer kapasitesini ve IRGC'nin komuta yapısını kalıcı olarak çökertmek. "Üç hafta daha" planı var ama İsrail'in interceptor stokunun kritik ölçüde tükendiği ABD'ye iletildi. Bu silahlanma problemi çözülmeden İsrail'in savunma kapasitesi eriyor.</p>
+  </div>
+
+  <h3>İran ne yapabilir?</h3>
+  <div class="body">
+    <p>Hamaney öldürüldü, yeni lider Mojtaba Khamenei yaralı ve deneyimsiz. Füze stoku eriyor. Ama teslim olmak için bir mekanizma yok — İran'ın anayasal yapısı müzakereyi liderlik değişiminden daha zor kılıyor. Yıpratma savaşı daha olası: asimetrik taktikler, drone üretimini sürdürmek, Hürmüz tehdidini canlı tutmak. ACLED analistleri "öngörülemez ve uzun" uyarısını vurguluyor.</p>
+  </div>
+
+  <div class="box b-green">
+    <div class="box-title">Bitiş senaryoları</div>
+    <p><strong>Hızlı anlaşma (%20):</strong> İran müzakere masasına oturuyor, nükleer programı askıya alıyor, Hürmüz açılıyor. Araghchi bugün kapıyı araladı ama Trump "şartlar yeterli değil" dedi.<br><br>
+    <strong>Uzun yıpratma (%55):</strong> Düşük yoğunluklu çatışma aylarca devam ediyor. Petrol $80-110 bandında kalıyor. Ne tam zafer ne tam ateşkes.<br><br>
+    <strong>Tırmanma (%25):</strong> Kharg vurulur ya da İsrail'in interceptor stoğu biter. $150+ petrol, küresel resesyon riski. Bu senaryo "kuyruk riski" — düşük ihtimal ama yıkıcı etki.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Tarihin aynası</div>
+    <p class="analogy-text">"Hem İran hem İsrail uzun bir savaştan faydalanıyor — ABD ise bu iki tarafın ortasında en çok kaybeden konumuna düşüyor." Times of Israel analistinin tespiti.</p>
+  </div>
+</div>
+
+<!-- VERDICT -->
+<div class="sec" style="border-bottom:none;">
+  <div class="verdict">
+    <div class="verdict-label">▸ CAK Pazar Okuması · 15 Mart 2026</div>
+    <h2>Gerçek tablo</h2>
+    <div class="body">
+      <p><strong>Askeri tabloda:</strong> ABD ve İsrail ilerliyor — Hamaney öldürüldü, nükleer tesisler vuruldu, IRGC komutası dağıtıldı. Ama İsrail'in interceptor stoku eriyor, ABD'nin çıkış stratejisi yok, İran teslim olmak yerine direniyor.</p>
+      <p style="margin-top:10px;"><strong>Sahne arkasında:</strong> Rusya uydu istihbaratıyla savaşa fiilen katılıyor ama inkar ediyor. Çin elektronik savaş altyapısıyla İran'ın saldırı kapasitesini artırdı ve şimdi bu tabloyu Tayvan/ticaret pazarlığına dönüştürüyor. Savunma sanayii her iki taraf için de üretim yapıyor. ABD şeyl üreticileri $93 petrolden kâr yazıyor.</p>
+      <p style="margin-top:10px;"><strong>Fatura:</strong> İran halkı, Körfez ülkeleri, Türkiye ve tüm enerji ithalatçıları. Stagflasyon riski küresel — Fed köşeye sıkışmış, TCMB baskı altında.</p>
+      <p style="margin-top:10px;"><strong>Bu haftanın tek göstergesi:</strong> İran'ın müzakere sinyalleri somutlaşır mı? Araghchi bugün kapıyı araladı — ama Trump Kharg'ı "eğlence için bile" vurabileceğini söyledi. Bu iki cümle arasındaki mesafe bu savaşın özeti.</p>
+    </div>
+  </div>
+</div>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Pazar Okuması #1 · 15 Mar 2026</div>
+  <div class="ft-disc">Kişisel araştırma notu.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+
+</body>
+</html>
