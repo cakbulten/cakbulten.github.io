@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Araçlar</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --red: #b03030;
+  --red-lt: #fdf0f0;
+  --red-bd: #e8a0a0;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --green-bd: #88cca8;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --blue-bd: #90b0e8;
+  --amber: #8a4c10;
+  --amber-lt: #fdf4ea;
+  --amber-bd: #e0b078;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;max-width:700px;margin:0 auto;padding:0 0 80px;}
+
+/* NAV */
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}
+.nav a:hover{color:#c9a84c;}
+.nav-tag{color:#c9a84c;margin-left:auto;}
+
+/* HEADER */
+.hd{padding:40px 40px 28px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+h1{font-family:'Instrument Serif',serif;font-size:44px;font-weight:400;line-height:1.05;letter-spacing:-1px;margin-bottom:8px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--gold);}
+.hd-sub{font-size:14px;color:var(--t2);line-height:1.6;}
+
+/* TABS */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--bd);overflow-x:auto;padding:0 40px;background:var(--s1);}
+.tab{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:13px 16px;cursor:pointer;color:var(--t3);border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;margin-bottom:-1px;user-select:none;}
+.tab:hover{color:var(--t2);}
+.tab.active{color:var(--t1);border-bottom-color:var(--t1);}
+
+/* TOOL PANELS */
+.panel{display:none;padding:28px 40px;}
+.panel.active{display:block;}
+
+/* INPUT GROUPS */
+.fields{display:flex;flex-direction:column;gap:14px;margin-bottom:24px;}
+.field{display:flex;flex-direction:column;gap:5px;}
+.field label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);}
+.field input[type=number],.field input[type=range]{width:100%;}
+.field input[type=number]{background:var(--bg);border:1px solid var(--bd2);color:var(--t1);font-family:'DM Mono',monospace;font-size:14px;padding:10px 14px;outline:none;transition:border-color .15s;}
+.field input[type=number]:focus{border-color:var(--t1);}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.field-hint{font-size:11.5px;color:var(--t3);margin-top:2px;}
+
+/* RANGE */
+.range-wrap{display:flex;align-items:center;gap:12px;}
+.range-wrap input[type=range]{flex:1;accent-color:var(--t1);}
+.range-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--t1);min-width:52px;text-align:right;}
+
+/* BUTTON */
+.btn{background:var(--t1);color:#fff;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:12px 28px;border:none;cursor:pointer;width:100%;transition:background .15s;}
+.btn:hover{background:#2a2930;}
+
+/* RESULT */
+.result{margin-top:24px;display:none;}
+.result.show{display:block;}
+.result-main{background:var(--t1);padding:22px 24px;margin-bottom:1px;}
+.result-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:6px;}
+.result-val{font-family:'Instrument Serif',serif;font-size:38px;color:#fff;line-height:1.1;}
+.result-note{font-size:12px;color:#aaa;margin-top:4px;}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);}
+.result-cell{background:var(--s1);padding:14px 16px;}
+.rc-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:5px;}
+.rc-val{font-family:'DM Mono',monospace;font-size:14px;color:var(--t1);}
+.rc-val.pos{color:var(--green);}
+.rc-val.neg{color:var(--red);}
+.rc-val.warn{color:var(--amber);}
+
+/* CHART BAR */
+.chart{margin-top:16px;}
+.chart-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;}
+.bar-wrap{display:flex;flex-direction:column;gap:5px;}
+.bar-row{display:flex;align-items:center;gap:10px;}
+.bar-name{font-size:12px;color:var(--t2);width:110px;flex-shrink:0;text-align:right;}
+.bar-track{flex:1;height:8px;background:var(--bd);position:relative;}
+.bar-fill{height:100%;transition:width .4s ease;}
+.bar-fill.f-blue{background:var(--blue);}
+.bar-fill.f-green{background:var(--green);}
+.bar-fill.f-gold{background:var(--gold-bd);}
+.bar-fill.f-red{background:var(--red);}
+.bar-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--t2);width:80px;text-align:right;}
+
+/* INFO BOX */
+.info{background:var(--gold-lt);border:1px solid var(--gold-bd);padding:14px 18px;font-size:13px;color:var(--t2);line-height:1.65;margin-top:16px;}
+.info strong{color:var(--gold);}
+
+/* YORUM */
+.yorum{background:var(--s1);border-left:3px solid var(--bd2);padding:14px 18px;font-family:'Instrument Serif',serif;font-size:17px;font-style:italic;color:var(--t1);line-height:1.5;margin-top:16px;}
+
+.divider{height:1px;background:var(--bd);margin:20px 0;}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;margin-top:8px;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.panel,.ft{padding-left:20px;padding-right:20px;}
+  .tabs{padding-left:20px;}
+  h1{font-size:34px;}
+  .field-row{grid-template-columns:1fr;}
+  .result-grid{grid-template-columns:1fr 1fr;}
+  .result-val{font-size:30px;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-tag">Finansal Araçlar</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Araçlar</div>
+  <h1>Finansal <em>Hesap Araçları</em></h1>
+  <p class="hd-sub">Rakamları kendın gir, sonucu anında gör. Tüm hesaplar tarayıcında çalışır — hiçbir veri dışarı gitmez.</p>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab(event,'bilesik')">Bileşik Faiz</div>
+  <div class="tab" onclick="switchTab(event,'enflasyon')">Paranın Değeri</div>
+  <div class="tab" onclick="switchTab(event,'kredi')">Kredi Analizi</div>
+  <div class="tab" onclick="switchTab(event,'bes')">Emeklilik (BES)</div>
+  <div class="tab" onclick="switchTab(event,'nezaman')">Ne Zaman Emekli?</div>
+</div>
+
+<!-- ══════════ 1. BİLEŞİK FAİZ / DCA ══════════ -->
+<div class="panel active" id="panel-bilesik">
+  <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;">Bileşik Faiz & Düzenli Yatırım (DCA)</div>
+  <p style="font-size:13.5px;color:var(--t2);line-height:1.65;margin-bottom:20px;">Başlangıç birikimini ve aylık katkıyı gir — zamanın gücünü gör. Yıllık getiri oranını mevduat, altın veya hisse için farklı dene.</p>
+
+  <div class="fields">
+    <div class="field-row">
+      <div class="field">
+        <label>Başlangıç tutarı (TL)</label>
+        <input type="number" id="b-baslangic" value="50000" min="0" step="1000">
+      </div>
+      <div class="field">
+        <label>Aylık katkı (TL)</label>
+        <input type="number" id="b-aylik" value="2000" min="0" step="500">
+      </div>
+    </div>
+    <div class="field">
+      <label>Yıllık getiri oranı: <span id="b-oran-label">%25</span></label>
+      <div class="range-wrap">
+        <input type="range" id="b-oran" min="1" max="80" value="25" oninput="document.getElementById('b-oran-label').textContent='%'+this.value">
+        <span class="range-val" id="b-oran-v">%25</span>
+      </div>
+      <div class="field-hint">Mevduat ~%37 · Altın tarihsel (TL) ~%40+ · Hisse (BIST, TL) ~%35-50</div>
+    </div>
+    <div class="field">
+      <label>Süre: <span id="b-sure-label">10 yıl</span></label>
+      <div class="range-wrap">
+        <input type="range" id="b-sure" min="1" max="40" value="10" oninput="document.getElementById('b-sure-label').textContent=this.value+' yıl'">
+        <span class="range-val" id="b-sure-v">10 yıl</span>
+      </div>
+    </div>
+  </div>
+  <button class="btn" onclick="hesaplaBilesik()">Hesapla →</button>
+
+  <div class="result" id="r-bilesik">
+    <div class="result-main">
+      <div class="result-label">Dönem sonu toplam değer</div>
+      <div class="result-val" id="r-b-toplam">—</div>
+      <div class="result-note" id="r-b-not">—</div>
+    </div>
+    <div class="result-grid">
+      <div class="result-cell">
+        <div class="rc-label">Yatırdığın</div>
+        <div class="rc-val" id="r-b-yatir">—</div>
+      </div>
+      <div class="result-cell">
+        <div class="rc-label">Faiz/Getiri</div>
+        <div class="rc-val pos" id="r-b-getiri">—</div>
+      </div>
+      <div class="result-cell">
+        <div class="rc-label">Çarpan</div>
+        <div class="rc-val pos" id="r-b-carpan">—</div>
+      </div>
+    </div>
+    <div class="chart" id="r-b-chart"></div>
+    <div class="info"><strong>Not:</strong> Bu rakamlar nominal (TL bazlı). Enflasyonun etkisini görmek için getiri oranını enflasyonun üzerindeki kısma düşür — gerçek reel getiriyi ölçersin.</div>
+  </div>
+</div>
+
+<!-- ══════════ 2. ENFLASYON ETKİSİ ══════════ -->
+<div class="panel" id="panel-enflasyon">
+  <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;">Paranın Gerçek Değeri — Enflasyon Etkisi</div>
+  <p style="font-size:13.5px;color:var(--t2);line-height:1.65;margin-bottom:20px;">Bugün elimdeki para, yıllarca beklersem ne kadar alım gücü kaybeder? Nakit tutmanın sessiz maliyeti.</p>
+
+  <div class="fields">
+    <div class="field">
+      <label>Bugünkü tutarın (TL)</label>
+      <input type="number" id="e-tutar" value="100000" min="1000" step="1000">
+    </div>
+    <div class="field">
+      <label>Yıllık enflasyon: <span id="e-enf-label">%40</span></label>
+      <div class="range-wrap">
+        <input type="range" id="e-enf" min="5" max="100" value="40" oninput="document.getElementById('e-enf-label').textContent='%'+this.value">
+        <span class="range-val" id="e-enf-v">%40</span>
+      </div>
+      <div class="field-hint">Türkiye 2026 tahmini ~%38-40 · 2022 zirvesi ~%85 · AB ~%3-4</div>
+    </div>
+    <div class="field">
+      <label>Kaç yıl bekleyeceğiz: <span id="e-sure-label">5 yıl</span></label>
+      <div class="range-wrap">
+        <input type="range" id="e-sure" min="1" max="30" value="5" oninput="document.getElementById('e-sure-label').textContent=this.value+' yıl'">
+        <span class="range-val" id="e-sure-v">5 yıl</span>
+      </div>
+    </div>
+  </div>
+  <button class="btn" onclick="hesaplaEnflasyon()">Hesapla →</button>
+
+  <div class="result" id="r-enflasyon">
+    <div class="result-main">
+      <div class="result-label">Bugünkü alım gücüyle eşdeğer tutar (o gün)</div>
+      <div class="result-val" id="r-e-bugunkukarsilik">—</div>
+      <div class="result-note" id="r-e-not">—</div>
+    </div>
+    <div class="result-grid">
+      <div class="result-cell">
+        <div class="rc-label">Nominal değer</div>
+        <div class="rc-val" id="r-e-nominal">—</div>
+      </div>
+      <div class="result-cell">
+        <div class="rc-label">Kaybedilen alım gücü</div>
+        <div class="rc-val neg" id="r-e-kayip">—</div>
+      </div>
+      <div class="result-cell">
+        <div class="rc-label">Değer oranı</div>
+        <div class="rc-val warn" id="r-e-oran">—</div>
+      </div>
+    </div>
+    <div class="chart" id="r-e-chart"></div>
+    <div class="yorum" id="r-e-yorum"></div>
+  </div>
+</div>
+
+<!-- ══════════ 3. KREDİ ANALİZİ ══════════ -->
+<div class="panel" id="panel-kredi">
+  <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;">Enflasyonda Kredi Analizi — Mantıklı mı?</div>
+  <p style="font-size:13.5px;color:var(--t2);line-height:1.65;margin-bottom:20px;">Kredi çekip bir varlığa yatırmak kârlı mı? Faiz maliyetiyle beklenen getiriyi karşılaştır.</p>
+
+  <div class="fields">
+    <div class="field-row">
+      <div class="field">
+        <label>Kredi tutarı (TL)</label>
+        <input type="number" id="k-tutar" value="400000" min="10000" step="10000">
+      </div>
+      <div class="field">
+        <label>Süre (yıl)</label>
+        <input type="number" id="k-sure" value="3" min="1" max="15" step="1">
+      </div>
+    </div>
+    <div class="field">
+      <label>Yıllık kredi faizi: <span id="k-faiz-label">%60</span></label>
+      <div class="range-wrap">
+        <input type="range" id="k-faiz" min="5" max="100" value="60" oninput="document.getElementById('k-faiz-label').textContent='%'+this.value">
+        <span class="range-val">%60</span>
+      </div>
+      <div class="field-hint">Mart 2026 tüketici kredisi ~%55-65 · Konut kredisi ~%40-50</div>
+    </div>
+    <div class="field">
+      <label>Varlığın beklenen yıllık getirisi: <span id="k-getiri-label">%40</span></label>
+      <div class="range-wrap">
+        <input type="range" id="k-getiri" min="5" max="100" value="40" oninput="document.getElementById('k-getiri-label').textContent='%'+this.value">
+        <span class="range-val">%40</span>
+      </div>
+      <div class="field-hint">Araç (TL) ~%35-45 · Altın (TL) ~%40-50 · BIST (TL) ~%35-55</div>
+    </div>
+    <div class="field">
+      <label>Yıllık enflasyon: <span id="k-enf-label">%40</span></label>
+      <div class="range-wrap">
+        <input type="range" id="k-enf" min="5" max="100" value="40" oninput="document.getElementById('k-enf-label').textContent='%'+this.value">
+        <span class="range-val">%40</span>
+      </div>
+    </div>
+  </div>
+  <button class="btn" onclick="hesaplaKredi()">Hesapla →</button>
+
+  <div class="result" id="r-kredi">
+    <div class="result-main">
+      <div class="result-label">Net sonuç (varlık değeri − toplam kredi maliyeti)</div>
+      <div class="result-val" id="r-k-net">—</div>
+      <div class="result-note" id="r-k-not">—</div>
+    </div>
+    <div class="result-grid">
+      <div class="result-cell">
+        <div class="rc-label">Varlık değeri</div>
+        <div class="rc-val pos" id="r-k-varlik">—</div>
+      </div>
+      <div class="result-cell">
+        <div class="rc-label">Toplam geri ödeme</div>
+        <div class="rc-val neg" id="r-k-odeme">—</div>
+      </div>
+      <div class="result-cell">
+        <div class="rc-label">Reel kredi faizi</div>
+        <div class="rc-val" id="r-k-reel">—</div>
+      </div>
+    </div>
+    <div class="yorum" id="r-k-yorum"></div>
+  </div>
+</div>
+
+<!-- ══════════ 4. EMEKLİLİK (BES) ══════════ -->
+<div class="panel" id="panel-bes">
+  <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;">Emeklilik Planlama — BES Dahil</div>
+  <p style="font-size:13.5px;color:var(--t2);line-height:1.65;margin-bottom:20px;">Aylık katkı ve devlet desteğiyle emeklilikte ne birikir? BES'teki %30 devlet katkısı dahil hesaplanıyor.</p>
+
+  <div class="fields">
+    <div class="field-row">
+      <div class="field">
+        <label>Şu anki yaşın</label>
+        <input type="number" id="p-yas" value="35" min="18" max="65" step="1">
+      </div>
+      <div class="field">
+        <label>Hedef emeklilik yaşı</label>
+        <input type="number" id="p-emek" value="60" min="45" max="75" step="1">
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Aylık BES katkısı (TL)</label>
+        <input type="number" id="p-katki" value="3000" min="100" step="500">
+        <div class="field-hint">Devlet %30 ekler → fiilen <span id="p-devlet-katki">3.900 TL/ay</span> birikir</div>
+      </div>
+      <div class="field">
+        <label>Mevcut BES birikimi (TL)</label>
+        <input type="number" id="p-mevcut" value="0" min="0" step="1000">
+      </div>
+    </div>
+    <div class="field">
+      <label>Yıllık fon getirisi: <span id="p-getiri-label">%35</span></label>
+      <div class="range-wrap">
+        <input type="range" id="p-getiri" min="5" max="60" value="35" oninput="document.getElementById('p-getiri-label').textContent='%'+this.value">
+        <span class="range-val">%35</span>
+      </div>
+      <div class="field-hint">Altın fonu ~%40-50 · Hisse fonu ~%35-45 · Dengeli fon ~%25-35</div>
+    </div>
+  </div>
+  <button class="btn" onclick="hesaplaBES()">Hesapla →</button>
+
+  <div class="result" id="r-bes">
+    <div class="result-main">
+      <div class="result-label">Emeklilikte toplam birikim (tahmini)</div>
+      <div class="result-val" id="r-p-toplam">—</div>
+      <div class="result-note" id="r-p-not">—</div>
+    </div>
+    <div class="result-grid">
+      <div class="result-cell">
+        <div class="rc-label">Kendi katkın</div>
+        <div class="rc-val" id="r-p-kendin">—</div>
+      </div>
+      <div class="result-cell">
+        <div class="rc-label">Devlet katkısı</div>
+        <div class="rc-val pos" id="r-p-devlet">—</div>
+      </div>
+      <div class="result-cell">
+        <div class="rc-label">Getiri</div>
+        <div class="rc-val pos" id="r-p-getiri">—</div>
+      </div>
+    </div>
+    <div class="chart" id="r-p-chart"></div>
+    <div class="info" id="r-p-info"></div>
+  </div>
+</div>
+
+<!-- ══════════ 5. NE ZAMAN EMEKLİ ══════════ -->
+<div class="panel" id="panel-nezaman">
+  <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;">Ne Zaman Emekli Olabilirim?</div>
+  <p style="font-size:13.5px;color:var(--t2);line-height:1.65;margin-bottom:20px;">Emeklilikte aylık ne kadar harcamak istiyorsun? Bu hedefe ulaşmak için ne kadar süre gerekiyor?</p>
+
+  <div class="fields">
+    <div class="field-row">
+      <div class="field">
+        <label>Şu anki birikim (TL)</label>
+        <input type="number" id="n-birikim" value="200000" min="0" step="10000">
+      </div>
+      <div class="field">
+        <label>Aylık katkı (TL)</label>
+        <input type="number" id="n-aylik" value="5000" min="500" step="500">
+      </div>
+    </div>
+    <div class="field">
+      <label>Emeklilikte aylık harcama (bugünkü TL)</label>
+      <input type="number" id="n-harcama" value="20000" min="1000" step="1000">
+      <div class="field-hint">Bu tutarı sağlamak için "25x kuralı" — yıllık harcamanın 25 katı birikim gerekir</div>
+    </div>
+    <div class="field">
+      <label>Yıllık getiri: <span id="n-getiri-label">%35</span></label>
+      <div class="range-wrap">
+        <input type="range" id="n-getiri" min="5" max="70" value="35" oninput="document.getElementById('n-getiri-label').textContent='%'+this.value">
+        <span class="range-val">%35</span>
+      </div>
+    </div>
+    <div class="field">
+      <label>Yıllık enflasyon: <span id="n-enf-label">%40</span></label>
+      <div class="range-wrap">
+        <input type="range" id="n-enf" min="5" max="80" value="40" oninput="document.getElementById('n-enf-label').textContent='%'+this.value">
+        <span class="range-val">%40</span>
+      </div>
+    </div>
+  </div>
+  <button class="btn" onclick="hesaplaNezaman()">Hesapla →</button>
+
+  <div class="result" id="r-nezaman">
+    <div class="result-main">
+      <div class="result-label">Hedefe ulaşma süresi (tahmini)</div>
+      <div class="result-val" id="r-n-sure">—</div>
+      <div class="result-note" id="r-n-not">—</div>
+    </div>
+    <div class="result-grid">
+      <div class="result-cell">
+        <div class="rc-label">Hedef birikim</div>
+        <div class="rc-val" id="r-n-hedef">—</div>
+      </div>
+      <div class="result-cell">
+        <div class="rc-label">Aylık pasif gelir</div>
+        <div class="rc-val pos" id="r-n-pasif">—</div>
+      </div>
+      <div class="result-cell">
+        <div class="rc-label">Hedef yıl</div>
+        <div class="rc-val pos" id="r-n-yil">—</div>
+      </div>
+    </div>
+    <div class="yorum" id="r-n-yorum"></div>
+    <div class="info" style="margin-top:12px;"><strong>25x kuralı nedir?</strong> Yıllık harcamanın 25 katı birikimle, %4 çekim oranıyla teorik olarak sonsuza kadar yaşayabilirsin. Bu "FIRE" (finansal bağımsızlık) hareketinin temel prensibi.</div>
+  </div>
+</div>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Araçlar · 2026</div>
+  <div class="ft-disc">Tahmini hesaplar.<br>Finansal tavsiye değildir.</div>
+</div>
+
+<script>
+// Yardımcı fonksiyonlar
+const fmt = n => new Intl.NumberFormat('tr-TR').format(Math.round(n));
+const fmtK = n => n >= 1000000 ? (n/1000000).toFixed(1)+'M' : n >= 1000 ? (n/1000).toFixed(0)+'B' : Math.round(n).toString();
+
+function showResult(id) {
+  document.getElementById(id).classList.add('show');
+}
+
+function buildBarChart(containerId, bars) {
+  const max = Math.max(...bars.map(b => b.val));
+  const c = document.getElementById(containerId);
+  c.innerHTML = '<div class="chart-label">Karşılaştırma</div><div class="bar-wrap">' +
+    bars.map(b => `<div class="bar-row">
+      <div class="bar-name">${b.name}</div>
+      <div class="bar-track"><div class="bar-fill ${b.cls}" style="width:${Math.max(2, b.val/max*100)}%"></div></div>
+      <div class="bar-num">${fmt(b.val)} TL</div>
+    </div>`).join('') + '</div>';
+}
+
+// Slider sync - inline oninput ile labellar güncellendiği için
+// range-val elementlerini de güncelleyen yardımcı
+function syncSlider(el) {
+  const wrap = el.parentElement;
+  const valEl = wrap.querySelector('.range-val');
+  if (!valEl) return;
+  if (el.id.includes('sure') && !el.id.includes('b-sure')) {
+    valEl.textContent = el.value + ' yıl';
+  } else if (el.id === 'b-sure') {
+    valEl.textContent = el.value + ' yıl';
+  } else {
+    valEl.textContent = '%' + el.value;
+  }
+}
+document.querySelectorAll('input[type=range]').forEach(r => {
+  r.addEventListener('input', () => syncSlider(r));
+  syncSlider(r);
+});
+
+document.getElementById('p-katki').addEventListener('input', () => {
+  const v = parseFloat(document.getElementById('p-katki').value)||0;
+  document.getElementById('p-devlet-katki').textContent = fmt(v*1.3) + ' TL/ay';
+});
+
+// ── 1. BİLEŞİK FAİZ ──
+function hesaplaBilesik() {
+  const B = parseFloat(document.getElementById('b-baslangic').value)||0;
+  const M = parseFloat(document.getElementById('b-aylik').value)||0;
+  const r = parseFloat(document.getElementById('b-oran').value)/100;
+  const y = parseInt(document.getElementById('b-sure').value);
+
+  let total = B;
+  let totalInvested = B;
+  const r12 = r / 12;
+  for (let i = 0; i < y * 12; i++) {
+    total = total * (1 + r12) + M;
+    totalInvested += M;
+  }
+  const getiri = total - totalInvested;
+  const carpan = total / (totalInvested || 1);
+
+  document.getElementById('r-b-toplam').textContent = fmt(total) + ' TL';
+  document.getElementById('r-b-not').textContent = y + ' yılda ' + fmt(totalInvested) + ' TL yatırıldı, ' + fmt(getiri) + ' TL kazanıldı';
+  document.getElementById('r-b-yatir').textContent = fmt(totalInvested) + ' TL';
+  document.getElementById('r-b-getiri').textContent = '+' + fmt(getiri) + ' TL';
+  document.getElementById('r-b-carpan').textContent = carpan.toFixed(1) + 'x';
+
+  // Yıllara göre büyüme çizelgesi
+  const milestones = [1, Math.floor(y/2), y].filter((v,i,a) => a.indexOf(v)===i && v >= 1);
+  let snapshots = [];
+  for (let mi = 0; mi < milestones.length; mi++) {
+    let t2 = B;
+    for (let m = 0; m < milestones[mi]*12; m++) t2 = t2*(1+r12)+M;
+    snapshots.push({name: milestones[mi]+'. yıl', val: t2, cls: 'f-blue'});
+  }
+  buildBarChart('r-b-chart', snapshots);
+  showResult('r-bilesik');
+}
+
+// ── 2. ENFLASYON ──
+function hesaplaEnflasyon() {
+  const T = parseFloat(document.getElementById('e-tutar').value)||100000;
+  const enf = parseFloat(document.getElementById('e-enf').value)/100;
+  const y = parseInt(document.getElementById('e-sure').value);
+
+  const bugunkuKarsilik = T / Math.pow(1+enf, y);
+  const kayipOran = (1 - bugunkuKarsilik/T) * 100;
+
+  document.getElementById('r-e-bugunkukarsilik').textContent = fmt(bugunkuKarsilik) + ' TL';
+  document.getElementById('r-e-not').textContent = fmt(T) + ' TL bugün ' + y + ' yıl sonra sadece ' + fmt(bugunkuKarsilik) + ' TL alım gücüne karşılık gelecek';
+  document.getElementById('r-e-nominal').textContent = fmt(T) + ' TL';
+  document.getElementById('r-e-kayip').textContent = '−' + fmt(T - bugunkuKarsilik) + ' TL';
+  document.getElementById('r-e-oran').textContent = '%' + kayipOran.toFixed(0) + ' kayıp';
+
+  // Çubuk grafik
+  const yMilestones = [1, Math.round(y/2), y].filter((v,i,a) => a.indexOf(v)===i && v >= 1);
+  let bars = [{name: 'Bugün', val: T, cls: 'f-blue'}];
+  for (let i = 0; i < yMilestones.length; i++) {
+    const v = T / Math.pow(1+enf, yMilestones[i]);
+    bars.push({name: yMilestones[i]+'. yıl', val: v, cls: i===yMilestones.length-1 ? 'f-red' : 'f-gold'});
+  }
+  buildBarChart('r-e-chart', bars);
+
+  const yorumlar = [
+    kayipOran > 80 ? `${y} yılda paranın %${kayipOran.toFixed(0)}'i yok oluyor. Enflasyon bu seviyede kalırsa yastık altında tutmak reel olarak serveti eritir.` :
+    kayipOran > 50 ? `${y} yılda paranın yarısından fazlası eriyor. Enflasyona karşı durmak zorundasın.` :
+    `${y} yılda alım gücünün %${kayipOran.toFixed(0)}'i kayboluyor. Düşük enflasyonlu ülkelerle kıyaslandığında bu yük ağır.`
+  ];
+  document.getElementById('r-e-yorum').textContent = yorumlar[0];
+  showResult('r-enflasyon');
+}
+
+// ── 3. KREDİ ANALİZİ ──
+function hesaplaKredi() {
+  const K = parseFloat(document.getElementById('k-tutar').value)||400000;
+  const faiz = parseFloat(document.getElementById('k-faiz').value)/100;
+  const getiri = parseFloat(document.getElementById('k-getiri').value)/100;
+  const enf = parseFloat(document.getElementById('k-enf').value)/100;
+  const y = parseFloat(document.getElementById('k-sure').value)||3;
+
+  const varlikDegeri = K * Math.pow(1+getiri, y);
+  const toplamOdeme = K * Math.pow(1+faiz, y);
+  const net = varlikDegeri - toplamOdeme;
+  const reelFaiz = ((1+faiz)/(1+enf)-1)*100;
+
+  const netEl = document.getElementById('r-k-net');
+  netEl.textContent = (net >= 0 ? '+' : '') + fmt(net) + ' TL';
+  netEl.className = 'result-val ' + (net >= 0 ? '' : '');
+  netEl.style.color = net >= 0 ? '#fff' : '#f5a5a5';
+
+  document.getElementById('r-k-not').textContent = net >= 0
+    ? y + ' yılda ' + fmt(net) + ' TL net kazanç — pencere açık'
+    : y + ' yılda ' + fmt(Math.abs(net)) + ' TL net zarar — faiz varlık getirisini yiyor';
+
+  document.getElementById('r-k-varlik').textContent = fmt(varlikDegeri) + ' TL';
+  document.getElementById('r-k-odeme').textContent = fmt(toplamOdeme) + ' TL';
+  const reelEl = document.getElementById('r-k-reel');
+  reelEl.textContent = '%' + reelFaiz.toFixed(1);
+  reelEl.className = 'rc-val ' + (reelFaiz > 0 ? 'neg' : 'pos');
+
+  const yorum = net > 0
+    ? `Getiri faizin önünde — arbitraj penceresi açık. Reel kredi faizi ${reelFaiz > 0 ? 'pozitif (%'+reelFaiz.toFixed(1)+') ama' : 'negatif (%'+reelFaiz.toFixed(1)+')'} varlığın getirisi bunu telafi ediyor.`
+    : reelFaiz < 0
+      ? `Reel faiz negatif (%${reelFaiz.toFixed(1)}) — enflasyon borcu eriyor. Ama varlık getirisi bu arbitrajı yeterince değerlendiremiyor. Daha yüksek getirili varlık dene.`
+      : `Faiz varlığın getirisini aşıyor. Bu ortamda kredi çekip yatırmak matematiksel olarak dezavantajlı. Pencere kapalı.`;
+  document.getElementById('r-k-yorum').textContent = yorum;
+  showResult('r-kredi');
+}
+
+// ── 4. BES ──
+function hesaplaBES() {
+  const yas = parseInt(document.getElementById('p-yas').value)||35;
+  const emek = parseInt(document.getElementById('p-emek').value)||60;
+  const katki = parseFloat(document.getElementById('p-katki').value)||3000;
+  const mevcut = parseFloat(document.getElementById('p-mevcut').value)||0;
+  const r = parseFloat(document.getElementById('p-getiri').value)/100;
+  const sure = Math.max(1, emek - yas);
+
+  const aylikToplam = katki * 1.3; // %30 devlet katkısı
+  const r12 = r / 12;
+  let toplam = mevcut;
+  for (let i = 0; i < sure * 12; i++) {
+    toplam = toplam * (1 + r12) + aylikToplam;
+  }
+  const kendiKatki = katki * sure * 12 + mevcut;
+  const devletKatki = katki * 0.3 * sure * 12;
+  const getiri = toplam - kendiKatki - devletKatki;
+
+  document.getElementById('r-p-toplam').textContent = fmt(toplam) + ' TL';
+  document.getElementById('r-p-not').textContent = sure + ' yılda ' + yas + "→" + emek + ' yaş · Aylık ' + fmt(aylikToplam) + ' TL (devlet dahil)';
+  document.getElementById('r-p-kendin').textContent = fmt(kendiKatki) + ' TL';
+  document.getElementById('r-p-devlet').textContent = '+' + fmt(devletKatki) + ' TL';
+  document.getElementById('r-p-getiri').textContent = '+' + fmt(getiri) + ' TL';
+
+  buildBarChart('r-p-chart', [
+    {name: 'Kendi katkın', val: kendiKatki, cls: 'f-blue'},
+    {name: 'Devlet katkısı', val: devletKatki, cls: 'f-green'},
+    {name: 'Getiri', val: getiri, cls: 'f-gold'},
+  ]);
+  document.getElementById('r-p-info').innerHTML = `<strong>Hatırlatma:</strong> Bu rakamlar nominal TL. Emeklilikte bu tutarın reel alım gücü, geçen ${sure} yıllık enflasyona bağlı. Altın veya karma fon seçimi bu nedenle önemli.`;
+  showResult('r-bes');
+}
+
+// ── 5. NE ZAMAN EMEKLİ ──
+function hesaplaNezaman() {
+  const birikim = parseFloat(document.getElementById('n-birikim').value)||200000;
+  const aylik = parseFloat(document.getElementById('n-aylik').value)||5000;
+  const harcama = parseFloat(document.getElementById('n-harcama').value)||20000;
+  const r = parseFloat(document.getElementById('n-getiri').value)/100;
+  const enf = parseFloat(document.getElementById('n-enf').value)/100;
+
+  // 25x kuralı ama enflasyona göre her yıl hedef de büyüyor
+  const r12 = r / 12;
+  let total = birikim;
+  let ay = 0;
+  let hedef = harcama * 12 * 25;
+  const maxAy = 600; // 50 yıl
+
+  while (total < hedef && ay < maxAy) {
+    // Enflasyona göre harcama hedefi büyüyor (yılda bir)
+    if (ay > 0 && ay % 12 === 0) hedef *= (1 + enf);
+    total = total * (1 + r12) + aylik * (1 + enf * (ay/12)); // aylık katkı da enflasyonla büyüyor
+    ay++;
+  }
+
+  const yil = Math.ceil(ay / 12);
+  const pasifGelir = hedef / 25 / 12;
+  const hedefYil = 2026 + yil;
+
+  if (ay >= maxAy) {
+    document.getElementById('r-n-sure').textContent = '50+ yıl';
+    document.getElementById('r-n-not').textContent = 'Mevcut parametrelerle hedefe ulaşmak çok uzun sürüyor. Aylık katkını artır veya getiri oranını yükselt.';
+  } else {
+    document.getElementById('r-n-sure').textContent = yil + ' yıl';
+    document.getElementById('r-n-not').textContent = '~' + hedefYil + " yılında hedefe ulaşıyorsun";
+  }
+
+  document.getElementById('r-n-hedef').textContent = fmt(hedef) + ' TL';
+  document.getElementById('r-n-pasif').textContent = fmt(pasifGelir) + ' TL/ay';
+  document.getElementById('r-n-yil').textContent = ay < maxAy ? hedefYil.toString() : '50+';
+
+  const yorum = ay >= maxAy
+    ? 'Mevcut parametrelerle emeklilik çok uzak görünüyor. Aylık katkını artırmak en etkili değişken.'
+    : yil <= 10 ? `${yil} yıl içinde finansal bağımsızlık mümkün görünüyor. Getiri oranını ve katkıyı sabit tutabilmek kritik.`
+    : yil <= 20 ? `${yil} yıllık bir yolculuk. Erken başlamak ve tutarlı kalmak bu hesabın en büyük değişkeni.`
+    : `${yil} yıl uzun ama yönetilebilir. Katkını artırmanın etkisini görmek için sliderları dene.`;
+  document.getElementById('r-n-yorum').textContent = yorum;
+  showResult('r-nezaman');
+}
+
+// TAB
+function switchTab(e, id) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  e.currentTarget.classList.add('active');
+  document.getElementById('panel-'+id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
