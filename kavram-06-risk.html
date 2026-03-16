@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Kavram — Risk Nedir?</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --red: #b03030;
+  --red-lt: #fdf0f0;
+  --red-bd: #e8a0a0;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --green-bd: #88cca8;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --blue-bd: #90b0e8;
+  --amber: #8a4c10;
+  --amber-lt: #fdf4ea;
+  --amber-bd: #e0b078;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;max-width:700px;margin:0 auto;padding:0 0 100px;}
+
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}
+.nav a:hover{color:#c9a84c;}
+.nav-series{color:#1848a0;background:#eef3fc;padding:2px 8px;margin-left:auto;font-size:9px;}
+
+.hd{padding:48px 40px 36px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+.series-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--blue-bd);background:var(--blue-lt);padding:5px 12px;margin-bottom:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);}
+.series-num{background:var(--blue);color:#fff;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;}
+h1{font-family:'Instrument Serif',serif;font-size:52px;font-weight:400;line-height:1.05;letter-spacing:-1.5px;margin-bottom:8px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--gold);}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:19px;font-weight:400;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;}
+
+.sec{padding:32px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+.sec-label.lv1{color:var(--green);}
+.sec-label.lv2{color:var(--blue);}
+.sec-label.lv3{color:var(--amber);}
+.sec-label.lv4{color:var(--red);}
+h2{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;line-height:1.2;margin-bottom:16px;color:var(--t1);}
+h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t1);margin:20px 0 8px;}
+.body{font-size:15px;color:var(--t2);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+.body em{font-style:italic;color:var(--t1);}
+
+.box{border:1px solid;padding:18px 22px;margin:20px 0;font-size:14px;line-height:1.7;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;font-weight:500;}
+.b-gold{background:var(--gold-lt);border-color:var(--gold-bd);}
+.b-gold .box-title{color:var(--gold);}
+.b-gold p{color:var(--t2);}
+.b-green{background:var(--green-lt);border-color:var(--green-bd);}
+.b-green .box-title{color:var(--green);}
+.b-green p{color:var(--t2);}
+.b-red{background:var(--red-lt);border-color:var(--red-bd);}
+.b-red .box-title{color:var(--red);}
+.b-red p{color:var(--t2);}
+.b-blue{background:var(--blue-lt);border-color:var(--blue-bd);}
+.b-blue .box-title{color:var(--blue);}
+.b-blue p{color:var(--t2);}
+.b-amber{background:var(--amber-lt);border-color:var(--amber-bd);}
+.b-amber .box-title{color:var(--amber);}
+.b-amber p{color:var(--t2);}
+
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:20px 24px;margin:20px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:19px;color:var(--t1);line-height:1.5;font-style:italic;}
+.analogy-attr{font-size:12px;color:var(--t3);margin-top:10px;}
+
+.formula{background:var(--s1);border:1px solid var(--bd2);padding:18px 22px;margin:20px 0;font-family:'DM Mono',monospace;font-size:13px;color:var(--t1);text-align:center;letter-spacing:.04em;}
+.formula span{color:var(--gold);}
+.formula small{display:block;font-size:11px;color:var(--t3);margin-top:8px;font-family:'DM Sans',sans-serif;letter-spacing:0;font-style:italic;}
+
+.ctable{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px;}
+.ctable th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;border-bottom:2px solid var(--t1);text-align:left;color:var(--t3);}
+.ctable td{padding:12px 14px;border-bottom:1px solid var(--bd);color:var(--t2);vertical-align:top;line-height:1.6;}
+.ctable tr:last-child td{border-bottom:none;}
+.ctable td:first-child{color:var(--t1);font-weight:500;}
+
+.risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);margin:20px 0;}
+.risk-cell{background:var(--s1);padding:18px;}
+.risk-head{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;}
+.risk-item{font-size:13.5px;color:var(--t2);padding:6px 0;border-bottom:1px solid var(--bd);line-height:1.55;}
+.risk-item:last-child{border-bottom:none;padding-bottom:0;}
+.risk-item strong{color:var(--t1);font-weight:500;}
+
+.stat-row{display:flex;gap:1px;background:var(--bd);margin:20px 0;}
+.stat-cell{flex:1;background:var(--s1);padding:16px 18px;}
+.stat-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.stat-val{font-family:'Instrument Serif',serif;font-size:26px;color:var(--t1);line-height:1.1;}
+.stat-note{font-size:11.5px;color:var(--t2);margin-top:4px;line-height:1.4;}
+
+.summary{background:var(--s1);border-left:3px solid var(--t1);padding:24px 28px;margin:28px 0;}
+.summary-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;}
+.summary ul{list-style:none;padding:0;}
+.summary li{font-size:14px;color:var(--t2);padding:7px 0;border-bottom:1px solid var(--bd);padding-left:16px;position:relative;line-height:1.6;}
+.summary li::before{content:'→';position:absolute;left:0;color:var(--t1);font-family:'DM Mono',monospace;font-size:11px;}
+.summary li:last-child{border-bottom:none;}
+.summary li strong{color:var(--t1);font-weight:500;}
+
+.next{padding:28px 40px;background:var(--s1);border-top:2px solid var(--bd2);display:flex;align-items:center;justify-content:space-between;gap:20px;text-decoration:none;color:inherit;transition:background .15s,border-color .15s;cursor:pointer;}
+.next:hover{background:var(--s2);border-top-color:var(--gold);}
+.next:hover .next-arrow{color:var(--gold);transform:translateX(4px);}
+.next:hover .next-title{color:var(--gold);}
+.next-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.next-title{font-family:'Instrument Serif',serif;font-size:18px;color:var(--t1);}
+.next-arrow{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);transition:transform .15s,color .15s;}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.sec,.next,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:36px;}
+  .risk-grid{grid-template-columns:1fr;}
+  .stat-row{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-series">Yatırım Kavramları</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Kavram Dizisi · Yatırım</div>
+  <div class="series-badge">
+    <span class="series-num">Y</span>
+    Yatırım Kavramı
+  </div>
+  <h1><em>Risk</em> Nedir?</h1>
+  <p class="hd-sub">Volatilite mi, kayıp mı, fırsat maliyeti mi — ve yatırıma girmeden önce gerçekten ne bilmek lazım</p>
+  <div class="hd-meta">
+    <span>Mart 2026</span>
+    <span>·</span>
+    <span>Tüm seviyeler</span>
+    <span>·</span>
+    <span>~8 dk okuma</span>
+  </div>
+</div>
+
+<!-- BÖLÜM 1 -->
+<div class="sec">
+  <div class="sec-label lv1">Seviye 1 · Sıfırdan başla</div>
+  <h2>Risk kelimesini yanlış kullanıyoruz</h2>
+
+  <div class="body">
+    <p>Günlük dilde risk ile tehlike neredeyse eş anlamlı kullanılır. "Bu riskli" denince "bu tehlikeli, zarar görebilirsin" anlaşılır. Ama finansta risk daha hassas bir kavram — ve bu hassasiyeti kaçırmak yanlış kararlar aldırır.</p>
+    <p>Finansal risk şu demek: <strong>beklenen sonuçtan sapma ihtimali.</strong> Hem aşağı hem yukarı. Bir hissenin %20 düşmesi risk, ama %20 yükselmesi de risk — ikincisi genelde "fırsat" olarak adlandırılır ama matematiksel olarak aynı belirsizliğin iki yüzü.</p>
+  </div>
+
+  <div class="formula">
+    Risk = Beklenen sonuçtan <span>sapma ihtimali</span>
+    <small>Sadece kayıp değil — beklentiden her türlü sapma</small>
+  </div>
+
+  <div class="body">
+    <p>Bu fark neden önemli? Çünkü "risksiz yatırım" diye bir şey yok. Paranı yastık altında tutmak da risk — enflasyon riski. Mevduata koymak da risk — enflasyonun faizi aşma riski. <strong>Risk almamak diye bir seçenek yok; sadece hangi riski alacağını seçiyorsun.</strong></p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Düşünce deneyi</div>
+    <p class="analogy-text">"Yatırım yapmamak da bir yatırım kararıdır — ve kendi riski vardır. Fark şu: bu riski bilinçli mi, yoksa görmezden gelerek mi aldın?"</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2 -->
+<div class="sec">
+  <div class="sec-label lv1">Seviye 1 · Risk türleri</div>
+  <h2>Kaç tür risk var?</h2>
+
+  <div class="body">
+    <p>Finans dünyasında onlarca risk türü tanımlanmış. Ama pratikte bilinmesi gereken birkaç temel var:</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>Risk türü</th>
+      <th>Ne demek?</th>
+      <th>Örnek</th>
+    </tr>
+    <tr>
+      <td>Piyasa riski</td>
+      <td>Piyasanın tamamı düşünce senin varlığın da düşer.</td>
+      <td>2008'de tüm hisse senetleri birlikte çöktü</td>
+    </tr>
+    <tr>
+      <td>Şirket riski</td>
+      <td>Tek bir şirkete özgü sorun. Diversifikasyonla azaltılabilir.</td>
+      <td>Enron iflası, şirkete özel skandal</td>
+    </tr>
+    <tr>
+      <td>Likidite riski</td>
+      <td>Satmak istediğinde alıcı bulamazsın ya da çok düşük fiyata satarsın.</td>
+      <td>Kriz anında gayrimenkul satmak</td>
+    </tr>
+    <tr>
+      <td>Enflasyon riski</td>
+      <td>Getiri enflasyonun altında kalır, reel değer erir.</td>
+      <td>%10 mevduat, %65 enflasyon döneminde</td>
+    </tr>
+    <tr>
+      <td>Kur riski</td>
+      <td>Döviz hareketi getiriyi etkiler.</td>
+      <td>Dolar kazanç, TL gider — ya da tersi</td>
+    </tr>
+    <tr>
+      <td>Konsantrasyon riski</td>
+      <td>Her şeyi tek bir yere koymak. Sepet düşünce hepsi gider.</td>
+      <td>Tüm birikimi tek hissede tutmak</td>
+    </tr>
+    <tr>
+      <td>Fırsat maliyeti riski</td>
+      <td>Bir şeye bağladığın para başka bir fırsatı kaçırır.</td>
+      <td>Düşük faizli mevduatta beklerken piyasa yükselir</td>
+    </tr>
+  </table>
+
+  <div class="box b-amber">
+    <div class="box-title">En çok göz ardı edilen: fırsat maliyeti</div>
+    <p>İnsanlar kaybetme riskini görür ama kazanamama riskini görmez. "Mevduatta güvende" derken aslında enflasyona karşı kaybediyorsun ve piyasa getirilerinden mahrum kalıyorsun. Bu kayıp hesap ekstrende görünmez — ama gerçek.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 3 -->
+<div class="sec">
+  <div class="sec-label lv2">Seviye 2 · Volatilite yanılgısı</div>
+  <h2>Volatilite risk midir?</h2>
+
+  <div class="body">
+    <p>Finans akademisyenleri volatiliteyi (fiyat dalgalanmasını) risk olarak tanımlar — standart sapma, beta, Sharpe oranı hepsi bu temelde kurulu. Bu matematiksel olarak tutarlı ama pratikte yanıltıcı olabilir.</p>
+    <p>Düşün: bir hisse senedi bir yıl boyunca %40 düştü, sonra %80 yükseldi. Volatilite yüksek — akademik tanıma göre "riskli." Ama başından sonuna tutan yatırımcı kârdaysa bu kişi gerçekten risk mi aldı?</p>
+    <p>Warren Buffett'ın bu konuda keskin bir tespiti var: <strong>"Volatilite, uzun vadeli yatırımcı için risk değil, fırsattır."</strong> Kısa vadede satmak zorunda olan için volatilite gerçek risktir. Uzun vadede tutabiliyorsan aynı volatilite sana indirimli alım şansı verir.</p>
+  </div>
+
+  <div class="risk-grid">
+    <div class="risk-cell">
+      <div class="risk-head" style="color:var(--red);">Volatilite = Risk (ne zaman?)</div>
+      <div class="risk-item"><strong>Kısa vadeli ihtiyacın varsa</strong> — eve peşinat için biriktiriyorsan ve piyasa düşerse satmak zorunda kalırsın.</div>
+      <div class="risk-item"><strong>Kaldıraçlı pozisyonun varsa</strong> — margin call geldiğinde satmak zorundasın.</div>
+      <div class="risk-item"><strong>Paniğe kapılma ihtimalin varsa</strong> — düşüşte sat, yükselişte al döngüsü.</div>
+    </div>
+    <div class="risk-cell">
+      <div class="risk-head" style="color:var(--green);">Volatilite ≠ Risk (ne zaman?)</div>
+      <div class="risk-item"><strong>Uzun vadeli yatırımcıysan</strong> — 5-10 yıl satmayacaksan kısa vadeli dalgalanma önemsiz.</div>
+      <div class="risk-item"><strong>Düzenli alım yapıyorsan</strong> — düşüşte daha fazla birim alırsın, ortalama maliyetin düşer.</div>
+      <div class="risk-item"><strong>Nakit rezervin varsa</strong> — düşüşte ek alım yapabilirsin, volatilite avantaja döner.</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>Sonuç: volatilite ve risk aynı şey değil. <strong>Risk, kalıcı sermaye kaybı ihtimalidir.</strong> Şirket iflası, dolandırıcılık, hiperenflasyon — bunlar gerçek risk. Geçici fiyat düşüşü ise yalnızca volatilite.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 4 -->
+<div class="sec">
+  <div class="sec-label lv2">Seviye 2 · Risk-getiri dengesi</div>
+  <h2>Daha fazla risk, daha fazla getiri — bu her zaman doğru mu?</h2>
+
+  <div class="body">
+    <p>Finans teorisinin temel önermesi: <strong>daha yüksek risk, daha yüksek beklenen getiri gerektirir.</strong> Bu genel olarak doğru ama birkaç önemli istisnası var.</p>
+  </div>
+
+  <h3>Doğru olan kısım</h3>
+  <div class="body">
+    <p>Neden biri daha riskli bir şeye para koysun ki? Ancak daha yüksek getiri bekliyorsa. Bu yüzden hisse senetleri uzun vadede tahvillerden, tahviller mevduattan daha yüksek getiri sağlar — ek risk karşılığı "risk primi" ödenir. Tarihsel veriler bunu destekler.</p>
+  </div>
+
+  <h3>Yanıltıcı olan kısım</h3>
+  <div class="body">
+    <p>Yüksek risk yüksek getiriyi <em>garanti etmez</em> — yalnızca olası kılar. Kumarhane de yüksek riskli ama uzun vadeli beklenen getiri negatif. Binlerce coin yüksek riskli ama çoğu sıfıra gider. <strong>Her yüksek risk iyi risk değildir.</strong> Fark şu: iyi risk, beklenen getiri belirsizliği içeren ama pozitif beklenti değeri taşıyan risktir.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="stat-label">ABD hisse (S&P 500, 50 yıl)</div>
+      <div class="stat-val">~%10</div>
+      <div class="stat-note">Yıllık ortalama getiri (nominal, <strong>dolar bazlı</strong>)</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">ABD tahvil (10 yıl, tarihsel)</div>
+      <div class="stat-val">~%5</div>
+      <div class="stat-note">Daha düşük risk, daha düşük getiri (<strong>dolar bazlı</strong>)</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Altın (50 yıl)</div>
+      <div class="stat-val">~%8</div>
+      <div class="stat-note">Enflasyon koruması, volatil (<strong>dolar bazlı</strong>)</div>
+    </div>
+  </div>
+  <div class="box b-amber">
+    <div class="box-title">TL bazlı okuyucu için not</div>
+    <p>Bu rakamlar dolar cinsinden. TL bazında bakınca Türkiye enflasyonu yüzünden çok düşük görünebilir — ama kıyaslama yanlış olur. Önemli olan TL'nin dolar karşısındaki değer kaybını da hesaba katmak. Örneğin S&P 500'ün dolar bazında %10 yıllık getirisi, TL'nin yıllık ortalama %15-20 değer kaybıyla birleşince TL bazındaki reel getiri çok daha yüksek çıkar. Bu yüzden uluslararası varlıkları her zaman dolar bazında değerlendirmek daha sağlıklı.</p>
+  </div>
+
+  <div class="box b-blue">
+    <div class="box-title">Risk primini nasıl düşünmeli?</div>
+    <p>Bir yatırımdan talep ettiğin minimum getiri, risksiz getiri + risk primine eşittir. Türkiye'de risksiz getiri mevduat faizi (~%37). Bu seviyenin altında getiri sunan her yatırım riskine değmez — çünkü riski sıfır olan alternatifiniz zaten daha iyi ödüyor. Bu yüzden yüksek faiz dönemlerinde hisse senedi yatırımcıları zorlanır: "mevduat zaten %37 verirken neden daha riskli bir şeye girayım?"</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 5 -->
+<div class="sec">
+  <div class="sec-label lv3">Seviye 3 · Psikoloji</div>
+  <h2>Riski neden yanlış ölçeriz?</h2>
+
+  <div class="body">
+    <p>İnsan beyni riski istatistiksel olarak değil duygusal olarak değerlendirir. Bu evrimsel — atalarımız için "bu yaban domuzundan kaç" kararı milisaniyede verilmeliydi. Ama finansal kararlar bu reflekslerle alınınca sistematik hatalar çıkar.</p>
+  </div>
+
+  <h3>Kayıptan kaçınma (loss aversion)</h3>
+  <div class="body">
+    <p>Daniel Kahneman ve Amos Tversky'nin araştırmasına göre <strong>100 TL kaybetmenin acısı, 100 TL kazanmanın sevincinin yaklaşık iki katıdır.</strong> Bu asimetri yatırımcıları zararlı pozisyonu çok uzun tutmaya ve kârlı pozisyonu çok erken satmaya iter. "Zarar gerçekleşmeden zarar değil" mantığı bu psikolojiden doğar — ama yatırım hesabın bunu bilmez.</p>
+  </div>
+
+  <h3>Yakın geçmişe aşırı ağırlık verme</h3>
+  <div class="body">
+    <p>Piyasa üç aydır yükseliyorsa "hep yükselecek" hissine kapılırsın. Üç aydır düşüyorsa "hep düşecek." Bu <strong>yakın dönem yanlılığı</strong> (recency bias) insanları zirveye yakın alıp dibe yakın satmaya sürükler — tam tersi yapılması gerekirken.</p>
+  </div>
+
+  <h3>Kontrol yanılsaması</h3>
+  <div class="body">
+    <p>"Ben bu şirketi iyi araştırdım, riski düşük" — ama araştırma belirsizliği azaltmaz, sadece ne kadar belirsizlik olduğunu daha iyi görürsün. Çok araştırmak fazla güven yaratır, bu fazla güven de aşırı konsantrasyon riskine yol açar.</p>
+  </div>
+
+  <div class="box b-red">
+    <div class="box-title">En tehlikeli his: "Bu sefer farklı"</div>
+    <p>Her büyük baloncuğun zirvesinde yatırımcıların çoğu şunu düşünür: "Evet geçmişte balonlar vardı ama bu sefer gerçekten farklı — teknoloji değişti, ekonomi değişti, bu değerleme haklı." 2000 dot-com balonunda "internet her şeyi değiştirir" denildi. 2021'de "NFT dijital mülkiyeti devrimleştirir" denildi. Tarih bize gösteriyor ki "bu sefer farklı" cümlesi risk iştahının tehlikeli bölgeye girdiğinin en güvenilir işaretlerinden biri.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 6 -->
+<div class="sec">
+  <div class="sec-label lv4">Seviye 4 · Derin sular</div>
+  <h2>Kendi risk profilini nasıl belirlersin?</h2>
+
+  <div class="body">
+    <p>Akademik risk profili anketleri genellikle şu soruları sorar: "Piyasa %30 düşse ne yaparsınız?" Ama bu soruların sınırlılığı var — insanlar hipotetik senaryolarda farklı, gerçek kayıplar yaşandığında farklı tepki verir.</p>
+    <p>Daha pratik yaklaşım üç sorudan geçiyor:</p>
+  </div>
+
+  <h3>① Zaman ufkun ne?</h3>
+  <div class="body">
+    <p>Bu parayı ne zaman kullanacaksın? 1 yıl içinde ihtiyacın olacak parayı hisse senedine koymamalısın — o para için volatilite gerçek risktir. 10 yıl dokunmayacaksın? O para için volatilite önemsiz, enflasyona karşı koruma öncelikli risk.</p>
+  </div>
+
+  <h3>② Finansal kapasitenin kaybetmeye toleransı ne?</h3>
+  <div class="body">
+    <p>Portföyün %50 düşse hayat standardın değişir mi? Acil fon var mı, gelir düzenli mi, borç yükümlülüklerin ne? Bu sorular "ne kadar risk alabilirsin" sorusunu yanıtlar — istekten bağımsız olarak.</p>
+  </div>
+
+  <h3>③ Psikolojik toleransın ne?</h3>
+  <div class="body">
+    <p>Portföyün %30 düşse uyku uyuyabilir misin? Panikleyip satma ihtimalin var mı? Bu soru dürüst cevaplanmazsa teorik risk profili işe yaramaz. Kağıt üzerinde yüksek risk toleransı ama gerçek düşüşte panik satışı — en kötü kombinasyon.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Derin fikir</div>
+    <p class="analogy-text">"Risk toleransı ne kadar kayıp kabul edebileceğin değil — ne kadar kayıp yaşayıp yine de doğru kararı verebileceğindir."</p>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">Pratik kural: uyku testi</div>
+    <p>Portföyün bu gece yarıya düşse sabah sakin uyanabilir misin? Hayır ise, aldığın risk toleransının üzerinde. Bu çok basit bir test ama şaşırtıcı biçimde işe yarıyor. Konfor sınırının üzerinde risk almak karar kalitesini düşürür — çünkü panik kararları matematik değil duygu üretir.</p>
+  </div>
+</div>
+
+<!-- ÖZET -->
+<div class="sec" style="border-bottom:none;">
+  <div class="sec-label" style="color:var(--t3);">Özet · Ne öğrendik?</div>
+  <div class="summary">
+    <div class="summary-label">Bu bültenden 6 şey</div>
+    <ul>
+      <li><strong>Risk = beklenen sonuçtan sapma ihtimali.</strong> Sadece kayıp değil, her türlü belirsizlik.</li>
+      <li><strong>"Risksiz" diye bir seçenek yok</strong> — her karar bir risk taşır. Soru hangi riski aldığın.</li>
+      <li><strong>Volatilite ≠ risk.</strong> Uzun vadeli yatırımcı için volatilite fırsattır, kısa vadeli için tehlike.</li>
+      <li>Yüksek risk yüksek getiriyi <strong>garanti etmez</strong> — pozitif beklenti değeri taşıyan risk ile spekülatif riski ayırt et.</li>
+      <li>İnsan beyni riski duygusal ölçer: <strong>kayıptan kaçınma, yakın dönem yanlılığı, kontrol yanılsaması</strong> sistematik hatalara yol açar.</li>
+      <li>Kendi risk profilin: <strong>zaman ufku + finansal kapasite + psikolojik tolerans.</strong> Üçü birden, dürüstçe.</li>
+    </ul>
+  </div>
+</div>
+
+<a href="kavram-07-cesitlendirme.html" class="next">
+  <div>
+    <div class="next-label">Sıradaki · Yatırım</div>
+    <div class="next-title">Çeşitlendirme — Neden sandığın gibi çalışmıyor?</div>
+  </div>
+  <div class="next-arrow">→</div>
+</a>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Kavram Dizisi · Yatırım · Mart 2026</div>
+  <div class="ft-disc">Kişisel araştırma notu.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+
+</body>
+</html>
