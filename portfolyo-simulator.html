@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Portföy Simülatörü</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0e0d10;
+  --s1: #16151a;
+  --s2: #1e1d23;
+  --bd: #28262e;
+  --bd2: #363440;
+  --t1: #eae8f2;
+  --t2: #9d9ab5;
+  --t3: #5c5a6e;
+  --gold: #c9a84c;
+  --gold2: #7a6330;
+  --red: #d95f5f;
+  --red-bg: #1e1111;
+  --green: #52b07a;
+  --green-bg: #0e1e14;
+  --blue: #5a9fd4;
+  --blue-bg: #0c1a26;
+  --amber: #d4954a;
+  --purple: #9b7fd4;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;max-width:740px;margin:0 auto;padding:0 0 80px;}
+
+.nav{background:var(--s1);border-bottom:1px solid var(--bd);padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:var(--t3);text-decoration:none;}
+.nav a:hover{color:var(--gold);}
+.nav-tag{color:var(--gold);margin-left:auto;}
+
+.hd{padding:40px 40px 28px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd);}
+h1{font-family:'Instrument Serif',serif;font-size:40px;font-weight:400;line-height:1.08;letter-spacing:-1px;margin-bottom:8px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--gold);}
+.hd-sub{font-size:13.5px;color:var(--t2);line-height:1.6;}
+
+/* STEPS */
+.step-wrap{padding:0 40px;}
+.step{margin-top:28px;}
+.step-head{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:16px;display:flex;align-items:center;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--bd);}
+.step-num{background:var(--gold);color:var(--bg);width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;flex-shrink:0;}
+
+/* VARLIK SATIRLARI */
+.asset-grid{display:flex;flex-direction:column;gap:1px;background:var(--bd);}
+.asset-row{background:var(--s1);display:grid;grid-template-columns:28px 1fr 140px 80px;align-items:center;gap:0;}
+.asset-color{width:28px;height:100%;min-height:44px;display:flex;align-items:center;justify-content:center;}
+.asset-dot{width:8px;height:8px;border-radius:50%;}
+.asset-name{padding:10px 12px;font-size:13.5px;color:var(--t1);}
+.asset-sub{font-size:11px;color:var(--t3);margin-top:1px;}
+.asset-input-wrap{padding:6px 8px;}
+.asset-input{background:var(--s2);border:1px solid var(--bd2);color:var(--t1);font-family:'DM Mono',monospace;font-size:13px;padding:7px 10px;width:100%;outline:none;text-align:right;transition:border-color .15s;}
+.asset-input:focus{border-color:var(--gold);}
+.asset-pct{padding:10px 12px;font-family:'DM Mono',monospace;font-size:12px;color:var(--t3);text-align:right;}
+
+/* TOPLAM */
+.total-row{background:var(--s2);border-top:2px solid var(--t1);display:flex;justify-content:space-between;align-items:center;padding:12px 16px;}
+.total-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);}
+.total-val{font-family:'Instrument Serif',serif;font-size:24px;color:var(--t1);}
+
+/* SENARYO */
+.scenario-tabs{display:flex;gap:0;margin-bottom:16px;}
+.stab{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:9px 16px;cursor:pointer;color:var(--t3);border:1px solid var(--bd);margin-right:-1px;transition:all .15s;user-select:none;}
+.stab:hover{color:var(--t2);}
+.stab.active{background:var(--t1);color:var(--bg);border-color:var(--t1);z-index:1;}
+
+.param-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);}
+.param-cell{background:var(--s1);padding:14px 16px;}
+.param-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.param-val-row{display:flex;align-items:center;gap:8px;}
+.param-input{background:var(--s2);border:1px solid var(--bd2);color:var(--t1);font-family:'DM Mono',monospace;font-size:13px;padding:6px 10px;width:80px;outline:none;text-align:right;transition:border-color .15s;}
+.param-input:focus{border-color:var(--gold);}
+.param-unit{font-family:'DM Mono',monospace;font-size:11px;color:var(--t3);}
+.param-hint{font-size:11px;color:var(--t3);margin-top:4px;}
+
+/* SÜRE */
+.sure-row{display:flex;gap:8px;margin-top:16px;}
+.sure-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;padding:8px 16px;cursor:pointer;color:var(--t2);border:1px solid var(--bd);background:var(--s1);transition:all .15s;}
+.sure-btn:hover{border-color:var(--bd2);color:var(--t1);}
+.sure-btn.active{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+
+/* SIMULATE BUTTON */
+.sim-btn{background:var(--t1);color:var(--bg);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:14px 28px;border:none;cursor:pointer;width:100%;margin-top:20px;transition:background .15s;}
+.sim-btn:hover{background:#2a2930;}
+
+/* RESULTS */
+.results{display:none;margin-top:28px;}
+.results.show{display:block;}
+
+.res-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bd);margin-bottom:1px;}
+.res-cell{background:var(--s1);padding:16px 18px;}
+.rc-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.rc-val{font-family:'Instrument Serif',serif;font-size:24px;color:var(--t1);line-height:1.1;}
+.rc-val.pos{color:var(--green);}
+.rc-val.neg{color:var(--red);}
+.rc-note{font-size:11.5px;color:var(--t3);margin-top:3px;}
+
+/* CHART */
+.chart-wrap{background:var(--s1);border:1px solid var(--bd);padding:20px;margin-top:1px;}
+.chart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.chart-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);}
+.chart-legend{display:flex;gap:16px;}
+.leg-item{display:flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);}
+.leg-dot{width:8px;height:8px;border-radius:50%;}
+canvas{width:100%;display:block;}
+
+/* VARLIK DAĞILIMI */
+.alloc-wrap{background:var(--s1);border:1px solid var(--bd);padding:20px;margin-top:1px;}
+.alloc-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;}
+.alloc-bars{display:flex;flex-direction:column;gap:8px;}
+.alloc-row{display:flex;align-items:center;gap:10px;}
+.alloc-name{font-size:12.5px;color:var(--t2);width:130px;flex-shrink:0;}
+.alloc-track{flex:1;height:6px;background:var(--bd);position:relative;}
+.alloc-fill{height:100%;transition:width .5s ease;}
+.alloc-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--t2);text-align:right;width:90px;}
+
+/* YILLIK TABLO */
+.year-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:1px;}
+.year-table th{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;border-bottom:1px solid var(--bd2);text-align:right;color:var(--t3);background:var(--s1);}
+.year-table th:first-child{text-align:left;}
+.year-table td{padding:10px 14px;border-bottom:1px solid var(--bd);color:var(--t2);text-align:right;}
+.year-table td:first-child{text-align:left;color:var(--t3);font-family:'DM Mono',monospace;}
+.year-table tr:last-child td{border-bottom:none;color:var(--t1);font-weight:500;}
+.year-table .pos{color:var(--green);}
+.year-table .neg{color:var(--red);}
+
+/* UYARI */
+.disclaimer{background:var(--s1);border-left:3px solid var(--bd2);padding:14px 18px;font-size:12.5px;color:var(--t3);line-height:1.65;margin-top:16px;}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;margin-top:28px;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.step-wrap,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:30px;}
+  .asset-row{grid-template-columns:20px 1fr 110px 60px;}
+  .res-summary{grid-template-columns:1fr 1fr;}
+  .param-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:var(--bd2)">|</span>
+  <span class="nav-tag">Portföy Simülatörü</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Finansal Araçlar</div>
+  <h1>Portföy <em>Simülatörü</em></h1>
+  <p class="hd-sub">Portföyünü gir, senaryoyu seç, yıllık projeksiyonu gör. Nominal ve reel değer ayrı ayrı hesaplanır.</p>
+</div>
+
+<div class="step-wrap">
+
+  <!-- ADIM 1: PORTFÖY -->
+  <div class="step">
+    <div class="step-head">
+      <span class="step-num">1</span>
+      Portföyünü Gir — Mevcut Değerler (TL)
+    </div>
+
+    <div class="asset-grid" id="asset-grid">
+      <!-- JS ile doldurulacak -->
+    </div>
+
+    <div class="total-row">
+      <div class="total-label">Toplam Portföy</div>
+      <div class="total-val" id="total-val">0 TL</div>
+    </div>
+  </div>
+
+  <!-- ADIM 2: SENARYO -->
+  <div class="step">
+    <div class="step-head">
+      <span class="step-num">2</span>
+      Senaryo Parametreleri
+    </div>
+
+    <div class="scenario-tabs">
+      <div class="stab active" onclick="setScenario('baz',this)">Baz</div>
+      <div class="stab" onclick="setScenario('iyimser',this)">İyimser</div>
+      <div class="stab" onclick="setScenario('kotumser',this)">Kötümser</div>
+      <div class="stab" onclick="setScenario('ozel',this)">Özel</div>
+    </div>
+
+    <div class="param-grid">
+      <div class="param-cell">
+        <div class="param-label">Yıllık Enflasyon (TÜFE)</div>
+        <div class="param-val-row">
+          <input type="number" class="param-input" id="p-enflasyon" value="38" min="0" max="200" oninput="updateParams()">
+          <span class="param-unit">%</span>
+        </div>
+        <div class="param-hint">Baz: %38 · İyi: %25 · Kötü: %55</div>
+      </div>
+      <div class="param-cell">
+        <div class="param-label">USD/TRY Yıllık Değişim</div>
+        <div class="param-val-row">
+          <input type="number" class="param-input" id="p-kur" value="20" min="-10" max="100" oninput="updateParams()">
+          <span class="param-unit">%</span>
+        </div>
+        <div class="param-hint">Baz: %20 · İyi: %12 · Kötü: %32</div>
+      </div>
+      <div class="param-cell">
+        <div class="param-label">Aylık Ek Yatırım</div>
+        <div class="param-val-row">
+          <input type="number" class="param-input" id="p-aylik" value="0" min="0" step="500" oninput="updateParams()">
+          <span class="param-unit">TL</span>
+        </div>
+        <div class="param-hint">Her ay portföye eklenecek tutar</div>
+      </div>
+      <div class="param-cell">
+        <div class="param-label">Aylık katkı dağılımı</div>
+        <div class="param-val-row" style="align-items:center;gap:6px;">
+          <select id="p-dagilim" style="background:var(--s2);border:1px solid var(--bd2);color:var(--t1);font-family:'DM Mono',monospace;font-size:12px;padding:7px 8px;outline:none;flex:1;">
+            <option value="mevcut">Mevcut ağırlıklara göre</option>
+            <option value="altin">Tümü Altına</option>
+            <option value="hisse">Tümü BIST Hisse</option>
+            <option value="nakit">Tümü TL Nakit</option>
+            <option value="dolar">Tümü Dolar</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Varlık bazlı getiri tahminleri -->
+    <div style="margin-top:1px;">
+      <div class="param-grid" id="asset-params">
+        <!-- JS ile doldurulacak -->
+      </div>
+    </div>
+
+    <!-- Süre -->
+    <div style="margin-top:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;">Projeksiyon Süresi</div>
+      <div class="sure-row">
+        <div class="sure-btn" onclick="setSure(1,this)">1 Yıl</div>
+        <div class="sure-btn" onclick="setSure(3,this)">3 Yıl</div>
+        <div class="sure-btn active" onclick="setSure(5,this)">5 Yıl</div>
+        <div class="sure-btn" onclick="setSure(10,this)">10 Yıl</div>
+        <div class="sure-btn" onclick="setSure(20,this)">20 Yıl</div>
+      </div>
+    </div>
+
+    <button class="sim-btn" onclick="simulate()">Simülasyonu Çalıştır →</button>
+  </div>
+
+  <!-- SONUÇLAR -->
+  <div class="results" id="results">
+    <div class="step-head" style="margin-top:8px;">
+      <span class="step-num">3</span>
+      Projeksiyon Sonuçları
+    </div>
+
+    <div class="res-summary">
+      <div class="res-cell">
+        <div class="rc-label">Başlangıç Değeri</div>
+        <div class="rc-val" id="r-baslangic">—</div>
+        <div class="rc-note">Bugün, TL</div>
+      </div>
+      <div class="res-cell">
+        <div class="rc-label">Dönem Sonu Nominal</div>
+        <div class="rc-val pos" id="r-nominal">—</div>
+        <div class="rc-note" id="r-nominal-note">TL</div>
+      </div>
+      <div class="res-cell">
+        <div class="rc-label">Dönem Sonu Reel</div>
+        <div class="rc-val" id="r-reel">—</div>
+        <div class="rc-note">Bugünkü TL değeriyle</div>
+      </div>
+      <div class="res-cell">
+        <div class="rc-label">Dolar Karşılığı</div>
+        <div class="rc-val" id="r-dolar">—</div>
+        <div class="rc-note" id="r-dolar-note">USD</div>
+      </div>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-head">
+        <div class="chart-title">Portföy Büyümesi (TL)</div>
+        <div class="chart-legend">
+          <div class="leg-item"><div class="leg-dot" style="background:var(--gold)"></div>Nominal</div>
+          <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>Reel</div>
+          <div class="leg-item"><div class="leg-dot" style="background:var(--t3);opacity:.5"></div>Yatırılan</div>
+        </div>
+      </div>
+      <canvas id="chart" height="220"></canvas>
+    </div>
+
+    <div class="alloc-wrap">
+      <div class="alloc-title">Dönem Sonu Varlık Dağılımı (Tahmini)</div>
+      <div class="alloc-bars" id="alloc-bars"></div>
+    </div>
+
+    <table class="year-table">
+      <thead>
+        <tr>
+          <th>Yıl</th>
+          <th>Nominal Değer</th>
+          <th>Reel Değer</th>
+          <th>Dolar Değeri</th>
+          <th>Yıllık Büyüme</th>
+        </tr>
+      </thead>
+      <tbody id="year-tbody"></tbody>
+    </table>
+
+    <div class="disclaimer">
+      Bu projeksiyon girilen sabit getiri varsayımlarına dayanır. Gerçek piyasalar doğrusal büyümez. Sonuçlar finansal tavsiye değildir — karar verme sürecinde bir referans noktası olarak kullanın.
+    </div>
+  </div>
+
+</div><!-- /step-wrap -->
+
+<div class="ft">
+  <div class="ft-brand">CAK · Portföy Simülatörü · 2026</div>
+  <div class="ft-disc">Tahmini projeksiyonlar.<br>Finansal tavsiye değildir.</div>
+</div>
+
+<script>
+const fmt = n => new Intl.NumberFormat('tr-TR').format(Math.round(n));
+const fmtK = n => {
+  if (n >= 1e9) return (n/1e9).toFixed(1)+'M₺';
+  if (n >= 1e6) return (n/1e6).toFixed(1)+'M';
+  if (n >= 1e3) return (n/1e3).toFixed(0)+'B';
+  return Math.round(n).toString();
+};
+
+const ASSETS = [
+  {id:'nakit_tl', name:'TL Nakit & Mevduat', sub:'Vadesiz + vadeli', color:'#888698', defaultVal:50000, defaultGetiri:37},
+  {id:'dolar',    name:'Dolar / Euro',        sub:'Döviz mevduatı veya fiziksel', color:'#5a9fd4', defaultVal:30000, defaultGetiri:20},
+  {id:'altin',    name:'Altın',               sub:'Fiziksel + BES altın fonu', color:'#c9a84c', defaultVal:40000, defaultGetiri:45},
+  {id:'gumus',    name:'Gümüş / Platin',      sub:'Fiziksel değerli metal', color:'#b0aec8', defaultVal:0, defaultGetiri:40},
+  {id:'bist',     name:'BIST Hisse',          sub:'Borsa İstanbul hisseleri', color:'#52b07a', defaultVal:20000, defaultGetiri:45},
+  {id:'yurtdisi', name:'Yurt Dışı Hisse',     sub:'S&P 500, ETF vb. (TL bazlı)', color:'#9b7fd4', defaultVal:0, defaultGetiri:38},
+  {id:'kripto',   name:'Kripto Para',         sub:'Bitcoin, Ethereum vb.', color:'#d4954a', defaultVal:0, defaultGetiri:50},
+  {id:'gayr',     name:'Gayrimenkul',         sub:'Konut + kira getirisi dahil', color:'#d95f5f', defaultVal:0, defaultGetiri:42},
+  {id:'bes',      name:'BES / Emeklilik',     sub:'Devlet katkısı hesaba katıldı', color:'#4ea8c4', defaultVal:10000, defaultGetiri:40},
+  {id:'tahvil',   name:'Tahvil / TÜFEX / Bono', sub:'Devlet borçlanma araçları', color:'#7ab87a', defaultVal:0, defaultGetiri:42},
+];
+
+const SCENARIOS = {
+  baz: {
+    enflasyon:38, kur:20,
+    getiri:{nakit_tl:37, dolar:20, altin:45, gumus:40, bist:45, yurtdisi:38, kripto:50, gayr:42, bes:40, tahvil:42}
+  },
+  iyimser: {
+    enflasyon:25, kur:12,
+    getiri:{nakit_tl:30, dolar:12, altin:35, gumus:30, bist:55, yurtdisi:45, kripto:80, gayr:38, bes:45, tahvil:30}
+  },
+  kotumser: {
+    enflasyon:55, kur:32,
+    getiri:{nakit_tl:42, dolar:32, altin:58, gumus:50, bist:30, yurtdisi:25, kripto:-20, gayr:50, bes:38, tahvil:52}
+  },
+  ozel: null,
+};
+
+let sure = 5;
+let currentScenario = 'baz';
+
+// Varlık satırlarını oluştur
+function buildAssetGrid() {
+  const g = document.getElementById('asset-grid');
+  g.innerHTML = ASSETS.map(a => `
+    <div class="asset-row">
+      <div class="asset-color"><div class="asset-dot" style="background:${a.color}"></div></div>
+      <div class="asset-name">${a.name}<div class="asset-sub">${a.sub}</div></div>
+      <div class="asset-input-wrap">
+        <input type="number" class="asset-input" id="val-${a.id}" value="${a.defaultVal}" min="0" step="1000" oninput="updateTotal()">
+      </div>
+      <div class="asset-pct" id="pct-${a.id}">%0</div>
+    </div>`).join('');
+  updateTotal();
+}
+
+// Senaryo parametreleri oluştur
+function buildParamGrid() {
+  const g = document.getElementById('asset-params');
+  g.innerHTML = ASSETS.map(a => `
+    <div class="param-cell">
+      <div class="param-label" style="display:flex;align-items:center;gap:6px;">
+        <div class="asset-dot" style="background:${a.color};width:6px;height:6px;border-radius:50%;flex-shrink:0;"></div>
+        ${a.name.split(' ')[0]} Getiri
+      </div>
+      <div class="param-val-row">
+        <input type="number" class="param-input" id="g-${a.id}" value="${a.defaultGetiri}" min="-50" max="200" oninput="currentScenario='ozel'">
+        <span class="param-unit">%</span>
+      </div>
+    </div>`).join('');
+}
+
+function updateTotal() {
+  const total = ASSETS.reduce((s,a) => s + (parseFloat(document.getElementById('val-'+a.id).value)||0), 0);
+  document.getElementById('total-val').textContent = fmt(total) + ' TL';
+  ASSETS.forEach(a => {
+    const v = parseFloat(document.getElementById('val-'+a.id).value)||0;
+    const pct = total > 0 ? (v/total*100).toFixed(1) : '0.0';
+    document.getElementById('pct-'+a.id).textContent = '%' + pct;
+  });
+}
+
+function setScenario(key, el) {
+  document.querySelectorAll('.stab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  currentScenario = key;
+  const s = SCENARIOS[key];
+  if (s) {
+    document.getElementById('p-enflasyon').value = s.enflasyon;
+    document.getElementById('p-kur').value = s.kur;
+    // Varlık getirilerini de güncelle
+    ASSETS.forEach(a => {
+      const el = document.getElementById('g-'+a.id);
+      if (el && s.getiri[a.id] !== undefined) el.value = s.getiri[a.id];
+    });
+  }
+}
+
+function updateParams() { currentScenario = 'ozel'; }
+
+function setSure(y, el) {
+  sure = y;
+  document.querySelectorAll('.sure-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function simulate() {
+  const total0 = ASSETS.reduce((s,a) => s + (parseFloat(document.getElementById('val-'+a.id).value)||0), 0);
+  if (total0 <= 0) { alert('Lütfen portföy değerlerini gir.'); return; }
+
+  const enf = parseFloat(document.getElementById('p-enflasyon').value)/100;
+  const kurArtis = parseFloat(document.getElementById('p-kur').value)/100;
+  const aylikKatki = parseFloat(document.getElementById('p-aylik').value)||0;
+  const dagilim = document.getElementById('p-dagilim').value;
+
+  // Her varlığın mevcut değeri ve yıllık getirisi
+  const portfolio = ASSETS.map(a => ({
+    ...a,
+    val: parseFloat(document.getElementById('val-'+a.id).value)||0,
+    getiri: parseFloat(document.getElementById('g-'+a.id).value)/100,
+  }));
+
+  // Yıllık projeksiyon
+  const years = [];
+  let p = portfolio.map(a => ({...a}));
+  const usdBaslangic = 44; // Mart 2026
+
+  years.push({
+    yil: 0,
+    nominal: total0,
+    reel: total0,
+    dolar: total0 / usdBaslangic,
+    yatirilan: total0,
+    assets: p.map(a=>({id:a.id,val:a.val})),
+  });
+
+  for (let y = 1; y <= sure; y++) {
+    // Aylık katkı dağılımı
+    const yillikKatki = aylikKatki * 12;
+    if (yillikKatki > 0) {
+      const currentTotal = p.reduce((s,a)=>s+a.val,0);
+      p = p.map(a => {
+        let ekKatki = 0;
+        if (dagilim === 'mevcut') ekKatki = currentTotal > 0 ? yillikKatki * (a.val/currentTotal) : 0;
+        else if (dagilim === 'altin' && a.id === 'altin') ekKatki = yillikKatki;
+        else if (dagilim === 'hisse' && a.id === 'bist') ekKatki = yillikKatki;
+        else if (dagilim === 'nakit' && a.id === 'nakit_tl') ekKatki = yillikKatki;
+        else if (dagilim === 'dolar' && a.id === 'dolar') ekKatki = yillikKatki;
+        return {...a, val: a.val + ekKatki};
+      });
+    }
+    // Büyüme uygula
+    p = p.map(a => ({...a, val: a.val * (1 + a.getiri)}));
+
+    const nominal = p.reduce((s,a)=>s+a.val,0);
+    const deflator = Math.pow(1+enf, y);
+    const reel = nominal / deflator;
+    const usdY = usdBaslangic * Math.pow(1+kurArtis, y);
+    const dolar = nominal / usdY;
+    const yatirilan = total0 + yillikKatki * y;
+
+    years.push({
+      yil: y,
+      nominal,
+      reel,
+      dolar,
+      yatirilan,
+      assets: p.map(a=>({id:a.id,val:a.val})),
+    });
+  }
+
+  // Sonuçları göster
+  const last = years[years.length-1];
+  const prev = years[years.length-2];
+  const büyüme = ((last.nominal - years[0].nominal) / years[0].nominal * 100).toFixed(0);
+  const reelKazanc = last.reel > total0;
+
+  document.getElementById('r-baslangic').textContent = fmtK(total0) + ' TL';
+  document.getElementById('r-nominal').textContent = fmtK(last.nominal) + ' TL';
+  document.getElementById('r-nominal-note').textContent = '+%' + büyüme + ' nominal büyüme';
+  const reelEl = document.getElementById('r-reel');
+  reelEl.textContent = fmtK(last.reel) + ' TL';
+  reelEl.className = 'rc-val ' + (reelKazanc ? 'pos' : 'neg');
+  document.getElementById('r-dolar').textContent = fmtK(last.dolar);
+  document.getElementById('r-dolar-note').textContent = 'Başlangıç: ' + fmtK(years[0].dolar) + ' USD';
+
+  // Grafik
+  drawChart(years);
+
+  // Dağılım barları
+  drawAlloc(last.assets);
+
+  // Yıllık tablo
+  drawTable(years);
+
+  document.getElementById('results').classList.add('show');
+  document.getElementById('results').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function drawChart(years) {
+  const canvas = document.getElementById('chart');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.offsetWidth * window.devicePixelRatio || 640;
+  const H = 220 * window.devicePixelRatio || 220;
+  canvas.width = W;
+  canvas.height = H;
+  ctx.scale(window.devicePixelRatio||1, window.devicePixelRatio||1);
+  const w = canvas.offsetWidth || 640;
+  const h = 220;
+
+  const pad = {t:20, r:20, b:40, l:70};
+  const cw = w - pad.l - pad.r;
+  const ch = h - pad.t - pad.b;
+
+  ctx.clearRect(0,0,w,h);
+
+  const maxVal = Math.max(...years.map(y=>y.nominal));
+  const minVal = 0;
+
+  function xPos(i) { return pad.l + (i/(years.length-1)) * cw; }
+  function yPos(v) { return pad.t + ch - ((v-minVal)/(maxVal-minVal||1)) * ch; }
+
+  // Grid lines
+  ctx.strokeStyle = '#28262e';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.t + (i/4)*ch;
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l+cw, y); ctx.stroke();
+    const v = maxVal - (i/4)*maxVal;
+    ctx.fillStyle = '#5c5a6e';
+    ctx.font = '10px DM Mono';
+    ctx.textAlign = 'right';
+    ctx.fillText(fmtK(v), pad.l-6, y+4);
+  }
+
+  // X axis labels
+  ctx.fillStyle = '#5c5a6e';
+  ctx.font = '10px DM Mono';
+  ctx.textAlign = 'center';
+  years.forEach((yr, i) => {
+    if (i % Math.ceil(years.length/6) === 0 || i === years.length-1) {
+      ctx.fillText(yr.yil === 0 ? 'Bugün' : yr.yil+'y', xPos(i), h-8);
+    }
+  });
+
+  // Yatırılan alan
+  ctx.beginPath();
+  years.forEach((yr, i) => {
+    const x = xPos(i), y = yPos(yr.yatirilan);
+    i === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.lineTo(xPos(years.length-1), yPos(0));
+  ctx.lineTo(xPos(0), yPos(0));
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(88,86,110,0.15)';
+  ctx.fill();
+
+  // Reel çizgi
+  ctx.beginPath();
+  years.forEach((yr, i) => {
+    const x = xPos(i), y = yPos(yr.reel);
+    i === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.strokeStyle = '#5a9fd4';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([5,3]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Nominal çizgi
+  ctx.beginPath();
+  years.forEach((yr, i) => {
+    const x = xPos(i), y = yPos(yr.nominal);
+    i === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.strokeStyle = '#c9a84c';
+  ctx.lineWidth = 2.5;
+  ctx.stroke();
+
+  // Nokta son değer
+  const lastX = xPos(years.length-1);
+  ctx.beginPath();
+  ctx.arc(lastX, yPos(years[years.length-1].nominal), 4, 0, Math.PI*2);
+  ctx.fillStyle = '#c9a84c';
+  ctx.fill();
+}
+
+function drawAlloc(assets) {
+  const totalVal = assets.reduce((s,a)=>s+a.val,0);
+  const sorted = [...assets].sort((a,b)=>b.val-a.val).filter(a=>a.val>0);
+  const container = document.getElementById('alloc-bars');
+  const assetMap = {};
+  ASSETS.forEach(a => assetMap[a.id] = a);
+
+  container.innerHTML = sorted.map(a => {
+    const meta = assetMap[a.id];
+    const pct = (a.val/totalVal*100).toFixed(1);
+    return `<div class="alloc-row">
+      <div class="alloc-name" style="display:flex;align-items:center;gap:6px;">
+        <div style="width:6px;height:6px;border-radius:50%;background:${meta.color};flex-shrink:0;"></div>
+        ${meta.name.split(' / ')[0]}
+      </div>
+      <div class="alloc-track">
+        <div class="alloc-fill" style="width:${pct}%;background:${meta.color};opacity:.8;"></div>
+      </div>
+      <div class="alloc-num">%${pct} · ${fmtK(a.val)}</div>
+    </div>`;
+  }).join('');
+}
+
+function drawTable(years) {
+  const tbody = document.getElementById('year-tbody');
+  tbody.innerHTML = years.slice(1).map((yr, i) => {
+    const prev = years[i];
+    const growth = ((yr.nominal - prev.nominal)/prev.nominal*100).toFixed(1);
+    const reelKazanc = yr.reel > years[0].nominal;
+    return `<tr>
+      <td>${yr.yil}. yıl</td>
+      <td>${fmt(yr.nominal)} TL</td>
+      <td class="${reelKazanc?'pos':'neg'}">${fmt(yr.reel)} TL</td>
+      <td>${fmt(yr.dolar)} $</td>
+      <td class="${parseFloat(growth)>0?'pos':'neg'}">%${growth}</td>
+    </tr>`;
+  }).join('');
+}
+
+// Init
+buildAssetGrid();
+buildParamGrid();
+</script>
+
+</body>
+</html>
