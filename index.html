@@ -569,5 +569,108 @@ body {
   </div>
 
 </div>
+<!-- ══════════ SLIDE-IN ABONE KARTI ══════════ -->
+<div id="sub-card" style="
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  width:300px;
+  background:#18171a;
+  border:1px solid #2a2830;
+  border-top:2px solid #c9a84c;
+  padding:20px 22px;
+  z-index:999;
+  transform:translateY(120px);
+  opacity:0;
+  transition:transform .4s cubic-bezier(.22,.68,0,1.2), opacity .3s ease;
+  pointer-events:none;
+">
+  <!-- Kapat -->
+  <button onclick="kapat()" style="
+    position:absolute;top:10px;right:12px;
+    background:none;border:none;cursor:pointer;
+    color:#5c5a6e;font-size:16px;line-height:1;
+    padding:2px 4px;
+  ">✕</button>
+
+  <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#c9a84c;margin-bottom:8px;">CAK Bülteni</div>
+  <p style="font-family:'Instrument Serif',serif;font-size:16px;color:#eae8f2;line-height:1.4;margin-bottom:14px;">Yeni bülten çıkınca<br>sana haber verelim</p>
+  <p style="font-size:12px;color:#5c5a6e;margin-bottom:14px;line-height:1.5;">Aylık bülten, flash analiz, kavram dizisi — e-postana gelsin.</p>
+
+  <form action="https://github.us12.list-manage.com/subscribe/post?u=4e0a4cc05f9505038495691af&amp;id=420b8aa109&amp;f_id=00b8e4e0f0" method="post" target="_blank" style="display:flex;flex-direction:column;gap:8px;">
+    <div aria-hidden="true" style="position:absolute;left:-5000px;">
+      <input type="text" name="b_4e0a4cc05f9505038495691af_420b8aa109" tabindex="-1" value="">
+    </div>
+    <input
+      type="email"
+      name="EMAIL"
+      required
+      placeholder="e-posta adresin"
+      style="
+        background:#0e0d10;
+        border:1px solid #363440;
+        color:#eae8f2;
+        font-family:'DM Mono',monospace;
+        font-size:12px;
+        padding:9px 12px;
+        outline:none;
+        width:100%;
+      "
+    >
+    <button type="submit" style="
+      background:#c9a84c;
+      color:#0e0d10;
+      font-family:'DM Mono',monospace;
+      font-size:9.5px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      padding:10px;
+      border:none;
+      cursor:pointer;
+      width:100%;
+    ">Abone Ol →</button>
+  </form>
+
+  <p style="font-size:10.5px;color:#3a3940;margin-top:10px;text-align:center;">İstediğin zaman iptal edebilirsin.</p>
+</div>
+
+<script>
+(function(){
+  let shown = false;
+  let closed = false;
+
+  function goster() {
+    if (shown || closed) return;
+    shown = true;
+    const card = document.getElementById('sub-card');
+    card.style.transform = 'translateY(0)';
+    card.style.opacity = '1';
+    card.style.pointerEvents = 'auto';
+  }
+
+  // %70 scroll'da göster
+  window.addEventListener('scroll', function() {
+    if (closed) return;
+    const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if (scrolled > 0.70) goster();
+  }, {passive:true});
+
+  // Çıkış niyeti (mouse yukarı çıkınca)
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY < 20) goster();
+  });
+})();
+
+function kapat() {
+  const card = document.getElementById('sub-card');
+  card.style.transform = 'translateY(120px)';
+  card.style.opacity = '0';
+  card.style.pointerEvents = 'none';
+  // Kapatan değişkeni dışarıdan erişilebilir yap
+  window._subClosed = true;
+  // 30 dakika sonra tekrar gösterilebilir (oturum boyunca değil)
+  setTimeout(() => { window._subClosed = false; }, 30 * 60 * 1000);
+}
+</script>
 </body>
 </html>
