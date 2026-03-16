@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Hakkında</title>
+<meta name="description" content="CAK nedir, neden yazılıyor, nasıl okunmalı. Kısıtlamalar ve metodoloji.">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --green-bd: #88cca8;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --blue-bd: #90b0e8;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.8;max-width:700px;margin:0 auto;padding:0 0 100px;}
+
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}
+.nav a:hover{color:#c9a84c;}
+.nav-tag{color:#c9a84c;margin-left:auto;}
+
+.hd{padding:48px 40px 40px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+h1{font-family:'Instrument Serif',serif;font-size:44px;font-weight:400;line-height:1.08;letter-spacing:-1px;margin-bottom:12px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--gold);}
+.hd-lead{font-family:'Instrument Serif',serif;font-size:19px;font-style:italic;color:var(--t2);line-height:1.55;max-width:520px;}
+
+.sec{padding:36px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+h2{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;line-height:1.2;margin-bottom:16px;color:var(--t1);}
+.body{font-size:15px;color:var(--t2);line-height:1.85;}
+.body p{margin-bottom:16px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+.body em{font-style:italic;}
+
+.principle{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--bd);}
+.principle:last-child{border-bottom:none;padding-bottom:0;}
+.principle-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);flex-shrink:0;width:24px;padding-top:2px;}
+.principle-body{}
+.principle-title{font-weight:500;color:var(--t1);font-size:15px;margin-bottom:4px;}
+.principle-desc{font-size:14px;color:var(--t2);line-height:1.7;}
+
+.box{border:1px solid;padding:18px 22px;margin:20px 0;font-size:14px;line-height:1.7;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;font-weight:500;}
+.b-gold{background:var(--gold-lt);border-color:var(--gold-bd);}
+.b-gold .box-title{color:var(--gold);}
+.b-gold p{color:var(--t2);}
+.b-green{background:var(--green-lt);border-color:var(--green-bd);}
+.b-green .box-title{color:var(--green);}
+.b-green p{color:var(--t2);}
+.b-blue{background:var(--blue-lt);border-color:var(--blue-bd);}
+.b-blue .box-title{color:var(--blue);}
+.b-blue p{color:var(--t2);}
+
+.format-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);margin:20px 0;}
+.format-cell{background:var(--s1);padding:16px 18px;}
+.format-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.format-title{font-weight:500;color:var(--t1);font-size:14px;margin-bottom:4px;}
+.format-desc{font-size:13px;color:var(--t2);line-height:1.6;}
+
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:20px 24px;margin:20px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:20px;color:var(--t1);line-height:1.5;font-style:italic;}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;margin-top:8px;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.sec,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:34px;}
+  .format-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-tag">Hakkında</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Hakkında</div>
+  <h1><em>CAK</em> Nedir?</h1>
+  <p class="hd-lead">Finansal okuryazarlık için yazılmış bir bülten. Kişisel. Tarafsız. Jargonsuz.</p>
+</div>
+
+<!-- NEDEN -->
+<div class="sec">
+  <div class="sec-label">Neden var?</div>
+  <h2>Çünkü çoğu finansal içerik ya çok karmaşık ya çok yüzeysel</h2>
+
+  <div class="body">
+    <p>Türkiye'de finansal okuryazarlık düşük — ve bu düşüklük pahalıya mal oluyor. İnsanlar enflasyonun ne anlama geldiğini bilmeden nakit tutuyor, faizin nasıl işlediğini anlamadan kredi çekiyor, risk kavramını anlamadan yatırım yapıyor ya da hiç yapmıyor.</p>
+    <p>Öte yanda mevcut kaynaklar iki uçta toplanıyor: ya akademik ve jargon yüklü, ya da yüzeysel ve "şunu al şunu sat" formatında. <strong>İkisi de okuyucuya gerçekten düşünmeyi öğretmiyor.</strong></p>
+    <p>CAK bu ikisi arasında bir yer bulmaya çalışıyor. Basit başlıyor, derine iniyor. Sonuç vermek yerine çerçeve veriyor. "Al" demek yerine "neden alınır, neden alınmaz" diyor.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Temel ilke</div>
+    <p class="analogy-text">"Balık vermek değil, oltayı göstermek. Piyasanın bugünkü durumunu değil, piyasayı okuma biçimini."</p>
+  </div>
+</div>
+
+<!-- NASIL OKUNMALI -->
+<div class="sec">
+  <div class="sec-label">Nasıl okunmalı?</div>
+  <h2>Farklı içerik türleri, farklı okuma biçimleri</h2>
+
+  <div class="format-grid">
+    <div class="format-cell">
+      <div class="format-label">Aylık Bülten</div>
+      <div class="format-title">Ay sonu değerlendirmesi</div>
+      <div class="format-desc">Makro durum, piyasa yönlendirmesi, pratik çerçeve. Ayda bir yayınlanır. Ticker ismi yok, tavsiye yok — düşünme çerçevesi var.</div>
+    </div>
+    <div class="format-cell">
+      <div class="format-label">Flash Analiz</div>
+      <div class="format-title">Kritik gelişme anında</div>
+      <div class="format-desc">PPK kararı, FOMC toplantısı gibi piyasayı anlık etkileyen olaylar için. Kısa, odaklı, zamanlı.</div>
+    </div>
+    <div class="format-cell">
+      <div class="format-label">Pazar Okuması</div>
+      <div class="format-title">Büyük soruları derinlemesine</div>
+      <div class="format-desc">Haftanın en önemli sorusu. Katmanlı analiz — resmi tablo, gerçek tablo, sahne arkası. Pazar sabahı yayınlanır.</div>
+    </div>
+    <div class="format-cell">
+      <div class="format-label">Kavram Dizisi</div>
+      <div class="format-title">Zamansız, derinlemesine</div>
+      <div class="format-desc">Enflasyon, faiz, kur, risk gibi temel kavramlar. Sıfırdan başlar, derin sulara iner. Yıllarca geçerliliğini korur.</div>
+    </div>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">Okuma önerisi</div>
+    <p>Finansal okuryazarlığa yeni başlıyorsan: Kavram Dizisi'nden başla — Para Nedir → Bankalar → Enflasyon → Faiz → Kur sırası önerilen yol. Güncel gelişmeleri takip ediyorsan: aylık bültenler ve flash analizler. Her ikisini de yapıyorsan: kavram bültenlerindeki çerçeveyi aylık bültenlere uygula.</p>
+  </div>
+</div>
+
+<!-- İLKELER -->
+<div class="sec">
+  <div class="sec-label">Çalışma ilkeleri</div>
+  <h2>Yazılırken ne gözetiliyor?</h2>
+
+  <div style="margin-top:8px;">
+    <div class="principle">
+      <div class="principle-num">01</div>
+      <div class="principle-body">
+        <div class="principle-title">Tarafsızlık</div>
+        <div class="principle-desc">Belirli bir varlık sınıfını, şirketi veya stratejiyi reklamını yapmak için tanıtmıyoruz. Altın iyi mi, hisse mi daha iyi? Her ikisinin de güçlü ve zayıf yanları var — ikisi de yazılıyor.</div>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">02</div>
+      <div class="principle-body">
+        <div class="principle-title">Dürüstlük</div>
+        <div class="principle-desc">Bilmiyorsak "bilmiyoruz" diyoruz. Tahminimiz varsa "tahmin" olduğunu belirtiyoruz. Kesin gibi görünen hiçbir şey finansta kesin değil.</div>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">03</div>
+      <div class="principle-body">
+        <div class="principle-title">Basitlik</div>
+        <div class="principle-desc">Jargon kullanmak zorunda kaldığımızda açıklıyoruz. Karmaşık bir kavramı basite indirgemek, karmaşık görünmekten daha zor — ama çok daha değerli.</div>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">04</div>
+      <div class="principle-body">
+        <div class="principle-title">Güncellik</div>
+        <div class="principle-desc">Hatalar düzeltilir, rakamlar güncellenir. Yanlış bilgi yayınlandıysa düzeltme notu eklenir — sessizce değiştirmek yerine.</div>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">05</div>
+      <div class="principle-body">
+        <div class="principle-title">Bağımsızlık</div>
+        <div class="principle-desc">Reklam yok, sponsor yok, komisyon yok. Hiçbir içerik bir ürün veya hizmeti tanıtmak amacıyla yazılmıyor.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KISITLAMALAR -->
+<div class="sec">
+  <div class="sec-label">Kısıtlamalar</div>
+  <h2>Bu bültenden ne beklenmemeli?</h2>
+
+  <div class="body">
+    <p><strong>Kişisel yatırım tavsiyesi değildir.</strong> "Şunu al, bunu sat" demiyoruz. Herkesin finansal durumu, risk toleransı ve zaman ufku farklı. Bir çerçeve ve analiz sunuyoruz — karar her zaman senindir.</p>
+    <p><strong>Geleceği tahmin etmiyoruz.</strong> Senaryolar ve olasılıklar sunuyoruz ama hiçbir analiz kesin sonuç vermez. Piyasalar sürpriz yapar — ve en iyi analistler de yanılır.</p>
+    <p><strong>Tam kapsam iddiası yoktur.</strong> Her konuyu tüketmiyoruz. Bir kavramı yüzeysel geçtiğimizde kasıtlı yapıyoruz — okuyucuyu bunaltmak yerine merak uyandırmayı tercih ediyoruz.</p>
+    <p><strong>Veriler anlık değişebilir.</strong> Bültenler yayınlandığı andaki verileri içerir. Piyasa hızlı hareket eder; bir ay önce yazılan analizin bazı rakamları eskimiş olabilir.</p>
+  </div>
+
+  <div class="box b-blue">
+    <div class="box-title">Hata bulursan</div>
+    <p>Yanlış bir rakam, eksik bir bilgi veya yanıltıcı bir ifade görürsen bültene abone olup yanıt ver. Her düzeltme ciddiye alınır ve gerekirse ilgili bültene not eklenir. Okuyucu geri bildirimi bu bültenin kalite güvencesinin önemli bir parçası.</p>
+  </div>
+</div>
+
+<!-- METODOLOJI -->
+<div class="sec">
+  <div class="sec-label">Metodoloji</div>
+  <h2>Analizler nasıl oluşturuluyor?</h2>
+
+  <div class="body">
+    <p>Her bülten birden fazla kaynaktan besleniyor: merkez bankası açıklamaları, uluslararası finans kuruluşlarının raporları (IMF, Dünya Bankası, BIS), akademik araştırmalar ve güvenilir haber ajansları. Tek bir kaynağa dayanılmıyor.</p>
+    <p>Çatışan veriler olduğunda her iki taraf da gösteriliyor. Senaryo analizi yapılırken olasılık ağırlıkları mevcut kanıtlara dayanıyor — keyfi değil.</p>
+    <p>Analizlerin çerçevelenmesinde Ray Dalio'nun borç döngüsü modeli, davranışsal ekonomi bulguları ve makroekonomik döngü yaklaşımları rehber olarak kullanılıyor. Ama herhangi bir modele körü körüne bağlılık yok — gerçeklik her zaman modelden önce gelir.</p>
+  </div>
+
+  <div class="box b-green">
+    <div class="box-title">Yapay zeka kullanımı hakkında</div>
+    <p>Bu bültenin hazırlanmasında yapay zeka araçlarından yararlanılıyor. Veri araştırması, taslak oluşturma ve düzenleme süreçlerinde. Ama her içerik insan gözünden geçiyor, doğrulanıyor ve son kararı insan veriyor. Yapay zeka bir araç — editör değil.</p>
+  </div>
+</div>
+
+<!-- İLETİŞİM -->
+<div class="sec" style="border-bottom:none;">
+  <div class="sec-label">İletişim</div>
+  <h2>Bağlantıya geç</h2>
+
+  <div class="body">
+    <p>Soru, düzeltme veya öneri için bültene abone olup yanıt verebilirsin. Her mesaj okunur.</p>
+    <p>Kavram dizisine eklenmesini istediğin bir konu var mı? Bültende anlaşılmayan bir yer mi oldu? Bir rakam yanlış mı? Hepsi önemli.</p>
+  </div>
+
+  <div class="analogy" style="margin-top:24px;">
+    <div class="analogy-tag">Son söz</div>
+    <p class="analogy-text">"CAK üç harftir. Merak edenler sorar. Sormak iyi bir başlangıçtır."</p>
+  </div>
+</div>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Hakkında</div>
+  <div class="ft-disc">Yatırım tavsiyesi değildir.<br>Kişisel araştırma notları.</div>
+</div>
+
+</body>
+</html>
