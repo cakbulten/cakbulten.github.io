@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Sözlük — Finansal Terimler</title>
+<meta name="description" content="Bültenlerde geçen finansal terimlerin sade ve anlaşılır açıklamaları. TCMB, PPK, TÜFE, spread, repo ve daha fazlası.">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --green-bd: #88cca8;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --blue-bd: #90b0e8;
+  --red: #b03030;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;max-width:700px;margin:0 auto;padding:0 0 80px;}
+
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}
+.nav a:hover{color:#c9a84c;}
+.nav-tag{color:#c9a84c;margin-left:auto;}
+
+.hd{padding:40px 40px 28px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+h1{font-family:'Instrument Serif',serif;font-size:44px;font-weight:400;line-height:1.05;letter-spacing:-1px;margin-bottom:8px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--gold);}
+.hd-sub{font-size:14px;color:var(--t2);line-height:1.6;max-width:480px;}
+
+/* ARAMA */
+.search-wrap{padding:20px 40px;border-bottom:1px solid var(--bd);background:var(--s1);position:sticky;top:0;z-index:10;}
+.search-inner{position:relative;}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--t3);font-size:14px;pointer-events:none;}
+#search{width:100%;background:var(--bg);border:1px solid var(--bd2);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 14px 10px 36px;outline:none;transition:border-color .15s;}
+#search:focus{border-color:var(--t1);}
+#search::placeholder{color:var(--t3);}
+.search-count{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--t3);margin-top:7px;}
+
+/* ALFABE NAV */
+.alpha-nav{padding:12px 40px;border-bottom:1px solid var(--bd);display:flex;flex-wrap:wrap;gap:4px;}
+.alpha-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;cursor:pointer;color:var(--t3);border:1px solid transparent;transition:all .1s;text-decoration:none;}
+.alpha-btn:hover{color:var(--t1);border-color:var(--bd);}
+.alpha-btn.has-terms{color:var(--t2);}
+.alpha-btn.active{background:var(--t1);color:#fff;border-color:var(--t1);}
+
+/* TERIMLER */
+.terms-wrap{padding:0 40px;}
+
+.letter-group{margin-top:32px;}
+.letter-group:first-child{margin-top:24px;}
+
+.letter-head{font-family:'Instrument Serif',serif;font-size:32px;font-weight:400;color:var(--bd2);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--bd);}
+
+.term{padding:16px 0;border-bottom:1px solid var(--bd);display:none;}
+.term.visible{display:block;}
+.term-word{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t1);margin-bottom:3px;display:flex;align-items:center;gap:10px;}
+.term-en{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--t3);}
+.term-cat{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;padding:2px 6px;border:1px solid;margin-left:auto;}
+.cat-makro{color:var(--blue);border-color:var(--blue-bd);background:var(--blue-lt);}
+.cat-yatr{color:var(--green);border-color:var(--green-bd);background:var(--green-lt);}
+.cat-kur{color:var(--gold);border-color:var(--gold-bd);background:var(--gold-lt);}
+.cat-tcmb{color:var(--red);border-color:#e8a0a0;background:#fdf0f0;}
+.term-def{font-size:14px;color:var(--t2);line-height:1.75;}
+.term-def strong{color:var(--t1);font-weight:500;}
+.term-note{font-size:12.5px;color:var(--t3);margin-top:6px;font-style:italic;line-height:1.6;}
+.term-link{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;margin-top:6px;display:inline-block;}
+.term-link:hover{text-decoration:underline;}
+
+.letter-group.hidden{display:none;}
+
+.no-result{padding:40px;text-align:center;color:var(--t3);font-family:'Instrument Serif',serif;font-size:20px;font-style:italic;display:none;}
+.no-result.show{display:block;}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;margin-top:32px;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.search-wrap,.alpha-nav,.terms-wrap,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:34px;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-tag">Sözlük</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Finansal Terimler Sözlüğü</div>
+  <h1>Finansal <em>Sözlük</em></h1>
+  <p class="hd-sub">Bültenlerde geçen terimlerin sade açıklamaları. Jargon değil, anlam.</p>
+</div>
+
+<div class="search-wrap">
+  <div class="search-inner">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="search" placeholder="Terim ara... (ör: enflasyon, repo, swap)" oninput="aramaYap()">
+  </div>
+  <div class="search-count" id="search-count">148 terim</div>
+</div>
+
+<div class="alpha-nav" id="alpha-nav"></div>
+
+<div class="terms-wrap" id="terms-wrap">
+  <div class="no-result" id="no-result">Bu terim sözlükte yok — bültende geçtiyse bildirin.</div>
+</div>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Sözlük · 2026</div>
+  <div class="ft-disc">Açıklamalar sade anlatım amaçlıdır.<br>Hukuki veya finansal tavsiye değildir.</div>
+</div>
+
+<script>
+const TERMS = [
+  // A
+  {w:"Açık Piyasa İşlemi",en:"Open Market Operation",cat:"tcmb",def:"Merkez bankasının piyasadaki para miktarını ayarlamak için tahvil alıp satması. Para çekmek için tahvil satar, para vermek için alır.",note:"TCMB'nin faiz koridorunu yönetmek için kullandığı temel araç."},
+  {w:"Ağırlıklı Ortalama Fonlama Maliyeti",en:"WAFC",cat:"tcmb",def:"TCMB'nin bankalara farklı kanallardan verdiği fonların ortalama faiz oranı. Politika faizinden farklı olabilir.",note:"Piyasa faizlerini doğrudan etkiler."},
+  {w:"Altın Standardı",en:"Gold Standard",cat:"makro",def:"Her banknot belirli miktarda altına karşılık geldiği para sistemi. 1971'de Nixon kararıyla tamamen terk edildi.",note:"Para Nedir kavram bülteninde ayrıntılı işlendi."},
+  {w:"Amerikan Depolanmış Sertifikası",en:"ADR – American Depositary Receipt",cat:"yatr",def:"Yabancı şirket hisselerinin ABD borsalarında işlem görmesini sağlayan sertifika. Türk şirketleri bu yolla NYSE'de işlem görebilir."},
+  {w:"Anapara",en:"Principal",cat:"yatr",def:"Kredi veya yatırımın faiz/getiri hesaplanmadan önceki asıl tutarı. 400.000 TL kredi çektiysen anapara 400.000 TL'dir.",note:"Faiz her zaman anapara üzerinden hesaplanır."},
+  {w:"Annuity",en:"Annuity",cat:"yatr",def:"Belirli aralıklarla ödenen sabit taksit. Konut kredisinde her ay ödediğin sabit taksit bir annuity örneğidir.",note:"Araçlar sayfasındaki kredi hesabı annuity formülü kullanır."},
+  {w:"Arbitraj",en:"Arbitrage",cat:"yatr",def:"Aynı varlığın farklı piyasalardaki fiyat farkından risksiz kâr etme. Gerçek arbitraj anında kapanır — çünkü herkes aynı fırsatı görür."},
+  {w:"Arz",en:"Supply",cat:"makro",def:"Piyasada satışa sunulan mal, hizmet veya varlık miktarı. Arz artınca fiyat düşer, azalınca yükselir."},
+
+  // B
+  {w:"Baz Etki",en:"Base Effect",cat:"makro",def:"Enflasyon karşılaştırmasında geçen yılın yüksek veya düşük tabanının bu yılın rakamını yapay olarak etkilemesi. Geçen yıl enflasyon %80'deyse, bu yıl %40 çıksa bile gerçekte fiyatlar hâlâ hızla artıyor demektir.",note:"Medyada 'enflasyon düştü' haberlerini değerlendirirken baz etkiye bak."},
+  {w:"Baz Puan",en:"Basis Point (bps)",cat:"makro",def:"Faiz oranlarında kullanılan ölçü birimi. 1 baz puan = %0,01. 100 baz puan = %1. 'TCMB 250 baz puan indirdi' demek faizi %2,5 düşürdü demektir.",note:"Küçük görünen fark büyük para miktarlarında ciddi etki yaratır."},
+  {w:"BES (Bireysel Emeklilik Sistemi)",en:"BES",cat:"yatr",def:"Devletin %30 katkı sağladığı gönüllü emeklilik tasarruf sistemi. Her 100 TL katkı için devlet 30 TL ekler. Çekimde vergi avantajı var.",note:"Araçlar sayfasında BES hesaplayıcı mevcuttur."},
+  {w:"Beta",en:"Beta",cat:"yatr",def:"Bir hissenin piyasaya göre oynaklığını ölçen katsayı. Beta=1 piyasayla aynı hareket, Beta=2 piyasanın iki katı oynak, Beta=0,5 yarı oynak demektir."},
+  {w:"Bilanço",en:"Balance Sheet",cat:"yatr",def:"Şirketin belirli bir andaki varlıkları, borçları ve özkaynağını gösteren mali tablo. Varlıklar = Borçlar + Özkaynak."},
+  {w:"Bileşik Faiz",en:"Compound Interest",cat:"yatr",def:"Kazanılan faizin anaparaya eklenerek bir sonraki dönemde de faiz kazanması. 'Faizin faizi.' Zaman uzadıkça etkisi dramatik biçimde büyür.",note:"Araçlar sayfasında bileşik faiz hesaplayıcı mevcuttur."},
+  {w:"Borsa",en:"Stock Exchange",cat:"yatr",def:"Hisse senetleri ve diğer menkul kıymetlerin alınıp satıldığı organize piyasa. Türkiye'de Borsa İstanbul (BIST)."},
+  {w:"BIST 100",en:"BIST 100",cat:"yatr",def:"Borsa İstanbul'un en büyük 100 şirketinin hisse senetlerinden oluşan endeks. Türk hisse senedi piyasasının genel sağlığının göstergesi."},
+  {w:"Bono",en:"Bond / Treasury Bill",cat:"yatr",def:"Devlet veya şirketin borçlanmak için çıkardığı kısa vadeli menkul kıymet. Hazine bonosu 1 yıldan kısa, devlet tahvili 1 yıldan uzun vadelidir."},
+  {w:"BSMV (Banka Sigorta Muamele Vergisi)",en:"BSMV",cat:"yatr",def:"Banka ve sigorta işlemlerinden alınan vergi. Kredi faizi üzerinden hesaplanır ve gerçek kredi maliyetini artırır.",note:"Kredi çekerken nominal faize BSMV ve KKDF eklenince efektif maliyet yükselir."},
+
+  // C
+  {w:"Cari Açık",en:"Current Account Deficit",cat:"makro",def:"Bir ülkenin ithalatının ihracatından fazla olması. Türkiye enerji ithalatçısı olduğundan kronik cari açık verir. Kur baskısının önemli kaynaklarından.",note:"Her 10 dolarlık petrol artışı Türkiye'nin cari açığına ~4-5 milyar dolar ek yük ekler."},
+  {w:"CDS (Kredi Temerrüt Takası)",en:"Credit Default Swap",cat:"yatr",def:"Bir ülkenin veya şirketin borçlarını geri ödememe riskine karşı alınan sigorta sözleşmesi. CDS değeri ne kadar yüksekse risk algısı o kadar yüksek.",note:"Türkiye 5 yıllık CDS'i Mart 2026'da 240 bp — risk algısının yüksek olduğuna işaret eder."},
+  {w:"CPI (Tüketici Fiyat Endeksi)",en:"Consumer Price Index",cat:"makro",def:"ABD'nin resmi enflasyon göstergesi. Fed'in politika kararlarını doğrudan etkiler. Türkiye karşılığı TÜFE'dir.",note:"Her ay açıklanan CPI verisi küresel piyasaları etkiler."},
+
+  // D
+  {w:"DCA (Düzenli Maliyet Ortalaması)",en:"Dollar Cost Averaging",cat:"yatr",def:"Her ay sabit miktarda yatırım yapma stratejisi. Piyasa yüksekken az birim, düşükken çok birim alınır ve ortalama maliyet dengelenir.",note:"Zamanlamayı tahmin etmeye çalışmadan uzun vadeli birikim yapmanın en yaygın yöntemi."},
+  {w:"Deflasyon",en:"Deflation",cat:"makro",def:"Genel fiyat seviyesinin düşmesi. Enflasyonun tersi ama aynı derecede tehlikeli: insanlar fiyat düşer diye alımı erteler, ekonomi durgunlaşır.",note:"Japonya 1990-2010 arasında deflasyon tuzağında kaldı — 'Kayıp On Yıllar' olarak anılır."},
+  {w:"Devalüasyon",en:"Devaluation",cat:"kur",def:"Bir ülkenin para biriminin değerini kasıtlı olarak düşürmesi. Sabit kur rejimlerinde yaşanır; serbest kurda piyasa belirler."},
+  {w:"Döviz Rezervi",en:"Foreign Exchange Reserve",cat:"tcmb",def:"Merkez bankasının elinde tuttuğu yabancı para, altın ve diğer uluslararası varlıklar. TL'yi savunmak, ithalat ödemek ve kriz dönemlerinde kullanılır.",note:"Brüt rezerv ve net rezerv farklıdır — swap anlaşmaları dahil edilince net rezerv daha düşük çıkar."},
+  {w:"Dolarizasyon",en:"Dollarization",cat:"kur",def:"Halkın TL yerine dolar/euro tutmayı tercih etmesi. Bireysel olarak akılcı ama toplu hareket TL'ye olan talebi düşürerek kuru daha da bozar.",note:"Türkiye'de 2021-2023 döneminde dolarizasyon zirve yaptı; KKM bu tuzağı kırmak için tasarlandı."},
+  {w:"Durasyon",en:"Duration",cat:"yatr",def:"Tahvilin faiz değişimlerine duyarlılığını ölçen süre. Vade uzadıkça durasyon artar, faiz değişimlerinde fiyat daha çok hareket eder."},
+
+  // E
+  {w:"Efektif Faiz",en:"Effective Interest Rate",cat:"yatr",def:"KKDF, BSMV ve diğer masraflar dahil edilince oluşan gerçek kredi maliyeti. Bankaların reklamlarda gösterdiği nominal faizden daima yüksektir."},
+  {w:"Emisyon",en:"Money Emission",cat:"tcmb",def:"Merkez bankasının piyasaya para sürmesi. Fazla emisyon enflasyonu besler."},
+  {w:"Endeks",en:"Index",cat:"yatr",def:"Belirli hisse senetlerinin bir araya getirilerek oluşturulan ölçüm aracı. BIST 100, S&P 500 birer endekstir."},
+  {w:"Enflasyon",en:"Inflation",cat:"makro",def:"Genel fiyat seviyesinin zaman içinde yükselmesi; paranın alım gücünün düşmesi. Tek bir ürün değil, tüm sepetteki ortalama fiyat artışı.",note:"Enflasyon kavram bülteninde ayrıntılı işlendi."},
+  {w:"Eurobond",en:"Eurobond",cat:"yatr",def:"Türk devleti veya şirketlerinin döviz cinsinden (dolar veya euro) ihraç ettiği tahvil. Hem kur koruması hem faiz geliri sunar."},
+
+  // F
+  {w:"Faiz",en:"Interest Rate",cat:"makro",def:"Paranın zaman değerinin fiyatı. Bir borç için ödenen kira. Merkez bankası politika faizi tüm ekonomideki faizlerin çıkış noktasıdır.",note:"Faiz kavram bülteninde ayrıntılı işlendi."},
+  {w:"Fed (Federal Reserve)",en:"Federal Reserve",cat:"tcmb",def:"ABD Merkez Bankası. Dolar para politikasını belirler; kararları tüm dünya piyasalarını etkiler.",note:"FOMC toplantılarında alınan faiz kararları küresel sermaye hareketlerini şekillendirir."},
+  {w:"Fiat Para",en:"Fiat Money",cat:"makro",def:"Arkasında altın veya fiziksel bir varlık olmayan, yalnızca devletin 'geçerlidir' demesiyle değer kazanan para. Bugün tüm paralar fiat paradır.",note:"Para Nedir kavram bülteninde ayrıntılı işlendi."},
+  {w:"FIRE (Finansal Bağımsızlık)",en:"Financial Independence, Retire Early",cat:"yatr",def:"Yıllık harcamanın 25 katı birikim yaparak erken emekliliği hedefleyen strateji. %4 çekim oranıyla teorikte sonsuza kadar yaşanabilir.",note:"Araçlar sayfasındaki 'Ne Zaman Emekli?' hesabı bu prensibi kullanır."},
+  {w:"FOMC",en:"Federal Open Market Committee",cat:"tcmb",def:"Fed'in para politikası kararlarını aldığı komite. Yılda 8 kez toplanır; faiz kararları ve ekonomik projeksiyonlar bu toplantılarda açıklanır."},
+  {w:"Fonlama Maliyeti",en:"Funding Cost",cat:"tcmb",def:"Bankaların merkez bankasından veya piyasadan borçlandığında ödediği faiz. Bu maliyet mevduat ve kredi faizlerine yansır."},
+  {w:"Fon (Yatırım Fonu)",en:"Investment Fund",cat:"yatr",def:"Çok sayıda yatırımcının parasını bir araya getirerek profesyonel yönetimle çeşitli varlıklara yatıran araç. TEFAS'ta işlem gören fonlar bu kategoridedir."},
+  {w:"Forward",en:"Forward Contract",cat:"yatr",def:"Gelecekte belirli bir tarihte, bugün kararlaştırılan fiyattan alım/satım sözleşmesi. Döviz riskini hedge etmek için yaygın kullanılır."},
+
+  // G
+  {w:"Gayrisafi Yurt İçi Hasıla (GSYİH)",en:"GDP – Gross Domestic Product",cat:"makro",def:"Bir ülkenin belirli dönemde ürettiği tüm mal ve hizmetlerin toplam değeri. Ekonominin büyüklüğünü ve büyüme hızını ölçer."},
+  {w:"Getiri",en:"Return / Yield",cat:"yatr",def:"Bir yatırımdan elde edilen kazanç. Nominal getiri TL bazlı, reel getiri enflasyon düşüldükten sonraki gerçek kazanç."},
+  {w:"Gram Altın",en:"Gold per Gram",cat:"yatr",def:"Uluslararası ons altın fiyatının TL/gram cinsinden karşılığı. Hem dolar/TL kurundan hem ons altın fiyatından etkilenir."},
+
+  // H
+  {w:"Hazine",en:"Treasury",cat:"makro",def:"Devletin mali işlerini yürüten kurum. Hazine bonosu ve devlet tahvili çıkararak borçlanır; bu borçlanma piyasa faizlerini etkiler."},
+  {w:"Hedge",en:"Hedge",cat:"yatr",def:"Bir yatırımdaki riski azaltmak için zıt yönde pozisyon almak. Dolar borcun varsa dolar varlık tutmak basit bir hedge örneğidir."},
+  {w:"Hiperenflasyon",en:"Hyperinflation",cat:"makro",def:"Aylık %50'yi aşan aşırı enflasyon. 1923 Almanya'sında ekmek için el arabası dolusu banknot gerekliydi. Paranın güven sisteminin çökmesiyle tetiklenir."},
+
+  // İ
+  {w:"İhracat",en:"Export",cat:"makro",def:"Yurt içinde üretilen mal ve hizmetlerin yurt dışına satılması. Döviz girişi sağlar, cari açığı azaltır."},
+  {w:"İthalat",en:"Import",cat:"makro",def:"Yurt dışından mal ve hizmet alımı. Döviz çıkışı yaratır, cari açığı artırır. Türkiye enerji ve ara mal ithalatçısı."},
+  {w:"İşsizlik Oranı",en:"Unemployment Rate",cat:"makro",def:"İş aramakta olan ve bulamayan kişilerin toplam iş gücüne oranı. Ekonominin genel sağlığının önemli göstergesi."},
+
+  // K
+  {w:"Kaldıraç",en:"Leverage",cat:"yatr",def:"Sahip olduğundan daha fazla pozisyon almak için borç kullanmak. Getiriyi büyütür ama zararı da büyütür — ters gidince çarpıcı kayıp yaratır."},
+  {w:"Kaydi Para",en:"Book Money / Deposit Money",cat:"makro",def:"Fiziksel karşılığı olmayan, banka defterlerinde kayıtlı para. Dolaşımdaki paranın büyük çoğunluğu kaydi paradır.",note:"Bankalar Nasıl Para Yaratır kavram bülteninde ayrıntılı işlendi."},
+  {w:"KKDF (Kaynak Kullanımını Destekleme Fonu)",en:"KKDF",cat:"yatr",def:"Tüketici kredilerinden alınan fon kesintisi. Kredi faizini efektif olarak artırır.",note:"Tüketici kredilerinde %15, konut kredilerinde %0 olarak uygulanır."},
+  {w:"KKM (Kur Korumalı Mevduat)",en:"FX-Protected Deposit",cat:"kur",def:"TL mevduatta tutulan paraya, kur kayıplarına karşı devlet güvencesi sağlayan sistem. 2021 sonunda dolarizasyonu frenlemek için devreye alındı.",note:"Maliyeti devlet bilançosuna yükledi ve tartışmalı olmaya devam ediyor."},
+  {w:"Korelasyon",en:"Correlation",cat:"yatr",def:"İki varlığın birbirine ne kadar paralel hareket ettiği. +1 tam aynı yön, -1 tam zıt yön, 0 ilişkisiz. Çeşitlendirme için düşük korelasyonlu varlıklar seçilir."},
+  {w:"Kur",en:"Exchange Rate",cat:"kur",def:"Bir para birimini başka biriyle değiştirmenin fiyatı. USD/TRY=44 demek 1 dolar için 44 TL ödeniyor demektir.",note:"Kur kavram bülteninde ayrıntılı işlendi."},
+
+  // L
+  {w:"Likidite",en:"Liquidity",cat:"yatr",def:"Bir varlığı hızla ve değer kaybetmeden nakde çevirebilme kolaylığı. Nakit en likit varlık, gayrimenkul en az likit."},
+  {w:"Likidite Tuzağı",en:"Liquidity Trap",cat:"makro",def:"Faizlerin sıfıra indiğinde bile para politikasının işe yaramaması durumu. Japonya 1990'larda yaşadı."},
+
+  // M
+  {w:"M0 / M1 / M2",en:"Money Supply",cat:"makro",def:"Para arzının farklı genişlikteki tanımları. M0 fiziksel para + banka rezervleri; M1 M0 + vadesiz mevduat; M2 M1 + vadeli mevduat.",note:"Bankalar Nasıl Para Yaratır kavram bülteninde ayrıntılı işlendi."},
+  {w:"Mevduat",en:"Deposit",cat:"yatr",def:"Bankaya yatırılan para karşılığında alınan faiz getirisi. Nominal faiz yüksek görünse de reel faiz (enflasyon düşüldükten sonra) negatif olabilir."},
+  {w:"MKK (Merkezi Kayıt Kuruluşu)",en:"CSD – Central Securities Depository",cat:"yatr",def:"Türkiye'de hisse senetlerinin kayıt ve saklama işlemlerini yürüten kurum. Hisseler senin adına MKK'da kayıtlıdır — aracı kurum batsa bile hisseler senin kalır."},
+  {w:"Monetizasyon",en:"Monetization",cat:"tcmb",def:"Devlet borçlarının merkez bankası tarafından para basılarak karşılanması. Enflasyona yol açtığı için merkez bankası bağımsızlığının zedelendiğinin işareti."},
+
+  // N
+  {w:"Negatif Reel Faiz",en:"Negative Real Interest Rate",cat:"makro",def:"Enflasyonun nominal faizden yüksek olduğu durum. Bankada para tutmak reel değer kaybettirir. 2021-2023 Türkiye'sinde yaşandı.",note:"Faiz kavram bülteninde reel vs nominal faiz ayrımı işlendi."},
+  {w:"Nominal Faiz",en:"Nominal Interest Rate",cat:"makro",def:"Enflasyon hesaba katılmadan gösterilen faiz oranı. Gerçek kazancı görmek için nominal faizden enflasyonu çıkarmak gerekir.",note:"Reel faiz = Nominal faiz − Enflasyon."},
+
+  // O
+  {w:"OPEC+",en:"OPEC+",cat:"makro",def:"Ham petrol üreticisi ülkelerin oluşturduğu birlik. Üretim kararları petrol fiyatlarını ve dolayısıyla küresel enflasyonu doğrudan etkiler.",note:"5 Nisan 2026 OPEC+ kararı petrol fiyat tabanı için belirleyici."},
+  {w:"Ons Altın",en:"Gold (Troy Ounce)",cat:"yatr",def:"Uluslararası altın piyasasında kullanılan ağırlık birimi. 1 troy ons = 31,1 gram. Fiyatı dolar cinsindendir."},
+
+  // P
+  {w:"Para Arzı",en:"Money Supply",cat:"makro",def:"Ekonomide dolaşan toplam para miktarı. Merkez bankası para arzını kontrol ederek enflasyon ve büyümeyi yönetmeye çalışır."},
+  {w:"Para Çarpanı",en:"Money Multiplier",cat:"makro",def:"Merkez bankasının yarattığı her 1 liranın bankacılık sistemi içinde kaç liraya dönüştüğünü gösteren katsayı. 1 / rezerv oranı formülüyle hesaplanır.",note:"Bankalar Nasıl Para Yaratır kavram bülteninde ayrıntılı işlendi."},
+  {w:"Pasif Gelir",en:"Passive Income",cat:"yatr",def:"Aktif çalışma gerektirmeden elde edilen gelir. Kira, temettü, tahvil faizi pasif gelir örnekleri."},
+  {w:"PCE (Kişisel Tüketim Harcamaları)",en:"Personal Consumption Expenditures",cat:"tcmb",def:"Fed'in enflasyon ölçümünde tercih ettiği gösterge. CPI'dan biraz daha düşük çıkar ama Fed bunu baz alır.",note:"Her ay BEA tarafından açıklanır; açıklama günü piyasalarda yüksek volatilite yaşanabilir."},
+  {w:"PPK (Para Politikası Kurulu)",en:"Monetary Policy Committee",cat:"tcmb",def:"TCMB'nin faiz kararlarını alan karar organı. Yılda 8 kez toplanır; kararlar ve karar metni piyasaları doğrudan etkiler.",note:"PPK metnindeki dil değişiklikleri faiz yönü hakkında sinyal verir."},
+  {w:"Portföy",en:"Portfolio",cat:"yatr",def:"Bir kişi veya kurumun sahip olduğu tüm yatırım araçlarının toplamı. Hisse, tahvil, altın, kripto bir arada portföy oluşturur."},
+
+  // R
+  {w:"Reel Faiz",en:"Real Interest Rate",cat:"makro",def:"Nominal faizden enflasyon çıkarıldıktan sonra kalan gerçek kazanç. Negatif reel faiz parann değer kaybettiğini gösterir.",note:"Reel faiz = Nominal faiz − Enflasyon."},
+  {w:"Repo",en:"Repo – Repurchase Agreement",cat:"tcmb",def:"Merkez bankasının bankalara kısa vadeli (genellikle 1 hafta) borç vermesi. 'Repo faizi' bu işlemdeki faiz oranıdır ve TCMB'nin temel politika aracıdır."},
+  {w:"Rezerv Oranı",en:"Reserve Ratio",cat:"tcmb",def:"Bankaların topladıkları mevduatın merkez bankasında tutmak zorunda oldukları minimum oranı. Bu oran para çarpanını belirler."},
+  {w:"Risk",en:"Risk",cat:"yatr",def:"Beklenen sonuçtan sapma ihtimali. Sadece zarar değil, her yönde belirsizlik. 'Risksiz yatırım' yoktur — her seçeneğin kendi riski vardır.",note:"Risk Nedir kavram bülteninde ayrıntılı işlendi."},
+
+  // S
+  {w:"S&P 500",en:"S&P 500",cat:"yatr",def:"ABD'nin en büyük 500 şirketini kapsayan borsa endeksi. Global hisse senedi piyasasının en önemli göstergelerinden biri.",note:"Son 50 yılın yıllık ortalama nominal getirisi yaklaşık %10 (dolar bazlı)."},
+  {w:"Satın Alma Gücü Paritesi",en:"Purchasing Power Parity (PPP)",cat:"kur",def:"Aynı mal sepetiyle farklı ülkelerde ne kadar para harcandığını karşılaştıran ölçüm. Enflasyon farkı büyüyünce kur teorik olarak buna yakınsıyor."},
+  {w:"SEP (Summary of Economic Projections)",en:"SEP",cat:"tcmb",def:"Fed'in çeyreklik olarak yayımladığı ekonomik tahmin raporu. 'Nokta grafiği' bu raporun parçasıdır; Fed üyelerinin faiz beklentilerini gösterir.",note:"18 Mart 2026 FOMC toplantısında SEP güncellenecek — piyasalar için kritik."},
+  {w:"Spread",en:"Spread",cat:"yatr",def:"İki oran ya da fiyat arasındaki fark. Alış-satış farkı (bid-ask spread), şirket tahvili ile devlet tahvili arasındaki getiri farkı sık kullanılan örnekler."},
+  {w:"Stagflasyon",en:"Stagflation",cat:"makro",def:"Enflasyonun yüksek, büyümenin durgun olduğu tehlikeli ekonomik durum. Merkez bankası faiz artırırsa durgunluğu kötüleştirir, artırmazsa enflasyonu besler. 1970'ler ABD'sinin kabusuydu.",note:"2026 Kara Cuma bülteninde stagflasyon riskine ayrıntılı yer verildi."},
+  {w:"Swap",en:"Currency Swap",cat:"kur",def:"İki tarafın para birimlerini belirli süre için değiş tokuş etmesi. TCMB'nin yabancı merkez bankalarıyla yaptığı swap anlaşmaları rezervlere dahil edildiğinde görüntüyü değiştirir.",note:"Brüt rezerv ile net rezerv farkının büyük kısmı swap'lardan kaynaklanır."},
+
+  // T
+  {w:"Tahvil",en:"Bond",cat:"yatr",def:"Devlet veya şirketin belirli vadeyle borçlandığı menkul kıymet. Anapara ve faiz ödemeleri önceden belirlidir. Faiz artınca tahvil fiyatı düşer.",note:"Faiz kavram bülteninde tahvil-faiz ters orantısı açıklandı."},
+  {w:"Takasbank",en:"Takasbank",cat:"yatr",def:"Türkiye'de menkul kıymet takası ve saklamasını yapan merkezi kurum. Borsada işlem yapıldığında alıcı ve satıcı arasında güvence sağlar."},
+  {w:"Talep",en:"Demand",cat:"makro",def:"Piyasada alınmak istenen mal, hizmet veya varlık miktarı. Talep artınca fiyat yükselir, azalınca düşer."},
+  {w:"TCMB (Türkiye Cumhuriyet Merkez Bankası)",en:"CBRT",cat:"tcmb",def:"Türkiye'nin para politikasını belirleyen merkez bankası. Politika faizini belirler, döviz rezervlerini yönetir, fiyat istikrarını hedefler.",note:"Bağımsızlığı ve güvenilirliği TL'nin değeri için kritik öneme sahip."},
+  {w:"TEFAS",en:"TEFAS",cat:"yatr",def:"Türkiye Elektronik Fon Alım Satım Platformu. Farklı şirketlerin yönettiği yatırım fonlarının tek noktadan alınıp satıldığı platform."},
+  {w:"Temettü",en:"Dividend",cat:"yatr",def:"Şirketin kârını hissedarlarına dağıtması. Pasif gelir kaynağı olarak değerlendirilir."},
+  {w:"TMSF (Tasarruf Mevduatı Sigorta Fonu)",en:"SDIF",cat:"yatr",def:"Banka iflasında mevduatları belirli limite kadar güvence altına alan devlet fonu. 1 Ocak 2026 itibarıyla limit kişi başı, banka başına 1,2 milyon TL.",note:"Bu limitin üzerindeki mevduatlar güvence kapsamı dışındadır."},
+  {w:"TÜFE (Tüketici Fiyat Endeksi)",en:"CPI – Turkey",cat:"makro",def:"TÜİK'in her ay açıkladığı Türkiye enflasyon göstergesi. Ortalama bir hanenin alışveriş sepetindeki fiyat değişimini ölçer.",note:"Resmi TÜFE ile vatandaşın hissettiği enflasyon çoğu zaman örtüşmez."},
+  {w:"TÜFEX",en:"CPI-Indexed Bond",cat:"yatr",def:"Her ay anaparası TÜFE oranında güncellenen devlet tahvili. Enflasyona karşı en temiz TL koruma aracı olarak değerlendirilir.",note:"Bankalar veya aracı kurumlar üzerinden alınabilir."},
+
+  // U
+  {w:"ÜFE (Üretici Fiyat Endeksi)",en:"PPI – Producer Price Index",cat:"makro",def:"Fabrika çıkış fiyatlarının değişimini ölçen endeks. TÜFE'nin öncü göstergesi sayılır — ÜFE yükselirse 2-3 ay sonra TÜFE de yükselir."},
+  {w:"USD/TRY",en:"USD/TRY",cat:"kur",def:"Dolar/Türk lirası kur paritesi. Kaç TL verince 1 dolar alınabileceğini gösterir. Mart 2026 itibarıyla yaklaşık 44 TL."},
+
+  // V
+  {w:"Varlık Balonu",en:"Asset Bubble",cat:"yatr",def:"Bir varlığın gerçek değerinin çok üzerinde fiyatlanması. Genellikle ucuz kredi dönemlerinde oluşur, ani çöküşle sonuçlanır.",note:"2000 dot-com balonu ve 2008 konut balonu en bilinen örnekler."},
+  {w:"Volatilite",en:"Volatility",cat:"yatr",def:"Fiyatların ne kadar büyük salınımlar yaptığının ölçüsü. Yüksek volatilite hem risk hem fırsat içerir. Uzun vadeli yatırımcı için volatilite, kısa vadeli için tehlike.",note:"Risk Nedir kavram bülteninde volatilite vs risk ayrımı ele alındı."},
+
+  // Y
+  {w:"Yatırım Fonu",en:"Mutual Fund",cat:"yatr",def:"Çok sayıda yatırımcının parasını birleştirip profesyonel yönetimle çeşitli varlıklara yatıran araç. TEFAS'ta işlem görür."},
+  {w:"Yüksek Faiz Tuzağı",en:"High Rate Trap",cat:"makro",def:"Yüksek faizin hem büyümeyi hem yatırımı hem de kredi kullanımını bastırarak ekonomiyi daraltması. Enflasyonla savaşın yan etkisi."},
+
+  // Z
+  {w:"Zombi Şirket",en:"Zombie Company",cat:"makro",def:"Normalde batması gereken ama ucuz kredi sayesinde ayakta kalan şirket. Verimli şirketlerin kaynak bulmasını zorlaştırır.",note:"Sıfır faiz döneminin önemli yan etkilerinden biri. Faiz kavram bülteninde işlendi."},
+];
+
+// Alfabetik sırala
+TERMS.sort((a,b) => a.w.localeCompare(b.w, 'tr'));
+
+// Grupla
+function grupla() {
+  const groups = {};
+  TERMS.forEach(t => {
+    const harf = t.w[0].toUpperCase();
+    if (!groups[harf]) groups[harf] = [];
+    groups[harf].push(t);
+  });
+  return groups;
+}
+
+function render(harfler, terms) {
+  const wrap = document.getElementById('terms-wrap');
+  // Mevcut letter-group'ları temizle
+  wrap.querySelectorAll('.letter-group').forEach(e => e.remove());
+
+  const groups = {};
+  terms.forEach(t => {
+    const h = t.w[0].toUpperCase();
+    if (!groups[h]) groups[h] = [];
+    groups[h].push(t);
+  });
+
+  Object.keys(groups).sort((a,b)=>a.localeCompare(b,'tr')).forEach(harf => {
+    const g = document.createElement('div');
+    g.className = 'letter-group';
+    g.id = 'group-' + harf;
+    g.innerHTML = `<div class="letter-head">${harf}</div>` +
+      groups[harf].map(t => `
+        <div class="term visible">
+          <div class="term-word">
+            ${t.w}
+            ${t.en ? `<span class="term-en">${t.en}</span>` : ''}
+            <span class="term-cat cat-${t.cat}">${{makro:'Makro',yatr:'Yatırım',kur:'Kur',tcmb:'MB/Politika'}[t.cat]}</span>
+          </div>
+          <div class="term-def">${t.def}</div>
+          ${t.note ? `<div class="term-note">${t.note}</div>` : ''}
+        </div>`).join('');
+    wrap.insertBefore(g, document.getElementById('no-result'));
+  });
+
+  // Alpha nav güncelle
+  renderAlpha(Object.keys(groups));
+  document.getElementById('search-count').textContent = terms.length + ' terim';
+}
+
+function renderAlpha(activeHarfler) {
+  const nav = document.getElementById('alpha-nav');
+  const tumHarfler = 'ABCDEFGHIİJKLMNOPRSTUVYZ'.split('');
+  nav.innerHTML = tumHarfler.map(h => {
+    const var_ = activeHarfler.includes(h);
+    return `<a class="alpha-btn${var_?' has-terms':''}" href="${var_?'#group-'+h:'#'}" onclick="return ${var_?'true':'false'}">${h}</a>`;
+  }).join('');
+}
+
+function aramaYap() {
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  const filtered = q
+    ? TERMS.filter(t =>
+        t.w.toLowerCase().includes(q) ||
+        (t.en||'').toLowerCase().includes(q) ||
+        t.def.toLowerCase().includes(q))
+    : TERMS;
+
+  render([], filtered);
+
+  const noResult = document.getElementById('no-result');
+  noResult.classList.toggle('show', filtered.length === 0);
+}
+
+// İlk render
+render([], TERMS);
+</script>
+
+</body>
+</html>
