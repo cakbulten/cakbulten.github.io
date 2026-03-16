@@ -314,11 +314,11 @@ h1 em{font-style:italic;color:var(--gold);}
     </div>
     <div class="result-grid">
       <div class="result-cell">
-        <div class="rc-label">Varlık son değeri</div>
+        <div class="rc-label">Dönem sonu kalan</div>
         <div class="rc-val pos" id="r-k-varlik">—</div>
       </div>
       <div class="result-cell">
-        <div class="rc-label">Toplam ödenen</div>
+        <div class="rc-label">Ödenen faiz</div>
         <div class="rc-val neg" id="r-k-odeme">—</div>
       </div>
       <div class="result-cell">
@@ -580,50 +580,47 @@ function hesaplaKredi() {
   const getiriYillik = parseFloat(document.getElementById('k-getiri').value)/100;
   const enf = parseFloat(document.getElementById('k-enf').value)/100;
   const y = parseFloat(document.getElementById('k-sure').value)||3;
-  const n = y * 12; // toplam taksit sayısı
+  const n = y * 12;
 
-  // Aylık faiz oranı
   const r12 = faizYillik / 12;
+  const g12 = getiriYillik / 12;
 
-  // Sabit aylık taksit (annuity formülü)
+  // Sabit aylık taksit (annuity)
   const taksit = r12 === 0
     ? K / n
     : K * r12 * Math.pow(1+r12, n) / (Math.pow(1+r12, n) - 1);
 
-  // Toplam ödenen
+  // Self-financing: varlık büyür, her ay taksit kadar çıkar
+  let varlik = K;
+  for (let i = 0; i < n; i++) {
+    varlik = varlik * (1 + g12) - taksit;
+    if (varlik < 0) { varlik = 0; break; } // Varlık tükendi
+  }
+
   const toplamOdeme = taksit * n;
   const toplamFaiz = toplamOdeme - K;
-
-  // Varlık değeri: K baştan alındı, tüm süre boyunca büyüdü
-  const getiri12 = getiriYillik / 12;
-  const varlikDegeri = K * Math.pow(1 + getiri12, n);
-
-  // Net sonuç: varlık değeri − toplam ödenen taksitler
-  const net = varlikDegeri - toplamOdeme;
-
-  // Reel kredi faizi
+  const net = varlik; // Başta 0 yatırdık (kredi), sonda kalan = net kâr
   const reelFaiz = ((1 + faizYillik) / (1 + enf) - 1) * 100;
 
   const netEl = document.getElementById('r-k-net');
-  netEl.textContent = (net >= 0 ? '+' : '') + fmt(net) + ' TL';
-  netEl.style.color = net >= 0 ? '#fff' : '#f5a5a5';
+  netEl.textContent = (net > 0 ? '+' : '') + fmt(net) + ' TL';
+  netEl.style.color = net > 0 ? '#fff' : '#f5a5a5';
 
   document.getElementById('r-k-not').textContent =
-    'Aylık taksit: ' + fmt(taksit) + ' TL · Toplam ödeme: ' + fmt(toplamOdeme) + ' TL · Varlık son değer: ' + fmt(varlikDegeri) + ' TL';
+    'Aylık taksit: ' + fmt(taksit) + ' TL — taksitler varlıktan karşılandı · Dönem sonu kalan: ' + fmt(varlik) + ' TL';
 
-  document.getElementById('r-k-varlik').textContent = fmt(varlikDegeri) + ' TL';
-  document.getElementById('r-k-odeme').textContent = fmt(toplamOdeme) + ' TL';
+  document.getElementById('r-k-varlik').textContent = fmt(varlik) + ' TL';
+  document.getElementById('r-k-odeme').textContent = fmt(toplamFaiz) + ' TL faiz';
 
   const reelEl = document.getElementById('r-k-reel');
   reelEl.textContent = '%' + reelFaiz.toFixed(1);
   reelEl.className = 'rc-val ' + (reelFaiz > 0 ? 'neg' : 'pos');
 
-  // Aylık taksit karşılanabilir mi? (gelir kontrolü için ipucu)
-  const yorum = net > 0
-    ? `Pencere açık. Varlık getirisi kredi maliyetini ${fmt(net)} TL aşıyor. Aylık ${fmt(taksit)} TL taksiti karşılayabilmek şart — nakit akışını kontrol et.`
-    : reelFaiz < 0
-      ? `Reel faiz negatif (%${reelFaiz.toFixed(1)}) yani enflasyon borcu eritiyor. Ama varlık getirisi toplam ödemeyi karşılamıyor — ${fmt(Math.abs(net))} TL açık var. Daha yüksek getirili varlık dene.`
-      : `Faiz varlığın getirisini ${fmt(Math.abs(net))} TL aşıyor. Bu parametrelerle pencere kapalı. Varlık getirisini veya kredi faizini değiştir.`;
+  const yorum = varlik > K * 0.2
+    ? `Varlık taksitleri karşıladıktan sonra ${fmt(net)} TL bıraktı. Pencere açık ama aylık ${fmt(taksit)} TL taksit yükü göz önünde bulundurulmalı.`
+    : varlik > 0
+      ? `Varlık taksitleri zar zor karşıladı, sonda ${fmt(net)} TL kaldı. Pratik olarak başa baş — ekstra gelir olmadan riskli.`
+      : `Varlık getirisi taksitleri karşılamaya yetmedi — varlık eridi. Bu parametrelerle self-financing model çalışmıyor.`;
   document.getElementById('r-k-yorum').textContent = yorum;
   showResult('r-kredi');
 }
