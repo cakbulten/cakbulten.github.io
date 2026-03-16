@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Kavram — Enflasyonda Borçlanmak</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --red: #b03030;
+  --red-lt: #fdf0f0;
+  --red-bd: #e8a0a0;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --green-bd: #88cca8;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --blue-bd: #90b0e8;
+  --amber: #8a4c10;
+  --amber-lt: #fdf4ea;
+  --amber-bd: #e0b078;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;max-width:700px;margin:0 auto;padding:0 0 100px;}
+
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}
+.nav a:hover{color:#c9a84c;}
+.nav-series{color:#1848a0;background:#eef3fc;padding:2px 8px;margin-left:auto;font-size:9px;}
+
+.hd{padding:48px 40px 36px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+.series-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--blue-bd);background:var(--blue-lt);padding:5px 12px;margin-bottom:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);}
+.series-num{background:var(--blue);color:#fff;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;}
+h1{font-family:'Instrument Serif',serif;font-size:48px;font-weight:400;line-height:1.05;letter-spacing:-1.5px;margin-bottom:8px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--gold);}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:18px;font-weight:400;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;}
+
+.sec{padding:32px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+.sec-label.lv1{color:var(--green);}
+.sec-label.lv2{color:var(--blue);}
+.sec-label.lv3{color:var(--amber);}
+.sec-label.lv4{color:var(--red);}
+h2{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;line-height:1.2;margin-bottom:16px;color:var(--t1);}
+h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t1);margin:20px 0 8px;}
+.body{font-size:15px;color:var(--t2);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+.body em{font-style:italic;color:var(--t1);}
+
+.box{border:1px solid;padding:18px 22px;margin:20px 0;font-size:14px;line-height:1.7;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;font-weight:500;}
+.b-gold{background:var(--gold-lt);border-color:var(--gold-bd);}
+.b-gold .box-title{color:var(--gold);}
+.b-gold p{color:var(--t2);}
+.b-green{background:var(--green-lt);border-color:var(--green-bd);}
+.b-green .box-title{color:var(--green);}
+.b-green p{color:var(--t2);}
+.b-red{background:var(--red-lt);border-color:var(--red-bd);}
+.b-red .box-title{color:var(--red);}
+.b-red p{color:var(--t2);}
+.b-blue{background:var(--blue-lt);border-color:var(--blue-bd);}
+.b-blue .box-title{color:var(--blue);}
+.b-blue p{color:var(--t2);}
+.b-amber{background:var(--amber-lt);border-color:var(--amber-bd);}
+.b-amber .box-title{color:var(--amber);}
+.b-amber p{color:var(--t2);}
+
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:20px 24px;margin:20px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:19px;color:var(--t1);line-height:1.5;font-style:italic;}
+
+.formula{background:var(--s1);border:1px solid var(--bd2);padding:18px 22px;margin:20px 0;font-family:'DM Mono',monospace;font-size:13px;color:var(--t1);text-align:center;letter-spacing:.04em;}
+.formula span{color:var(--gold);}
+.formula small{display:block;font-size:11px;color:var(--t3);margin-top:8px;font-family:'DM Sans',sans-serif;letter-spacing:0;font-style:italic;}
+
+/* Seçenek kartları */
+.option-grid{display:flex;flex-direction:column;gap:1px;background:var(--bd);margin:20px 0;}
+.option{background:var(--s1);padding:18px 20px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start;}
+.option-badge{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;white-space:nowrap;margin-top:2px;}
+.badge-green{background:var(--green-lt);color:var(--green);border:1px solid var(--green-bd);}
+.badge-amber{background:var(--amber-lt);color:var(--amber);border:1px solid var(--amber-bd);}
+.badge-red{background:var(--red-lt);color:var(--red);border:1px solid var(--red-bd);}
+.badge-blue{background:var(--blue-lt);color:var(--blue);border:1px solid var(--blue-bd);}
+.option-body{}
+.option-title{font-weight:500;color:var(--t1);font-size:14.5px;margin-bottom:4px;}
+.option-desc{font-size:13.5px;color:var(--t2);line-height:1.6;}
+.option-note{font-size:12px;color:var(--t3);margin-top:5px;font-style:italic;}
+.option-score{font-family:'DM Mono',monospace;font-size:12px;text-align:right;padding-top:2px;}
+
+/* Koşul tablosu */
+.ctable{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px;}
+.ctable th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;border-bottom:2px solid var(--t1);text-align:left;color:var(--t3);}
+.ctable td{padding:12px 14px;border-bottom:1px solid var(--bd);color:var(--t2);vertical-align:top;line-height:1.6;}
+.ctable tr:last-child td{border-bottom:none;}
+.ctable td:first-child{color:var(--t1);font-weight:500;white-space:nowrap;}
+.ctable td.yes{color:var(--green);}
+.ctable td.no{color:var(--red);}
+.ctable td.maybe{color:var(--amber);}
+
+/* Hesap kutusu */
+.calc{background:var(--s1);border:1px solid var(--bd2);padding:20px 24px;margin:20px 0;}
+.calc-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;}
+.calc-row{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--bd);font-size:13.5px;}
+.calc-row:last-child{border-bottom:none;padding-top:10px;margin-top:4px;}
+.calc-label{color:var(--t2);}
+.calc-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--t1);}
+.calc-val.pos{color:var(--green);}
+.calc-val.neg{color:var(--red);}
+.calc-val.total{color:var(--gold);font-size:15px;}
+
+.summary{background:var(--s1);border-left:3px solid var(--t1);padding:24px 28px;margin:28px 0;}
+.summary-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;}
+.summary ul{list-style:none;padding:0;}
+.summary li{font-size:14px;color:var(--t2);padding:7px 0;border-bottom:1px solid var(--bd);padding-left:16px;position:relative;line-height:1.6;}
+.summary li::before{content:'→';position:absolute;left:0;color:var(--t1);font-family:'DM Mono',monospace;font-size:11px;}
+.summary li:last-child{border-bottom:none;}
+.summary li strong{color:var(--t1);font-weight:500;}
+
+.next{padding:28px 40px;background:var(--s1);border-top:2px solid var(--bd2);display:flex;align-items:center;justify-content:space-between;gap:20px;text-decoration:none;color:inherit;transition:background .15s,border-color .15s;cursor:pointer;}
+.next:hover{background:var(--s2);border-top-color:var(--gold);}
+.next:hover .next-arrow{color:var(--gold);transform:translateX(4px);}
+.next:hover .next-title{color:var(--gold);}
+.next-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.next-title{font-family:'Instrument Serif',serif;font-size:18px;color:var(--t1);}
+.next-soon{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);border:1px solid var(--bd);padding:3px 8px;}
+.next-arrow{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);transition:transform .15s,color .15s;}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.sec,.next,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:34px;}
+  .option{grid-template-columns:1fr;gap:8px;}
+  .option-score{text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-series">Yatırım Kavramları</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Kavram Dizisi · Yatırım</div>
+  <div class="series-badge">
+    <span class="series-num">Y</span>
+    Yatırım Kavramı
+  </div>
+  <h1>Enflasyonda <em>Borçlanmak</em></h1>
+  <p class="hd-sub">TL kredi çekip enflasyona karşı yatırım yapmak — ne zaman mantıklı, ne zaman tuzak?</p>
+  <div class="hd-meta">
+    <span>Mart 2026</span>
+    <span>·</span>
+    <span>Tüm seviyeler</span>
+    <span>·</span>
+    <span>~10 dk okuma</span>
+  </div>
+</div>
+
+<!-- BÖLÜM 1 -->
+<div class="sec">
+  <div class="sec-label lv1">Seviye 1 · Temel fikir</div>
+  <h2>Borçlanmak neden mantıklı olabilir?</h2>
+
+  <div class="body">
+    <p>Kulağa ters geliyor ama enflasyonun yüksek olduğu dönemlerde borçlanmak bazen akıllıca bir hamledir. Mantık şu: <strong>borcun değeri enflasyonla erir, ama enflasyona karşı korunan varlığın değeri korunur.</strong></p>
+    <p>Somut örnek: Bugün 500.000 TL kredi çektin. Yıllık enflasyon %40 ise, bir yıl sonra o 500.000 TL'nin alım gücü bugünün yaklaşık 357.000 TL'sine karşılık geliyor. Yani devlete değil, bankaya değil — enflasyona ödedin. Ama bu süreçte aldığın varlık da değer koruduysa, kazançlı çıkıyorsun.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Basit ifadeyle</div>
+    <p class="analogy-text">"Enflasyonda borç almak, bugünün parasıyla ödeyip yarının ucuzlamış parasıyla geri vermek gibidir. Varlık değer korursa kazanırsın, korumaz ya da faiz çok yüksekse kaybedersin."</p>
+  </div>
+
+  <div class="box b-amber">
+    <div class="box-title">Ama bir koşul var</div>
+    <p>Bu mantık yalnızca <strong>kredi faizinin enflasyonun altında kaldığı</strong> dönemlerde işe yarıyor. 2021-2022'de tam da buydu: enflasyon %80'e koşarken banka kredileri %20-25'ten veriliyordu. O dönemde kredi çekip altın, döviz veya gayrimenkul alan gerçekten kazandı. Şu an tablo farklı — bunu ilerleyen bölümlerde hesaplayacağız.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2 -->
+<div class="sec">
+  <div class="sec-label lv1">Seviye 1 · Temel hesap</div>
+  <h2>Kârlı mı değil mi? Tek bir formül</h2>
+
+  <div class="body">
+    <p>Karmaşık bir hesap yapmana gerek yok. Tek bir soruyu sorman yeterli:</p>
+  </div>
+
+  <div class="formula">
+    Yatırımın beklenen getirisi > <span>Kredi faizi</span> mi?
+    <small>Evet ise matematiksel olarak mantıklı — hayır ise değil</small>
+  </div>
+
+  <div class="body">
+    <p>Ama bu sorunun içinde gizli birkaç detay var. Getiriyi doğru hesaplamak için şunları göz önünde bulundurman lazım:</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>Hesaba katılacak</th>
+      <th>Neden?</th>
+    </tr>
+    <tr>
+      <td>Kredi faizi (yıllık)</td>
+      <td>Bankanın sana uyguladığı oran. KKDF ve BSMV dahil olduğunda gerçek maliyet daha yüksek çıkar.</td>
+    </tr>
+    <tr>
+      <td>Varlığın beklenen getirisi</td>
+      <td>Altın, araç, hisse — ne alacaksan onun geçmiş performansı ve beklentisi.</td>
+    </tr>
+    <tr>
+      <td>Likidite</td>
+      <td>Acil satman gerekirse kolayca paraya çevirebilir misin?</td>
+    </tr>
+    <tr>
+      <td>Ek maliyetler</td>
+      <td>Araç için sigorta, muayene. Gayrimenkul için tapu, aidat. Altın için alım-satım spread'i.</td>
+    </tr>
+    <tr>
+      <td>Kur farkı (varsa)</td>
+      <td>Dolar cinsinden bir varlık alıyorsan TL'nin değer kaybı da getiriye eklenir.</td>
+    </tr>
+  </table>
+
+  <div class="box b-blue">
+    <div class="box-title">Mart 2026 gerçek tablosu</div>
+    <p>Bugün tüketici kredisi faizleri yıllık yaklaşık <strong>%55-65</strong> bandında. Enflasyon yaklaşık <strong>%38-40</strong>. Yani reel kredi faizi pozitif — banka senden enflasyonun üzerinde ödeme alıyor. Bu ortamda TL kredi çekip TL bazlı bir varlığa yatırmak için o varlığın yıllık %60+ getiri sağlaması lazım. Bu zor bir eşik.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 3 -->
+<div class="sec">
+  <div class="sec-label lv2">Seviye 2 · Seçenekler tek tek</div>
+  <h2>Ne alabilirim? Her seçeneğin dürüst değerlendirmesi</h2>
+
+  <div class="body">
+    <p>Kredi çekip alabileceğin varlıkları tek tek ele alalım. Her birinde gerçek maliyeti, gerçek potansiyeli ve gizli riskleri gösterelim.</p>
+  </div>
+
+  <div class="option-grid">
+
+    <div class="option">
+      <div class="option-badge badge-amber">Tartışmalı</div>
+      <div class="option-body">
+        <div class="option-title">İkinci el araç</div>
+        <div class="option-desc">Son yıllarda TL bazında güçlü değer korudu — enflasyonla birlikte fiyatlar yükseldi. Kullanırken de işe yarıyor, bu avantaj. Ama araç her yıl fiziksel olarak eskiyor, bakım maliyeti var, sigorta zorunlu. Gerçek getiri hesaplandığında "değer korudu" derken aslında enflasyonu takip etti, üzerine çıkmadı. Kredi faizi yüksekse bu fark zarara dönüşür.</div>
+        <div class="option-note">Kritik soru: Araca zaten ihtiyacın var mı? Varsa kredi mantıklı olabilir. Salt yatırım için almak daha zayıf bir karar.</div>
+      </div>
+      <div class="option-score" style="color:var(--amber);">⚖</div>
+    </div>
+
+    <div class="option">
+      <div class="option-badge badge-red">Dikkat</div>
+      <div class="option-body">
+        <div class="option-title">Sıfır araç</div>
+        <div class="option-desc">Galeriden çıktığı an değeri düşer — bu evrensel kural Türkiye'de de geçerli. TL'nin değer kaybı bu düşüşü kısmen telafi edebilir ama yüksek kredi faiziyle birleşince hesap genellikle zararlı çıkar. Sıfır araç için kredi, saf yatırım mantığıyla değil, ihtiyaç mantığıyla değerlendirilmeli.</div>
+        <div class="option-note">Yatırım aracı olarak değil, ihtiyaç gidermek için alınabilir.</div>
+      </div>
+      <div class="option-score" style="color:var(--red);">✗</div>
+    </div>
+
+    <div class="option">
+      <div class="option-badge badge-green">Güçlü</div>
+      <div class="option-body">
+        <div class="option-title">Konut (kiralık potansiyelli)</div>
+        <div class="option-desc">TL bazında en güçlü enflasyon koruması tarihsel olarak konut oldu. Hem değer koruyor hem kira geliri üretiyor. Sorun: giriş bariyeri yüksek (peşinat, tapu masrafları), likit değil, yönetim gerektirir. Konut kredisi faizleri de yüksek ama uzun vadede en tutarlı performans bu varlık sınıfında. Şehir ve lokasyon seçimi kritik.</div>
+        <div class="option-note">Uzun vadeli tutabiliyorsan ve doğru lokasyon seçebiliyorsan en sağlam seçenek.</div>
+      </div>
+      <div class="option-score" style="color:var(--green);">✓</div>
+    </div>
+
+    <div class="option">
+      <div class="option-badge badge-amber">Koşullu</div>
+      <div class="option-body">
+        <div class="option-title">Altın (vadeli veya kuyumcu taksit)</div>
+        <div class="option-desc">İki yol var. Birincisi: bazı kuyumcular taksitli bilezik/gram altın satıyor, taksit faizi banka faizinin altında kalabiliyor — bu dönemlerde gerçek bir arbitraj. İkincisi: bankalardaki altın hesabı veya BES üzerinden altın, nakit alım gibi davranıyor. Kredi çekip altın hesabına yatırmak ise faiz yükü yüzünden riskli — altının dolar bazlı getirisi yıllık %8-10, kredi faizi %55-65 ise fark açık.</div>
+        <div class="option-note">Kuyumcu taksiti banka kredisinden daha mantıklı olabilir — faizi karşılaştır.</div>
+      </div>
+      <div class="option-score" style="color:var(--amber);">⚖</div>
+    </div>
+
+    <div class="option">
+      <div class="option-badge badge-amber">Koşullu</div>
+      <div class="option-body">
+        <div class="option-title">Taksitli gümüş bilezik / takı</div>
+        <div class="option-body">
+        <div class="option-desc">Likit olmayan ama enflasyona karşı belirli bir koruma sunan seçenek. Kuyumcu taksit faizi zaman zaman banka faizinin altında kalır. Gümüşün hem sanayi talebi hem kıymetli maden özelliği var — son yıllarda güçlü performans. Ama alım-satım spread'i yüksek, depolama gerektirir, piyasa likiditesi düşük.</div>
+        <div class="option-note">Küçük miktarlar için düşünülebilir. Büyük sermaye için verimli değil.</div>
+        </div>
+      </div>
+      <div class="option-score" style="color:var(--amber);">⚖</div>
+    </div>
+
+    <div class="option">
+      <div class="option-badge badge-blue">Dikkatle</div>
+      <div class="option-body">
+        <div class="option-title">Hisse senedi (BIST veya yurtdışı)</div>
+        <div class="option-desc">Aracı kurumlar kredi imkânı sunuyor (virman kredisi, repo) ama maliyetler yüksek. BIST hisseleri TL bazında enflasyonu uzun vadede takip etti, ama kısa vadede çok oynak. Kredi kullanarak hisse almak kaldıraç demek — piyasa aleyhine giderse hem zarar hem faiz yükü çöküyor üstüne. Uzun vadeli, kredisiz BIST yatırımı mantıklı; kreditli kısa vadeli alım riskli.</div>
+        <div class="option-note">Uzun vadeli ve kredisiz tutulabiliyorsa güçlü seçenek. Kaldıraçlı hisse çok riskli.</div>
+      </div>
+      <div class="option-score" style="color:var(--blue);">↗</div>
+    </div>
+
+    <div class="option">
+      <div class="option-badge badge-green">Güçlü</div>
+      <div class="option-body">
+        <div class="option-title">TÜFE'ye endeksli tahvil (TÜFEX)</div>
+        <div class="option-desc">Devlet güvenceli, enflasyona endeksli Hazine bonosu. Anapara her ay TÜFE ile güncelleniyor, üzerine küçük bir reel faiz ekleniyor. Kredi çekip TÜFEX almak kısmen anlamsız (kredi faizi zaten yüksek) ama birikiminizi değerlendirmek için şu an en temiz Türk lirası enflasyon korunması. Doğrudan yatırım olarak çok güçlü — kredili olarak değil.</div>
+        <div class="option-note">Birikim için ideal. Kredi çekip almak için değil, nakit için.</div>
+      </div>
+      <div class="option-score" style="color:var(--green);">✓</div>
+    </div>
+
+    <div class="option">
+      <div class="option-badge badge-red">Riskli</div>
+      <div class="option-body">
+        <div class="option-title">Kripto para</div>
+        <div class="option-desc">Teorik olarak en yüksek getiri potansiyeli — ama aynı zamanda en yüksek volatilite. Kredi çekip kripto almak çift katlı risk: hem varlık düşebilir hem kredi faizini ödemek zorundazsın. Bitcoin uzun vadede güçlü performans gösterdi ama kısa vadeli %50 düşüşler sık yaşandı. Bu düşüşlerde kredi taksitleri devam ediyor.</div>
+        <div class="option-note">Kredi ile kesinlikle tavsiye edilmez. Nakit ile uzun vadeli DCA başka konu.</div>
+      </div>
+      <div class="option-score" style="color:var(--red);">✗</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BÖLÜM 4 -->
+<div class="sec">
+  <div class="sec-label lv2">Seviye 2 · Gerçek hesap</div>
+  <h2>Rakamlarla bakalım: araç örneği</h2>
+
+  <div class="body">
+    <p>Soyut konuşmak yerine somut bir hesap yapalım. 500.000 TL değerinde ikinci el araç almak istiyorsun, 400.000 TL kredi çekeceksin.</p>
+  </div>
+
+  <div class="calc">
+    <div class="calc-title">Araç Kredisi Hesabı — Mart 2026</div>
+    <div class="calc-row">
+      <span class="calc-label">Araç değeri</span>
+      <span class="calc-val">500.000 TL</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">Çekilen kredi</span>
+      <span class="calc-val">400.000 TL</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">Kredi faizi (yıllık, tahmini)</span>
+      <span class="calc-val neg">%60</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">1 yılda ödenen faiz</span>
+      <span class="calc-val neg">~240.000 TL</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">Aracın 1 yıl sonra beklenen değeri (enf. %40)</span>
+      <span class="calc-val pos">~700.000 TL</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">Değer artışı</span>
+      <span class="calc-val pos">+200.000 TL</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">Faiz maliyeti</span>
+      <span class="calc-val neg">−240.000 TL</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">Net sonuç (sadece faiz, anapara hariç)</span>
+      <span class="calc-val neg total">−40.000 TL</span>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>Bu basitleştirilmiş bir hesap — sigorta, muayene, yakıt gibi ek maliyetler dahil değil. <strong>Araç değer koruyor ama kredi faizi bu kazancı yiyor.</strong> Enflasyon %40, kredi faizi %60 olduğu sürece bu denklem çalışmıyor.</p>
+    <p>Ne zaman çalışır? Enflasyonun kredi faizinin belirgin üzerine çıktığı dönemlerde. 2021 sonunda tam bu durum yaşandı. Orta vadede enflasyon düşer, faizler daha önce düşerse yeniden pencere açılabilir.</p>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">Araca ihtiyacın varsa farklı hesap</div>
+    <p>Yukarıdaki hesap "salt yatırım" senaryosu için. Ama araca gerçekten ihtiyacın varsa denklem değişiyor: krediniz olmasa da araç alacaktınız — o zaman "ne kadara çıkıyor" sorusu değil, "kredi mi, nakit mi daha ucuz?" sorusu sorulur. Nakit yoksa kredi kaçınılmaz. Bu durumda en düşük faizli krediyi bulmak önemli. Vade konusunda ise iki etki çatışır: uzun vade aylık taksiti düşürür ve enflasyon borcun reel değerini erittiği için uzun vade borçlu lehinedir — ama toplam ödenen faiz de artar. Nakit akışın izin veriyorsa orta vade genellikle dengeli bir seçim.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 5 -->
+<div class="sec">
+  <div class="sec-label lv3">Seviye 3 · Ne zaman mantıklı?</div>
+  <h2>Üç koşul aynı anda sağlanmalı</h2>
+
+  <div class="body">
+    <p>Enflasyonda kredi çekip yatırım yapmak şu üç koşul aynı anda sağlandığında mantıklı hale gelir:</p>
+  </div>
+
+  <h3>① Kredi faizi enflasyonun altında</h3>
+  <div class="body">
+    <p>Bu en kritik koşul. Reel kredi faizi negatif olmalı — yani enflasyon, kredi faizinden yüksek. 2021-2022 Türkiye'si bu koşulu sağlıyordu. Şu an sağlamıyor. Fırsatı görmek için bu iki rakamı takip et: TCMB politika faizi ve TÜFE.</p>
+  </div>
+
+  <h3>② Alınacak varlık enflasyonu aşan getiri sağlamalı</h3>
+  <div class="body">
+    <p>Sadece enflasyonu takip etmek yetmez — kredi faizini de geçmen lazım. Eğer kredi faizi %30 ise varlığın en az %35-40 getiri sağlaması gerekir ki kâr kalabilsin. Bu eşiği gerçekçi biçimde karşılayabilen varlık sayısı sınırlı.</p>
+  </div>
+
+  <h3>③ Taksitleri ödeyecek düzenli geliriniz olmalı</h3>
+  <div class="body">
+    <p>Teoride her şey güzel ama taksit ödeme günü geliyor. Varlık değer kazanıyor ama likit değilse, krediyi ödemek için varlığı erken ve kötü fiyata satmak zorunda kalabilirsin. <strong>Nakit akışı planı olmadan yapılan yatırım kredisi en büyük tuzak budur.</strong></p>
+  </div>
+
+  <div class="box b-red">
+    <div class="box-title">Klasik hata: "Değeri yükselince satarım"</div>
+    <p>Kredi çekip gayrimenkul alan pek çok kişi şöyle düşünür: "Değeri yükselince satarım, krediyi kapatırım, fark bende kalır." Bu plan işe yarayabilir — ama şunları varsayıyor: değer yeterince yükselecek, tam ihtiyaç anında satabileceksin, alıcı bulunacak, tapu işlemleri tamamlanacak. Bunların hepsi aynı anda gerçekleşmeyebilir. Likidite baskısı altında yapılan satışlar genellikle kötü fiyatla yapılır.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 6 -->
+<div class="sec">
+  <div class="sec-label lv3">Seviye 3 · Akıllı alternatifler</div>
+  <h2>Kredi olmadan da enflasyona karşı durulabilir</h2>
+
+  <div class="body">
+    <p>Kredi çekmek zorunda değilsin. Birikimini enflasyona karşı korumak için daha az riskli ve daha az maliyetli yollar var:</p>
+  </div>
+
+  <h3>TÜFE'ye endeksli tahvil (TÜFEX)</h3>
+  <div class="body">
+    <p>Her ay anaparanı TÜFE oranında günceller, üzerine küçük bir reel faiz ekler. Devlet güvencesi var, likit, kolay alınıp satılır. Aracı kurum veya banka üzerinden açılabilir. Şu an enflasyona karşı en temiz TL aracı. Türkiye'de yaşıyorsan ve TL birikimin varsa, TÜFEX olmadan portföy eksik.</p>
+  </div>
+
+  <h3>BES altın fonu</h3>
+  <div class="body">
+    <p>Emeklilik sisteminde altın fonları var — hem devlet katkısından hem enflasyon korumasından aynı anda yararlanıyorsun. Düzenli küçük miktarlar koyarak altın biriktirebilirsin, kredi gerektirmez.</p>
+  </div>
+
+  <h3>Kuyumcuda taksitli altın/gümüş</h3>
+  <div class="body">
+    <p>Banka kredisine gerek yok. Kuyumcunun taksit faizini banka faiziyle karşılaştır — çoğu zaman daha avantajlı. Küçük miktarlar için pratik bir yol. Gram altın veya çeyrek altın taksitle alınabilir.</p>
+  </div>
+
+  <h3>Döviz mevduatı veya eurobond</h3>
+  <div class="body">
+    <p>TL'nin değer kaybına karşı en doğrudan koruma. Dolar/euro cinsinden tutulan para TL enflasyonundan korunur. Eurobond ise döviz cinsinden faiz ödeyen devlet tahvili — hem kur koruması hem gelir.</p>
+  </div>
+
+  <div class="box b-green">
+    <div class="box-title">En verimli yol: otomatik alım</div>
+    <p>Her ay düzenli olarak sabit bir tutarı altın fonu, TÜFEX veya dövize yatırmak — "DCA" (düzenli maliyet ortalaması) stratejisi. Ne zaman alacağını tahmin etmeye çalışmazsın, her ay alırsın. Enflasyonun eritleceği nakit beklemek yerine enflasyona karşı duran bir varlığa dönüştürürsün. Kredi yok, faiz yükü yok, piyasa zamanlaması yok.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 7 -->
+<div class="sec">
+  <div class="sec-label lv4">Seviye 4 · Derin sular</div>
+  <h2>Pencere ne zaman yeniden açılır?</h2>
+
+  <div class="body">
+    <p>Şu an reel kredi faizi pozitif — bu arbitraj penceresi kapalı demek. Ama Türkiye'de bu pencere tarihsel olarak sık sık açıldı ve açılmaya devam edecek. Pencerenin ne zaman açılacağını önceden görmek için şu sinyalleri takip etmek gerekiyor:</p>
+  </div>
+
+  <h3>Sinyal 1: TCMB faiz indirimi</h3>
+  <div class="body">
+    <p>TCMB enflasyon belirgin biçimde düşmeden faiz indirmeye başlarsa reel faiz hızla negatife döner. Bu tam "kredili arbitraj" penceresinin açıldığı andır. Siyasi baskıyla ya da enflasyon gerçekten düşerek gelebilir — ikisi de aynı fırsatı yaratır ama farklı risk profillerine sahiptir.</p>
+  </div>
+
+  <h3>Sinyal 2: Enflasyonun yeniden tırmanması</h3>
+  <div class="body">
+    <p>Hürmüz krizi devam ederse petrol fiyatları yüksek kalır, bu enflasyonu besler. Faiz yüksek kalmaya devam ederse pencere kapalıdır. Ama petrol şoku durulur, enflasyon düşer, faizler gecikmeli düşerse kısa vadeli pencere açılabilir.</p>
+  </div>
+
+  <h3>Sinyal 3: Özel koşullar</h3>
+  <div class="body">
+    <p>Bazı dönemlerde devlet teşvikli krediler piyasa faizinin çok altında sunulur: TOKİ kampanyaları, esnaf kredileri, tarım destekleri gibi. Bu tür kampanyalar çıktığında faiz avantajı açık — varlık seçimine dikkat ederek değerlendirilebilir.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Derin fikir</div>
+    <p class="analogy-text">"Enflasyonda borçlanmak bir saat gibi — zaman zaman doğru gösterir, ama her zaman değil. Saat ne zaman doğru gösteriyor, bunu bilmek stratejinin kendisinden daha önemli."</p>
+  </div>
+</div>
+
+<!-- ÖZET -->
+<div class="sec" style="border-bottom:none;">
+  <div class="sec-label" style="color:var(--t3);">Özet · Ne öğrendik?</div>
+  <div class="summary">
+    <div class="summary-label">Bu bültenden 7 şey</div>
+    <ul>
+      <li><strong>Enflasyonda borçlanmak mantıklı olabilir</strong> — ama yalnızca kredi faizinin enflasyonun altında kaldığı dönemlerde.</li>
+      <li>Mart 2026 itibarıyla <strong>bu pencere kapalı:</strong> kredi faizi ~%60, enflasyon ~%40. Reel faiz pozitif.</li>
+      <li><strong>Araç</strong> değer koruyabilir ama yüksek faizle birleşince denklem genellikle zararlı çıkar. İhtiyaç için alınabilir, yatırım için zor.</li>
+      <li><strong>Konut</strong> uzun vadede en güçlü seçenek — ama giriş bariyeri yüksek ve likidite düşük.</li>
+      <li><strong>Kuyumcu taksiti</strong> banka kredisinden avantajlı olabilir — faizi karşılaştır.</li>
+      <li><strong>Kredisiz alternatifler</strong> çoğu zaman daha akıllıca: TÜFEX, BES altın fonu, döviz mevduatı.</li>
+      <li>Pencere yeniden açıldığında <strong>hazır ol:</strong> TCMB faiz indirimi veya enflasyonun kredi faizini aşması — bu sinyalleri takip et.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="next">
+  <div>
+    <div class="next-label">Sıradaki · Yatırım</div>
+    <div class="next-title">Varlıklarım Ne Kadar Güvende?</div>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+    <span class="next-soon">Yakında</span>
+    <span class="next-arrow" style="color:var(--bd2);">→</span>
+  </div>
+</div>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Kavram Dizisi · Yatırım · Mart 2026</div>
+  <div class="ft-disc">Kişisel araştırma notu.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+
+</body>
+</html>
