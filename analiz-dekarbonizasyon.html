@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Dekarbonizasyon — Dünyanın En Büyük Bahsi</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0e0d10;
+  --s1: #16151a;
+  --s2: #1e1d23;
+  --bd: #28262e;
+  --bd2: #363440;
+  --t1: #eae8f2;
+  --t2: #9d9ab5;
+  --t3: #5c5a6e;
+  --gold: #c9a84c;
+  --gold2: #7a6330;
+  --red: #d95f5f;
+  --red-bg: #1e1111;
+  --red-bd: #3d1f1f;
+  --green: #52b07a;
+  --green-bg: #0e1e14;
+  --green-bd: #1e3d28;
+  --blue: #5a9fd4;
+  --blue-bg: #0c1a26;
+  --blue-bd: #1a3650;
+  --amber: #d4954a;
+  --amber-bg: #1e1608;
+  --amber-bd: #3d2e12;
+  --teal: #4aaa98;
+  --teal-bg: #0a1e1c;
+  --teal-bd: #1a3d38;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;max-width:700px;margin:0 auto;padding:0 0 100px;}
+
+.nav{background:var(--s1);border-bottom:1px solid var(--bd);padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:var(--t3);text-decoration:none;}
+.nav a:hover{color:var(--gold);}
+.nav-tag{color:var(--green);margin-left:auto;background:var(--green-bg);padding:2px 8px;font-size:9px;}
+
+.hd{padding:48px 40px 36px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd);}
+.series-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--green-bd);background:var(--green-bg);padding:5px 12px;margin-bottom:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);}
+h1{font-family:'Instrument Serif',serif;font-size:48px;font-weight:400;line-height:1.05;letter-spacing:-1.5px;margin-bottom:10px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--green);}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:19px;font-weight:400;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;}
+
+.sec{padding:32px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+.lv-green{color:var(--green);}
+.lv-blue{color:var(--blue);}
+.lv-amber{color:var(--amber);}
+.lv-red{color:var(--red);}
+.lv-teal{color:var(--teal);}
+.lv-gold{color:var(--gold);}
+h2{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;line-height:1.2;margin-bottom:16px;color:var(--t1);}
+h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t1);margin:22px 0 8px;letter-spacing:.01em;}
+.body{font-size:15px;color:var(--t2);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+.body em{font-style:italic;color:var(--t1);}
+
+.box{border:1px solid;padding:18px 22px;margin:20px 0;font-size:14px;line-height:1.7;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;font-weight:500;}
+.b-green{background:var(--green-bg);border-color:var(--green-bd);}
+.b-green .box-title{color:var(--green);}
+.b-green p{color:var(--t2);}
+.b-red{background:var(--red-bg);border-color:var(--red-bd);}
+.b-red .box-title{color:var(--red);}
+.b-red p{color:var(--t2);}
+.b-blue{background:var(--blue-bg);border-color:var(--blue-bd);}
+.b-blue .box-title{color:var(--blue);}
+.b-blue p{color:var(--t2);}
+.b-amber{background:var(--amber-bg);border-color:var(--amber-bd);}
+.b-amber .box-title{color:var(--amber);}
+.b-amber p{color:var(--t2);}
+.b-teal{background:var(--teal-bg);border-color:var(--teal-bd);}
+.b-teal .box-title{color:var(--teal);}
+.b-teal p{color:var(--t2);}
+.b-gold{background:#1a1508;border-color:var(--gold2);}
+.b-gold .box-title{color:var(--gold);}
+.b-gold p{color:var(--t2);}
+
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:20px 24px;margin:20px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:19px;color:var(--t1);line-height:1.5;font-style:italic;}
+.analogy-attr{font-size:12px;color:var(--t3);margin-top:10px;}
+
+.stat-row{display:flex;gap:1px;background:var(--bd);margin:20px 0;}
+.stat-cell{flex:1;background:var(--s1);padding:16px 18px;}
+.stat-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.stat-val{font-family:'Instrument Serif',serif;font-size:26px;color:var(--t1);line-height:1.1;}
+.stat-note{font-size:11.5px;color:var(--t2);margin-top:4px;line-height:1.4;}
+.sv-red{color:var(--red);}
+.sv-green{color:var(--green);}
+.sv-amber{color:var(--amber);}
+
+.ctable{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px;}
+.ctable th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;border-bottom:2px solid var(--t1);text-align:left;color:var(--t3);}
+.ctable td{padding:12px 14px;border-bottom:1px solid var(--bd);color:var(--t2);vertical-align:top;line-height:1.6;}
+.ctable tr:last-child td{border-bottom:none;}
+.ctable td:first-child{color:var(--t1);font-weight:500;}
+
+.actor-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);margin:20px 0;}
+.actor{background:var(--s1);padding:18px;}
+.actor-name{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;}
+.actor-stance{font-size:11px;font-style:italic;margin-bottom:10px;}
+.actor-body{font-size:13.5px;color:var(--t2);line-height:1.6;}
+
+.port-grid{display:flex;flex-direction:column;gap:1px;background:var(--bd);margin:20px 0;}
+.port-row{background:var(--s1);display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:0;}
+.port-signal{width:5px;align-self:stretch;}
+.port-body{padding:14px 16px;}
+.port-title{font-weight:500;color:var(--t1);font-size:14.5px;margin-bottom:4px;}
+.port-desc{font-size:13.5px;color:var(--t2);line-height:1.6;}
+.port-note{font-size:12px;color:var(--t3);margin-top:5px;font-style:italic;}
+.port-badge{padding:14px 12px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;text-align:center;display:flex;align-items:flex-start;padding-top:16px;}
+.sig-green{background:var(--green);}
+.sig-amber{background:var(--amber);}
+.sig-red{background:var(--red);}
+.sig-blue{background:var(--blue);}
+.badge-green{color:var(--green);}
+.badge-amber{color:var(--amber);}
+.badge-red{color:var(--red);}
+.badge-blue{color:var(--blue);}
+
+.summary{background:var(--s1);border-left:3px solid var(--gold);padding:24px 28px;margin:28px 0;}
+.summary-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.summary ul{list-style:none;padding:0;}
+.summary li{font-size:14px;color:var(--t2);padding:7px 0;border-bottom:1px solid var(--bd);padding-left:16px;position:relative;line-height:1.6;}
+.summary li::before{content:'→';position:absolute;left:0;color:var(--gold);font-family:'DM Mono',monospace;font-size:11px;}
+.summary li:last-child{border-bottom:none;}
+.summary li strong{color:var(--t1);font-weight:500;}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.sec,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:36px;}
+  .actor-grid{grid-template-columns:1fr;}
+  .stat-row{flex-direction:column;}
+  .port-row{grid-template-columns:auto 1fr;}
+  .port-badge{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:var(--bd2)">|</span>
+  <span class="nav-tag">Derinlemesine Analiz</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Derinlemesine Analiz · Mart 2026</div>
+  <div class="series-badge">Derinlemesine Analiz · Mart 2026</div>
+  <h1>Dünyanın En Büyük <em>Bahsi</em></h1>
+  <p class="hd-sub">Dekarbonizasyon — neden gerekli, nasıl yapılacak, ne kadar mümkün ve portföyünüzü nasıl etkiler?</p>
+  <div class="hd-meta">
+    <span>Mart 2026</span>
+    <span>·</span>
+    <span>Derinlemesine</span>
+    <span>·</span>
+    <span>~20 dk okuma</span>
+  </div>
+</div>
+
+<!-- BÖLÜM 1: NEDEN GEREKLİ -->
+<div class="sec">
+  <div class="sec-label lv-green">Bölüm 1 · Neden Gerekli?</div>
+  <h2>Her 0,1°C'nin Bedeli Var</h2>
+
+  <div class="body">
+    <p>İklim değişikliği bir gelecek senaryosu olmaktan çıktı — bugünün ekonomik gerçekliğine dönüştü. 2024'te küresel yüzey sıcaklığı sanayi öncesi döneme kıyasla <strong>1,54°C</strong> arttı. Paris Anlaşması'nın kırmızı çizgisi olan 1,5°C ilk kez ihlal edildi.</p>
+    <p>Neden 1,5°C bu kadar önemli? Çünkü bu eşiğin üzerinde bazı süreçler geri döndürülemez hale geliyor: kutup buzulları erir, deniz seviyeleri yükselir, aşırı hava olayları hem daha sık hem daha şiddetli olur. <strong>2°C ile 1,5°C arasındaki fark küçük görünür ama etkileri katlanarak büyür.</strong></p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="stat-label">Küresel CO₂ (2024)</div>
+      <div class="stat-val sv-red">37,8 Gt</div>
+      <div class="stat-note">IEA — tüm zamanların rekoru</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Atmosferik CO₂ (2024)</div>
+      <div class="stat-val sv-red">422,5 ppm</div>
+      <div class="stat-note">Sanayi öncesinin %50 üzerinde</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Sıcaklık Artışı</div>
+      <div class="stat-val sv-amber">+1,54°C</div>
+      <div class="stat-note">Paris sınırı: 1,5°C</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>İyi haberler de var. <strong>Emisyonlar ekonomik büyümeden ayrışmaya başladı.</strong> 2024'te küresel ekonomi %3'ün üzerinde büyüdü, emisyonlar yalnızca %0,8 arttı. Gelişmiş ekonomilerde emisyonlar %1,1 düşerken GSYH üçe katlandığı dönemden bu yana en düşük seviyeye geriledi.</p>
+    <p>Ama bu yeterli değil. Net sıfıra ulaşmak için emisyonların düşmesi lazım — yavaşlaması değil. Ve şu an yavaşlama bile tutarsız: emisyonlar gelişmekte olan ekonomilerde artmaya devam ediyor.</p>
+  </div>
+
+  <div class="box b-amber">
+    <div class="box-title">Neden "geç" değil ama "acil"?</div>
+    <p>Her yıl gecikme atmosferdeki karbon birikimini artırıyor ve ileride yapılacak kesintilerin maliyetini yükseltiyor. Bugün 1 dolar harcamak, 10 yıl sonra aynı etkiyi yaratmak için 3-5 dolar harcamak anlamına geliyor. Ancak teknoloji maliyetleri de hızla düşüyor — güneş enerjisi 2010'dan bu yana %90 ucuzladı. Çelişki: acil ama hâlâ mümkün.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2: NASIL -->
+<div class="sec">
+  <div class="sec-label lv-blue">Bölüm 2 · Nasıl Yapılacak?</div>
+  <h2>Beş Sütun, Farklı Zorluklar</h2>
+
+  <div class="body">
+    <p>Dekarbonizasyonun tek bir yolu yok — sektörden sektöre farklılaşıyor. IEA'nın (Uluslararası Enerji Ajansı) Net Sıfır yol haritası beş temel sütuna dayanıyor. Her birinin mevcut durumu ve gerçekçi potansiyeli farklı.</p>
+  </div>
+
+  <h3>① Enerji Verimliliği — En ucuz enerji, kullanılmayan enerji</h3>
+  <div class="body">
+    <p>Bina yalıtımı, verimli motorlar, akıllı şebekeler. Teorik olarak emisyonların %40'ını bu yolla azaltmak mümkün. Ama itiş gücü zayıf — karbon fiyatlandırması olmadan verimlilik yatırımı erteleniyor.</p>
+  </div>
+
+  <h3>② Elektrifikasyon — Fosil yakıtı devreden çıkar</h3>
+  <div class="body">
+    <p>Ulaşım, ısıtma ve sanayide doğrudan elektriğe geçiş. Çin bu alanda dünyayı yeniden tanımlıyor: <strong>2024'te satılan araçların %50'si elektrikli</strong>, fosil yakıt talebi 2027'de zirve yapacak. Pakistan, Cezayir gibi gelişmekte olan ülkeler Çin güneş panellerinin fiyat devrimi sayesinde doğrudan yenilenebilir enerjiye atlıyor — kirli altyapı aşaması atlıyor.</p>
+  </div>
+
+  <h3>③ Yenilenebilir Enerji — Artık en ucuz kaynak</h3>
+  <div class="body">
+    <p>2024'te yeni kurulu kapasitenin <strong>%92,5'i yenilenebilir kaynaklardan</strong> geldi — 22. yıl üst üste rekor. Güneş ve rüzgar birlikte küresel elektrik talebinin %15'ini karşılıyor. Çin tek başına 2024'te 429 GW kapasite ekledi — California'nın tüm enerji şebekesinin iki katı. Sorun: bu büyüme fosil yakıtın yerini almıyor henüz, artan talep üzerine ekleniyor.</p>
+  </div>
+
+  <h3>④ Yeşil Hidrojen — Potansiyel büyük, masraf da büyük</h3>
+  <div class="body">
+    <p>Çelik, kimyasallar, denizcilik ve havacılıkta elektrifikasyon yeterli değil — bu "zor sektörler" için hidrojen çözüm aday. Ama üretim maliyeti hâlâ gri hidrojenden 3-4 kat pahalı. 2030'a kadar ciddi ölçek ekonomisi gerekmekte.</p>
+  </div>
+
+  <h3>⑤ CCUS (Karbon Yakalama) — Son çare mi, yoksa niyet mi?</h3>
+  <div class="body">
+    <p>Atmosferden veya baca gazından CO₂ yakalamak. Fosil yakıt şirketlerinin "net sıfır" söyleminin büyük kısmı bu teknolojiye dayanıyor. Sorun: hâlâ pahalı, ölçeklendirilmesi yavaş ve bazı çevreler bunu fosil yakıt kullanımını sürdürmenin bahanesi olarak görüyor.</p>
+  </div>
+
+  <div class="box b-red">
+    <div class="box-title">Zor Sektörler: Çimento, Çelik, Havacılık, Denizcilik</div>
+    <p>Bu dört sektör küresel emisyonların yaklaşık %30'undan sorumlu. Ve dekarbonize edilmeleri çok zor — çünkü fiziksel süreçleri ya doğrudan karbon gerektiriyor (çelik üretiminde kok kömürü) ya da elektrifikasyon pratik değil (uzun mesafe havacılık). Beton üretiminde kimyasal reaksiyon CO₂ salıyor — enerji kaynağından bağımsız olarak. Bu sektörlerde ilerleme yavaş; 2050 net sıfır hedefinin en zayıf halkası burası.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 3: NE KADAR MÜMKÜN -->
+<div class="sec">
+  <div class="sec-label lv-amber">Bölüm 3 · Ne Kadar Mümkün?</div>
+  <h2>Fizibil mi — Gerçekten?</h2>
+
+  <div class="body">
+    <p>Dürüst cevap: <strong>2050 net sıfır hedefi artık neredeyse erişilemez.</strong> Ama bu "her şey bitti" anlamına gelmiyor. 2°C ile 1,5°C arasındaki fark insanlık tarihinin en büyük kararlarından biri — ve o karar hâlâ elimizde.</p>
+    <p>Söylem-gerçeklik uçurumunu anlamak için iki sayıya bakmak yeterli: dünya 2024'te 37,8 milyar ton CO₂ saldı — tüm zamanların rekoru. Aynı yıl yenilenebilir enerji yatırımı da tüm zamanların rekorunu kırdı. İki şey aynı anda doğru: hem dönüşüm hız kazanıyor hem hedeften uzaklaşıyoruz.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="stat-label">Net Sıfır yolunda şirket</div>
+      <div class="stat-val sv-red">%3</div>
+      <div class="stat-note">Morningstar Sustainalytics, 2025</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Hiçbir hedefi olmayan şirket</div>
+      <div class="stat-val sv-amber">%49</div>
+      <div class="stat-note">Küresel hisse evreninin yarısı</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Temiz enerji önlenen CO₂</div>
+      <div class="stat-val sv-green">2,6 Gt</div>
+      <div class="stat-note">2019'dan bu yana yıllık etki</div>
+    </div>
+  </div>
+
+  <h3>Scope 1, 2, 3: Şirketlerin üç emisyon katmanı</h3>
+  <div class="body">
+    <p>Bir şirketin "net sıfır" demesi ne anlama geliyor? Bu soruyu cevaplamak için emisyonların nasıl sınıflandırıldığını anlamak gerekiyor.</p>
+    <p><strong>Scope 1 — Doğrudan emisyonlar:</strong> Şirketin kendi kontrolündeki kaynaklardan çıkan CO₂. Fabrikanın bacası, şirket araçları, üretimdeki kimyasal reaksiyonlar. Ölçmesi en kolay, sahiplenilmesi en net.</p>
+    <p><strong>Scope 2 — Satın alınan enerji:</strong> Şirketin kullandığı elektrik ve ısının üretiminden kaynaklanan emisyonlar. Yeşil elektriğe geçince Scope 2 sıfırlanabilir. Pek çok şirketin "net sıfır" dediğinde kastettiği genellikle sadece Scope 1 ve 2.</p>
+    <p><strong>Scope 3 — Değer zinciri emisyonları:</strong> İşte asıl zor kısım. Tedarikçilerin emisyonları, müşterilerin ürünü kullanırken yarattığı emisyonlar, taşımacılık, çalışanların seyahati. Bir petrol şirketinin Scope 3'ü toplam emisyonlarının %80-90'ını oluşturuyor — çünkü asıl karbon, petrolü o şirket değil müşterileri yakıyor.</p>
+  </div>
+
+  <div class="box b-red">
+    <div class="box-title">Scope 3 neden her şeyi değiştiriyor?</div>
+    <p>Bir şirket "Scope 1 ve 2'de net sıfır" diyebilir, kendi bacasını ve elektriğini temizler — ama Scope 3 dahil edilince tablo tamamen farklı görünür. Apple'ın toplam emisyonlarının %70'i tedarik zincirinden (Scope 3) geliyor. Bir havayolunun Scope 3'ü neredeyse sıfır — çünkü yakıt yaktığı yerler kendi Scope 1'i. Ama çelik ve çimento üreticisi bir müşterisi varsa onun Scope 3'ü devreye giriyor. Bu sınıflandırma aynı emisyonu birden fazla yerde saymaya ya da hiç saymamaya neden olabilir. AB ve bazı ülkeler Scope 3 raporlamayı zorunlu kılmaya başladı — bu şirketlerin gerçek karbon ayak izini görünür kılıyor ve yatırım kararlarını doğrudan etkiliyor.</p>
+  </div>
+
+  <h3>Zor sektörlerde fizibilite: Sektör sektör gerçek</h3>
+  <div class="body">
+    <p>Elektrik üretimi ve otomobil sektörü dekarbonize edilebilir — teknoloji var, maliyet düşüyor. Ama bazı sektörler yapısal olarak çok daha zor.</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>Sektör</th>
+      <th>Zorluk Nedeni</th>
+      <th>Mevcut Çözüm</th>
+      <th>2050 Fizibilite</th>
+    </tr>
+    <tr>
+      <td>Çelik</td>
+      <td>Kok kömürü kimyasal indirgeyici — sadece enerji değil</td>
+      <td>Yeşil hidrojenle DRI (doğrudan demir indirgeme). İsveç'te HYBRIT projesi. Maliyet %20-30 yüksek</td>
+      <td style="color:var(--amber);">Mümkün ama pahalı</td>
+    </tr>
+    <tr>
+      <td>Çimento</td>
+      <td>CaCO₃ → CaO + CO₂ reaksiyonu kaçınılmaz — enerji kaynağından bağımsız</td>
+      <td>CCUS (karbon yakalama), alternatif bağlayıcılar, klinker oranı düşürme</td>
+      <td style="color:var(--red);">Çok zor — CCUS olmadan imkânsız</td>
+    </tr>
+    <tr>
+      <td>Havacılık</td>
+      <td>Uzun menzil, yüksek enerji yoğunluğu — batarya ağırlık sorunu</td>
+      <td>SAF (sürdürülebilir havacılık yakıtı), yeşil hidrojen. SAF şu an %0,1 pay</td>
+      <td style="color:var(--red);">2050'de %65 azaltım en iyimser senaryo</td>
+    </tr>
+    <tr>
+      <td>Denizcilik</td>
+      <td>Küresel yakıt standartları yok, uzun kargo mesafeleri</td>
+      <td>Metanol, amonyak yakıtı. Maersk 2024'te ilk yeşil metanol gemisini işletti</td>
+      <td style="color:var(--amber);">2050'de %50-70 azaltım mümkün</td>
+    </tr>
+    <tr>
+      <td>Tarım</td>
+      <td>Metan (hayvancılık), diazot oksit (gübre), arazi kullanımı</td>
+      <td>Et tüketimi azaltımı, hassas tarım, biyoçar — hiçbiri hızlı ölçeklenmiyor</td>
+      <td style="color:var(--red);">Net sıfır neredeyse imkânsız</td>
+    </tr>
+    <tr>
+      <td>Elektrik üretimi</td>
+      <td>Yük dengeleme, grid istikrarı</td>
+      <td>Güneş + rüzgar + depolama + nükleer. Teknoloji olgun</td>
+      <td style="color:var(--green);">2050 net sıfır mümkün</td>
+    </tr>
+    <tr>
+      <td>Otomobil</td>
+      <td>Mevcut filonun yenilenmesi süresi</td>
+      <td>EV yaygınlaşması hızlandı. Çin'de %50 pazar payı</td>
+      <td style="color:var(--green);">2050 net sıfır ulaşılabilir</td>
+    </tr>
+  </table>
+
+  <div class="body">
+    <p>Bu tablo şunu gösteriyor: "Net sıfır 2050" bir ortalama. Bazı sektörler çok önce bitiriyor, bazıları 2050'de bile tam dekarbonize olamıyor. Matematiksel olarak denge sağlamak için <strong>emisyon absorbe eden sektörler (ormancılık, CCUS, toprak karbon tutumu) devreye girmek zorunda.</strong> Bu "negatif emisyon" teknolojileri olmadan 1,5°C değil 2°C bile zor.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Gerçekçi çerçeve</div>
+    <p class="analogy-text">"1,5°C hedefi muhtemelen gitti. Ama 1,6°C ile 2°C arasında muazzam fark var. Her ondalık derece milyonlarca insanın kaderi. Hedef kaçırıldı diye mücadeleyi bırakmak, sigorta süresi doldu diye emniyet kemerini çıkarmak gibi."</p>
+  </div>
+
+  <div class="box b-blue">
+    <div class="box-title">Çin faktörü: Hesaplar değişiyor</div>
+    <p>Çin'in emisyon büyümesi 2024'te belirgin biçimde yavaşladı. Bazı analistler 2025-2027 arasında zirve yapabileceğini öngörüyor — resmi taahhütten yıllar önce. Nedeni: güneş ve rüzgar 2024'te Çin'in elektrik talebi büyümesinin %84'ünü karşıladı. Çin'in emisyonları zirve yaparsa küresel eğri anlamlı biçimde kırılıyor — ve bu, hiçbir iklim antlaşmasından değil, saf ekonomik hesaptan geliyor.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 4: SİYASİ VE STRATEJİK TABLO -->
+<div class="sec">
+  <div class="sec-label lv-red">Bölüm 4 · Siyasi ve Stratejik Tablo</div>
+  <h2>ABD Geri Çekildi — Boşluğu Kim Dolduruyor?</h2>
+
+  <div class="body">
+    <p>Trump Ocak 2025'te Paris Anlaşması'ndan ikinci kez çekildi. ABD aynı zamanda IRA (Enflasyon Azaltma Yasası) kapsamındaki temiz enerji teşviklerinin büyük bölümünü kesti. Bu, küresel tablo açısından ciddi bir geri adım — ABD dünya emisyonlarının %14'ünden sorumlu ve küresel iklim müzakerelerinin en büyük aktörlerinden biri.</p>
+    <p>Ama boşluk hızla dolmaya başladı.</p>
+  </div>
+
+  <div class="actor-grid">
+    <div class="actor">
+      <div class="actor-name" style="color:var(--red);">ABD — Geri çekilme</div>
+      <div class="actor-stance" style="color:var(--t3);">"Enerji egemenliği" söylemi</div>
+      <div class="actor-body">Paris'ten çıkış, temiz enerji teşvikleri kesildi. Ancak eyalet düzeyinde California, New York gibi büyük ekonomiler bağımsız iklim politikası sürdürüyor. Özel sektör yatırımları devam ediyor.</div>
+    </div>
+    <div class="actor">
+      <div class="actor-name" style="color:var(--blue);">Çin — Stratejik liderlik</div>
+      <div class="actor-stance" style="color:var(--t3);">"Yeşil sanayinin süpergücü"</div>
+      <div class="actor-body">2024'te 625 milyar dolar temiz enerji yatırımı — küresel toplamın %31'i. Güneş panel fiyatlarını %80 düşürdü, EV'de küresel pazarın %70'ini elinde tutuyor. Cleantech artık GDP'nin %11'i.</div>
+    </div>
+    <div class="actor">
+      <div class="actor-name" style="color:var(--green);">AB — Düzenleyici çıpa</div>
+      <div class="actor-stance" style="color:var(--t3);">"Pazar gücüyle standart belirleyici"</div>
+      <div class="actor-body">CBAM (Sınır Karbon Vergisi) devreye girdi — Türkiye dahil tüm AB ticaret ortaklarını etkiliyor. 2040 hedefi 1990'a göre -%90 emisyon. Emisyonlar 2024'te -%1,8 düştü, büyüme aynı dönemde üçe katlandığından bu yana.</div>
+    </div>
+    <div class="actor">
+      <div class="actor-name" style="color:var(--amber);">Gelişmekte Olan Dünya — Kırılma noktası</div>
+      <div class="actor-stance" style="color:var(--t3);">"Atlamanın eşiğinde"</div>
+      <div class="actor-body">Afrika'da 20 ülke Çin güneş paneli ithalatında rekor kırdı. Pakistan ekonomik zorunlulukla yenilenebilir enerjiye geçti. Ucuzlayan teknoloji, kirli altyapı aşamasını atlıyor.</div>
+    </div>
+  </div>
+
+  <div class="box b-teal">
+    <div class="box-title">Hürmüz Krizi Dekarbonizasyonu Hızlandırıyor</div>
+    <p>Şu an yaşadığımız Hürmüz krizinin beklenmedik bir yan etkisi var: enerji güvenliği ve dekarbonizasyon artık aynı cepheye geçti. Fosil yakıt ithalatçısı her ülke için "petrol bağımlılığını azalt" ile "emisyonları düşür" artık aynı anlama geliyor. Çin bu bağlantıyı çok önce kurdu — elektrikli araçlar ve yenilenebilir enerji yatırımının ardındaki gerçek motivasyon enerji güvenliğiydi, iklim taahhüdü değil. Türkiye için de bu pencere açık.</p>
+  </div>
+
+  <h3>AB'nin CBAM'ı: Türkiye için geri sayım başladı</h3>
+  <div class="body">
+    <p>Sınır Karbon Düzenleme Mekanizması (CBAM) 2026 itibarıyla AB'ye ihraç edilen çelik, çimento, alüminyum, gübre ve elektrikte uygulanmaya başladı. Türkiye AB'nin en büyük ticaret ortaklarından biri. Türk ihracatçılar ya üretimlerini dekarbonize etmek ya da AB sınırında karbon bedeli ödemek zorunda. Bu, "seçim" değil — ekonomik zorunluluk.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 5: EKONOMİK BOYUT -->
+<div class="sec">
+  <div class="sec-label lv-teal">Bölüm 5 · Ekonomik Boyut</div>
+  <h2>4,5 Trilyon Dolarlık Fatura — Kimin Ödeyeceği?</h2>
+
+  <div class="body">
+    <p>IEA'nın hesabına göre 2030'a ulaşmak için yıllık 4,5 trilyon dolar yatırım gerekiyor. 2024'te gerçekleşen yatırım 2 trilyon dolardı — açık büyük. Bu para nereye gidecek ve kim kazanacak?</p>
+  </div>
+
+  <h3>Kritik Mineraller: Yeni Petrol Jeopolitiği</h3>
+  <div class="body">
+    <p>Lityum, kobalt, nikel, nadir toprak elementleri — bunlar olmadan pil de yok, rüzgar türbini de yok, elektrikli araç da. Ve bunların büyük bölümü birkaç ülkenin elinde: <strong>Çin nadir toprak işlemenin %60'ını, kobalt işlemenin %70'ini, lityum işlemenin %58'ini kontrol ediyor.</strong></p>
+    <p>Bu konsantrasyon yeni bir jeopolitik kırılganlık yaratıyor. Çin 2024'te gallium ve germanyum ihracatını kısıtladı — her ikisi de yarı iletken ve savunma sanayiinde kritik. Batı ülkeleri alternatif tedarik zinciri kurmak için yarışıyor: Kanada 2026 başında 12,1 milyar dolarlık kritik mineral ortaklıkları açıkladı.</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>Mineral</th>
+      <th>Ne için?</th>
+      <th>Çin'in payı</th>
+      <th>Risk seviyesi</th>
+    </tr>
+    <tr>
+      <td>Nadir Topraklar</td>
+      <td>Rüzgar türbini, EV motoru, savunma</td>
+      <td>%60 işleme</td>
+      <td style="color:var(--red);">Çok yüksek</td>
+    </tr>
+    <tr>
+      <td>Lityum</td>
+      <td>EV pili, enerji depolama</td>
+      <td>%58 işleme</td>
+      <td style="color:var(--red);">Yüksek</td>
+    </tr>
+    <tr>
+      <td>Kobalt</td>
+      <td>Pil katot malzemesi</td>
+      <td>%70 işleme</td>
+      <td style="color:var(--red);">Çok yüksek</td>
+    </tr>
+    <tr>
+      <td>Bakır</td>
+      <td>Elektrik iletimi, her şey</td>
+      <td>Çeşitli</td>
+      <td style="color:var(--amber);">Orta</td>
+    </tr>
+    <tr>
+      <td>Nikel</td>
+      <td>Pil, paslanmaz çelik</td>
+      <td>Endonezya/Çin</td>
+      <td style="color:var(--amber);">Orta-yüksek</td>
+    </tr>
+  </table>
+
+  <h3>Fosil Yakıt Şirketlerinin Çıkmazı: "Stranded Assets"</h3>
+  <div class="body">
+    <p>Stranded asset (mahsur kalmış varlık): iklim politikaları ve enerji dönüşümü nedeniyle değerini erken yitirecek yatırımlar. Hâlâ işletilen kömür madenleri, 30 yıllık ömrü olması gereken doğalgaz altyapısı, henüz çıkarılmamış petrol rezervleri. Bazı tahminler 2050'ye kadar fosil yakıt varlıklarında 1-4 trilyon dolar değer kaybı öngörüyor.</p>
+    <p>Bu risk portföylerde görünmüyor henüz — çünkü bugünkü fiyatlamalar bu senaryoyu tam olarak yansıtmıyor. <strong>Erken görenlerin fırsatı, geç kalanlara büyük sürpriz hazır.</strong></p>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">AI ve Dekarbonizasyon: Beklenmedik Çelişki</div>
+    <p>Yapay zeka veri merkezleri muazzam enerji tüketiyor. Microsoft, Google, Amazon hepsi nükleer ve yenilenebilir enerji anlaşmaları imzalıyor. Bu talep artışı hem temiz enerji yatırımını hızlandırıyor hem de kısa vadede doğal gaz santrallerini yeniden devreye sokuyor. Çin 2060'ta AI'ın elektrik talebinin %10'unu oluşturacağını öngörüyor. Temiz enerji geçişini hızlandıran mı, zorlaştıran mı? Her ikisi de.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 6: PORTFÖY -->
+<div class="sec">
+  <div class="sec-label lv-gold">Bölüm 6 · Portföye Etkisi</div>
+  <h2>Portföyde Dekarbonizasyon — Risk Haritası</h2>
+
+  <div class="body">
+    <p>Dekarbonizasyon yalnızca çevre meselesi değil — varlık fiyatlamasını şekillendiren yapısal bir güç. <strong>Ama "yeşil yatırım yapın" kadar basit değil.</strong> Fizibilite tablosuna baktığımızda çimento ve tarım gibi sektörlerin net sıfırdan çok uzak olduğunu görüyoruz. Bu gerçekle yüzleşmeden yapılan yatırım kararları hem aşırı iyimser hem aşırı kötümser olabilir. Üç katmanda düşünmek daha sağlıklı: sistematik riskler, gerçek fırsatlar ve dürüst belirsizlikler.</p>
+  </div>
+
+  <div class="port-grid">
+
+    <div class="port-row">
+      <div class="port-signal sig-red"></div>
+      <div class="port-body">
+        <div class="port-title">Kömür ve Geleneksel Petrol/Doğalgaz — Stranded asset riski</div>
+        <div class="port-desc">Uzun vadeli talep düşüşü, artan düzenleyici baskı ve karbon vergisi riski bu varlık sınıfını yapısal olarak zayıflatıyor. Kısa vadeli petrol fiyatı yüksekliği (Hürmüz krizi) geçici balonlama yaratabilir — ama yapısal hikaye değişmiyor.</div>
+        <div class="port-note">AB CBAM ve karbon fiyatlandırması bu şirketlerin maliyet yapısını kalıcı değiştiriyor.</div>
+      </div>
+      <div class="port-badge badge-red">Uzun Vadede Azalt</div>
+    </div>
+
+    <div class="port-row">
+      <div class="port-signal sig-green"></div>
+      <div class="port-body">
+        <div class="port-title">Temiz Enerji Altyapısı — Grid, depolama, dağıtım</div>
+        <div class="port-desc">Güneş ve rüzgar panelinden çok elektrik şebekesi ve depolama altyapısı. Yenilenebilir enerji büyüyünce grid yatırımı kaçınılmaz — Çin 2024'te grid yatırımını %25 artırdı. Batarya depolama yatırımı 3 yılda üçe katlandı.</div>
+        <div class="port-note">Kısa vadeli volatilite var ama yapısal talep 20-30 yıllık pencerede çok güçlü.</div>
+      </div>
+      <div class="port-badge badge-green">Yapısal Fırsat</div>
+    </div>
+
+    <div class="port-row">
+      <div class="port-signal sig-green"></div>
+      <div class="port-body">
+        <div class="port-title">Nükleer Enerji — Beklenmedik rönesans</div>
+        <div class="port-desc">2024'te nükleer kapasite eklemeleri 30 yılın zirvesine ulaştı. AI veri merkezi operatörleri nükleer ile uzun vadeli güç anlaşmaları imzalıyor. Çin ve Hindistan nükleer programlarını hızlandırıyor. Küçük modüler reaktörler (SMR) yeni nesil fırsat.</div>
+        <div class="port-note">ESG backlash'e rağmen "yeşil nükleer" kabulü artıyor.</div>
+      </div>
+      <div class="port-badge badge-green">Güçlenen Tez</div>
+    </div>
+
+    <div class="port-row">
+      <div class="port-signal sig-amber"></div>
+      <div class="port-body">
+        <div class="port-title">Kritik Mineral Madenciliği — Yapısal talep, jeopolitik risk</div>
+        <div class="port-desc">Lityum, kobalt, bakır, nadir topraklar — uzun vadeli talebi neredeyse garantili. Ama üretim konsantrasyonu ve kaynak milliyetçiliği ciddi risk. Çin'in ihracat kısıtlamaları ani fiyat şoklarına yol açabilir. Batı ülkelerindeki projeler premium fiyatlanıyor.</div>
+        <div class="port-note">BMI 2026 için kritik minerallerde "temkinli iyimser" fiyat ortamı öngörüyor.</div>
+      </div>
+      <div class="port-badge badge-amber">Seçici Yaklaş</div>
+    </div>
+
+    <div class="port-row">
+      <div class="port-signal sig-amber"></div>
+      <div class="port-body">
+        <div class="port-title">Türkiye — CBAM baskısı ve yenilenebilir fırsat</div>
+        <div class="port-desc">AB'nin CBAM'ı Türk çelik ve çimento ihracatını etkiliyor — bu sektörlerdeki şirketler karbon maliyetini içselleştirmeye zorlanıyor. Ama aynı zamanda: Türkiye güneş ve rüzgar potansiyeli yüksek, hidroelektrik zenginliği var. Yenilenebilir kapasite yatırımı hem enerji güvenliğini hem AB pazar erişimini güçlendiriyor.</div>
+        <div class="port-note">BIST'te yenilenebilir enerji ve enerji verimliliği şirketleri bu geçişten en çok faydalananlar.</div>
+      </div>
+      <div class="port-badge badge-amber">İzle ve Konumlan</div>
+    </div>
+
+    <div class="port-row">
+      <div class="port-signal sig-blue"></div>
+      <div class="port-body">
+        <div class="port-title">ESG Fonları — Backlash gerçek ama büyüme devam ediyor</div>
+        <div class="port-desc">2025'te ilk kez global ESG fon çıkışı yaşandı. Ama toplam varlık 3,7 trilyon dolar — hâlâ büyük. Avrupa ESG fonları tüm fon evreninin %20'si. Morgan Stanley araştırması: yatırımcıların %88'i sürdürülebilir yatırıma ilgi duyuyor. Politika değişikliği geçici — demografik dönüşüm kalıcı.</div>
+        <div class="port-note">Kısa vadeli ABD backlash uzun vadeli trendi değiştirmiyor.</div>
+      </div>
+      <div class="port-badge badge-blue">Uzun Vade Güçlü</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ÖZET -->
+<div class="sec" style="border-bottom:none;">
+  <div class="sec-label lv-gold">Sonuç · Büyük Bahsin Özeti</div>
+  <h2>Ne Yapsak Kâr?</h2>
+
+  <div class="body">
+    <p>Dekarbonizasyon tarihsel ölçekte bir dönüşüm — ama ne zamanlamasını ne de hızını kesin öngörmek mümkün. Portföy açısından bunun anlamı şu: hem geçiş hızlanırsa hem de yavaşlarsa ayakta kalacak pozisyonlar kurmak.</p>
+    <p><strong>Yavaşlarsa kârlı:</strong> Enerji güvenliği nedeniyle doğalgaz ve nükleer stratejik değerini korur. Kritik mineral talebi her iki senaryoda da güçlü. Türkiye gibi enerji ithalatçısı ülkeler yenilenebilir enerjiye her halükarda yatırım yapacak.</p>
+    <p><strong>Hızlanırsa kârlı:</strong> Grid ve depolama altyapısı, EV ekosistemi, karbon yakalama teknolojileri, yeşil hidrojen öncüleri.</p>
+    <p><strong>Her iki durumda kaçınılacak:</strong> Uzun vadeli kömür yatırımı. AB'ye ihracat yapan dekarbonize olmamış sektörler (CBAM riski). Çin teknoloji tedarikine tamamen bağımlı, alternatif geliştiremeyen pozisyonlar.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Son söz</div>
+    <p class="analogy-text">"Bu geçiş 30 yıllık bir maraton. Sprintçiler için değil, konumunu erken kuranlar için. Çin bu maratonu 15 yıl önce fark etti ve koşmaya başladı. Geç kalındı mı? Evet — ama bitmedi. 1,5°C gitti, 2°C'yi tutmak hâlâ elimizde."</p>
+  </div>
+
+  <div class="summary">
+    <div class="summary-label">Bu bültenden 8 şey</div>
+    <ul>
+      <li>2024'te CO₂ <strong>37,8 Gt ile rekor</strong> kırdı — ama emisyonlar ekonomik büyümeden ayrışmaya başladı.</li>
+      <li><strong>1,5°C hedefi neredeyse kaçırıldı</strong> — ama her 0,1°C fark milyonları etkiliyor, mücadele bitmedi.</li>
+      <li>Çelik, çimento, havacılık, denizcilik <strong>"zor sektörler"</strong> — dekarbonizasyonun en yavaş ilerleyen kısmı.</li>
+      <li><strong>ABD geri çekildi, Çin öne geçti</strong> — cleantech GDP'nin %11'i, global yatırımın %31'i Çin'den.</li>
+      <li><strong>CBAM başladı:</strong> Türk çelik ve çimento ihracatçıları AB'de karbon maliyetiyle yüzleşmek zorunda.</li>
+      <li>Kritik mineraller yeni jeopolitik silah: <strong>lityum, kobalt, nadir topraklar</strong> Çin kontrolünde.</li>
+      <li>Portföyde <strong>kömür ve konvansiyonel fosil varlıklar</strong> uzun vadede stranded asset riski taşıyor.</li>
+      <li><strong>Grid, depolama, nükleer ve kritik mineraller</strong> yapısal fırsat — her iki geçiş senaryosunda da.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Derinlemesine Analiz · Mart 2026</div>
+  <div class="ft-disc">Kişisel araştırma notu.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+
+</body>
+</html>
