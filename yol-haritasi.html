@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://cakbulten.github.io/yol-haritasi.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Yol Haritası — Ortalama Yatırımcının El Kitabı</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --red: #b03030;
+  --red-lt: #fdf0f0;
+  --red-bd: #e8a0a0;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --green-bd: #88cca8;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --blue-bd: #90b0e8;
+  --amber: #8a4c10;
+  --amber-lt: #fdf4ea;
+  --amber-bd: #e0b078;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.8;max-width:700px;margin:0 auto;padding:0 0 100px;}
+
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}.nav a:hover{color:#c9a84c;}
+.nav-tag{color:var(--gold);background:var(--gold-lt);padding:2px 8px;margin-left:auto;font-size:9px;}
+
+.hd{padding:48px 40px 36px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+h1{font-family:'Instrument Serif',serif;font-size:46px;font-weight:400;line-height:1.05;letter-spacing:-1.5px;margin-bottom:8px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--gold);}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:18px;font-weight:400;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;flex-wrap:wrap;}
+
+/* TOC */
+.toc{background:var(--s1);border-bottom:1px solid var(--bd);padding:18px 40px;}
+.toc-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;}
+.toc-item{font-size:13px;color:var(--t2);text-decoration:none;display:flex;align-items:center;gap:6px;padding:2px 0;transition:color .12s;}
+.toc-item:hover{color:var(--gold);}
+.toc-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);}
+
+.sec{padding:32px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+h2{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;line-height:1.2;margin-bottom:16px;color:var(--t1);}
+h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t1);margin:22px 0 8px;}
+.body{font-size:15px;color:var(--t2);line-height:1.85;}
+.body p{margin-bottom:14px;}.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}.body em{font-style:italic;color:var(--t1);}
+
+/* Üç adım */
+.steps{display:flex;flex-direction:column;gap:1px;background:var(--bd);margin:20px 0;}
+.step{background:var(--s1);display:grid;grid-template-columns:56px 1fr;gap:0;}
+.step-num{background:var(--t1);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-size:28px;font-style:italic;}
+.step-body{padding:18px 20px;}
+.step-title{font-weight:500;color:var(--t1);font-size:15px;margin-bottom:6px;}
+.step-desc{font-size:13.5px;color:var(--t2);line-height:1.7;}
+
+/* Profil kartları */
+.profiles{display:flex;flex-direction:column;gap:1px;background:var(--bd);margin:20px 0;}
+.profile{background:var(--s1);}
+.profile-head{padding:14px 20px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none;}
+.profile-icon{font-size:20px;flex-shrink:0;}
+.profile-title{font-weight:500;color:var(--t1);font-size:15px;}
+.profile-sub{font-size:12px;color:var(--t3);margin-top:1px;}
+.profile-toggle{margin-left:auto;font-family:'DM Mono',monospace;font-size:14px;color:var(--t3);transition:transform .2s;}
+.profile-toggle.open{transform:rotate(180deg);}
+.profile-body{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .3s ease, padding .3s ease;}
+.profile-body.open{max-height:1000px;padding:20px;}
+.profile-row{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:13.5px;}
+.profile-row:last-child{border-bottom:none;padding-bottom:0;}
+.pr-label{color:var(--t3);width:120px;flex-shrink:0;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding-top:1px;}
+.pr-val{color:var(--t2);flex:1;line-height:1.65;}
+.pr-val strong{color:var(--t1);}
+
+/* Sepet görünümü */
+.basket{margin:16px 0;border:1px solid var(--bd);overflow:hidden;}
+.basket-head{background:var(--t1);padding:10px 14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#888;display:grid;grid-template-columns:1fr auto auto;}
+.basket-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;padding:10px 14px;border-bottom:1px solid var(--bd);font-size:13.5px;}
+.basket-row:last-child{border-bottom:none;}
+.basket-name{color:var(--t2);}
+.basket-pct{font-family:'DM Mono',monospace;font-size:12px;color:var(--t1);width:50px;text-align:right;}
+.basket-why{font-size:11.5px;color:var(--t3);text-align:right;width:150px;font-style:italic;}
+.basket-bar{height:4px;background:var(--bd);margin-top:4px;grid-column:1/-1;}
+.bar-fill{height:100%;background:var(--gold-bd);}
+
+/* Trafik ışığı */
+.traffic{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);margin:20px 0;}
+.tl-cell{padding:16px 14px;text-align:center;}
+.tl-red{background:var(--red-lt);}
+.tl-amber{background:var(--amber-lt);}
+.tl-green{background:var(--green-lt);}
+.tl-icon{font-size:22px;margin-bottom:8px;}
+.tl-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.tl-red .tl-title{color:var(--red);}
+.tl-amber .tl-title{color:var(--amber);}
+.tl-green .tl-title{color:var(--green);}
+.tl-items{font-size:12.5px;color:var(--t2);line-height:1.7;text-align:left;}
+
+/* DCA takvim */
+.dca-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px;}
+.dca-table th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:10px 12px;border-bottom:2px solid var(--t1);text-align:left;color:var(--t3);}
+.dca-table td{padding:10px 12px;border-bottom:1px solid var(--bd);color:var(--t2);vertical-align:top;}
+.dca-table tr:last-child td{border-bottom:none;}
+.dca-table td:first-child{color:var(--t1);font-weight:500;}
+
+/* Çıkış planı */
+.exit-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--bd);margin:20px 0;}
+.exit-cell{background:var(--s1);padding:16px 14px;}
+.exit-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;}
+.exit-title{font-weight:500;color:var(--t1);font-size:14px;margin-bottom:6px;}
+.exit-desc{font-size:12.5px;color:var(--t2);line-height:1.6;}
+
+.box{border:1px solid;padding:18px 22px;margin:20px 0;font-size:14px;line-height:1.72;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;font-weight:500;}
+.b-gold{background:var(--gold-lt);border-color:var(--gold-bd);}.b-gold .box-title{color:var(--gold);}.b-gold p{color:var(--t2);}
+.b-red{background:var(--red-lt);border-color:var(--red-bd);}.b-red .box-title{color:var(--red);}.b-red p{color:var(--t2);}
+.b-green{background:var(--green-lt);border-color:var(--green-bd);}.b-green .box-title{color:var(--green);}.b-green p{color:var(--t2);}
+.b-blue{background:var(--blue-lt);border-color:var(--blue-bd);}.b-blue .box-title{color:var(--blue);}.b-blue p{color:var(--t2);}
+
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:20px 24px;margin:20px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:19px;color:var(--t1);line-height:1.5;font-style:italic;}
+
+/* Kaçınılacaklar */
+.dont-list{display:flex;flex-direction:column;gap:0;margin:20px 0;}
+.dont-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--bd);align-items:flex-start;}
+.dont-item:last-child{border-bottom:none;}
+.dont-x{color:var(--red);font-family:'DM Mono',monospace;font-size:13px;flex-shrink:0;padding-top:1px;}
+.dont-body{}
+.dont-title{font-weight:500;color:var(--t1);font-size:14px;margin-bottom:2px;}
+.dont-desc{font-size:13px;color:var(--t2);line-height:1.6;}
+
+.summary{background:var(--t1);padding:28px 32px;margin:28px 0;}
+.summary-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#888;margin-bottom:14px;}
+.summary ul{list-style:none;padding:0;}
+.summary li{font-size:14px;color:#c0bdcc;padding:7px 0;border-bottom:1px solid #28262e;padding-left:16px;position:relative;line-height:1.65;}
+.summary li::before{content:'→';position:absolute;left:0;color:var(--gold-bd);font-family:'DM Mono',monospace;font-size:11px;}
+.summary li:last-child{border-bottom:none;}
+.summary li strong{color:#eae8f2;font-weight:500;}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.toc,.sec,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:34px;}
+  .toc-grid{grid-template-columns:1fr;}
+  .traffic{grid-template-columns:1fr;}
+  .exit-grid{grid-template-columns:1fr;}
+  .step{grid-template-columns:44px 1fr;}
+  .basket-why{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-tag">Başucu Rehberi</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Yatırım Yol Haritası</div>
+  <h1>Ortalama Yatırımcının<br><em>El Kitabı</em></h1>
+  <p class="hd-sub">Tepeden almak, dibini beklememek, heyecanla karar vermemek — ve bunun yerine ne yapmak gerektiği. Somut, uygulanabilir, başucu.</p>
+  <div class="hd-meta">
+    <span>Mart 2026</span>
+    <span>·</span>
+    <span>Tüm Seviyeler</span>
+    <span>·</span>
+    <span>~12 dk okuma</span>
+    <span>·</span>
+    <span>Referans Belgesi</span>
+  </div>
+</div>
+
+<div class="toc">
+  <div class="toc-label">İçindekiler</div>
+  <div class="toc-grid">
+    <a href="#problem" class="toc-item"><span class="toc-num">1</span>Asıl Problem Nedir?</a>
+    <a href="#uc-prensip" class="toc-item"><span class="toc-num">2</span>Üç Temel Prensip</a>
+    <a href="#profiller" class="toc-item"><span class="toc-num">3</span>Profil Bazlı Yol Haritası</a>
+    <a href="#sepet" class="toc-item"><span class="toc-num">4</span>Başlangıç Sepeti</a>
+    <a href="#trafik" class="toc-item"><span class="toc-num">5</span>Trafik Işığı — Ne Zaman Ne Yapılır?</a>
+    <a href="#cikis" class="toc-item"><span class="toc-num">6</span>Çıkış Planı</a>
+    <a href="#kacin" class="toc-item"><span class="toc-num">7</span>Kaçınılacaklar</a>
+  </div>
+</div>
+
+<!-- BÖLÜM 1: PROBLEM -->
+<div class="sec" id="problem">
+  <div class="sec-label" style="color:var(--red);">Bölüm 1 · Asıl Problem</div>
+  <h2>Sorun Bilgi Eksikliği Değil</h2>
+
+  <div class="body">
+    <p>"Dipte al, zirvede sat" — bunu herkes biliyor. Kimse yapamıyor. Çünkü dip geldiğinde dünya batıyor gibi hissettiriyor, zirve geldiğinde "daha da çıkar" deniyor. Bu bir karakter sorunu değil — beynimizin çalışma biçimi böyle.</p>
+    <p>Ortalama yatırımcı tepeden alıyor çünkü haberlere, çevresindekilere ve kendi heyecanına göre hareket ediyor. Çözüm daha fazla bilgi değil — <strong>karar verme anını ortadan kaldıracak bir sistem.</strong></p>
+    <p>Bu el kitabı o sistemi kurmak için yazıldı.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Temel fikir</div>
+    <p class="analogy-text">"İyi bir yatırım sistemi, iyi kararlar vermeni sağlamaz. Karar verme ihtiyacını ortadan kaldırır."</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2: ÜÇ PRENSİP -->
+<div class="sec" id="uc-prensip">
+  <div class="sec-label" style="color:var(--gold);">Bölüm 2 · Üç Temel Prensip</div>
+  <h2>Her Şey Buraya Dayanıyor</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Karar anını ortadan kaldır — otomatikleştir</div>
+        <div class="step-desc">Her ay maaş günü sabit bir tutar, sabit varlıklara gider. Piyasa ne yaparsa yapsın. Altın $3.000'de de $5.000'de de aynı miktarı alırsın — düşükte daha çok birim, yüksekte daha az birim. Yıllar içinde ortalama maliyet makul bir seviyede kalır. Buna DCA (düzenli maliyet ortalaması) deniyor ama pratik anlamı şu: <strong>düşün, yorulma, otomatik al.</strong></div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Parayı kullanım tarihine göre ayır</div>
+        <div class="step-desc">"100.000 TL var, ne yapayım?" sorusu yanlış soru. Önce şunu sor: <strong>Bu para ne zaman kullanılacak?</strong> 1 yıl içinde kullanılacaksa düşük riskli araçta durur. 5 yıl sonrası içinse daha fazla risk taşıyabilir. Karıştırmak — kısa vadeli parayı uzun vadeli araca koymak ya da tersini yapmak — çoğu hayal kırıklığının kaynağı.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Çıkış planını girişte yap</div>
+        <div class="step-desc">"Ne zaman satacaksın?" sorusunun cevabı "yükselince" değil. Doğrusu: <strong>belirli bir hayat hedefi, vade ya da oran.</strong> Bu plan girerken yapılmazsa çıkış ya çok erken (panikle) ya çok geç (açgözlülükle) olur. Her alımda şunu yaz: "Şunu elde etmek için alıyorum, şu koşulda satacağım."</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BÖLÜM 3: PROFİLLER -->
+<div class="sec" id="profiller">
+  <div class="sec-label" style="color:var(--blue);">Bölüm 3 · Profil Bazlı Yol Haritası</div>
+  <h2>Sen Hangisisin?</h2>
+
+  <div class="body">
+    <p>Tek bir yol haritası herkese uymaz. Aşağıdaki üç profili seç, adımlarını gör.</p>
+  </div>
+
+  <div class="profiles">
+
+    <!-- PROFİL A -->
+    <div class="profile">
+      <div class="profile-head" onclick="toggleProfile('a')">
+        <div class="profile-icon">💼</div>
+        <div>
+          <div class="profile-title">Maaşlı Çalışan</div>
+          <div class="profile-sub">Düzenli gelir, sınırlı birikim, uzun vade</div>
+        </div>
+        <div class="profile-toggle" id="toggle-a">▾</div>
+      </div>
+      <div class="profile-body" id="body-a">
+        <div class="profile-row">
+          <div class="pr-label">İlk Adım</div>
+          <div class="pr-val"><strong>Acil fon kur.</strong> 3-6 aylık gider, sadece mevduatta. Dokunma. Acil fon yokken yatırım yapmak — temelsiz bina inşa etmek gibi. İlk sarsıntıda yıkılır.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">İkinci Adım</div>
+          <div class="pr-val"><strong>BES'e başla veya artır.</strong> Devlet %20 katkı ekliyor — bu dünyada nadir rastlanan garantili getiri. Aylık 1.000 TL koysan devlet 200 TL ekliyor, yani başlamadan %20 kazanmış oluyorsun. Altın fonu seç, otomatik yatır, bakma.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">Üçüncü Adım</div>
+          <div class="pr-val"><strong>TÜFEX al.</strong> Maaş günü sabit tutar, her ay. Enflasyonla birlikte büyüyor, devlet güvenceli, likit. TL birikiminin çekirdeği.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">Dördüncü Adım</div>
+          <div class="pr-val">Kalan birikim %60 altın (BES dahil), %20 döviz mevduatı, %20 BIST seçici hisse. Oran tuttur, her ay otomatik.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">Kaçın</div>
+          <div class="pr-val">Tek seferlik büyük alımlardan kaçın — düzenli küçük alım daha güvenli. Habere, sohbete, "herkes alıyor" havasına göre hareket etme. Ev, araba, tatil gibi yakın vadeli harcaman için ayırdığın parayı yatırıma sokma.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">Hedef</div>
+          <div class="pr-val">10 yılda emeklilik varlığı + likit koruma kalkanı. Hız değil, istikrar.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFİL B -->
+    <div class="profile">
+      <div class="profile-head" onclick="toggleProfile('b')">
+        <div class="profile-icon">🏪</div>
+        <div>
+          <div class="profile-title">Serbest Çalışan / Küçük Esnaf</div>
+          <div class="profile-sub">Düzensiz gelir, yüksek nakit döngüsü, belirsiz vade</div>
+        </div>
+        <div class="profile-toggle" id="toggle-b">▾</div>
+      </div>
+      <div class="profile-body" id="body-b">
+        <div class="profile-row">
+          <div class="pr-label">İlk Adım</div>
+          <div class="pr-val"><strong>İş nakdi ile kişisel birikimi ayır.</strong> İkisi aynı hesapta birbirine karışırsa ne kadar kazandığını ne kadar biriktirdiğini göremezsin. İş nakit döngüsü için ayrı hesap, kişisel birikim için ayrı — bu ayrım her şeyin başlangıcı.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">İkinci Adım</div>
+          <div class="pr-val"><strong>Büyük nakit tutma, değer kaybettiriyor.</strong> İşletme nakit ihtiyacının ötesindeki her TL ya altına ya TÜFEX'e. Aylık sabit değil, oranla git: ne kadar kâr edersen %X'ini otomatik yatır.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">Üçüncü Adım</div>
+          <div class="pr-val"><strong>Döviz tamponu şart.</strong> İthalat veya kur bağlantılı giderin varsa dolar/euro bulundur. Bu yatırım değil, sigorta.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">Dördüncü Adım</div>
+          <div class="pr-val">Kârlı dönemlerde fazlayı fiziksel değerli metale çevir. Likit değil ama enflasyona karşı güçlü. İşte zor dönemlerde satma, sadece tut.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">Kaçın</div>
+          <div class="pr-val">İş gelirinle spekülatif alım yapma — iş kötüye gidince hem iş hem portföy aynı anda baskı altında olur. Acil nakit gerektiğinde likit olmayan varlıkları kötü fiyata satmak zorunda kalmak en yaygın hatalardan biri. Tüm birikimi tek sektörde tutma.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">Hedef</div>
+          <div class="pr-val">İş dışı servet inşa et. Düzensiz gelir dönemlerinde seni taşıyacak tampon + uzun vadeli değer.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFİL C -->
+    <div class="profile">
+      <div class="profile-head" onclick="toggleProfile('c')">
+        <div class="profile-icon">🏛️</div>
+        <div>
+          <div class="profile-title">Emekliye Yakın / Koruyan</div>
+          <div class="profile-sub">Birikim var, risk toleransı düşüyor, gelir önemli</div>
+        </div>
+        <div class="profile-toggle" id="toggle-c">▾</div>
+      </div>
+      <div class="profile-body" id="body-c">
+        <div class="profile-row">
+          <div class="pr-label">İlk Adım</div>
+          <div class="pr-val"><strong>Risk azalt, ama tamamen çıkma.</strong> Enflasyon seni hâlâ etkiliyor. Sıfır riskli portföy değil, düşük riskli portföy. TÜFEX ağırlığını artır.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">İkinci Adım</div>
+          <div class="pr-val"><strong>Pasif gelir oluştur.</strong> Temettü veren hisse, kira geliri, tahvil faizi. Anapara yerine gelirden yaşa. Bu psikolojik konforu da artırır.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">Üçüncü Adım</div>
+          <div class="pr-val"><strong>Likidite katmanla.</strong> 2 yıllık gideri nakit veya likit araçta tut. Piyasa düşüşünde satmak zorunda kalma. Bu tampon olmadan her düşüş panik yaratır.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">Dördüncü Adım</div>
+          <div class="pr-val">Kalan uzun vadeli birikim: %40 altın/değerli metal, %30 TÜFEX, %20 temettü hisse, %10 döviz. Değiştirme ihtiyacı azalır.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">Kaçın</div>
+          <div class="pr-val">Tek hissede ya da tek varlıkta yoğunlaşma — çok kazandırabilir ama tek bir kötü senaryo her şeyi götürür. Geçmişte kaçırılan fırsatları telafi etmek için büyük hamleler yapma dürtüsüne dikkat et — aceleyle alınan risk genellikle en pahalı risk olur. Kısa vadeli spekülatif araçlardan uzak dur.</div>
+        </div>
+        <div class="profile-row">
+          <div class="pr-label">Hedef</div>
+          <div class="pr-val">Koruma önce, büyüme ikinci. Geceyi rahat geçirmek en değerli getiri.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BÖLÜM 4: BAŞLANGIÇ SEPETİ -->
+<div class="sec" id="sepet">
+  <div class="sec-label" style="color:var(--gold);">Bölüm 4 · Başlangıç Sepeti</div>
+  <h2>"Nereden Başlayayım?" Sorusunun Cevabı</h2>
+
+  <div class="body">
+    <p>Sıfırdan başlıyorsan veya karmaşıklığı azaltmak istiyorsan — bu sepet yeterince iyi bir başlangıç noktası. Mükemmel değil ama uygulanabilir.</p>
+  </div>
+
+  <div class="basket">
+    <div class="basket-head">
+      <span>Varlık</span>
+      <span>Oran</span>
+      <span>Neden?</span>
+    </div>
+    <div class="basket-row">
+      <div>
+        <div class="basket-name">Altın (BES fonu veya fiziksel)</div>
+        <div class="basket-bar"><div class="bar-fill" style="width:35%;background:#c8a84c;"></div></div>
+      </div>
+      <div class="basket-pct">%35</div>
+      <div class="basket-why">Enflasyon + kur koruması</div>
+    </div>
+    <div class="basket-row">
+      <div>
+        <div class="basket-name">TÜFEX (enflasyona endeksli tahvil)</div>
+        <div class="basket-bar"><div class="bar-fill" style="width:25%;background:#88cca8;"></div></div>
+      </div>
+      <div class="basket-pct">%25</div>
+      <div class="basket-why">TL enflasyon koruması</div>
+    </div>
+    <div class="basket-row">
+      <div>
+        <div class="basket-name">Döviz (USD / EUR mevduat)</div>
+        <div class="basket-bar"><div class="bar-fill" style="width:20%;background:#90b0e8;"></div></div>
+      </div>
+      <div class="basket-pct">%20</div>
+      <div class="basket-why">Kur sigorta</div>
+    </div>
+    <div class="basket-row">
+      <div>
+        <div class="basket-name">BIST hisse (seçici, max 3-4 şirket)</div>
+        <div class="basket-bar"><div class="bar-fill" style="width:15%;background:#52b07a;"></div></div>
+      </div>
+      <div class="basket-pct">%15</div>
+      <div class="basket-why">Büyüme potansiyeli</div>
+    </div>
+    <div class="basket-row">
+      <div>
+        <div class="basket-name">Nakit (TL mevduat — likit tampon)</div>
+        <div class="basket-bar"><div class="bar-fill" style="width:5%;background:#b8b6ac;"></div></div>
+      </div>
+      <div class="basket-pct">%5</div>
+      <div class="basket-why">Fırsat + acil</div>
+    </div>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">Bu oranı nasıl uygularsın?</div>
+    <p>Her ay maaş günü yatırım için ayırdığın tutarı bu oranlara göre böl. 1.000 TL yatırıyorsan: 350 TL altın, 250 TL TÜFEX, 200 TL döviz, 150 TL hisse, 50 TL nakit. Basit. Her ay aynı. Piyasaya bakma.</p>
+  </div>
+
+  <div class="box b-blue">
+    <div class="box-title">Rebalans — yılda bir kez</div>
+    <p>Yılda bir kez oranları kontrol et. Altın çok yükseldiyse ve ağırlık %50'ye çıktıysa, %35'e düşür — fazlayı başka varlıklara kaydır. Yükselen satılır, düşen alınır. Bu "tepeden alma" problemini mekanik olarak çözer — duygusal karar değil, oran düzeltme.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 5: TRAFİK IŞIĞI -->
+<div class="sec" id="trafik">
+  <div class="sec-label" style="color:var(--amber);">Bölüm 5 · Trafik Işığı</div>
+  <h2>Hangi Ortamda Ne Yapılır?</h2>
+
+  <div class="body">
+    <p>Makro ortam değiştikçe sepetteki ağırlıkları ince ayar yapmak gerekebilir. Bu trafik ışığı basit bir çerçeve — her ay bültende güncellenecek.</p>
+  </div>
+
+  <div class="traffic">
+    <div class="tl-cell tl-red">
+      <div class="tl-icon">🔴</div>
+      <div class="tl-title">Bekle / Azalt</div>
+      <div class="tl-items">
+        Enflasyon yükseliyor<br>
+        Faiz artıyor<br>
+        Kur baskısı var<br>
+        Jeopolitik kriz tırmanıyor<br>
+        <br>
+        <strong>Nakit ağırlığını artır.</strong><br>
+        Spekülatif pozisyon açma.<br>
+        DCA'ya devam et.
+      </div>
+    </div>
+    <div class="tl-cell tl-amber">
+      <div class="tl-icon">🟡</div>
+      <div class="tl-title">İzle / Tut</div>
+      <div class="tl-items">
+        Enflasyon yatay<br>
+        Faiz belirsiz<br>
+        Piyasalar yönünü arıyor<br>
+        Senaryo netleşmedi<br>
+        <br>
+        <strong>Mevcut oranları koru.</strong><br>
+        Büyük değişiklik yapma.<br>
+        Rebalans fırsatı ara.
+      </div>
+    </div>
+    <div class="tl-cell tl-green">
+      <div class="tl-icon">🟢</div>
+      <div class="tl-title">Fırsat / Artır</div>
+      <div class="tl-items">
+        Enflasyon düşüyor<br>
+        Faiz indirimi geliyor<br>
+        Piyasalar aşırı satılmış<br>
+        Kriz dinginleşiyor<br>
+        <br>
+        <strong>DCA tutarını artır.</strong><br>
+        Kademeli pozisyon ekle.<br>
+        Hisse ağırlığını artır.
+      </div>
+    </div>
+  </div>
+
+  <div class="box b-blue">
+    <div class="box-title">Mart 2026 — Mevcut Durum</div>
+    <p>🟡 <strong>Sarı:</strong> Enflasyon dirençli, Fed şahin, Hürmüz krizi sürüyor. Altın EMA 200 altında — teknik kırılım var ama yapısal tez bozulmadı. Büyük değişiklik için erken. DCA'ya devam, nakit tamponunu koru, kademeli değerlendirme fırsatı izle.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 6: ÇIKIŞ PLANI -->
+<div class="sec" id="cikis">
+  <div class="sec-label" style="color:var(--green);">Bölüm 6 · Çıkış Planı</div>
+  <h2>Ne Zaman Satarsın?</h2>
+
+  <div class="body">
+    <p>Çıkış planı yoksa çıkış ya panikte ya açgözlülükte olur. Her ikisi de yanlış zamanlarda gerçekleşir. Aşağıdaki üç çerçeveden birini seç ve girişte yaz.</p>
+  </div>
+
+  <div class="exit-grid">
+    <div class="exit-cell">
+      <div class="exit-label">Çerçeve 1</div>
+      <div class="exit-title">Hayat Hedefi</div>
+      <div class="exit-desc">Ev peşinatı, çocuk eğitimi, emeklilik. Hedef gerçekleşince sat — piyasa ne yaparsa yapsın. Zamanlama değil, amaç belirler.</div>
+    </div>
+    <div class="exit-cell">
+      <div class="exit-label">Çerçeve 2</div>
+      <div class="exit-title">Belirli Vade</div>
+      <div class="exit-desc">5 yıl tut, sat. 10 yıl tut, sat. Vade dolunca çık. Piyasanın o gün iyi ya da kötü olması değil, vadenin dolması tetikler.</div>
+    </div>
+    <div class="exit-cell">
+      <div class="exit-label">Çerçeve 3</div>
+      <div class="exit-title">Rebalans Kuralı</div>
+      <div class="exit-desc">Bir varlık hedef oranın %50 üstüne çıkınca sat. Altın %35 hedefken %55 olursa fazlayı sat, başkasına kaydır. Otomatik disiplin.</div>
+    </div>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">Alırken yaz, unutma</div>
+    <p>Her alımda şunu not et: <em>"Bu varlığı [şu amaçla] alıyorum. [Şu koşul] gerçekleşince satacağım."</em> Altı ay sonra o notu oku. Koşul değiştiyse — piyasa değil koşul değiştiyse — planı güncelle. Koşul aynıysa, planı uygula.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 7: KAÇINILACAKLAR -->
+<div class="sec" id="kacin">
+  <div class="sec-label" style="color:var(--red);">Bölüm 7 · Kaçınılacaklar</div>
+  <h2>Bunları Yapma</h2>
+
+  <div class="dont-list">
+    <div class="dont-item">
+      <div class="dont-x">✗</div>
+      <div class="dont-body">
+        <div class="dont-title">Heyecanla büyük tek alım yapma</div>
+        <div class="dont-desc">Haberde çıkıyor, çevren konuşuyor, "kaçırıyorum" hissi var — bu tam tepede olduğunun işareti. Heyecan bütçeyle değil, sabırla geçilir. Bir hafta bekle.</div>
+      </div>
+    </div>
+    <div class="dont-item">
+      <div class="dont-x">✗</div>
+      <div class="dont-body">
+        <div class="dont-title">Yakın vadeli parayı yatırıma koyma</div>
+        <div class="dont-desc">Altı ay sonra kullanacağın paranın yatırım aracında işi yok. Yükselirse ne güzel — ama tam ihtiyaç anında düşükse, kazanma ihtimali zararı telafi etmez. O para mevduatta ya da TÜFEX'te durur.</div>
+      </div>
+    </div>
+    <div class="dont-item">
+      <div class="dont-x">✗</div>
+      <div class="dont-body">
+        <div class="dont-title">Her gün fiyata bakma</div>
+        <div class="dont-desc">Günlük bakmak karar verme isteği doğurur. Karar verme isteği gereksiz işlem doğurur. Gereksiz işlem maliyet ve hata doğurur. Haftada bir yeter, aylık rebalans daha da iyi.</div>
+      </div>
+    </div>
+    <div class="dont-item">
+      <div class="dont-x">✗</div>
+      <div class="dont-body">
+        <div class="dont-title">Her şeyi tek yere koyma</div>
+        <div class="dont-desc">Tüm birikim altında, tek hissede ya da sadece dövizde — hepsi farklı ama aynı hatanın versiyonu. Çeşitlendirme "en iyiyi kaçırıyorum" hissi verir. Ama asıl işlevi en kötü senaryo geldiğinde her şeyi götürmemesi.</div>
+      </div>
+    </div>
+    <div class="dont-item">
+      <div class="dont-x">✗</div>
+      <div class="dont-body">
+        <div class="dont-title">Panikte satma, zirvede tutma</div>
+        <div class="dont-desc">Panik seni dipteyken sattırır. Açgözlülük seni zirvede tutturur — sonra düşüşü izlersin. Çıkış planın varsa bu ikilemin içine düşmezsin. Plan yoksa duygu karar verir.</div>
+      </div>
+    </div>
+    <div class="dont-item">
+      <div class="dont-x">✗</div>
+      <div class="dont-body">
+        <div class="dont-title">Kaldıraçlı işlem yapma</div>
+        <div class="dont-desc">Borçla yatırım, forex kaldıraç, marjinli işlem — kazanınca büyütür, kaybedince her şeyi götürür. Bu araçlar servet inşası için değil, servet aktarımı için tasarlanmıştır — birikenden profesyonele doğru.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ÖZET -->
+<div class="sec" style="border-bottom:none;">
+  <div class="summary">
+    <div class="summary-label">El Kitabından 7 Kural</div>
+    <ul>
+      <li><strong>Otomatikleştir.</strong> Karar verme ihtiyacını ortadan kaldır. Her ay maaş günü, sabit tutar, sabit varlık.</li>
+      <li><strong>Parayı kullanım tarihine göre ayır.</strong> Kısa vade = düşük risk. Uzun vade = daha fazla risk alabilirsin.</li>
+      <li><strong>Çıkış planını girişte yaz.</strong> Hayat hedefi, vade ya da rebalans kuralı — birini seç, girerken yaz.</li>
+      <li><strong>Rebalans disiplini = "tepeden alma" çözümü.</strong> Yükselen varlığı sat, düşeni al — plan değil, oran.</li>
+      <li><strong>Trafik ışığını izle.</strong> Kırmızıda nakit ağırlığını artır. Sarıda tut. Yeşilde kademeli artır.</li>
+      <li><strong>Heyecan = dur sinyali.</strong> Haber çıktığında, herkes konuştuğunda — bir hafta bekle, sonra karar ver.</li>
+      <li><strong>Uyku testi.</strong> Portföyün bu gece yarıya düşse sabah sakin uyanabilir misin? Hayır ise risk fazla.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Yol Haritası · 2026</div>
+  <div class="ft-disc">Kişisel araştırma notu.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+
+<script>
+function toggleProfile(id) {
+  const body = document.getElementById('body-' + id);
+  const toggle = document.getElementById('toggle-' + id);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  toggle.classList.toggle('open', !isOpen);
+}
+</script>
+
+</body>
+</html>
