@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://cakbulten.github.io/kavram-08-en-pahaliyi-alan-sen.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Kavram — En Pahalıya Alan Hep Sen mi Oluyorsun?</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --red: #b03030;
+  --red-lt: #fdf0f0;
+  --red-bd: #e8a0a0;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --green-bd: #88cca8;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --blue-bd: #90b0e8;
+  --amber: #8a4c10;
+  --amber-lt: #fdf4ea;
+  --amber-bd: #e0b078;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.8;max-width:700px;margin:0 auto;padding:0 0 100px;}
+
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}
+.nav a:hover{color:#c9a84c;}
+.nav-tag{color:var(--blue);background:var(--blue-lt);padding:2px 8px;margin-left:auto;font-size:9px;}
+
+.hd{padding:48px 40px 36px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+.series-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--blue-bd);background:var(--blue-lt);padding:5px 12px;margin-bottom:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);}
+.series-num{background:var(--blue);color:#fff;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;}
+h1{font-family:'Instrument Serif',serif;font-size:46px;font-weight:400;line-height:1.05;letter-spacing:-1.5px;margin-bottom:8px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--red);}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:18px;font-weight:400;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;}
+
+.sec{padding:32px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+.lv-red{color:var(--red);}
+.lv-blue{color:var(--blue);}
+.lv-amber{color:var(--amber);}
+.lv-green{color:var(--green);}
+.lv-gold{color:var(--gold);}
+h2{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;line-height:1.2;margin-bottom:16px;color:var(--t1);}
+h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t1);margin:22px 0 8px;}
+.body{font-size:15px;color:var(--t2);line-height:1.85;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+.body em{font-style:italic;color:var(--t1);}
+
+.vaka{background:var(--s1);border-left:4px solid var(--red-bd);padding:22px 26px;margin:22px 0;}
+.vaka-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+.vaka-text{font-size:15px;color:var(--t2);line-height:1.8;}
+.vaka-text strong{color:var(--t1);}
+
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:20px 24px;margin:20px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:19px;color:var(--t1);line-height:1.5;font-style:italic;}
+
+.box{border:1px solid;padding:18px 22px;margin:20px 0;font-size:14px;line-height:1.72;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;font-weight:500;}
+.b-red{background:var(--red-lt);border-color:var(--red-bd);}.b-red .box-title{color:var(--red);}.b-red p{color:var(--t2);}
+.b-gold{background:var(--gold-lt);border-color:var(--gold-bd);}.b-gold .box-title{color:var(--gold);}.b-gold p{color:var(--t2);}
+.b-green{background:var(--green-lt);border-color:var(--green-bd);}.b-green .box-title{color:var(--green);}.b-green p{color:var(--t2);}
+.b-blue{background:var(--blue-lt);border-color:var(--blue-bd);}.b-blue .box-title{color:var(--blue);}.b-blue p{color:var(--t2);}
+.b-amber{background:var(--amber-lt);border-color:var(--amber-bd);}.b-amber .box-title{color:var(--amber);}.b-amber p{color:var(--t2);}
+
+/* Soru-cevap formatı */
+.soru{background:var(--s1);border:1px solid var(--bd2);padding:20px 24px;margin:20px 0;}
+.soru-q{font-family:'Instrument Serif',serif;font-size:18px;font-style:italic;color:var(--t1);margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--bd);}
+.soru-a{font-size:14px;color:var(--t2);line-height:1.75;}
+.soru-a strong{color:var(--t1);}
+
+/* Kontrol listesi */
+.checklist{margin:20px 0;display:flex;flex-direction:column;gap:0;}
+.check-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--bd);align-items:flex-start;}
+.check-item:last-child{border-bottom:none;}
+.check-icon{font-size:16px;flex-shrink:0;padding-top:1px;}
+.check-body{}
+.check-title{font-weight:500;color:var(--t1);font-size:14.5px;margin-bottom:3px;}
+.check-desc{font-size:13.5px;color:var(--t2);line-height:1.65;}
+
+.summary{background:var(--s1);border-left:3px solid var(--t1);padding:24px 28px;margin:28px 0;}
+.summary-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;}
+.summary ul{list-style:none;padding:0;}
+.summary li{font-size:14px;color:var(--t2);padding:8px 0;border-bottom:1px solid var(--bd);padding-left:16px;position:relative;line-height:1.65;}
+.summary li::before{content:'→';position:absolute;left:0;color:var(--t1);font-family:'DM Mono',monospace;font-size:11px;}
+.summary li:last-child{border-bottom:none;}
+.summary li strong{color:var(--t1);font-weight:500;}
+
+.next{padding:28px 40px;background:var(--s1);border-top:2px solid var(--bd2);display:flex;align-items:center;justify-content:space-between;gap:20px;text-decoration:none;color:inherit;transition:background .15s,border-color .15s;}
+.next:hover{background:var(--s2);border-top-color:var(--gold);}
+.next:hover .next-arrow{color:var(--gold);}
+.next-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.next-title{font-family:'Instrument Serif',serif;font-size:18px;color:var(--t1);}
+.next-arrow{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.sec,.next,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:34px;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-tag">Yatırım Kavramları</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Kavram Dizisi · Yatırım</div>
+  <div class="series-badge">
+    <span class="series-num">Y</span>
+    Yatırım Kavramı
+  </div>
+  <h1>En Pahalıya Alan<br>Hep Sen mi <em>Oluyorsun?</em></h1>
+  <p class="hd-sub">Herkes alırken almak neden kaybettirir — ve bunu neden bir türlü öğrenemiyoruz?</p>
+  <div class="hd-meta">
+    <span>Mart 2026</span>
+    <span>·</span>
+    <span>Temel — Orta Seviye</span>
+    <span>·</span>
+    <span>~8 dk okuma</span>
+  </div>
+</div>
+
+<!-- BÖLÜM 1: HİKAYE -->
+<div class="sec">
+  <div class="sec-label lv-red">Tanıdık Bir His</div>
+  <h2>Bu Sana da Oldu mu?</h2>
+
+  <div class="body">
+    <p>Herkesin konuştuğu bir yatırım var. Haberlerde çıkıyor, akrabaların soruyor, sosyal medyada görüyorsun. "Şu kadar kazandı," "fırsat bu fırsat," "geç kalma" deniyor. Dayanamayıp alıyorsun. Bir süre sonra düşmeye başlıyor. Bekleyip duruyorsun. Geri gelmiyor ya da çok geç geliyor.</p>
+    <p>Bu his tanıdık çünkü neredeyse herkes bunu en az bir kez yaşadı. Altın, döviz, hisse, kripto, arsa — araç değişiyor, his aynı kalıyor.</p>
+    <p>Kötü şans değildi. Kötü zamanlama da değildi. <strong>Tam olarak beklenen şey oldu — sadece önceden bilmiyordun.</strong></p>
+  </div>
+
+  <div class="vaka">
+    <div class="vaka-tag">Gerçek Senaryo · 1</div>
+    <p class="vaka-text">Petrol fiyatı $110'a çıktı. Haberler her gün enerji krizinden bahsediyor. Bir petrol fonu var, alım satım işlemi yedi gün sürüyor ama kimse okumadı bunu. Adam fonu $110 petrolde aldı. Petrol düştü. Fon düştü. Satmak istedi, yedi gün daha bekledi. <strong>"Neden düşüyor?" diye sordu. Cevabı yoktu.</strong></p>
+  </div>
+
+  <div class="vaka">
+    <div class="vaka-tag">Gerçek Senaryo · 2</div>
+    <p class="vaka-text">Altın $5.000'i geçti. Herkes "savaş var, altın yükselir" dedi. Birisi 2025 başında $1.800-2.000 arasında aylarca biriktirirken kimse bakmıyordu. $5.000'de herkes bakıyordu. Geç kalanlar $5.000'den aldı. Şimdi %25 aşağıdalar. <strong>Ama bilgi aynıydı — herkes savaşı biliyordu. Fark zamandı.</strong></p>
+  </div>
+
+  <div class="vaka">
+    <div class="vaka-tag">Gerçek Senaryo · 3</div>
+    <p class="vaka-text">Ev almak için biriktirilen para var. 2-3 ay sonra kullanılacak. "Şu an altın yükseliyor, koyayım birkaç aya kadar daha yükselir" diye düşünüldü. Ya düşerse? Ya tam peşinat gerektiğinde en düşük noktada olursa? <strong>Getiri ihtimali var ama zarar ihtimali de var — ve zamanın yok.</strong></p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2: NEDEN OLUYOR -->
+<div class="sec">
+  <div class="sec-label lv-blue">Neden Böyle Oluyor?</div>
+  <h2>Fiyatlar Haberi Değil, Beklentiyi Takip Eder</h2>
+
+  <div class="body">
+    <p>Piyasaların garip bir özelliği var: <strong>bir şey olduğunda değil, olacağı anlaşıldığında fiyat yükselir.</strong> Savaş çıktığında altın yükselmez — savaş çıkacak diye yükselir. Haber medyaya düştüğünde, çevrendeki herkes konuşmaya başladığında, o bilgi çoktan fiyata yansımıştır.</p>
+    <p>Düşün: Bir şehirde yarın trafik olacağını bilen herkes bir saat erken çıkar. Ama trafik haberi verildiğinde herkes aynı anda çıkmaya kalkar — ve trafik tam o zaman oluşur. Erken bilgi değerliydi, geç bilgi işe yaramadı.</p>
+    <p>Yatırımda da bu böyle. "Herkes biliyor" bilgisi yatırım değil, geç kalmış bilgidir.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Temel fikir</div>
+    <p class="analogy-text">"Bir şey haberden çıkıyorsa fiyata yansımıştır. Sosyal medyada herkes konuşuyorsa çoktan geç kalınmıştır. Taksicide konuşuluyorsa en geç halindedir."</p>
+  </div>
+
+  <h3>Peki kim erken biliyor?</h3>
+  <div class="body">
+    <p>Kimse geleceği bilmiyor. Ama erken hareket edenler şunu yapıyor: çok kimsenin bakmadığı dönemde riski üstleniyor, herkes görmeden satın alıyor. 2025 başında $1.800'de altın alan kişi "altın yükselecek" diye kesin bilgisi olan biri değildi. <strong>Sadece kimsenin ilgi göstermediği bir dönemde, makul bir fiyatta, kademeli pozisyon kurdu.</strong> O dönemde "neden altın alıyorsun, hiç hareket etmiyor" diyenler vardı. Şimdi "ben de alacaktım" diyenler aynı insanlar.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 3: HEYECAN TUZAĞI -->
+<div class="sec">
+  <div class="sec-label lv-amber">Heyecan Tuzağı</div>
+  <h2>Beynimiz Bizi Tam Yanlış Anda Harekete Geçiriyor</h2>
+
+  <div class="body">
+    <p>Bu bir zeka meselesi değil. Çok zeki insanlar da bu tuzağa düşüyor — çünkü beynimiz bu şekilde çalışıyor. Etrafımızdakilerin bir şey yaptığını gördüğümüzde "ben de yapmalıyım" hissi otomatik devreye giriyor. Sosyal bir hayvan olarak evrilmişiz — sürüden ayrı kalmak tehlikeliydi.</p>
+    <p>Ama yatırımda sürüyle gitmek çoğunlukla en pahalı ana denk geliyor. Çünkü sürü harekete geçtiğinde fiyat zaten yukarıda. <strong>Fiyat yükseldiği için herkes heyecanlanır. Herkes heyecanlandığı için fiyat daha da yükselir. Ta ki alacak kimse kalmayana kadar. Sonra düşer.</strong></p>
+    <p>Bu döngü tekrar tekrar yaşanıyor. Her seferinde "bu sefer farklı" deniyor. Ama döngü aynı kalıyor.</p>
+  </div>
+
+  <div class="box b-red">
+    <div class="box-title">Dikkat sinyalleri — bunları görünce dur</div>
+    <p>Yakın çevrendeki finansal konulardan anlamayan biri sana o yatırımı sorduysa.<br><br>
+    Günlük haberlerde o yatırım hakkında çok sık haber çıkıyorsa.<br><br>
+    "Geç kalıyorum" hissiyle hızlı karar vermeye zorlanıyorsan.<br><br>
+    Neden aldığını bir cümleyle açıklayamıyorsan.<br><br>
+    <strong>Bunların herhangi biri varsa — dur, bekle, düşün.</strong> Kaçırma korkusu genellikle en pahalı duygu.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 4: ZAMANIN OLAN PARA -->
+<div class="sec">
+  <div class="sec-label lv-amber">Doğru Para, Yanlış Araç</div>
+  <h2>Her Para Her Yatırıma Girmez</h2>
+
+  <div class="body">
+    <p>Ev için biriktirilen paranın altına girmesini önermemek için savaş bitmesini, faiz düşmesini, altının ne yapacağını bilmek gerekmiyor. Tek bir soru yeterli: <strong>bu para 2 ay sonra kullanılacaksa, o 2 ayda ne olursa olsun güvende mi olması gerekiyor?</strong></p>
+    <p>Cevap evetse — o para riske girmez. Altın o 2 ayda %30 yükselebilir. Yükselse bile bu karar doğrudur. Çünkü %30 düşebilirdi de. Ve düşseydi tam ihtiyaç anında en düşük noktada olurdun.</p>
+    <p>Yatırım araçları iki soruyla değerlendirilir: <strong>ne kadar süre bekleyebilirsin</strong> ve <strong>ne kadar düşüşe katlanabilirsin?</strong> Bu iki soruya dürüst cevap vermeden araç seçmek — heyecanla değil, hesapla hareket etmek demek.</p>
+  </div>
+
+  <div class="soru">
+    <p class="soru-q">"Peki altın gerçekten yükselecekse neden almayayım?"</p>
+    <div class="soru-a">
+      <p>Yükselecek olması yetmez. <strong>Ne zaman yükseleceği de önemli.</strong> 2 ay sonra ihtiyacın var ve altın 18 ay sonra yükselecekse — bu sana bir şey kazandırmaz. Ya da tam ihtiyacın anında düşükteyse, doğru tahminin seni kurtarmaz.</p>
+      <p style="margin-top:10px;">Kısa vadede kullanacağın para için doğru soru "yükselir mi?" değil, "düşerse ne olur?" sorusudur.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BÖLÜM 5: NE YAPILIR -->
+<div class="sec">
+  <div class="sec-label lv-green">Ne Yapmalı?</div>
+  <h2>Dört Basit Kural</h2>
+
+  <div class="checklist">
+    <div class="check-item">
+      <div class="check-icon">①</div>
+      <div class="check-body">
+        <div class="check-title">Heyecanlandığında dur — bir hafta bekle</div>
+        <div class="check-desc">Bir yatırım seni heyecanlandırıyorsa, o heyecanla karar verme. Bir hafta bekle. Hâlâ mantıklı görünüyorsa ve "neden alıyorum?" sorusunu cevaplayabiliyorsan devam et. Çoğu zaman bir hafta sonra o aciliyet hissi geçer.</div>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-icon">②</div>
+      <div class="check-body">
+        <div class="check-title">Parayı kullanım tarihine göre ayır</div>
+        <div class="check-desc">2 yıl içinde kullanacağın para düşük riskli yerde durur — mevduat, TÜFEX, döviz. 5 yıl ve üzeri bekleyebileceğin para daha fazla risk taşıyabilir. Karıştırma.</div>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-icon">③</div>
+      <div class="check-body">
+        <div class="check-title">Kimsenin bakmadığı dönem asıl fırsattır</div>
+        <div class="check-desc">Herkesin konuştuğu yatırım çoktan pahalanmış olabilir. Sessizce birikiyor, haberlerde çıkmıyor, kimse sormuyorsa — o dönem daha dikkatli bakılacak dönemdir. Kolay değil ama mantığı budur.</div>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-icon">④</div>
+      <div class="check-body">
+        <div class="check-title">Neden aldığını bir cümleyle açıklayabilmek lazım</div>
+        <div class="check-desc">"Herkes alıyor" bir neden değil. "Savaş var" tek başına bir neden değil — çünkü savaş başladığında bu bilgi zaten fiyata yansımıştı. "Uzun vadede değer korur, enflasyona karşı korunmak istiyorum, 5 yıl bekleyebilirim" — bu bir neden. Kendi cümlen yoksa o alım sağlam zemine oturmuyor demektir.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ÖZET -->
+<div class="sec" style="border-bottom:none;">
+  <div class="summary">
+    <div class="summary-label">Bu bültenden 5 şey</div>
+    <ul>
+      <li>Piyasalar bir şey olduğunda değil, <strong>olacağı anlaşıldığında</strong> hareket eder. Haber çıktığında çoğunlukla geç kalınmıştır.</li>
+      <li>Çevrendeki herkes konuşmaya başladıysa, o bilgi <strong>fiyata çoktan yansımıştır.</strong></li>
+      <li>"Geç kalıyorum" hissiyle yapılan alım, genellikle <strong>en pahalı alımdır.</strong></li>
+      <li>Kısa vadede kullanacağın parayı riske atma — yükselecek olması bu kuralı değiştirmez, <strong>düşerse ne olur</strong> sorusu değiştirir.</li>
+      <li>En iyi alımlar genellikle <strong>kimsenin bakmadığı, haberlerin sustuğu</strong> dönemlerde yapılır.</li>
+    </ul>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">Son söz</div>
+    <p>Bu bülteni okuduktan sonra bile bir dahaki seferde aynı his gelecek. "Bu sefer gerçekten fırsat var, herkes biliyor ama ben daha iyi anlıyorum" diye düşüneceksin. Bu his gelmeyecek diye bir söz veremeyiz. Ama şunu söyleyebiliriz: o his geldiğinde <strong>bir hafta bekle.</strong> Çoğu zaman bu kadarı yeter.</p>
+  </div>
+</div>
+
+<a href="kavram-06-risk.html" class="next">
+  <div>
+    <div class="next-label">İlgili · Yatırım Kavramı</div>
+    <div class="next-title">Risk Nedir? — Volatilite mi, kayıp mı, fırsat maliyeti mi?</div>
+  </div>
+  <div class="next-arrow">→</div>
+</a>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Kavram Dizisi · Yatırım · Mart 2026</div>
+  <div class="ft-disc">Kişisel araştırma notu.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+
+</body>
+</html>
