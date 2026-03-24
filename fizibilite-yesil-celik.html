@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://cakbulten.github.io/fizibilite-yesil-celik.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Fizibilite — Yeşil Çelik</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --red: #b03030;
+  --red-lt: #fdf0f0;
+  --red-bd: #e8a0a0;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --green-bd: #88cca8;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --blue-bd: #90b0e8;
+  --amber: #8a4c10;
+  --amber-lt: #fdf4ea;
+  --amber-bd: #e0b078;
+  --teal: #0e6a5e;
+  --teal-lt: #e6f6f4;
+  --teal-bd: #7fc8be;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;max-width:700px;margin:0 auto;padding:0 0 100px;}
+
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}
+.nav a:hover{color:#c9a84c;}
+.nav-tag{color:var(--teal);background:var(--teal-lt);padding:2px 8px;margin-left:auto;font-size:9px;}
+
+.hd{padding:48px 40px 36px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+.series-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--teal-bd);background:var(--teal-lt);padding:5px 12px;margin-bottom:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);}
+h1{font-family:'Instrument Serif',serif;font-size:46px;font-weight:400;line-height:1.05;letter-spacing:-1.5px;margin-bottom:8px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--teal);}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:18px;font-weight:400;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;}
+
+.sec{padding:32px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+.lv-teal{color:var(--teal);}
+.lv-green{color:var(--green);}
+.lv-blue{color:var(--blue);}
+.lv-amber{color:var(--amber);}
+.lv-red{color:var(--red);}
+.lv-gold{color:var(--gold);}
+h2{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;line-height:1.2;margin-bottom:16px;color:var(--t1);}
+h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t1);margin:20px 0 8px;}
+.body{font-size:15px;color:var(--t2);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+.body em{font-style:italic;color:var(--t1);}
+
+.box{border:1px solid;padding:18px 22px;margin:20px 0;font-size:14px;line-height:1.7;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;font-weight:500;}
+.b-teal{background:var(--teal-lt);border-color:var(--teal-bd);}
+.b-teal .box-title{color:var(--teal);}
+.b-teal p{color:var(--t2);}
+.b-gold{background:var(--gold-lt);border-color:var(--gold-bd);}
+.b-gold .box-title{color:var(--gold);}
+.b-gold p{color:var(--t2);}
+.b-green{background:var(--green-lt);border-color:var(--green-bd);}
+.b-green .box-title{color:var(--green);}
+.b-green p{color:var(--t2);}
+.b-red{background:var(--red-lt);border-color:var(--red-bd);}
+.b-red .box-title{color:var(--red);}
+.b-red p{color:var(--t2);}
+.b-blue{background:var(--blue-lt);border-color:var(--blue-bd);}
+.b-blue .box-title{color:var(--blue);}
+.b-blue p{color:var(--t2);}
+.b-amber{background:var(--amber-lt);border-color:var(--amber-bd);}
+.b-amber .box-title{color:var(--amber);}
+.b-amber p{color:var(--t2);}
+
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:20px 24px;margin:20px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:19px;color:var(--t1);line-height:1.5;font-style:italic;}
+
+.ctable{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px;}
+.ctable th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;border-bottom:2px solid var(--t1);text-align:left;color:var(--t3);}
+.ctable td{padding:12px 14px;border-bottom:1px solid var(--bd);color:var(--t2);vertical-align:top;line-height:1.6;}
+.ctable tr:last-child td{border-bottom:none;}
+.ctable td:first-child{color:var(--t1);font-weight:500;}
+.ctable .pos{color:var(--green);}
+.ctable .neg{color:var(--red);}
+.ctable .neu{color:var(--amber);}
+
+.cost-compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);margin:20px 0;}
+.cc-cell{background:var(--s1);padding:20px;}
+.cc-head{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;}
+.cc-head.conv{color:var(--t3);}
+.cc-head.green{color:var(--teal);}
+.cc-item{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--bd);font-size:13.5px;}
+.cc-item:last-child{border-bottom:none;padding-top:10px;margin-top:4px;}
+.cc-label{color:var(--t2);}
+.cc-val{font-family:'DM Mono',monospace;font-size:12px;color:var(--t1);}
+.cc-total{color:var(--t1);font-weight:600;}
+
+.stat-row{display:flex;gap:1px;background:var(--bd);margin:20px 0;}
+.stat-cell{flex:1;background:var(--s1);padding:16px 18px;}
+.stat-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.stat-val{font-family:'Instrument Serif',serif;font-size:26px;color:var(--t1);line-height:1.1;}
+.stat-note{font-size:11.5px;color:var(--t2);margin-top:4px;line-height:1.4;}
+
+.summary{background:var(--s1);border-left:3px solid var(--t1);padding:24px 28px;margin:28px 0;}
+.summary-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;}
+.summary ul{list-style:none;padding:0;}
+.summary li{font-size:14px;color:var(--t2);padding:7px 0;border-bottom:1px solid var(--bd);padding-left:16px;position:relative;line-height:1.6;}
+.summary li::before{content:'→';position:absolute;left:0;color:var(--t1);font-family:'DM Mono',monospace;font-size:11px;}
+.summary li:last-child{border-bottom:none;}
+.summary li strong{color:var(--t1);font-weight:500;}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.sec,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:34px;}
+  .cost-compare{grid-template-columns:1fr;}
+  .stat-row{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-tag">Sektör Fizibilite</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Fizibilite Analizi · Mart 2026</div>
+  <div class="series-badge">Derinlemesine · Taslak</div>
+  <h1><em>Yeşil Çelik</em><br>Fizibil mi?</h1>
+  <p class="hd-sub">HYBRIT projesi, maliyet karşılaştırması, CBAM eşiği ve dünya çelik sektörünün rotası</p>
+  <div class="hd-meta">
+    <span>Mart 2026</span>
+    <span>·</span>
+    <span>Sektör Analizi</span>
+    <span>·</span>
+    <span>~15 dk okuma</span>
+  </div>
+</div>
+
+<!-- BÖLÜM 1: SORUN -->
+<div class="sec">
+  <div class="sec-label lv-teal">Bölüm 1 · Neden çelik bu kadar zor?</div>
+  <h2>Sorun Enerji Değil — Kimya</h2>
+
+  <div class="body">
+    <p>Enflasyon bültenimizde zor sektörler tablosunda çimentoyla birlikte çeliği işlemiştik. Ama çeliğin zorluğu farklı nitelikte. Çimento'da sorun kimyasal reaksiyonda — CaCO₃ bozunması CO₂ üretiyor, enerji kaynağından bağımsız. Çelikte sorun ikili: hem kimyasal hem enerji.</p>
+    <p>Geleneksel yüksek fırın yolunda kok kömürü iki işlev görüyor: <strong>birincisi yakıt</strong> (yüksek sıcaklık için), <strong>ikincisi kimyasal indirgeyici</strong> (demir cevherindeki oksijeni çekip Fe üretmek için). Sadece enerji kaynağını değiştirmek yetmiyor — indirgeyen maddeyi de değiştirmek lazım.</p>
+    <p>Alternatif: <strong>Hidrojeni indirgeyici olarak kullan.</strong> H₂ + Fe₂O₃ → Fe + H₂O. CO₂ yerine su buharı çıkıyor. Teknolojik olarak mümkün — ama ölçeklendirilmesi hem pahalı hem karmaşık.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="stat-label">Çeliğin küresel CO₂ payı</div>
+      <div class="stat-val">%7-8</div>
+      <div class="stat-note">Küresel enerji emisyonlarının</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Konvansiyonel üretim yoğunluğu</div>
+      <div class="stat-val">1,85 t</div>
+      <div class="stat-note">CO₂ / ton çelik (BF-BOF yolu)</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">HYBRIT yolu yoğunluğu</div>
+      <div class="stat-val">~0,05 t</div>
+      <div class="stat-note">CO₂ / ton çelik (yeşil H₂ ile)</div>
+    </div>
+  </div>
+
+  <div class="box b-teal">
+    <div class="box-title">İki Üretim Yolu</div>
+    <p><strong>BF-BOF (Yüksek Fırın — Oksijen Konvertörü):</strong> Geleneksel yol. Kok kömürü + demir cevheri → pik demir → çelik. Ton başına ~1,85 ton CO₂. Küresel birincil çelik üretiminin ~%70'i bu yolla.<br><br>
+    <strong>H₂-DRI-EAF (Hidrojen Doğrudan İndirgeme — Elektrik Ark Ocağı):</strong> Yeşil yol. Yeşil hidrojen + demir cevheri → Doğrudan İndirgenmiş Demir (DRI) → EAF'ta çelik. Yeşil elektrikle ton başına ~0,05 ton CO₂ mümkün. HYBRIT bu yolu kullanıyor.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2: HYBRIT -->
+<div class="sec">
+  <div class="sec-label lv-teal">Bölüm 2 · HYBRIT Projesi</div>
+  <h2>İsveç'ten Dünyaya: HYBRIT Nedir?</h2>
+
+  <div class="body">
+    <p>HYBRIT (Hydrogen Breakthrough Ironmaking Technology) — SSAB, LKAB ve Vattenfall'un 2016'da başlattığı ortak girişim. Dünyanın ilk fosil yakıtsız demir-çelik üretim zincirini kurmayı hedefliyor.</p>
+    <p>İsveç için özel önemi var: HYBRIT'in başarıya ulaşması İsveç'in toplam CO₂ emisyonlarını en az %10 düşürebilir — endüstrinin üçte birine denk geliyor.</p>
+  </div>
+
+  <h3>Kilometre Taşları</h3>
+  <div class="body">
+    <p><strong>2016:</strong> Girişim başlatıldı. İsveç Enerji Ajansı'ndan 3,1 milyar SEK hibe.<br>
+    <strong>2020:</strong> Lulea'da pilot tesis devreye girdi — hidrojenle DRI üretimi başarılı.<br>
+    <strong>2021:</strong> Dünyada ilk kez müşteriye fosil yakıtsız çelik teslim edildi. SSAB, Volvo Trucks'a hammadde verdi.<br>
+    <strong>2023:</strong> Dünya Ekonomik Forumu "Moving Force in Business" ödülü.<br>
+    <strong>2025:</strong> Yeraltı hidrojen depolama pilot projesi tamamlandı. Değişken yenilenebilir enerjiyle üretimi dengeleme sorunu çözüme kavuştu.<br>
+    <strong>2026+:</strong> LKAB Gällivare'deki demonstrasyon tesisi kurulum aşamasında. Komşu Boden'da Stegra (eski adı H2 Green Steel) yıllık 2,5 milyon ton kapasiteyle ilk ticari ölçek tesis başlıyor.</p>
+  </div>
+
+  <div class="box b-green">
+    <div class="box-title">Yeraltı Hidrojen Depolama — Neden Kritik?</div>
+    <p>Yeşil çeliğin temel sorunu şu: güneş ve rüzgar aralıklı enerji üretiyor ama çelik fabrikası 7/24 çalışmak zorunda. Çözüm: fazla enerji döneminde üretilen hidrojen yeraltı kayalarında depolanıyor, eksik dönemde kullanılıyor. HYBRIT'in 2025'te tamamladığı pilot proje bu sorunu çözdü — ve değişken operasyonel maliyeti (OPEX) %20-30 düşürme potansiyeli gösteriyor.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2B: KALİTE MESELESİ -->
+<div class="sec">
+  <div class="sec-label lv-amber">Bölüm 2b · Kalite Meselesi</div>
+  <h2>DRI-EAF Aynı Kaliteye Ulaşabiliyor mu?</h2>
+
+  <div class="body">
+    <p>Maliyet analizinden önce cevaplanması gereken temel bir soru var: yeşil çelik teknik olarak geleneksel çeliğin ikamesi midir? Yoksa bazı kritik uygulamalarda BF-BOF hâlâ vazgeçilmez mi? Bu soruyu doğru yanıtlamadan fizibilite analizi eksik kalır.</p>
+    <p>Kısa cevap: <strong>büyük ölçüde evet, ama önemli istisnalar var — ve bu istisnalar hızla kapanıyor.</strong></p>
+  </div>
+
+  <h3>Geleneksel Görüş: BF-BOF Düz Çelikte Vazgeçilmez</h3>
+  <div class="body">
+    <p>Yıllarca endüstrinin savunduğu görüş şuydu: EAF hurda bazlıysa kalite sorunları kaçınılmaz. Hurda içindeki bakır, kalay ve nikel gibi "kirletici" elementler EAF eritme sürecinde uzaklaştırılamıyor — buna "tramp element problemi" deniyor. Bu kirlilik, derin çekme gerektiren otomotiv gövde sacı veya elektrik motoru için kullanılan silikon çeliği gibi yüksek spesifikasyonlu ürünlerde ciddi sorun yaratıyor.</p>
+    <p>Cleveland-Cliffs CEO'su ve İtalya çelik federasyonu başkanı gibi isimler 2023-2024'te bunu kamuoyu önünde savunmaya devam etti. Ama bu görüşün temeli giderek sarsılıyor.</p>
+  </div>
+
+  <h3>Gerçek Tablo: DRI Devreye Girince Kalite Çıtası Yükseliyor</h3>
+  <div class="body">
+    <p>Tramp element sorununu çözen yol şu: EAF'a salt hurda değil, DRI (Doğrudan İndirgenmiş Demir) karıştırarak saf demir oranını artırmak. <strong>DRI, hurdanın kirletici elementlerini seyreltir — böylece EAF yüksek saflıkta çelik üretebilir.</strong></p>
+    <p>Bu formülü kullanan üreticiler otomotiv kalitesine ulaşıyor. Nucor, 3. Nesil İleri Yüksek Dayanımlı Çelik (AHSS) üretiyor — otomotiv sektörüne tedarik ediyor. Baosteel Zhanjiang, Ekim 2025'te DRI, sıvı demir ve hurda kullanarak otomotiv kalitesinde çelik üretmek üzere tasarlanan 220 tonluk yeni EAF'ının testini tamamladı. Baosteel, BBAC (Beijing Benz Otomotiv) ile 2026'dan itibaren %50-80 karbon azaltımlı çelik tedariki için MOU imzaladı. FAW-Volkswagen de Baosteel ile yeşil çelik tedarik anlaşması yaptı. BMW ise Çin'de Baosteel değil HBIS ile ortaklık kurdu — HBIS, BMW'nin Shenyang tesisine 2026'dan itibaren hidrojen bazlı EAF yöntemiyle üretilen yeşil çelik tedarik edecek.</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>Uygulama</th>
+      <th>BF-BOF</th>
+      <th>Hurda-EAF</th>
+      <th>DRI-EAF (H₂)</th>
+    </tr>
+    <tr>
+      <td>İnşaat çeliği (uzun ürün)</td>
+      <td class="pos">✓ Uygun</td>
+      <td class="pos">✓ Zaten yaygın</td>
+      <td class="pos">✓ Uygun</td>
+    </tr>
+    <tr>
+      <td>Genel amaçlı yapısal çelik</td>
+      <td class="pos">✓ Uygun</td>
+      <td class="pos">✓ Uygun</td>
+      <td class="pos">✓ Uygun</td>
+    </tr>
+    <tr>
+      <td>Otomotiv gövde sacı (derin çekme)</td>
+      <td class="pos">✓ Tarihsel güçlü alan</td>
+      <td class="neg">✗ Tramp element sorunu</td>
+      <td class="neu">⚑ DRI oranına bağlı, gelişiyor</td>
+    </tr>
+    <tr>
+      <td>Elektrik motoru silikon çeliği</td>
+      <td class="pos">✓ Uygun</td>
+      <td class="neg">✗ Azot absorpsiyonu sorunu</td>
+      <td class="neu">⚑ Teknoloji gelişiyor</td>
+    </tr>
+    <tr>
+      <td>3. Nesil AHSS (yüksek dayanım)</td>
+      <td class="pos">✓ Uygun</td>
+      <td class="neg">✗ Yetersiz</td>
+      <td class="pos">✓ Nucor, Baosteel üretiyor</td>
+    </tr>
+    <tr>
+      <td>API boru çeliği (enerji sektörü)</td>
+      <td class="pos">✓ Uygun</td>
+      <td class="neu">⚑ Seçici</td>
+      <td class="pos">✓ Mümkün</td>
+    </tr>
+  </table>
+
+  <h3>DRI-EAF'ın Kalite Kısıtları — Hâlâ Geçerli Olan</h3>
+  <div class="body">
+    <p>Dürüst olmak gerekirse: <strong>DRI-EAF henüz her uygulamada BF-BOF kalitesini karşılamıyor.</strong> İki spesifik kısıt var:</p>
+    <p><strong>Silikon çeliği (elektrik motorları, transformatörler):</strong> EAF sürecinde malzemenin dış havayla daha fazla temas etmesi azot absorpsiyonunu artırıyor. Bu, silikon çeliklerinin elektrik özelliklerini olumsuz etkiliyor. EV motorları bu çeliği kullanıyor — ironik biçimde, EV devrimi hem yeşil çeliğe talebi artırıyor hem en zorlu kalite gereksinimini yaratıyor.</p>
+    <p><strong>Yüksek saflık gereksinimi:</strong> DRI-EAF yüksek kaliteli demir cevheri peletine ihtiyaç duyuyor — düşük tenörlü cevheri işleyemiyor. BF-BOF ise geniş cevher kalitesi aralığında çalışabiliyor. Bu, DRI-EAF'ın hammadde tedarik zincirini daha kısıtlı kılıyor.</p>
+  </div>
+
+  <div class="box b-teal">
+    <div class="box-title">ESF-BOF: Köprü Teknoloji</div>
+    <p>Her iki soruyu da çözmeye aday yeni bir yol: Elektrik Eritme Fırını-BOF (ESF-BOF). Elektriği yakıt olarak kullanıyor (EAF gibi) ama düşük ve orta tenörlü cevheri de işleyebiliyor (BF-BOF gibi). ESF ile üretilen sıvı pik demir mevcut BOF dönüştürücüsüne aktarılıyor — bu da mevcut BF-BOF tesislerinin dönüşümünü daha ucuz yapıyor. Wood Mackenzie bu teknolojinin 2030'larda ticari ölçeğe ulaşmasını bekliyor.</p>
+  </div>
+
+  <h3>Türk EAF Çeliği İçin Kalite Pozisyonu</h3>
+  <div class="body">
+    <p>Türkiye'nin %70 EAF üretimi büyük ölçüde hurda bazlı ve uzun ürün (inşaat demiri, profil) ağırlıklı. Bu ürünlerde kalite sorunu yok — zaten AB'ye ihraç edilen ürünlerin büyük bölümü burası.</p>
+    <p>Ama AB'nin ticari baskısı ve CBAM, Türk üreticilerini de düz çelik pazarına itmek isteyecek. Oraya geçmek için DRI karışımını artırmak — ve dolayısıyla yüksek kaliteli cevher tedarikini güvenceye almak — gerekiyor. Bu hem kalite hem maliyet hem tedarik zinciri meselesi: tek boyutlu değil.</p>
+    <p><strong>Sonuç:</strong> DRI-EAF kalite yarışında çoğu uygulamada BF-BOF ile rekabet edebilir hale geldi. İstisnalar daralıyor ve teknoloji hızla ilerliyor. Fizibilite analizi maliyetle başlar ama kalite kısıtını görmezden gelirse stratejik karar eksik kalır.</p>
+  </div>
+</div>
+
+
+<div class="sec">
+  <div class="sec-label lv-amber">Bölüm 3 · Maliyet Gerçeği</div>
+  <h2>Rakamlarla: Konvansiyonel vs Yeşil</h2>
+
+  <div class="body">
+    <p>Maliyet karşılaştırması tek bir sayıya indirgenemiyor — hidrojen fiyatı, elektrik fiyatı, karbon fiyatı ve ölçek bu denklemi şekillendiriyor. Ama mevcut verilerle çerçeve çizilebilir.</p>
+  </div>
+
+  <div class="cost-compare">
+    <div class="cc-cell">
+      <div class="cc-head conv">BF-BOF (Konvansiyonel)</div>
+      <div class="cc-item"><span class="cc-label">Hammadde (cevher + kok)</span><span class="cc-val">$220-260/t</span></div>
+      <div class="cc-item"><span class="cc-label">Enerji (kömür + elektrik)</span><span class="cc-val">$80-100/t</span></div>
+      <div class="cc-item"><span class="cc-label">İşçilik ve genel giderler</span><span class="cc-val">$60-80/t</span></div>
+      <div class="cc-item"><span class="cc-label">Karbon maliyeti (ETS@€60)</span><span class="cc-val">$110/t</span></div>
+      <div class="cc-item" style="border-top:2px solid #d0cec4;">
+        <span class="cc-label cc-total">Toplam OPEX (karbon dahil)</span>
+        <span class="cc-val cc-total">~$470-550/t</span>
+      </div>
+    </div>
+    <div class="cc-cell">
+      <div class="cc-head green">H₂-DRI-EAF (Yeşil)</div>
+      <div class="cc-item"><span class="cc-label">Hammadde (demir cevheri pelet)</span><span class="cc-val">$150-180/t</span></div>
+      <div class="cc-item"><span class="cc-label">Yeşil hidrojen (@$3-5/kg)</span><span class="cc-val">$180-280/t</span></div>
+      <div class="cc-item"><span class="cc-label">Yeşil elektrik (EAF)</span><span class="cc-val">$60-80/t</span></div>
+      <div class="cc-item"><span class="cc-label">İşçilik ve genel giderler</span><span class="cc-val">$60-70/t</span></div>
+      <div class="cc-item"><span class="cc-label">Karbon maliyeti (neredeyse sıfır)</span><span class="cc-val">~$3/t</span></div>
+      <div class="cc-item" style="border-top:2px solid #d0cec4;">
+        <span class="cc-label cc-total">Toplam OPEX</span>
+        <span class="cc-val cc-total" style="color:var(--amber);">~$453-613/t</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>Tablonun mesajı şu: <strong>yeşil çeliğin bugünkü maliyeti konvansiyonelin %20-30 üzerinde.</strong> Ama bu fark tamamen hidrojen fiyatına bağlı. H₂ $3/kg'da denge noktasına yaklaşıyor; $5/kg'da ciddi prim var.</p>
+    <p>İyi haber: <strong>yeşil hidrojen maliyeti hızla düşüyor.</strong> 2020'de $6-8/kg'dı, 2024'te $3-5/kg'a geldi. 2030 tahmini $1-2/kg. Bu gerçekleşirse yeşil çelik konvansiyonel çeliğe kıyasla eşit veya daha ucuz hale gelir.</p>
+  </div>
+
+  <div class="box b-amber">
+    <div class="box-title">CAPEX farkı da kritik</div>
+    <p>OPEX karşılaştırması yeterli değil — yatırım maliyeti (CAPEX) da hesaba katılmalı. Yeni yeşil çelik tesisi kurmak ton başına $800-1.200 CAPEX gerektiriyor, konvansiyonel ise $600-900. Fark %25-35. Bu nedenle mevcut BF-BOF tesislerini "dönüştürmek" yerine yenisini inşa etmek çok daha pahalı. H2GS (Stegra) projesinde €4 milyar üzerinde borç finansmanı alınması tesadüf değil.</p>
+  </div>
+
+  <h3>Senaryo Analizi: H₂ Fiyatına Göre Yeşil Premium</h3>
+  <table class="ctable">
+    <tr>
+      <th>Yeşil H₂ Fiyatı</th>
+      <th>Yeşil Çelik OPEX</th>
+      <th>Konvansiyonel OPEX</th>
+      <th>Premium / Fark</th>
+    </tr>
+    <tr>
+      <td>$1,0/kg (2030 hedefi)</td>
+      <td>~$330-380/t</td>
+      <td>~$360-440/t (karbonsuz)</td>
+      <td class="pos">Yeşil eşit veya ucuz</td>
+    </tr>
+    <tr>
+      <td>$2,0/kg (iyimser 2028)</td>
+      <td>~$380-430/t</td>
+      <td>~$360-440/t</td>
+      <td class="neu">~Başabaş</td>
+    </tr>
+    <tr>
+      <td>$3,0/kg (bugün iyi senaryo)</td>
+      <td>~$450-510/t</td>
+      <td>~$360-440/t</td>
+      <td class="neg">+%15-20 premium</td>
+    </tr>
+    <tr>
+      <td>$5,0/kg (bugün kötü senaryo)</td>
+      <td>~$550-650/t</td>
+      <td>~$360-440/t</td>
+      <td class="neg">+%30-50 premium</td>
+    </tr>
+  </table>
+
+  <div class="body">
+    <p>Not: Konvansiyonel sütun AB ETS karbon fiyatı olmadan hesaplanmıştır. Karbon fiyatı eklenince tablo dramatik biçimde değişir — aşağıda CBAM bölümünde işliyoruz.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 4: CBAM -->
+<div class="sec">
+  <div class="sec-label lv-blue">Bölüm 4 · CBAM — Oyun Değiştirici mi?</div>
+  <h2>Sınır Karbon Vergisi: Farkı Kapatabilir mi?</h2>
+
+  <div class="body">
+    <p>AB'nin Sınır Karbon Düzenleme Mekanizması (CBAM) 2026'da çelik dahil beş sektörde tam uygulamaya geçti. Mantık basit: AB içinde üreticiler karbon fiyatı öderken dışarıdan gelen ucuz-kirli çelik bu maliyeti taşımıyorsa haksız rekabet oluşuyor. CBAM bu dengesizliği düzeltiyor.</p>
+    <p><strong>Çelik için CBAM nasıl çalışır?</strong> AB'ye ihraç edilen her ton çelik için, üretimde salınan CO₂ miktarı hesaplanıyor ve AB ETS karbon fiyatı üzerinden CBAM sertifikası satın alınması gerekiyor. Karbon sertifikası şu an ~€60-70/ton CO₂.</p>
+  </div>
+
+  <div class="box b-blue">
+    <div class="box-title">CBAM Hesabı: Ton Başına Ne Kadar?</div>
+    <p>Konvansiyonel çelik: ~1,85 ton CO₂/ton çelik × €65 = <strong>~€120 CBAM maliyeti/ton çelik</strong><br><br>
+    Yeşil çelik (HYBRIT): ~0,05 ton CO₂/ton çelik × €65 = <strong>~€3 CBAM maliyeti/ton çelik</strong><br><br>
+    Fark: <strong>~€117/ton</strong> — yaklaşık $125/ton. Bu, bugün mevcut yeşil premiumun büyük bölümünü kapatıyor. H₂ $3/kg senaryosunda yeşil çeliğin AB pazarında ek maliyeti artık sıfıra yaklaşıyor.</p>
+  </div>
+
+  <div class="body">
+    <p>Bu hesap neden önemli? <strong>CBAM, yeşil çelik için ilk kez gerçek bir pazar yarattı.</strong> AB'ye ihracat yapan ve kirli üretim yapan çelik üreticileri artık iki seçenek arasında: ya üretimini dekarbonize et ya da ton başına $125+ ek maliyet öde.</p>
+    <p>Türkiye bu denklemin tam ortasında. Türk çelik sektörü AB'nin önemli tedarikçilerinden biri — Erdemir, Çolakoğlu, İsdemir gibi şirketler 2026'dan itibaren CBAM ödemeleri yapıyor. <strong>Türkiye çelik sektörü için dekarbonizasyon artık seçim değil — ekonomik zorunluluk.</strong></p>
+  </div>
+
+  <div class="box b-amber">
+    <div class="box-title">CBAM'ın Sınırları</div>
+    <p><strong>Kapsam dar (şimdilik):</strong> CBAM yalnızca Scope 1 emisyonları kapsıyor — doğrudan üretim. Elektrik kaynaklı Scope 2 ve tedarik zinciri Scope 3 henüz dışında. 2030'dan itibaren kapsam genişleyecek.<br><br>
+    <strong>Hesaplama karmaşıklığı:</strong> Her üreticinin emisyon yoğunluğunu belgelemesi gerekiyor. Bu idari yük küçük üreticiler için ağır.<br><br>
+    <strong>Kaçınma riski:</strong> Kirli çelik üçüncü ülkeler üzerinden AB'ye girebilir. Bu boşluk CBAM'ın etkinliğini azaltıyor.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 5: BUTİK Mİ KITLESEL Mİ? -->
+<div class="sec">
+  <div class="sec-label lv-green">Bölüm 5 · Pazar Yapısı</div>
+  <h2>Önce Butik, Sonra Kitlesel — Bu Geçiş Kaçınılmaz mı?</h2>
+
+  <div class="body">
+    <p>HYBRIT ilk teslimatını 2021'de Volvo Trucks'a yaptı. Bu rastlantı değil: Volvo, tedarik zinciri emisyonlarını (Scope 3) taahhüt altına almış ve bu taahhüdü tutmak için yeşil çeliğe premium ödemeye razı. Bu "ilk müşteri" modeli yeşil malzeme geçişinin standart başlangıç noktası.</p>
+  </div>
+
+  <h3>Birinci Dalga: Premium Müşteriler (2021-2028)</h3>
+  <div class="body">
+    <p>Şu an yeşil çelik tüketen sektörler ve neden ödüyor oldukları:</p>
+    <p><strong>Otomotiv (BMW, Mercedes, Volvo, Scania):</strong> Araç başına çelik maliyeti toplam üretim maliyetinin %15-20'si. Yeşil çelik primiyle bu %1-2 artıyor — ama marka değeri ve Scope 3 taahhüdü için ödemeye razılar. Arabalar satılırken "yeşil çelikle üretildi" pazarlama avantajı var.</p>
+    <p><strong>Yenilenebilir enerji altyapısı (rüzgar türbini üreticileri):</strong> Vestas, Siemens Gamesa. Rüzgar türbini "kirli çelikten" yapılırsa çelişki var — bu sektör için yeşil çelik hem iletişimsel hem zorunlu.</p>
+    <p><strong>Denizcilik (Maersk, MSC):</strong> IMO 2050 emisyon taahhütleri gemi gövdesi için yeşil çelik talebini artırıyor.</p>
+  </div>
+
+  <h3>İkinci Dalga: Orta Pazar (2028-2035)</h3>
+  <div class="body">
+    <p>H₂ fiyatı $2/kg'ın altına düşünce pazar genişler. CBAM kapsamı genişledikçe "kirli çeliğin" AB'deki rekabet gücü azalır ve orta segmentte de dönüşüm zorunlu hale gelir. İnşaat sektörü bu dönemde dahil olmaya başlar — ama yavaş, çünkü fiyat hassasiyeti yüksek.</p>
+  </div>
+
+  <h3>Üçüncü Dalga: Kitlesel (2035+)</h3>
+  <div class="body">
+    <p>H₂ $1/kg altında, CBAM tam kapsamda, AB dışı karbon piyasaları da olgunlaşmışsa yeşil çelik konvansiyonelin yerini alır. Ama bu nokta hâlâ belirsiz — ne zaman ve ne ölçüde gerçekleşeceği teknoloji, politika ve jeopolitik üçgenine bağlı.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Tarihsel paralel</div>
+    <p class="analogy-text">"Güneş paneli de 2010'da 'butik' ve pahalıydı. On yılda %90 ucuzladı ve artık en ucuz elektrik kaynağı. Yeşil çelik aynı eğriyi izleyebilir — ama çelik daha karmaşık, süreç daha uzun."</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 6: DÜNYA ÇELİK SEKTÖRÜ -->
+<div class="sec">
+  <div class="sec-label lv-red">Bölüm 6 · Sektör Görünümü</div>
+  <h2>Dünya Çeliği Nereye Gidiyor?</h2>
+
+  <div class="body">
+    <p>2030 itibarıyla yeşil çelik arzının 25 milyon tonu aşabileceği öngörülüyor — açıklanan projeler ve %85 kapasite kullanımıyla. Bu kulağa büyük geliyor ama küresel çelik üretimi yılda 1,8-1,9 milyar ton. Yani yeşil çeliğin 2030 payı hâlâ yalnızca %1-2.</p>
+    <p><strong>Büyük tablo:</strong> Çelik sektörü 2050'de net sıfıra ulaşmak için yılda 50-100 milyon ton kapasitede yeni yeşil tesis kurmak zorunda — bugünkü hızın 10-20 katı.</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>Bölge / Oyuncu</th>
+      <th>Mevcut Durum</th>
+      <th>2030 Hedefi</th>
+      <th>Değerlendirme</th>
+    </tr>
+    <tr>
+      <td>Avrupa (AB)</td>
+      <td>ArcelorMittal, Thyssenkrupp, SSAB HYBRIT dönüşümde</td>
+      <td>%30-40 emisyon azaltımı</td>
+      <td class="neu">CBAM ve ETS desteğiyle mümkün</td>
+    </tr>
+    <tr>
+      <td>Çin</td>
+      <td>Küresel üretimin %54'ü — çoğunlukla BF-BOF</td>
+      <td>2030 zirve, 2060 net sıfır</td>
+      <td class="neg">En kritik oyuncu; yavaş dönüşüm</td>
+    </tr>
+    <tr>
+      <td>Hindistan</td>
+      <td>Hızla büyüyen talep — BF-BOF ağırlıklı</td>
+      <td>2070 net sıfır</td>
+      <td class="neg">Uzun dönemde kirli çelik büyür</td>
+    </tr>
+    <tr>
+      <td>ABD</td>
+      <td>EAF payı zaten %70 (hurda bazlı) — düşük emisyon</td>
+      <td>Boston Metal gibi yeni teknolojiler</td>
+      <td class="pos">Yapısal avantaj var</td>
+    </tr>
+    <tr>
+      <td>Türkiye</td>
+      <td>EAF payı ~%70 (hurda) — AB'ye önemli ihracat</td>
+      <td>CBAM baskısıyla dönüşüm zorunlu</td>
+      <td class="neu">Fırsat ve tehdit aynı anda</td>
+    </tr>
+  </table>
+
+  <div class="box b-teal">
+    <div class="box-title">Türkiye'nin Konumu — Hem Avantaj Hem Risk</div>
+    <p><strong>Avantaj:</strong> Türkiye çelik üretiminin ~%70'i EAF bazlı (hurda kullanıyor) — bu zaten BF-BOF'tan çok daha düşük emisyon yoğunluğu. Ton başına ortalama ~0,5-0,8 ton CO₂, konvansiyonel ~1,85'e kıyasla.<br><br>
+    <strong>CBAM etkisi:</strong> EAF bazlı üretimde CBAM maliyeti ton başına ~€30-50 — BF-BOF'un €120'sine kıyasla yönetilebilir. Ama gerilemeyen bir karbona karşı.<br><br>
+    <strong>Fırsat:</strong> Türkiye yenilenebilir enerji potansiyeli yüksek. Yeşil hidrojen üretimi için solar+wind uygun. Dekarbonize Türk çeliği AB pazarında premium kazanabilir.<br><br>
+    <strong>Tehdid:</strong> Hareketsizlik. İsveç ve Almanya hareket ederken Türkiye beklerse AB pazar erişimi hem düzenleyici hem rekabet açısından daralır.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 6B: AB PAZARI VE TÜRK ÇELİĞİ -->
+<div class="sec">
+  <div class="sec-label lv-gold">Bölüm 6b · Türkiye için AB: Kaçınılır mı?</div>
+  <h2>AB'yi Darda Bırakmak Mümkün mü — Yoksa Büyük Risk mi?</h2>
+
+  <div class="body">
+    <p>AB'nin Türk çeliği için ağırlığını anlamak için önce pazar büyüklüğüne bakmak gerekiyor.</p>
+  </div>
+
+  <h3>AB Türk çeliği için ne kadar büyük?</h3>
+
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="stat-label">Türkiye toplam çelik ihracatı (2024)</div>
+      <div class="stat-val">13,4 Mt</div>
+      <div class="stat-note">+%27,6 yıllık büyüme</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">AB'ye ihracat (2024)</div>
+      <div class="stat-val">~6,8 Mt</div>
+      <div class="stat-note">Toplam ihracatın %38'i — +%64,6 yıllık</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Türkiye AB çelik ithalatında sırası</div>
+      <div class="stat-val">#1-2</div>
+      <div class="stat-note">Rusya ile birlikte AB'nin en büyük tedarikçisi</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>Rakamlar çarpıcı: Türkiye'nin 2024 ihracatında AB birinci bölge olarak 6,8 milyon tonla toplam ihracatın %38'ini oluşturdu. Bir yıl önce bu pay 3,6 milyon tondu — AB'ye ihracat 2024'te %64,6 artışla 5,9 milyon tona çıktı. Ve 2025'te Türkiye, AB'ye sonlu çelik ihracatında %16,5 paylı birinci tedarikçi konumuna yerleşti.</p>
+    <p><strong>Sonuç: AB, Türk çeliğinin tek bir müşterisi değil — temel oksijeni.</strong> İhracatın %38-44'ü bir pazara bağımlı. Bunu "yok say" demek, ihracatın yarısını kesmek demek.</p>
+  </div>
+
+  <h3>"ABD'ye yönel" seçeneği gerçekçi mi?</h3>
+  <div class="body">
+    <p>Türk çelik ihracatının yalnızca küçük bir kısmı ABD'ye gidiyor. Ve Trump yönetimi çelik ithalatına %25 ek tarife uyguluyor. Türkiye bu tarifeden muaf değil. ABD zaten Türk çeliği için dar bir kapı — genişlemesi değil daralması bekleniyor.</p>
+  </div>
+
+  <h3>"Asya'ya yönel" seçeneği gerçekçi mi?</h3>
+  <div class="body">
+    <p>Asya büyük ama hem Çin hem Hindistan hem Japonya hem Güney Kore kendi üreticilerini koruyor. Üstelik Çin 2024'te 110,7 milyon ton çelik ihraç etti — bu düzeyde bir rakiple fiyat rekabetine girmek, maliyet avantajını tamamen tüketir. Türk çeliğinin Asya'da rekabetçi olması için ya çok ucuzlaması ya da farklılaşması gerekiyor. Yeşil çelik ikinci yolu açıyor — ama gri çelikte Asya'ya karşı kazanmak güç.</p>
+  </div>
+
+  <h3>ECSC Anlaşması: Türkiye'nin gizli kozu</h3>
+  <div class="body">
+    <p>1996'da imzalanan Avrupa Kömür ve Çelik Topluluğu (ECSC) anlaşmasıyla AB ve Türkiye arasındaki çelik ticaretinde gümrük vergileri kaldırıldı. Bu anlaşma Türk çeliğine AB'de sıfır gümrük avantajı tanıyor — Çin, Hindistan ve diğer rakiplerin ödemediği. CBAM bu avantajı aşındırıyor ama tamamen ortadan kaldırmıyor. <strong>Hem ECSC avantajını koruyan hem CBAM'ı geçen tek yol: dekarbonize üretim.</strong></p>
+  </div>
+
+  <div class="box b-red">
+    <div class="box-title">AB'yi "darda bırakmak" — tablo</div>
+    <p><strong>AB için:</strong> Türkiye AB'nin birinci çelik tedarikçisi. Türk çeliği çıkınca boşluğu kim dolduruyor? Hindistan ve Çin — ikisi de daha yüksek emisyon yoğunluğuyla. Bu AB'nin kendi karbon hedefleriyle çelişiyor. AB Türkiye olmadan zor ama imkânsız değil.<br><br>
+    <strong>Türkiye için:</strong> AB ihracatının %38'i demek yaklaşık 3-4 milyar dolar yıllık gelir. Bu geliri Asya veya Orta Doğu'da telafi etmek; hem fiyat rekabeti hem lojistik mesafe hem gümrük engelleri nedeniyle birkaç yılda mümkün değil. <strong>Türkiye AB'yi darda bırakamaz — bırakmaya çalışırsa kendisi darda kalır.</strong></p>
+  </div>
+
+  <h3>Türk çelik üreticisi net sıfıra gitmek zorunda mı — acil mi?</h3>
+  <div class="body">
+    <p>Bu sorunun iki katmanı var: <em>ne zaman zorunlu hale geliyor</em> ve <em>ne kadar acil başlamak gerekiyor</em>.</p>
+    <p><strong>Ne zaman zorunlu?</strong> CBAM 2026'da tam uygulamaya geçti. Ton başına €30-50 CBAM maliyeti bugün zaten var — bu fatura büyüyor. AB ETS karbon fiyatı €60'tan €100-150'ye çıkarsa (2030 hedefleri bu yönde) CBAM etkisi iki katına çıkar. Aynı anda AB safeguard önlemleri ve kotalar da Türk çeliğini kısıyor. <strong>Yasal ve ekonomik baskı her yıl biraz daha artıyor.</strong></p>
+    <p><strong>Ne kadar acil başlamak gerekiyor?</strong> Bir çelik tesisinin dekarbonizasyon dönüşümü 7-12 yıl alıyor: fizibilite, finans, inşaat, devreye alma. Bugün başlamayan 2035'te hazır olamaz. EAF bazlı üretim (Türkiye'nin mevcut avantajı) bir başlangıç noktası ama yetersiz — EAF'ın karbonunu sıfırlamak için yeşil elektrik ve yeşil hurda gerekiyor.</p>
+    <p><strong>Pratik cevap: Net sıfır bugün acil değil ama dönüşüm planı acilen yapılmalı.</strong> Şirkete göre değişiyor: Erdemir ve İsdemir gibi AB'ye ağırlıklı ihracat yapan büyük üreticiler dönüşüm planlarını zaten hazırlıyor — CBAM baskısı bu süreci öne çekiyor, yoksa başlatmıyor. İç pazara yönelik küçük üreticiler için zaman biraz daha var. Asıl risk "bekleyelim görelim" stratejisi — geç başlayanlar hem CBAM'ı öder hem dönüşüm yatırımını rekabetçi olmayan bir dönemde yapmak zorunda kalır.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Net değerlendirme</div>
+    <p class="analogy-text">"AB'yi darda bırakmak değil, AB olmadan darda kalmak. Türk çeliği için AB alternatifsiz değil ama şimdilik ikamesiz."</p>
+  </div>
+</div>
+
+
+<!-- BÖLÜM 6C: KARBON KREDİ VE EMİSYON NÖTRLEME -->
+<div class="sec">
+  <div class="sec-label lv-red">Bölüm 6c · Karbon Kredi ve Emisyon Nötrleme</div>
+  <h2>Emisyonu Çözemezsen Ne Olur — Ve Çözmenin Maliyeti Ne?</h2>
+
+  <div class="body">
+    <p>Her dekarbonizasyon yolculuğunda bir gerçek var: bazı emisyonlar kısa ve orta vadede teknik olarak azaltılamıyor. Çimento bunu kimyasal reaksiyonla üretiyor, uzun mesafe taşımacılık hâlâ fosil yakıt gerektiriyor, Scope 3'ün büyük kısmı şirketin doğrudan kontrolü dışında. Bu noktada iki seçenek kalıyor: cezayı öde ya da emisyonu satın alarak nötrle. İkisinin maliyetini ve mekanizmasını doğru anlamak stratejik bir zorunluluk.</p>
+  </div>
+
+  <h3>İki Ayrı Piyasa, İki Ayrı Mantık</h3>
+  <div class="body">
+    <p><strong>Zorunlu (Compliance) Piyasası:</strong> Devlet zorunlu kılar. AB ETS, CBAM, Çin ETS bunun örnekleri. Yüksek emisyonlu sektörler için katılım mecburidir. Limit aşılırsa fatura kesilir. <strong>AB Karbon İzni — EUA (European Union Allowance), yani AB Emisyon İzni — Aralık 2025'te ton başına €82,85'e ulaştı, yıllık %21,52 artış.</strong> Her EUA, şirkete 1 ton CO₂ salma hakkı tanıyor. 2030 hedefinin €150'nin üzerinde olduğu öngörülüyor.</p>
+    <p><strong>Gönüllü (Voluntary) Piyasası:</strong> Yasal yükümlülük yok ama kurumsal taahhüt, müşteri baskısı veya marka itibarı için alınıyor. Daha ucuz ama kalite farkı büyük. Yüksek kaliteli sertifikalı krediler düşük kalitelilerin üç katı fiyata işlem görüyor. 2025 ilk yarısında 95 milyon kredi piyasadan çekildi — ucuz kredi artık varlık değil, gelecekteki yükümlülük.</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>Araç</th>
+      <th>Fiyat</th>
+      <th>Kim için?</th>
+      <th>Risk</th>
+    </tr>
+    <tr>
+      <td>AB ETS (EUA)</td>
+      <td>€65-90/ton CO₂</td>
+      <td>AB'ye satan tüm üreticiler</td>
+      <td>2030'a €150+ hedefleniyor</td>
+    </tr>
+    <tr>
+      <td>CBAM sertifikası</td>
+      <td>EUA fiyatına bağlı</td>
+      <td>AB'ye ihraç eden Türk çelik</td>
+      <td>İlk beyan Eylül 2027, ceza €100/ton üst sınırsız</td>
+    </tr>
+    <tr>
+      <td>Gönüllü — doğa bazlı</td>
+      <td>$5-50/ton CO₂</td>
+      <td>Scope 3, marka taahhüdü</td>
+      <td>Kalıcılık garantisi zayıf, greenwashing riski</td>
+    </tr>
+    <tr>
+      <td>Gönüllü — teknoloji bazlı</td>
+      <td>$100-300/ton CO₂</td>
+      <td>Yüksek bütünlük taahhüdü</td>
+      <td>Pahalı ama kalıcı — SBTi uyumlu</td>
+    </tr>
+    <tr>
+      <td>CCUS (sanayi)</td>
+      <td>€105-280/ton CO₂</td>
+      <td>Tesis bazlı yakalama</td>
+      <td>Yüksek CAPEX, sübvansiyon bağımlı</td>
+    </tr>
+  </table>
+
+  <div class="box b-red">
+    <div class="box-title">CBAM'ın En Az Konuşulan Tuzağı: Varsayılan Değerler</div>
+    <p>Gerçek emisyon verisi sağlanamazsa Avrupa Komisyonu varsayılan kıyaslama değerlerini kullanıyor. Komisyon bu varsayılan değerleri 2025 sonunda aşağı revize etti — bu da CBAM maliyetini çoğu ürün için fiilen artırdı. Yani emisyonunu doğrulatamayan üretici hem daha yüksek fatura ödüyor hem rekabet gücünü kaybediyor. Üçüncü taraf doğrulama zorunlu, ilk yıl tesis denetimi dahil, %5 sapma eşiğini geçersen varsayılan değerlere dönülüyor. Uyumsuzluk cezası ton başına €100 — üst sınır yok.</p>
+  </div>
+
+  <div class="box b-amber">
+    <div class="box-title">Scope 3'ten Gol Yemek — En Sessiz Risk</div>
+    <p>Şirket Scope 1 ve 2'yi temizledi. Fabrika bacası sıfıra yakın, yeşil elektrik kullanıyor. Ama müşterileri — otomotiv, inşaat — onun Scope 3'ü. 2025-26 itibarıyla tedarikçi bileşenlerinin karbon yoğunluğuna dair doğrulanabilir, denetime hazır veri sağlayamazsa tedarik zincirinden çıkarılma riskiyle karşı karşıya. Microsoft ve Apple birincil üreticilerinden gerçek zamanlı enerji tüketimini dijital platformlarla takip etmelerini talep ediyor. Bu talep aşağı iniyor — tedarikçiye, onun tedarikçisine kadar.<br><br>
+    Türk çelik üreticisi için sonuç: kendi emisyonunu raporlamak yetmiyor. Cevher tedarikçisinden nakliye şirketine, müşterinin kullandığı çeliğin uygulama ömrüne kadar uzanan bir veri zinciri kurmak gerekiyor.</p>
+  </div>
+
+  <h3>Emisyon Nötrleminin Beş Yolu</h3>
+
+  <div class="body">
+    <p><strong>① Doğa Bazlı Ofsetler — En ucuz, en riskli</strong><br>
+    Ormancılık, arazi kullanımı, REDD+ projeleri. Ton başına $5-50. Kalıcılık garantisi zayıf — yangın veya kuraklıkta depolanan karbon geri salınıyor. SBTi bu ofsetlerin Scope 1-2 yerine Scope 3'e sayılmasına izin veriyor. Ucuz kredi kısa vadede cazip ama düzenleyici standartlar yükseldikçe yükümlülüğe dönüşüyor.</p>
+
+    <p><strong>② Teknoloji Bazlı Kaldırma — En kalıcı, en pahalı</strong><br>
+    Doğrudan hava yakalama (DAC), biyoenerji+CCUS (BECCS). Kalıcılık yüksek ama $100-300/ton. AB'de CCUS uçtan uca maliyeti €105-280/ton — ETS fiyatı bu aralığın üzerinde olmadan sübvansiyonsuz yatırım yapılamıyor. IEA bu teknolojiye 2050'de emisyon azaltımının %5'inden az pay biçiyor.</p>
+
+    <p><strong>③ Sanayi Bazlı CCUS — Çelik için en uygun</strong><br>
+    Yüksek fırın baca gazında CO₂ konsantrasyonu yüksek, bu yakalamayı kolaylaştırıyor. Kısa vadede enerji verimliliği ve hurda kullanımı ton başına sırasıyla −$8,5 ve $0,3 maliyetle 7,8-7,2 Gt kümülatif azaltım — en ucuz başlangıç. CCUS ise uzun vadede $7-75/ton aralığında, bölgeye göre büyük fark.</p>
+
+    <p><strong>④ İç Karbon Fiyatlandırması — En stratejik</strong><br>
+    Şirket gönüllü olarak kendine karbon fiyatı biçiyor — "shadow pricing." Her yatırım kararında ton başına €80-100 karbon maliyeti varsay, o şartlarda kârlı mı değerlendir. Amaç: bugün kârlı görünen ama yarın karbon vergileri yükselince "stranded asset" olmayacak projeleri seçmek.</p>
+
+    <p><strong>⑤ Kaynak Kaydırma — Kısa vadeli, sürdürülemez</strong><br>
+    "En temiz" çeliği AB'ye, yüksek emisyonlunu karbonsuz maliyet olmayan bölgelere gönder. CBAM kapsamı genişledikçe ve diğer ülkeler benzer mekanizmalar geliştirdikçe bu strateji çalışmayı bırakır. Kısa vadeli nefes, orta vadeli tuzak.</p>
+  </div>
+
+  <h3>Türk EAF Çeliği İçin Net Tablo</h3>
+  <div class="body">
+    <p>EAF bazlı üretim ton başına ~0,5-0,8 ton CO₂ — BF-BOF'un çok altında ama sıfır değil. Kalan emisyon için öncelikli yol haritası şöyle:</p>
+    <p><strong>Kısa vade:</strong> Doğrulanmış emisyon verisi kur, CBAM varsayılan değer tuzağından kaç. Bu tek adım bile yılda on milyonlarca TL tasarruf anlamına gelebilir.</p>
+    <p><strong>Orta vade:</strong> Yenilenebilir elektriğe geç — Scope 2'yi sıfırla. Türkiye'nin güneş ve rüzgar potansiyeli bu adımı maliyetli değil rekabetçi kılıyor.</p>
+    <p><strong>Uzun vade:</strong> Kalan Scope 1 ve 3 için yüksek kaliteli karbon kredisi + kademeli CCUS. Ucuz doğa bazlı offset değil, teknoloji bazlı kalıcı kaldırma — AB standartları bu yönde ilerliyor.</p>
+  </div>
+</div>
+
+
+<!-- BÖLÜM 6D: KARBON MARKET MEKANİZMASI, REC VE HİSSE ETKİSİ -->
+<div class="sec">
+  <div class="sec-label lv-blue">Bölüm 6d · Karbon Market Nasıl İşler?</div>
+  <h2>Cap-and-Trade, Kredi Alım-Satımı ve Gerçek Maliyet</h2>
+
+  <div class="body">
+    <p>Karbon piyasası soyut görünüyor ama mekanizması basit: hükümet toplam emisyon için bir tavan (cap) belirliyor, bu tavanı temsil eden izinleri (allowance) şirketlere dağıtıyor veya açık artırmayla satıyor. Yıl sonunda her şirket gerçek emisyonuna eşit sayıda izin teslim etmek zorunda. Fazla izni satabilir, eksik izni satın almak zorunda. Bu "cap-and-trade" sistemi.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">İzin al ya da açık artırmada kazan</div>
+        <div class="step-desc">AB ETS'de şirketler bir kısım izni ücretsiz alıyor, kalan kısmı açık artırmadan satın alıyor. Ücretsiz tahsisat her yıl azalıyor — 2034'te tamamen sona erecek. Bu azalan bedava izin, dekarbonizasyonu finansal zorunluluk haline getiriyor.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Yıl sonunda teslim et</div>
+        <div class="step-desc">Her yıl gerçek emisyon raporlanıyor, o miktarda izin teslim ediliyor. Teslim edemezsen ton başına €100 ceza + bir sonraki yıl ek yükümlülük. AB ETS'nin ücretsiz tahsisat politikasıyla aynı dönemde başlayan CBAM, ithalatçıların da eşdeğer karbon maliyetini ödemesini zorunlu kılıyor.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Fazlayı sat, eksiği al</div>
+        <div class="step-desc">Emisyon azaltan şirket elindeki fazla izni ikincil piyasada başka şirkete satıyor. Bu mekanizma dekarbonizasyonu gelir kaynağına dönüştürüyor — ve erken hareket eden şirketi ödüllendiriyor. AB ETS 2005'ten bu yana kapsadığı sektörlerde emisyonları %41 düşürdü.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <p><strong>Gönüllü piyasa farklı çalışıyor:</strong> Burada hükümet zorunlu kılmıyor. Şirket kendi taahhüdü, müşteri baskısı veya marka itibarı için kredi satın alıyor. Karbon fiyatlandırması artık küresel sera gazı emisyonlarının %28'ini kapsıyor — 43 karbon vergisi ve 37 ETS sistemi yürürlükte. Japonya'da GX-ETS 2026'da zorunlu hale geldi, yıllık 500-600 milyon ton emisyonu kapsıyor. Şirketler yükümlülüklerinin %10'unu karbon kredisiyle karşılayabiliyor — bu potansiyel olarak 50-60 milyon ton yıllık kredi talebi anlamına geliyor.</p>
+    <p><strong>2026'nın en önemli eğilimi:</strong> Karbon kredileri artık ton bazında değil — güvenilirlik, kalıcılık ve bütünlük bazında fiyatlanıyor. Kaliteli ve düşük kaliteli krediler arasında fiyat farkı 10 katı aşabiliyor. Ucuz kredi almak bugün tasarruf gibi görünüyor ama ilerleyen dönemde itibar ve düzenleyici yükümlülük olarak geri dönüyor.</p>
+  </div>
+
+  <div class="box b-blue">
+    <div class="box-title">Tesla Örneği: Karbon Kredi Satışı Gelir Kaynağı Olabilir</div>
+    <p>Tesla 2023'te karbon kredisi satışından 1,78 milyar dolar gelir elde etti. Sıfır emisyonlu araç üretimi sayesinde fazla izni geleneksel otomotiv şirketlerine sattı. Yeşil çelik üreten şirket için aynı mekanizma geçerli: düşük emisyon = fazla izin = satılabilir gelir. Bu, dekarbonizasyonun maliyetini kısmen finanse ediyor.</p>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-label lv-amber">Bölüm 6e · Yenilenebilir Enerji = Karbon Nötr mü?</div>
+  <h2>Fazla Yenilenebilir Üretmek Emisyonu Sıfırlar mı?</h2>
+
+  <div class="body">
+    <p>Bu soru hem stratejik hem teknik açıdan kritik. Cevap: <strong>kısmen evet, ama çok önemli istisnalar var.</strong></p>
+    <p>Bir çelik fabrikası kendi kullandığı elektrikten daha fazla yenilenebilir enerji üretiyorsa, bu fazlalığı <strong>Yenilenebilir Enerji Sertifikası (REC / I-REC / Avrupa'da GoO — Guarantees of Origin)</strong> olarak sertifikalandırıp satabilir. Başka şirketler bu sertifikaları satın alarak Scope 2 emisyonlarını sıfır raporluyor.</p>
+    <p>Ama burada hayati bir kavram devreye giriyor: <strong>Additionality (Katkısallık).</strong></p>
+  </div>
+
+  <div class="box b-red">
+    <div class="box-title">Additionality — Neden Her REC Eşit Değil?</div>
+    <p>Nature Climate Change'de yayımlanan araştırmaya göre, kurumsal REC alımları muhtemelen ek yenilenebilir enerji üretimine yol açmıyor — bu da kurumsal emisyon azaltım iddialarının güvenilirliğini zedeliyor.<br><br>
+    Sorun şu: 10 yıl önce inşa edilmiş bir baraj veya rüzgar çiftliği zaten var. O tesisten REC satın almak yeni temiz enerji üretilmesine katkı sağlamıyor — sadece muhasebe hakkı satın alınıyor. <strong>Gerçek additionality: senin alımın olmasa o proje hayata geçmeyecekti.</strong> Uzun vadeli sözleşmeyle henüz inşa edilmemiş projeleri finanse etmek bunu sağlıyor.<br><br>
+    REC eleştirileri şuradan geliyor: şirketler REC alıp "yenilenebilir enerjide çalışıyoruz" diyebiliyor ama fosil yakıt kullanmaya ve aynı miktarda emisyon yaymaya devam edebiliyor.</p>
+  </div>
+
+  <h3>Çelik Şirketi İçin Pratik Sonuç</h3>
+  <div class="body">
+    <p><strong>Ne çalışıyor:</strong> Fabrikaya doğrudan bağlı güneş veya rüzgar tesisi (on-site generation) Scope 2'yi gerçekten sıfırlıyor — fiziksel bağlantı var, additionality açık. Ya da uzun vadeli PPA (Güç Satın Alma Anlaşması) ile henüz yapılmamış yenilenebilir enerji projesini finanse etmek — bu da additionality sağlıyor.</p>
+    <p><strong>Ne çalışmıyor:</strong> Mevcut bir tesisten spot REC almak Scope 2'yi kâğıt üzerinde sıfırlıyor ama gerçek emisyon değişmiyor. GHG Protokolü Scope 2 kılavuzu açıkça şunu söylüyor: "Bireysel gönüllü alımlar yeni düşük karbonlu arz değişimine yol açabilir de açmayabilir de."</p>
+    <p><strong>Scope 1 için kesinlikle çalışmıyor:</strong> REC yalnızca Scope 2 (satın alınan elektrik) için kullanılıyor. Baca gazından çıkan CO₂ (Scope 1) ne kadar yenilenebilir enerji üretilirse üretilsin REC ile sıfırlanamıyor. Bu fiziksel gerçek — muhasebe kuralı değil.</p>
+    <p>Sonuç: <strong>Yeşil elektrik Scope 2'yi çözüyor. Scope 1 için tek gerçek çözüm süreç değişikliği (hidrojen, CCUS) veya yüksek kaliteli karbon kaldırma kredisi.</strong> Scope 3 içinse SBTi yüksek bütünlüklü kredileri kabul ediyor ama veri zinciri şart.</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>Emisyon Kaynağı</th>
+      <th>Yenilenebilir Enerji Çözüm mü?</th>
+      <th>Alternatif</th>
+    </tr>
+    <tr>
+      <td>Scope 2 — satın alınan elektrik</td>
+      <td class="pos">✓ Evet — on-site veya PPA ile</td>
+      <td>GoO / I-REC (additionality şartıyla)</td>
+    </tr>
+    <tr>
+      <td>Scope 1 — baca gazı, proses</td>
+      <td class="neg">✗ Hayır — doğrudan etki yok</td>
+      <td>Hidrojen DRI, CCUS, proses değişikliği</td>
+    </tr>
+    <tr>
+      <td>Scope 3 — tedarik zinciri, müşteri</td>
+      <td class="neg">✗ Hayır — REC Scope 3 için geçersiz</td>
+      <td>Tedarikçi dekarbonizasyonu, yüksek kalite kredi</td>
+    </tr>
+  </table>
+</div>
+
+<div class="sec">
+  <div class="sec-label lv-green">Bölüm 6f · Hisse Senetlerine Etkisi</div>
+  <h2>Dekarbonizasyon Yatırımları Hisseyi Ne Yönde Etkiler?</h2>
+
+  <div class="body">
+    <p>Bu sorunun cevabı tek yönlü değil — kısa vade ve uzun vade tablo farklı, ve şirketin hangi konumda olduğu belirleyici.</p>
+  </div>
+
+  <h3>Kısa Vade: CAPEX Baskısı ve Marj Sıkışması</h3>
+  <div class="body">
+    <p>Dekarbonizasyon yatırımı büyük sermaye gerektiriyor. Nippon Steel yalnızca üç tesisini EAF'a dönüştürmek için 6 milyar dolar yatırım yapıyor. Bu harcama kâr marjlarını kısa vadede baskılıyor, temettü kapasitesini azaltıyor, borçlanmayı artırıyor. Piyasalar bunu çoğunlukla negatif okuyor.</p>
+    <p>CBAM'ın AB yasama sürecindeki duyuru tarihlerinde yapılan araştırmaya göre, CBAM kapsama dahil sektörlerdeki AB şirketlerinin hisse senetleri AB dışı şirketlere kıyasla %2-3 daha fazla değer kaybetti. Yani kısa vadede düzenleyici yük hisse fiyatını baskıladı — yatırımcılar artan maliyeti olumsuz okudu.</p>
+  </div>
+
+  <h3>Orta Vade: İki Grup Ayrışıyor</h3>
+  <div class="body">
+    <p>2026 Ocak itibarıyla yeşil çelik hâlâ niş pazar — özellikle Avrupa'da. Salzgitter gibi büyük üreticiler yeşil projeleri erteledi. "Devlet desteğine rağmen üretim pahalı ve ölçeklendirmesi zor" diyor bir Avrupalı fabrika kaynağı. Ama bu zorluğun öğrettiği bir şey var: <strong>erken hareket edenler pazar standardını belirliyor.</strong></p>
+    <p>Nature Communications'da yayımlanan araştırma şunu gösteriyor: CBAM kapsamının her iki modelinde de ikincil çelik ve H2-DRI-EAF kapasitesi eklemek 2026-2035 dönemi için en maliyet etkin yatırım yolu. İskandinav, Portekiz ve İspanya gibi düşük maliyetli yenilenebilir enerji lokasyonlarına H2-DRI-EAF yatırımı yapan ilk oyuncular AB pazarında avantaj kazanacak.</p>
+    <p>Bu ikili tablo hisse fiyatlarına şöyle yansıyor: Dönüşümü geciktiren şirket kısa vadede kâr marjını koruyor ama CBAM maliyeti her yıl artıyor ve müşteri kaybı başlıyor. Dönüşüme erken başlayan şirket kısa vadede marj baskısı yaşıyor ama yeşil çelik premium ve pazar payı kazanımıyla orta vadede telafi ediyor.</p>
+  </div>
+
+  <h3>Uzun Vade: Yeşil Premium ve ESG Sermayesi</h3>
+  <div class="body">
+    <p>Yeşil çelik piyasası 2031'de 140 milyar dolara ulaşması bekleniyor — yıllık %55,6 büyüme oranıyla. Bu büyük ölçüde 2025'teki düşük bazdan kaynaklanıyor ama yapısal yön açık: yeşil çelik premium, gelecek hazır, ESG odaklı güçlü getiri anlamına geliyor.</p>
+    <p>Neredeyse tüm Avrupalı çelik fabrikaları gri çeliğe ek olarak düşük karbonlu ürün sunuyor. AB ETS ve CBAM düşük karbonlu çelik talebini artırması bekleniyor.</p>
+    <p>Hisse açısından net tablo şu: <strong>Yeşil çeliğe geçen şirketin marjı kısa vadede daralıyor ama hisse çarpanı yükseliyor</strong> — piyasa bu şirketleri farklı değerlendiriyor. ESG fonları ve kurumsal yatırımcılar düşük karbonlu çelik üreticilerine premium fiyat biçiyor. Gri kalan şirkette ise tam tersi: kısa vade marjı iyi ama çarpan baskısı artıyor, CBAM maliyeti kâr marjını yukarıdan aşağı sıkıştırıyor.</p>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">Türk EAF Çeliği İçin Hisse Perspektifi</div>
+    <p>Türkiye'nin %70 EAF bazlı çelik üretimi yapısal avantaj — BF-BOF ağırlıklı rakiplere kıyasla CBAM maliyeti zaten düşük. Bu avantaj hisse fiyatlamasında henüz tam yansımadı. AB'ye yönelik ihracatta CBAM uyumluluğunu erken sağlayan Türk çelik şirketi için beklenen etki şu: kısa vade yatırım baskısı → orta vade rekabet avantajı → uzun vade ESG sermayesine erişim. Büyüme karbon değil, karbon uyumundan geliyor.</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>Süre</th>
+      <th>Dönüşen Şirket</th>
+      <th>Dönüşmeyen Şirket</th>
+    </tr>
+    <tr>
+      <td>Kısa vade (1-3 yıl)</td>
+      <td class="neg">Marj daralır, CAPEX artar</td>
+      <td class="pos">Marj korunur</td>
+    </tr>
+    <tr>
+      <td>Orta vade (3-7 yıl)</td>
+      <td class="pos">Yeşil premium başlar, pazar payı kazanır</td>
+      <td class="neg">CBAM maliyeti birikmekte, müşteri kaybı</td>
+    </tr>
+    <tr>
+      <td>Uzun vade (7+ yıl)</td>
+      <td class="pos">ESG sermayesi, yüksek çarpan, güçlü rekabet</td>
+      <td class="neg">Stranded asset riski, pazar dışı kalma</td>
+    </tr>
+  </table>
+</div>
+
+
+
+  <div class="body">
+    <p><strong>Teknik fizibilite:</strong> Evet — HYBRIT kanıtladı. Süreç çalışıyor, kalite konvansiyonelle eşdeğer, ölçeklendirme mümkün.</p>
+    <p><strong>Ekonomik fizibilite (bugün):</strong> Kısmi. H₂ $3/kg + CBAM €65 senaryosunda AB pazarında rekabetçi. Asya pazarında henüz değil. Karbon fiyatlandırması olmayan piyasalarda premium var.</p>
+    <p><strong>Ekonomik fizibilite (2030):</strong> H₂ $1-2/kg hedefine ulaşılırsa evet — küresel ölçekte rekabetçi. Bu hedef iddialı ama ulaşılabilir; elektrolizör maliyetleri hızla düşüyor.</p>
+    <p><strong>Kim yapmalı?</strong> Bugün: AB'ye ihracat yapan ve Scope 3 taahhüdü veren büyük endüstriyel müşterileri olan üreticiler. Yarın: tüm birincil çelik üreticileri.</p>
+    <p><strong>Butik mi kitlesel mi?</strong> Kaçınılmaz geçiş: önce butik (premium müşteriler, 2021-2028), sonra orta pazar (CBAM baskısı, 2028-2035), sonra kitlesel (H₂ ucuzlaması, 2035+). Ancak Çin ve Hindistan bu eğriden sapabilir — o zaman küresel çelik iki sınıfa ayrılır: AB sertifikalı yeşil çelik ve "gri çelik".</p>
+  </div>
+
+  <div class="summary">
+    <div class="summary-label">Bu analizden 8 şey</div>
+    <ul>
+      <li>Çeliğin sorunu hem kimyasal hem enerji — sadece elektriğe geçmek yetmiyor, <strong>hidrojeni indirgeyici olarak kullanmak</strong> gerekiyor.</li>
+      <li><strong>HYBRIT teknik olarak kanıtlandı</strong> — yeşil çelik üretimi mümkün, kalitede fark yok.</li>
+      <li>Bugünkü yeşil premium <strong>%20-30</strong> — H₂ fiyatına bağlı. 2030'da H₂ $1-2/kg olursa prim yok.</li>
+      <li><strong>CBAM ton başına ~€120 fark yaratıyor</strong> konvansiyonel vs yeşil için — AB pazarında oyun değiştirici.</li>
+      <li>Türkiye çeliği EAF bazlı olduğu için <strong>avantajlı başlıyor</strong> ama hareketsizlik CBAM riskini artırıyor.</li>
+      <li>Geçiş kaçınılmaz ama zamanlaması farklı: <strong>butik (bugün) → orta pazar (2028) → kitlesel (2035+)</strong>.</li>
+      <li>Çin ve Hindistan bu eğriden sapabilir — <strong>"gri çelik" pazarı kalıcı hale gelebilir</strong>.</li>
+      <li><strong>Yatırım fırsatı:</strong> Elektrolizör üreticileri, yeşil H₂ altyapısı, EAF dönüşüm mühendisliği — çeliğin kendisinden çok bu ekosistem.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BÖLÜM 6G: AB GERİ ADIM ATAR MI? -->
+<div class="sec">
+  <div class="sec-label lv-amber">Bölüm 6g · AB Geri Adım Atar mı?</div>
+  <h2>CBAM'ın Kırılganlıkları ve Strateji Değişir mi?</h2>
+
+  <div class="body">
+    <p>Fizibilite analizinin en az konuşulan ama en önemli sorusu bu: tüm strateji AB'nin kararlılığına dayanıyor. Bu kararlılık sarsılırsa tablo değişir mi? Cevap hem "evet" hem "hayır" — hangi koşulda hangisi olduğunu açıkça yazmak gerekiyor.</p>
+  </div>
+
+  <h3>AB Şimdiye Kadar Ne Yaptı?</h3>
+  <div class="body">
+    <p>CBAM 1 Ocak 2026'da kesinleşti — artık kanun. Ekim 2025'te yayımlanan basitleştirme düzenlemesiyle idari yük azaltıldı: 50 tonun altındaki ithalatçılar muaf, sertifika teslim tarihi Mayıs'tan Eylül'e uzatıldı, geçici sertifika tutma oranı %80'den %50'ye indirildi. Ama kilit mesaj değişmedi: <strong>iklim hedefi korunuyor, ithal malların %99'u kapsam dahilinde kalıyor.</strong></p>
+    <p>Bu sadeleştirme "geri adım" değil — "uygulamayı kolaylaştır, hedefi koru" yaklaşımı. Ayrım önemli. Ayrıca Aralık 2025'te AB kapsamı genişletti — çelik ve alüminyum içeren geniş sanayi malı yelpazesi eklendi. Yani baskıya rağmen kapsam daralıyor değil, genişliyor.</p>
+  </div>
+
+  <h3>Hangi Baskılar Var?</h3>
+  <div class="body">
+    <p>ABD, Ekim 2025'te CBAM'ı "transatlantik ticaret bariyeri" olarak nitelendirerek AB'den geri çekmesini istedi. Gelişmekte olan ülkeler "iklim bazlı korumacılık" diyor, COP30'da tartışmalar yaşandı. AB'nin kendi içinde de Avrupalı Halk Partisi CBAM'ı ertelemeyi tartıştı — piyasa analistleri bunun gerçekleşmeyeceğini öngörse de siyasi baskı gerçek.</p>
+    <p>Ancak önemli bir paradoks var: <strong>CBAM olmadan çelik fiyatları daha da düşebilir.</strong> OECD küresel çelik fazla kapasitesini 551 milyon ton olarak tahmin ediyor — AB yıllık talebinin dört katı. CBAM bu ucuz ve kirli çeliğe karşı Avrupalı üreticilerin koruma kalkanı. Onu kaldırmak AB çelik sanayiini daha da zora sokar — bu yüzden AB sanayi lobisi CBAM'ın tamamen kaldırılmasına karşı.</p>
+  </div>
+
+  <div class="matrix" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:20px 0;">
+    <div class="matrix-cell" style="background:var(--s1);padding:18px;border:1px solid var(--bd);">
+      <div class="matrix-head mh-red" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px;">Senaryo 1 · Kısmi Geri Çekilme (%20)</div>
+      <div class="matrix-body" style="font-size:13.5px;color:var(--t2);line-height:1.65;">ABD ile ticaret savaşı tırmanır, AB ekonomisi sert daralır. Siyasi baskı altında bazı sektörlerde CBAM ertelenir ya da ücretsiz tahsisat fazlalaştırılır.</div>
+      <div style="border-top:1px solid var(--red-bd);margin-top:12px;padding-top:12px;font-size:12.5px;color:var(--t2);"><strong style="color:var(--red);">Strateji etkisi:</strong> Yeşil çelik premiumu azalır ama sıfırlanmaz. EAF avantajı korunur. Yatırımdan vazgeçmek için yeterli gerekçe değil.</div>
+    </div>
+    <div class="matrix-cell" style="background:var(--s1);padding:18px;border:1px solid var(--bd);">
+      <div class="matrix-head mh-amber" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;">Senaryo 2 · Sadeleşme Devam (%45)</div>
+      <div class="matrix-body" style="font-size:13.5px;color:var(--t2);line-height:1.65;">En olası senaryo. CBAM uygulamada basitleşir, küçük ithalatçılara istisnalar genişler, geçiş fonu büyür. Ama karbon fiyatı uygulanmaya devam eder.</div>
+      <div style="border-top:1px solid var(--amber-bd);margin-top:12px;padding-top:12px;font-size:12.5px;color:var(--t2);"><strong style="color:var(--amber);">Strateji etkisi:</strong> Temel tablo değişmez. Maliyet hesapları hafif iyileşir.</div>
+    </div>
+    <div class="matrix-cell" style="background:var(--s1);padding:18px;border:1px solid var(--bd);">
+      <div class="matrix-head mh-blue" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">Senaryo 3 · Statüko (%25)</div>
+      <div class="matrix-body" style="font-size:13.5px;color:var(--t2);line-height:1.65;">Mevcut mekanizma planlandığı gibi ilerler. Ücretsiz tahsisat 2034'e kadar kademeli azalır. EUA fiyatı €100-150'ye yükselir.</div>
+      <div style="border-top:1px solid var(--blue-bd);margin-top:12px;padding-top:12px;font-size:12.5px;color:var(--t2);"><strong style="color:var(--blue);">Strateji etkisi:</strong> Yeşil çeliğin rekabet avantajı güçlenir, erken yatırımcılar ödüllendirilir.</div>
+    </div>
+    <div class="matrix-cell" style="background:var(--s1);padding:18px;border:1px solid var(--bd);">
+      <div class="matrix-head mh-red" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px;">Senaryo 4 · Tam İptal (%10)</div>
+      <div class="matrix-body" style="font-size:13.5px;color:var(--t2);line-height:1.65;">AB politikası köklü değişir, CBAM tamamen kaldırılır. AB kurumsal yapısının çökmesi gerekir — kısa ve orta vadede pratik olarak imkânsız.</div>
+      <div style="border-top:1px solid var(--red-bd);margin-top:12px;padding-top:12px;font-size:12.5px;color:var(--t2);"><strong style="color:var(--red);">Strateji etkisi:</strong> Yeşil çelik AB premiumu kaybeder ama EAF maliyet avantajı yine de kalır.</div>
+    </div>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">En Önemli Tespit: Strateji CBAM'a Bağımlı Değil</div>
+    <p><strong>Yeşil çeliğe geçiş stratejisi CBAM'ı tetikleyici olarak kullanıyor — ama CBAM olmasa da strateji geçerli.</strong> Üç nedeni:<br><br>
+    <strong>Birincisi:</strong> EAF zaten BF-BOF'tan düşük maliyetli — yeşil elektrikle bu avantaj daha da büyüyor. CBAM olmasa bile rekabet avantajı var.<br><br>
+    <strong>İkincisi:</strong> Brezilya, Kanada, Güney Afrika ve Türkiye CBAM baskısıyla kendi karbon piyasalarını devreye aldı. CBAM'ın tetiklediği küresel karbon fiyatlandırma dalgası CBAM'ın kendisinden bağımsız ilerlemeye devam ediyor.<br><br>
+    <strong>Üçüncüsü:</strong> Müşteri talebi değişti. Otomotiv ve inşaat sektörünün büyük oyuncuları Scope 3 taahhütleri nedeniyle yeşil çelik talep ediyor — bu CBAM'dan bağımsız bir zorunluluk.</p>
+  </div>
+
+  <h3>Strateji İçin Doğru Çerçeve</h3>
+  <div class="body">
+    <p>CBAM sadeleşirse değişmesi gereken tek şey <strong>yatırım hızı</strong> — yön değil. Dönüşüm kaçınılmaz ama aciliyeti azalabilir. Bu şunu söylüyor: büyük CAPEX harcamalarını "CBAM baskısıyla acil" olarak değil, "optimal zamanlama" ile planlamak daha sağlıklı. Erken hareket avantajı gerçek — ama kötü zamanlanmış büyük yatırım da kendi riskini taşıyor.</p>
+    <p><strong>Türk çelik üreticisi için özet:</strong> CBAM'ı risk yönetiminin tetikleyicisi olarak gör, varoluşsal tehdit olarak değil. Emisyon verisini doğrulat, EAF avantajını belgele, yenilenebilir enerjiye geç — bunlar CBAM'ın geleceğinden bağımsız olarak değer yaratıyor.</p>
+  </div>
+</div>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Fizibilite Analizi · Yeşil Çelik · Mart 2026 · Taslak</div>
+  <div class="ft-disc">Kişisel araştırma notu.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+
+</body>
+</html>
