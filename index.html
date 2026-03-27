@@ -255,6 +255,24 @@ body {
   .masthead-title { font-size: 36px; }
   .bcard-arrow { display: none; }
 }
+
+  .ftag {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text3);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .ftag:hover { border-color: var(--gold-dim); color: var(--gold); }
+  .ftag-active { border-color: var(--gold); color: var(--gold); background: #1a1508; }
+  .bcard-hidden { display: none !important; }
+  .section-hidden { display: none !important; }
+
 </style>
 </head>
 <body>
@@ -262,9 +280,40 @@ body {
 
   <!-- ══════════ MASTHEAD ══════════ -->
   <div class="masthead">
-    <div class="masthead-eyebrow">CAK · Kişisel Araştırma Notları<a href="hakkinda.html" style="margin-left:auto;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#c8c6e0;text-decoration:none;">Hakkında →</a></div>
+    <div class="masthead-eyebrow">CAK · Kişisel Araştırma Notları<a href="hakkinda.html" data-tags="hakkinda" data-title="Hakkında" style="margin-left:auto;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#c8c6e0;text-decoration:none;">Hakkında →</a></div>
     <h1 class="masthead-title">Bülten<br><em>Arşivi</em></h1>
     <p class="masthead-desc">Piyasa konjonktürü, aylık yönlendirme ve kriz notları. Herhangi bir kurumu temsil etmez, yatırım tavsiyesi değildir.</p>
+  </div>
+
+
+  <!-- ══════════ ARAMA + FİLTRE ══════════ -->
+  <div id="search-area" style="padding:0 0 4px;">
+
+    <!-- Arama çubuğu -->
+    <div style="position:relative;border-bottom:2px solid var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:10px;">
+      <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:.12em;flex-shrink:0;">SEARCH</span>
+      <input
+        id="search-input"
+        type="text"
+        placeholder="Bülten, kavram veya konu ara..."
+        autocomplete="off"
+        style="flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:'DM Mono',monospace;font-size:13px;padding:10px 0;letter-spacing:.04em;"
+      >
+      <span id="search-clear" style="display:none;cursor:pointer;color:var(--text3);font-family:'DM Mono',monospace;font-size:14px;flex-shrink:0;" onclick="clearSearch()">✕</span>
+    </div>
+
+    <!-- Filtre butonları -->
+    <div id="filter-bar" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px;">
+      <button class="ftag ftag-active" data-filter="*" onclick="setFilter(this,'*')">Tümü</button>
+      <button class="ftag" data-filter="flash" onclick="setFilter(this,'flash')">⚡ Flash</button>
+      <button class="ftag" data-filter="bulten" onclick="setFilter(this,'bulten')">Aylık Bülten</button>
+      <button class="ftag" data-filter="kavram" onclick="setFilter(this,'kavram')">Kavram</button>
+      <button class="ftag" data-filter="pazar" onclick="setFilter(this,'pazar')">Pazar Okuması</button>
+      <button class="ftag" data-filter="editör" onclick="setFilter(this,'editör')">★ Editörün Seçtikleri</button>
+    </div>
+
+    <!-- Sonuç sayacı -->
+    <div id="search-count" style="display:none;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:12px;"></div>
   </div>
 
   <!-- ══════════ 2026 ══════════ -->
@@ -273,7 +322,7 @@ body {
   <div class="card-list">
 
     <!-- Fon Stopaj Flash — pinned -->
-    <a class="bcard bcard-pinned" href="flash-fon-stopaj-mart2026.html">
+    <a class="bcard bcard-pinned" href="flash-fon-stopaj-mart2026.html" data-tags="flash vergi stopaj fon" data-title="Fon Stopajında Son Durum">
       <div class="bcard-pin-badge">Son Bülten</div>
       <div class="bcard-date">
         <div class="bcard-day">27</div>
@@ -288,7 +337,7 @@ body {
     </a>
 
     <!-- Flash EMA 200 -->
-    <a class="bcard" href="flash-altin-ema200-23mart2026.html">
+    <a class="bcard" href="flash-altin-ema200-23mart2026.html" data-tags="flash altin teknik" data-title="Altın EMA 200 Altına Kırıldı">
       <div class="bcard-date">
         <div class="bcard-day">23</div>
         <div class="bcard-month">Mar</div>
@@ -302,7 +351,7 @@ body {
     </a>
 
     <!-- Pazar Okuması #2 -->
-    <a class="bcard" href="pazar-02-altin-neden-dusuyor-19mart2026.html">
+    <a class="bcard" href="pazar-02-altin-neden-dusuyor-19mart2026.html" data-tags="pazar altin gumus" data-title="Altın Neden Satılıyor">
       <div class="bcard-date">
         <div class="bcard-day">21</div>
         <div class="bcard-month">Mar</div>
@@ -317,7 +366,7 @@ body {
 
 
     <!-- FOMC Flash -->
-    <a class="bcard" href="fomc-flash-18mart2026.html">
+    <a class="bcard" href="fomc-flash-18mart2026.html" data-tags="flash fed tcmb faiz" data-title="Fed Sabit Powell Endişeli">
       <div class="bcard-date">
         <div class="bcard-day">19</div>
         <div class="bcard-month">Mar</div>
@@ -331,7 +380,7 @@ body {
     </a>
 
     <!-- Yeşil Çelik Fizibilite -->
-    <a class="bcard" href="fizibilite-yesil-celik.html">
+    <a class="bcard" href="fizibilite-yesil-celik.html" data-tags="fizibilite celik cbam" data-title="Yeşil Çelik Fizibil mi">
       <div class="bcard-date">
         <div class="bcard-day">24</div>
         <div class="bcard-month">Mar</div>
@@ -345,7 +394,7 @@ body {
     </a>
 
     <!-- Dekarbonizasyon -->
-    <a class="bcard" href="analiz-dekarbonizasyon.html">
+    <a class="bcard" href="analiz-dekarbonizasyon.html" data-tags="analiz celik enerji" data-title="Dekarbonizasyon">
       <div class="bcard-date">
         <div class="bcard-day">19</div>
         <div class="bcard-month">Mar</div>
@@ -359,7 +408,7 @@ body {
     </a>
 
     <!-- Kara Cuma -->
-    <a class="bcard" href="bulten-kara-cuma-13mart2026.html">
+    <a class="bcard" href="bulten-kara-cuma-13mart2026.html" data-tags="ara bulten kriz" data-title="Kara Cuma">
       <div class="bcard-date">
         <div class="bcard-day">13</div>
         <div class="bcard-month">Mar</div>
@@ -373,7 +422,7 @@ body {
     </a>
 
     <!-- Pazar Okuması #1 -->
-    <a class="bcard" href="pazar-01-savas-15mart2026.html">
+    <a class="bcard" href="pazar-01-savas-15mart2026.html" data-tags="pazar savas" data-title="Savaşta Kim Kazanıyor">
       <div class="bcard-date">
         <div class="bcard-day">15</div>
         <div class="bcard-month">Mar</div>
@@ -387,7 +436,7 @@ body {
     </a>
 
     <!-- PPK Flash -->
-    <a class="bcard" href="ppk-flash-12mart2026.html">
+    <a class="bcard" href="ppk-flash-12mart2026.html" data-tags="flash tcmb faiz ppk" data-title="PPK Flash">
       <div class="bcard-date">
         <div class="bcard-day">12</div>
         <div class="bcard-month">Mar</div>
@@ -401,7 +450,7 @@ body {
     </a>
 
     <!-- Kriz Bülteni -->
-    <a class="bcard" href="bulten-mart-savas-2026.html">
+    <a class="bcard" href="bulten-mart-savas-2026.html" data-tags="bulten kriz savas" data-title="Savaş Bülteni">
       <div class="bcard-date">
         <div class="bcard-day">12</div>
         <div class="bcard-month">Mar</div>
@@ -416,7 +465,7 @@ body {
 
 
     <!-- Aylık Bülten -->
-    <a class="bcard" href="bulten-mart-2026.html">
+    <a class="bcard" href="bulten-mart-2026.html" data-tags="bulten aylik mart" data-title="Mart 2026 Bülteni">
       <div class="bcard-date">
         <div class="bcard-day">09</div>
         <div class="bcard-month">Mar</div>
@@ -437,7 +486,7 @@ body {
   <!-- Temel -->
   <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin:20px 0 8px;display:flex;align-items:center;gap:10px;">Temel<span style="flex:1;height:1px;background:var(--border);display:inline-block;"></span></div>
   <div class="card-list">
-    <a class="bcard" href="kavram-04-para-nedir.html">
+    <a class="bcard" href="kavram-04-para-nedir.html" data-tags="kavram temel para editör" data-title="Para Nedir">
       <div class="bcard-date" style="background:var(--surface2);">
         <div class="bcard-day" style="font-size:20px;color:var(--green);font-family:'DM Mono',monospace;">✦</div>
         <div class="bcard-month">Mar 26</div>
@@ -449,7 +498,7 @@ body {
       </div>
       <div class="bcard-arrow">→</div>
     </a>
-    <a class="bcard" href="kavram-05-bankalar.html">
+    <a class="bcard" href="kavram-05-bankalar.html" data-tags="kavram temel bankalar" data-title="Bankalar Nasıl Çalışır">
       <div class="bcard-date" style="background:var(--surface2);">
         <div class="bcard-day" style="font-size:20px;color:var(--green);font-family:'DM Mono',monospace;">✦</div>
         <div class="bcard-month">Mar 26</div>
@@ -461,7 +510,7 @@ body {
       </div>
       <div class="bcard-arrow">→</div>
     </a>
-    <a class="bcard" href="kavram-01-enflasyon.html">
+    <a class="bcard" href="kavram-01-enflasyon.html" data-tags="kavram temel enflasyon editör" data-title="Enflasyon Nedir">
       <div class="bcard-date" style="background:var(--surface2);">
         <div class="bcard-day" style="font-size:20px;color:var(--green);font-family:'DM Mono',monospace;">✦</div>
         <div class="bcard-month">Mar 26</div>
@@ -473,7 +522,7 @@ body {
       </div>
       <div class="bcard-arrow">→</div>
     </a>
-    <a class="bcard" href="kavram-02-faiz.html">
+    <a class="bcard" href="kavram-02-faiz.html" data-tags="kavram temel faiz" data-title="Faiz Nedir">
       <div class="bcard-date" style="background:var(--surface2);">
         <div class="bcard-day" style="font-size:20px;color:var(--green);font-family:'DM Mono',monospace;">✦</div>
         <div class="bcard-month">Mar 26</div>
@@ -485,7 +534,7 @@ body {
       </div>
       <div class="bcard-arrow">→</div>
     </a>
-    <a class="bcard" href="kavram-03-kur.html">
+    <a class="bcard" href="kavram-03-kur.html" data-tags="kavram temel kur doviz" data-title="Döviz Kuru">
       <div class="bcard-date" style="background:var(--surface2);">
         <div class="bcard-day" style="font-size:20px;color:var(--green);font-family:'DM Mono',monospace;">✦</div>
         <div class="bcard-month">Mar 26</div>
@@ -502,7 +551,7 @@ body {
   <!-- Yatırım -->
   <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin:28px 0 8px;display:flex;align-items:center;gap:10px;">Yatırım<span style="flex:1;height:1px;background:var(--border);display:inline-block;"></span></div>
   <div class="card-list">
-    <a class="bcard" href="kavram-06-risk.html">
+    <a class="bcard" href="kavram-06-risk.html" data-tags="kavram yatirim risk editör" data-title="Risk Nedir">
       <div class="bcard-date" style="background:var(--surface2);">
         <div class="bcard-day" style="font-size:20px;color:var(--blue);font-family:'DM Mono',monospace;">✦</div>
         <div class="bcard-month">Mar 26</div>
@@ -514,7 +563,7 @@ body {
       </div>
       <div class="bcard-arrow">→</div>
     </a>
-    <a class="bcard" href="kavram-08-en-pahaliyi-alan-sen.html">
+    <a class="bcard" href="kavram-08-en-pahaliyi-alan-sen.html" data-tags="kavram yatirim psikoloji editör" data-title="En Pahalıya Alan Hep Sen mi">
       <div class="bcard-date" style="background:var(--surface2);">
         <div class="bcard-day" style="font-size:20px;color:var(--blue);font-family:'DM Mono',monospace;">✦</div>
         <div class="bcard-month">Mar 26</div>
@@ -526,7 +575,7 @@ body {
       </div>
       <div class="bcard-arrow">→</div>
     </a>
-    <a class="bcard" href="kavram-07-enflasyonda-borclanmak.html">
+    <a class="bcard" href="kavram-07-enflasyonda-borclanmak.html" data-tags="kavram yatirim enflasyon" data-title="Enflasyonda Borçlanmak">
       <div class="bcard-date" style="background:var(--surface2);">
         <div class="bcard-day" style="font-size:20px;color:var(--blue);font-family:'DM Mono',monospace;">✦</div>
         <div class="bcard-month">Mar 26</div>
@@ -554,7 +603,7 @@ body {
   <!-- Büyük Resim -->
   <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:28px 0 8px;display:flex;align-items:center;gap:10px;">Büyük Resim<span style="flex:1;height:1px;background:var(--border);display:inline-block;"></span></div>
   <div class="card-list">
-    <a class="bcard" href="kavram-09-para-illuzyonu.html">
+    <a class="bcard" href="kavram-09-para-illuzyonu.html" data-tags="kavram buyuk-resim para enflasyon" data-title="Para İllüzyonu">
       <div class="bcard-date">
         <div class="bcard-day">26</div>
         <div class="bcard-month">Mar</div>
@@ -568,7 +617,7 @@ body {
     </a>
   </div>
 
-    <a class="bcard" href="yol-haritasi.html">
+    <a class="bcard" href="yol-haritasi.html" data-tags="rehber yatirim editör" data-title="Ortalama Yatırımcının El Kitabı">
       <div class="bcard-date" style="background:var(--surface2);justify-content:center;">
         <div style="font-size:22px;">🗺</div>
       </div>
@@ -584,7 +633,7 @@ body {
   <div class="year-label" style="margin-top:48px;">Hakkında</div>
 
   <div class="card-list">
-    <a class="bcard" href="hakkinda.html">
+    <a class="bcard" href="hakkinda.html" data-tags="hakkinda" data-title="Hakkında">
       <div class="bcard-date" style="background:var(--surface2);justify-content:center;">
         <div style="font-size:20px;color: #c8c6e0;">?</div>
       </div>
@@ -601,7 +650,7 @@ body {
   <div class="year-label" style="margin-top:48px;">Sözlük</div>
 
   <div class="card-list">
-    <a class="bcard" href="sozluk.html">
+    <a class="bcard" href="sozluk.html" data-tags="sozluk terimler" data-title="Sözlük">
       <div class="bcard-date" style="background:var(--surface2);justify-content:center;">
         <div style="font-size:22px;color: #c8c6e0;">A–Z</div>
       </div>
@@ -618,7 +667,7 @@ body {
   <div class="year-label" style="margin-top:48px;">Finansal Araçlar</div>
 
   <div class="card-list">
-    <a class="bcard" href="araclar.html">
+    <a class="bcard" href="araclar.html" data-tags="arac hesap" data-title="Finansal Araçlar">
       <div class="bcard-date" style="background:var(--surface2);justify-content:center;">
         <div style="font-size:22px;">⌗</div>
       </div>
@@ -629,7 +678,7 @@ body {
       </div>
       <div class="bcard-arrow">→</div>
     </a>
-    <a class="bcard" href="portfolyo-simulator.html">
+    <a class="bcard" href="portfolyo-simulator.html" data-tags="arac simulasyon portfoy" data-title="Portföy Simülatörü">
       <div class="bcard-date" style="background:var(--surface2);justify-content:center;">
         <div style="font-size:22px;">◈</div>
       </div>
@@ -783,6 +832,81 @@ function kapat() {
   window._subClosed = true;
   // 30 dakika sonra tekrar gösterilebilir (oturum boyunca değil)
   setTimeout(() => { window._subClosed = false; }, 30 * 60 * 1000);
+}
+</script>
+
+<script>
+// Arama ve filtre sistemi
+let currentFilter = '*';
+let currentQuery = '';
+
+function getAllCards() {
+  return document.querySelectorAll('a.bcard[data-tags]');
+}
+
+function applyFilters() {
+  const cards = getAllCards();
+  let visible = 0;
+
+  cards.forEach(card => {
+    const tags = (card.dataset.tags || '').toLowerCase();
+    const title = (card.dataset.title || '').toLowerCase();
+    const href = (card.getAttribute('href') || '').toLowerCase();
+
+    const matchFilter = currentFilter === '*' || tags.includes(currentFilter);
+    const matchQuery = !currentQuery || title.includes(currentQuery) || tags.includes(currentQuery) || href.includes(currentQuery);
+
+    if (matchFilter && matchQuery) {
+      card.classList.remove('bcard-hidden');
+      visible++;
+    } else {
+      card.classList.add('bcard-hidden');
+    }
+  });
+
+  // Bölüm başlıklarını gizle (tüm kartları gizliyse)
+  document.querySelectorAll('.year-label, [style*="year-label"]').forEach(label => {
+    // Sonraki card-list içinde görünen kart var mı?
+    let next = label.nextElementSibling;
+    let hasVisible = false;
+    while (next && !next.classList.contains('year-label')) {
+      if (next.classList.contains('card-list') || next.tagName === 'DIV') {
+        const visibleCards = next.querySelectorAll('a.bcard:not(.bcard-hidden)');
+        if (visibleCards.length > 0) hasVisible = true;
+      }
+      next = next.nextElementSibling;
+    }
+  });
+
+  // Sayaç
+  const counter = document.getElementById('search-count');
+  if (currentQuery || currentFilter !== '*') {
+    counter.style.display = 'block';
+    counter.textContent = visible + ' sonuç';
+  } else {
+    counter.style.display = 'none';
+  }
+}
+
+document.getElementById('search-input').addEventListener('input', function() {
+  currentQuery = this.value.toLowerCase().trim();
+  const clearBtn = document.getElementById('search-clear');
+  clearBtn.style.display = currentQuery ? 'inline' : 'none';
+  applyFilters();
+});
+
+function clearSearch() {
+  document.getElementById('search-input').value = '';
+  currentQuery = '';
+  document.getElementById('search-clear').style.display = 'none';
+  applyFilters();
+}
+
+function setFilter(btn, filter) {
+  currentFilter = filter;
+  document.querySelectorAll('.ftag').forEach(b => b.classList.remove('ftag-active'));
+  btn.classList.add('ftag-active');
+  applyFilters();
 }
 </script>
 </body>
