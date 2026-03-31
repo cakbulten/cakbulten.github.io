@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://cakbulten.github.io/kavram-12-bilesik-faiz.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Kavram 12 - Bileşik Faiz</title>
+<meta name="description" content="Dünyanın sekizinci harikası. Para nasıl kendi kendine büyür, zaman neden en değerli değişken ve erken başlamanın farkı neden bu kadar büyük?">
+<meta property="og:title" content="Kavram 12: Bileşik Faiz">
+<meta property="og:description" content="Erken başlamanın farkı, zaman değişkeninin gücü ve bileşik faizin portföyde nasıl çalıştığı.">
+<meta property="og:url" content="https://cakbulten.github.io/kavram-12-bilesik-faiz.html">
+<meta property="og:site_name" content="CAK Bülten">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kavram 12: Bileşik Faiz","description":"Erken başlamanın farkı, zaman değişkeninin gücü ve bileşik faizin portföyde nasıl çalıştığı.","datePublished":"2026-03-30","author":{"@type":"Organization","name":"CAK Bülten"},"publisher":{"@type":"Organization","name":"CAK Bülten","url":"https://cakbulten.github.io"},"url":"https://cakbulten.github.io/kavram-12-bilesik-faiz.html","keywords":["bileşik faiz", "compound interest", "yatırım", "zaman değeri", "tasarruf", "portföy"]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f3ee;--s1:#eceae4;--s2:#e2e0d8;--bd:#d0cec4;--bd2:#b8b6ac;--t1:#18171a;--t2:#4a4858;--t3:#888698;--gold:#8a6820;--gold-lt:#f5edd8;--gold-bd:#c8a84c;--red:#b03030;--red-lt:#fdf0f0;--red-bd:#e8a0a0;--green:#1a6640;--green-lt:#eef8f2;--green-bd:#88cca8;--blue:#1848a0;--blue-lt:#eef3fc;--blue-bd:#90b0e8;--amber:#8a4c10;--amber-lt:#fdf4ea;--amber-bd:#e0b078;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.8;max-width:700px;margin:0 auto;padding:0 0 80px;}
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}.nav a:hover{color:#c9a84c;}
+.nav-series{color:#1848a0;background:#eef3fc;padding:2px 8px;margin-left:auto;font-size:9px;}
+.hd{padding:44px 40px 32px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+.series-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--blue-bd);background:var(--blue-lt);padding:5px 12px;margin-bottom:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);}
+.series-num{background:var(--blue);color:#fff;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;}
+h1{font-family:'Instrument Serif',serif;font-size:44px;font-weight:400;line-height:1.06;letter-spacing:-1px;margin-bottom:10px;}
+h1 em{font-style:italic;}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:18px;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:16px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);flex-wrap:wrap;}
+.share-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;padding:6px 14px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:12px;}
+.share-btn svg{width:14px;height:14px;fill:#fff;}
+.sec{padding:28px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+h2{font-family:'Instrument Serif',serif;font-size:25px;font-weight:400;line-height:1.2;margin-bottom:14px;}
+h3{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:var(--t1);margin:20px 0 8px;}
+.body{font-size:14.5px;color:var(--t2);line-height:1.85;}
+.body p{margin-bottom:12px;}.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+.box{border:1px solid;padding:16px 20px;margin:18px 0;font-size:14px;line-height:1.7;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;}
+.b-green{background:var(--green-lt);border-color:var(--green-bd);}.b-green .box-title{color:var(--green);}.b-green p{color:var(--t2);}
+.b-red{background:var(--red-lt);border-color:var(--red-bd);}.b-red .box-title{color:var(--red);}.b-red p{color:var(--t2);}
+.b-amber{background:var(--amber-lt);border-color:var(--amber-bd);}.b-amber .box-title{color:var(--amber);}.b-amber p{color:var(--t2);}
+.b-gold{background:var(--gold-lt);border-color:var(--gold-bd);}.b-gold .box-title{color:var(--gold);}.b-gold p{color:var(--t2);}
+.b-blue{background:var(--blue-lt);border-color:var(--blue-bd);}.b-blue .box-title{color:var(--blue);}.b-blue p{color:var(--t2);}
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:18px 22px;margin:18px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:19px;color:var(--t1);line-height:1.5;font-style:italic;}
+.tq{background:var(--s1);border-left:3px solid var(--bd2);padding:18px 20px 14px;margin:20px 0;}
+.tq-text{font-family:'Instrument Serif',serif;font-size:18px;color:var(--t1);line-height:1.5;font-style:italic;margin-bottom:12px;}
+.tq-share{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--bd2);color:var(--t3);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;text-decoration:none;}
+.tq-share:hover{border-color:var(--gold);color:var(--gold);}
+.tq-share svg{width:12px;height:12px;fill:currentColor;}
+.gtable{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px;}
+.gtable th{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;padding:9px 12px;border-bottom:2px solid var(--t1);text-align:left;color:var(--t3);}
+.gtable td{padding:10px 12px;border-bottom:1px solid var(--bd);vertical-align:top;line-height:1.6;}
+.gtable tr:last-child td{border-bottom:none;}
+.gtable td:first-child{font-weight:500;color:var(--t1);}
+.g-yes{color:var(--green);font-family:'DM Mono',monospace;font-size:11px;}
+.g-part{color:var(--amber);font-family:'DM Mono',monospace;font-size:11px;}
+.g-no{color:var(--red);font-family:'DM Mono',monospace;font-size:11px;}
+.summary{background:var(--t1);padding:24px 28px;margin:24px 0;}
+.summary-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#888;margin-bottom:12px;}
+.summary ul{list-style:none;padding:0;}
+.summary li{font-size:14px;color:#c0bdcc;padding:7px 0;border-bottom:1px solid #28262e;padding-left:16px;position:relative;line-height:1.65;}
+.summary li::before{content:'→';position:absolute;left:0;color:#c8a84c;font-family:'DM Mono',monospace;font-size:11px;}
+.summary li:last-child{border-bottom:none;}
+.summary li strong{color:#eae8f2;}
+.nav-bottom{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);border-top:2px solid var(--t1);}
+.nav-card{background:var(--s1);padding:18px 22px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:4px;}
+.nav-card.next{text-align:right;}
+.nav-dir{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);}
+.nav-title{font-family:'Instrument Serif',serif;font-size:16px;color:var(--t1);line-height:1.3;}
+.ft{padding:18px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+@media(max-width:580px){.nav,.hd,.sec,.ft{padding-left:20px;padding-right:20px;}h1{font-size:32px;}.nav-bottom{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-series">Yatırım Kavramları</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Kavram Dizisi · Yatırım</div>
+  <div class="series-badge" style="border-color:var(--gold-bd);background:var(--gold-lt);color:var(--gold);">
+    <span class="series-num" style="background:var(--gold);">Y</span>
+    Yatırım Kavramı
+  </div>
+  <h1>Bileşik Faiz<br><em style="color:#8a6820;">Paranın Kendi Kendine Büyümesi</em></h1>
+  <p class="hd-sub">Einstein'ın 'dünyanın sekizinci harikası' dediği bileşik faiz mekanizması nasıl çalışır? Erken başlamanın farkı neden bu kadar büyüktür ve enflasyon hesapları nasıl bozar?</p>
+  <div class="hd-meta"><span>Mart 2026</span><span>·</span><span>Temel / Orta Seviye</span><span>·</span><span>~3 dk okuma</span></div>
+  <a class="share-btn" href="https://wa.me/?text=Para%20nas%C4%B1l%20kendi%20kendine%20b%C3%BCy%C3%BCr%3F%20Bile%C5%9Fik%20faizin%20g%C3%BCc%C3%BC%3A%20https%3A%2F%2Fcakbulten.github.io%2Fkavram-12-bilesik-faiz.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.554 4.108 1.523 5.83L.057 23.428a.5.5 0 0 0 .515.572l5.757-1.508A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.653-.518-5.165-1.42l-.371-.22-3.847 1.007 1.031-3.757-.242-.386A9.961 9.961 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg> WhatsApp'ta Paylaş</a>
+</div>
+
+<div class="sec">
+  <div class="sec-label" style="color:var(--gold);">Temel Kavram</div>
+  <h2>"Faizin Faizi" Neden Bu Kadar Güçlü?</h2>
+  <div class="body">
+    <p>Basit faizde dönemsel kazanç yalnızca anapara üzerinden elde edilir. Bileşik faizde ise <strong>kazanılan kâr da anaparaya eklenir ve bir sonraki dönemde o kazanılan rakam da kendi kârını üretmeye başlar.</strong> Kağıt üzerinde küçük görünen bu eklenti, uzun bir vadeye yayıldığında astronomik sonuçlar doğurur.</p>
+    <p>Somut bir örnekle açıklayalım. 100.000 TL sermayeyi yıllık %20 basit faizle değerlendirirseniz 10 yıl sonra paranız 300.000 TL olur. Ancak aynı 100.000 TL'yi yıllık %20 bileşik getiriyle değerlendirirseniz 10 yılın sonunda yaklaşık 619.000 TL'ye ulaşırsınız. Fark 319.000 TL. Yani başlangıç sermayesinin üç katı kadarlık ekstra bir tutar sadece bileşme etkisinden gelir.</p>
+  </div>
+  <div class="analogy">
+    <div class="analogy-tag">Neden bu kadar güçlü?</div>
+    <p class="analogy-text">"Bileşik faiz uzun bir yamaçtan aşağı bırakılan kar topu gibi çalışır. Başta küçük görünür ama yol boyunca kendi üzerine katlanarak büyüdüğü için bir süre sonra kontrol edilemez bir devasa boyuta ulaşır."</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="sec-label" style="color:var(--gold);">Zaman Faktörü</div>
+  <h2>Erken Başlamanın Farkı ve Matematik</h2>
+  <div class="body">
+    <p>Bileşik faizde zamanın etkisi doğrusal değil, üstel bir grafik çizer. Yani geçirdiğiniz her yeni yıl, bir önceki yıldan çok daha büyük bir kazanç kütlesi üretir. Bu yüzden yatırım yolculuğunda asıl belirleyici olan şey ne kadar yatırdığın değil, ne zaman başladığındır.</p>
+    <p>İki farklı senaryoya bakalım. İkisi de aylık %1.25 (yıllık yaklaşık %15) bileşik getiri sağlasın.</p>
+  </div>
+  <div class="box b-gold">
+    <div class="box-title">Ali ve Veli'nin Portföy Geleceği</div>
+    <p><strong>Ali 25 yaşında yatırıma başlar:</strong> Her ay 1.000 TL kenara koyar, bunu 35 yıl boyunca sürdürür. Kendi cebinden koyduğu toplam para 420.000 TL'dir. 60 yaşına geldiğinde birikimi yaklaşık 14.700.000 TL seviyesine ulaşır.<br><br>
+    <strong>Veli yatırıma geç kalır ve 35 yaşında başlar:</strong> Açığı kapatmak için her ay 2.000 TL koyar, bunu 25 yıl sürdürür. Cebinden çıkan toplam para 600.000 TL'dir. 60 yaşına geldiğinde ise birikimi yaklaşık 6.500.000 TL olur.<br><br>
+    <strong>Sonuç:</strong> Ali daha az çaba harcayıp sisteme daha az para koymasına rağmen, 10 yıl erken başladığı için Veli'den yaklaşık 8.200.000 TL daha fazla biriktirir. Aralarındaki bu devasa fark, koydukları paradan ziyade zamandan kaynaklanır.</p>
+  </div>
+  <div class="body">
+    <p>Yatırımcıların ilerleyen yaşlarda kurduğu en acı cümle "Keşke daha erken başlasaydım" olmaktadır. Sistem o kadar nettir ki, elinizde çok para yokken bile ufak rakamlarla sisteme girmek, yıllar sonra büyük rakamlarla girmekten her zaman daha avantajlıdır.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="sec-label" style="color:var(--amber);">72 Kuralı</div>
+  <h2>Paranın İki Katlanma Süresini Hesaplamak</h2>
+  <div class="body">
+    <p>Bileşik faizin hızını kafadan hesaplamak için pratik bir yöntem vardır. <strong>72'yi faiz oranına böldüğünde, paranın kendini kaça katlama süresini yıl olarak bulursun.</strong></p>
+    <p>Örneklerle netleştirelim. Yıllık %10 getiri sağladığında formül 72 ÷ 10 = 7.2 yıl verir. Yıllık %20 getiriyle bu süre 3.6 yıla düşer.</p>
+    <p>İşin can alıcı kısmı, bu kuralın enflasyon için de geçerli olmasıdır. Yıllık %36 enflasyon varsa, 72 ÷ 36 = 2 sonucunu buluruz. Yani böyle bir ekonomide satın alma gücün sadece 2 yıl içerisinde yarı yarıya erir. Enflasyonun üzerinde bir getiri kovalamak lüks bir tercih değil, servetini korumak için zorunluluktur.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="sec-label" style="color:var(--red);">Enflasyon Detayı</div>
+  <h2>Nominal Bileşme Karşısında Gerçek Bileşme</h2>
+  <div class="body">
+    <p>Bileşik faiz hesaplarında sıkça gözden kaçırılan boyut şudur: Enflasyon da tıpkı faiz gibi bileşik çalışır ve serveti ters yönde, yani acımasızca eritir.</p>
+    <p>Portföyünü %20 yıllık getiriyle büyütürken ülkede %36 enflasyon varsa, kağıt üzerinde paran artıyor gibi görünse de gerçek (reel) getirin eksidedir. 10 yılın sonunda hesabındaki rakam altı katına çıkmış olsa da, o parayla eskisinden daha az şey alabiliyor olabilirsin.</p>
+    <p>Bileşik faizin gücünden gerçek anlamda yararlanmak için masada iki koşul gerekir: Enflasyonun üzerinde reel getiri sağlamak ve içeride yeterince uzun süre kalmak. Süreyi erkenden başlayıp panik satışı yapmayarak sen kontrol edebilirsin; getiriyi sağlamak için de doğru finansal araçları seçmek zorundasın.</p>
+  </div>
+  <div class="box b-red">
+    <div class="box-title">Mevduat Gerçekten Bileşiyor Mu?</div>
+    <p>Bankaların %37 yıllık faiz verdiği, enflasyonun ise %32 olduğu bir tabloyu düşünelim. Reel kazanç kabaca %5 civarındadır ve evet, bu %5 birikir ama oldukça zayıf bir hızla ilerler. Eğer enflasyon %40'a tırmanırsa tablo aniden kırmızıya döner. Bileşik mekanizma artık senin paranı büyütmek için değil, her geçen ay seni daha da fakirleştirmek için çalışıyor demektir. Enflasyona endeksli tahvillerin (TÜFEX) güçlü olmasının sebebi budur, anaparayı koruyarak gerçek bir bileşme zemini hazırlar.</p>
+  </div>
+  <div class="tq">
+    <div class="tq-text">"Bileşik faizde en önemli karar ne kadar yatırdığın değil ne zaman başladığındır. Zaman satın alınamaz."</div>
+    <a class="tq-share" href="https://twitter.com/intent/tweet?text=%22Bile%C5%9Fik%20faizde%20en%20%C3%B6nemli%20karar%20ne%20kadar%20yat%C4%B1rd%C4%B1%C4%9F%C4%B1n%20de%C4%9Fil%20ne%20zaman%20ba%C5%9Flad%C4%B1%C4%9F%C4%B1nd%C4%B1r.%20Zaman%20sat%C4%B1n%20al%C4%B1namaz.%22%20-%20CAK%20B%C3%BClten&url=https%3A%2F%2Fcakbulten.github.io%2Fkavram-12-bilesik-faiz.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X'te Paylaş</a>
+  </div>
+</div>
+<div class="sec">
+  <div class="sec-label" style="color:var(--green);">Pratikte Nasıl Kullanılır?</div>
+  <h2>Bileşik Faizi Portföyde Çalıştırmak</h2>
+  <div class="body">
+    <p><strong>Kârı çekme, yeniden yatır.</strong> Hisse senetlerinden gelen temettüyü, tahvilden gelen kupon faizini veya fonun getirisini hesabından dışarı çıkardığın an bileşme zinciri kırılır. Bu kazançları geri yatırmak veya temettüyü otomatik olarak tekrar yatırıma dönüştüren fonları seçmek bileşik etkiyi canlı tutar.</p>
+    <p><strong>Piyasada kesintisiz kal.</strong> Kriz dönemlerindeki panik satışları bileşme süreci bıçak gibi keser. "Piyasalar kötü, biraz nakde geçeyim" hamlesi uzun vadeli planlamada yapılan en masraflı hatadır. Büyüyen kar topu yamaçta durduğunda büyüme biter ve o ivmeyi yeniden kazanmak yıllar sürer.</p>
+    <p><strong>Giderlerini düşük tut.</strong> Fonlara veya kurumlara ödenen yıllık %2 yönetim ücreti ilk başta göze batmaz ancak 30 yıllık bir serüvende toplam getiri potansiyelinizin neredeyse yarısını yutar. Unutma ki bileşik faiz giderler için de çalışır, bu sebeple düşük maliyetli araçlar seçilmelidir.</p>
+    <p><strong>BES bu işin verimli bir kanalıdır.</strong> Devlet katkısı içeri giren paraya anında ek getiri yazar ve o tutar da içeride bileşmeye başlar. Sistemin sunduğu vergi avantajıyla harmanlandığında, BES uzun vadede portföyü taşıyan çok güçlü bir motora dönüşür.</p>
+  </div>
+</div>
+<div class="sec" style="border-bottom:none;">
+  <div class="summary">
+    <div class="summary-label">Bu Bültenden 5 Not</div>
+    <ul>
+      <li><strong>Bileşik faizde kazanç da kazanır,</strong> faizin ürettiği faiz zamanla senin yatırdığın anaparadan çok daha devasa bir kütle haline gelir.</li>
+      <li><strong>En büyük hamle ne zaman başladığındır.</strong> 10 yıl erken yola çıkmak, ileride iki katı efor sarf etmekten çok daha kazançlıdır.</li>
+      <li><strong>Pratik 72 kuralı:</strong> 72 sayısını faiz oranına bölerek paranın kendini ikiye katlama süresini bulursun. Aynı hesap enflasyon için de geçerlidir.</li>
+      <li><strong>Enflasyon da kendi içinde bileşir.</strong> Nominal getiriye aldanmak serveti eritir, daima enflasyon üzerinde bir reel getiri kovalamak gerekir.</li>
+      <li><strong>Sistemi kıran en önemli hatalar kârı çekmek, piyasa düşüşünde satmak ve yüksek maliyetli araçlar seçmektir.</strong> Akıntıya karşı kürek çekmemek en iyisidir.</li>
+    </ul>
+  </div>
+</div>
+
+<div style="background:var(--s1);border:1px solid var(--bd2);border-top:2px solid var(--gold-bd);padding:22px 24px;margin:0 0 1px;">
+  <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">◈ Bu Analizi Beğendiyseniz</div>
+  <div style="font-size:13px;color:var(--t2);margin-bottom:14px;line-height:1.6;">Yeni bülten yayınlandığında e-posta ile haber alın. Aylık veya önemli gelişmelerde gönderilir, fazlası değil.</div>
+  <form style="display:flex;gap:8px;flex-wrap:wrap;" action="https://github.us12.list-manage.com/subscribe/post?u=4e0a4cc05f9505038495691af&amp;id=420b8aa109&amp;f_id=00b8e4e0f0" method="post" target="_blank">
+    <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text" name="b_4e0a4cc05f9505038495691af_420b8aa109" tabindex="-1" value=""></div>
+    <input type="email" name="EMAIL" required placeholder="e-posta adresiniz" style="flex:1;min-width:180px;background:var(--bg);border:1px solid var(--bd2);color:var(--t1);font-family:'DM Mono',monospace;font-size:12px;padding:9px 12px;outline:none;">
+    <button type="submit" style="background:var(--gold-bd);color:var(--bg);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;border:none;cursor:pointer;white-space:nowrap;">Abone Ol →</button>
+  </form>
+</div>
+<div class="nav-bottom">
+  <a href="kavram-11-cesitlendirme.html" class="nav-card">
+    <div class="nav-dir">← Önceki Kavram</div>
+    <div class="nav-title">Çeşitlendirme</div>
+  </a>
+  <a href="index.html" class="nav-card next">
+    <div class="nav-dir">Tüm Bültenler →</div>
+    <div class="nav-title">Ana Sayfa</div>
+  </a>
+</div>
+<div class="ft">
+  <div class="ft-brand">CAK · Kavram · Yatırım · Mart 2026</div>
+  <div class="ft-disc">Kişisel araştırma notudur.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://cakbulten.github.io/kavram-11-cesitlendirme.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Kavram 11 - Çeşitlendirme</title>
+<meta name="description" content="Hepsi aynı anda düşerse ne olur? Gerçek çeşitlendirme nedir, nasıl yapılır, hangi tuzaklardan kaçınılır?">
+<meta property="og:title" content="Kavram 11: Çeşitlendirme">
+<meta property="og:description" content="Gerçek çeşitlendirme nedir? Korelasyon tuzağı, 'her şeye biraz koy' yanılgısı ve portföyde gerçek dağılım nasıl yapılır.">
+<meta property="og:url" content="https://cakbulten.github.io/kavram-11-cesitlendirme.html">
+<meta property="og:site_name" content="CAK Bülten">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kavram 11: Çeşitlendirme","description":"Gerçek çeşitlendirme nedir? Korelasyon tuzağı, 'her şeye biraz koy' yanılgısı ve portföyde gerçek dağılım nasıl yapılır.","datePublished":"2026-03-30","author":{"@type":"Organization","name":"CAK Bülten"},"publisher":{"@type":"Organization","name":"CAK Bülten","url":"https://cakbulten.github.io"},"url":"https://cakbulten.github.io/kavram-11-cesitlendirme.html","keywords":["çeşitlendirme", "portföy", "risk", "korelasyon", "yatırım", "varlık sınıfı"]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f3ee;--s1:#eceae4;--s2:#e2e0d8;--bd:#d0cec4;--bd2:#b8b6ac;--t1:#18171a;--t2:#4a4858;--t3:#888698;--gold:#8a6820;--gold-lt:#f5edd8;--gold-bd:#c8a84c;--red:#b03030;--red-lt:#fdf0f0;--red-bd:#e8a0a0;--green:#1a6640;--green-lt:#eef8f2;--green-bd:#88cca8;--blue:#1848a0;--blue-lt:#eef3fc;--blue-bd:#90b0e8;--amber:#8a4c10;--amber-lt:#fdf4ea;--amber-bd:#e0b078;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.8;max-width:700px;margin:0 auto;padding:0 0 80px;}
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}.nav a:hover{color:#c9a84c;}
+.nav-series{color:#1848a0;background:#eef3fc;padding:2px 8px;margin-left:auto;font-size:9px;}
+.hd{padding:44px 40px 32px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+.series-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--blue-bd);background:var(--blue-lt);padding:5px 12px;margin-bottom:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);}
+.series-num{background:var(--blue);color:#fff;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;}
+h1{font-family:'Instrument Serif',serif;font-size:44px;font-weight:400;line-height:1.06;letter-spacing:-1px;margin-bottom:10px;}
+h1 em{font-style:italic;}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:18px;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:16px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);flex-wrap:wrap;}
+.share-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;padding:6px 14px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:12px;}
+.share-btn svg{width:14px;height:14px;fill:#fff;}
+.sec{padding:28px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+h2{font-family:'Instrument Serif',serif;font-size:25px;font-weight:400;line-height:1.2;margin-bottom:14px;}
+h3{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:var(--t1);margin:20px 0 8px;}
+.body{font-size:14.5px;color:var(--t2);line-height:1.85;}
+.body p{margin-bottom:12px;}.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+.box{border:1px solid;padding:16px 20px;margin:18px 0;font-size:14px;line-height:1.7;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;}
+.b-green{background:var(--green-lt);border-color:var(--green-bd);}.b-green .box-title{color:var(--green);}.b-green p{color:var(--t2);}
+.b-red{background:var(--red-lt);border-color:var(--red-bd);}.b-red .box-title{color:var(--red);}.b-red p{color:var(--t2);}
+.b-amber{background:var(--amber-lt);border-color:var(--amber-bd);}.b-amber .box-title{color:var(--amber);}.b-amber p{color:var(--t2);}
+.b-gold{background:var(--gold-lt);border-color:var(--gold-bd);}.b-gold .box-title{color:var(--gold);}.b-gold p{color:var(--t2);}
+.b-blue{background:var(--blue-lt);border-color:var(--blue-bd);}.b-blue .box-title{color:var(--blue);}.b-blue p{color:var(--t2);}
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:18px 22px;margin:18px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:19px;color:var(--t1);line-height:1.5;font-style:italic;}
+.tq{background:var(--s1);border-left:3px solid var(--bd2);padding:18px 20px 14px;margin:20px 0;}
+.tq-text{font-family:'Instrument Serif',serif;font-size:18px;color:var(--t1);line-height:1.5;font-style:italic;margin-bottom:12px;}
+.tq-share{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--bd2);color:var(--t3);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;text-decoration:none;}
+.tq-share:hover{border-color:var(--gold);color:var(--gold);}
+.tq-share svg{width:12px;height:12px;fill:currentColor;}
+.gtable{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px;}
+.gtable th{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;padding:9px 12px;border-bottom:2px solid var(--t1);text-align:left;color:var(--t3);}
+.gtable td{padding:10px 12px;border-bottom:1px solid var(--bd);vertical-align:top;line-height:1.6;}
+.gtable tr:last-child td{border-bottom:none;}
+.gtable td:first-child{font-weight:500;color:var(--t1);}
+.g-yes{color:var(--green);font-family:'DM Mono',monospace;font-size:11px;}
+.g-part{color:var(--amber);font-family:'DM Mono',monospace;font-size:11px;}
+.g-no{color:var(--red);font-family:'DM Mono',monospace;font-size:11px;}
+.summary{background:var(--t1);padding:24px 28px;margin:24px 0;}
+.summary-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#888;margin-bottom:12px;}
+.summary ul{list-style:none;padding:0;}
+.summary li{font-size:14px;color:#c0bdcc;padding:7px 0;border-bottom:1px solid #28262e;padding-left:16px;position:relative;line-height:1.65;}
+.summary li::before{content:'→';position:absolute;left:0;color:#c8a84c;font-family:'DM Mono',monospace;font-size:11px;}
+.summary li:last-child{border-bottom:none;}
+.summary li strong{color:#eae8f2;}
+.nav-bottom{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);border-top:2px solid var(--t1);}
+.nav-card{background:var(--s1);padding:18px 22px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:4px;}
+.nav-card.next{text-align:right;}
+.nav-dir{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);}
+.nav-title{font-family:'Instrument Serif',serif;font-size:16px;color:var(--t1);line-height:1.3;}
+.ft{padding:18px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+@media(max-width:580px){.nav,.hd,.sec,.ft{padding-left:20px;padding-right:20px;}h1{font-size:32px;}.nav-bottom{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-series">Yatırım Kavramları</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Kavram Dizisi · Yatırım</div>
+  <div class="series-badge" style="border-color:var(--blue-bd);background:var(--blue-lt);color:var(--blue);">
+    <span class="series-num" style="background:var(--blue);">Y</span>
+    Yatırım Kavramı
+  </div>
+  <h1>Çeşitlendirme<br><em style="color:#1848a0;">Hepsi Aynı Anda Düşerse Ne Olur?</em></h1>
+  <p class="hd-sub">Gerçek çeşitlendirme nedir? Korelasyon tuzağı, 'her şeye biraz koy' yanılgısı ve portföyde anlamlı dağılımın yolu.</p>
+  <div class="hd-meta"><span>Mart 2026</span><span>·</span><span>Temel / Orta Seviye</span><span>·</span><span>~3 dk okuma</span></div>
+  <a class="share-btn" href="https://wa.me/?text=Hepsi%20ayn%C4%B1%20anda%20d%C3%BC%C5%9Ferse%20ne%20olur%3F%20Ger%C3%A7ek%20%C3%A7e%C5%9Fitlenme%20nas%C4%B1l%20yap%C4%B1l%C4%B1r%3F%20https%3A%2F%2Fcakbulten.github.io%2Fkavram-11-cesitlendirme.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.554 4.108 1.523 5.83L.057 23.428a.5.5 0 0 0 .515.572l5.757-1.508A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.653-.518-5.165-1.42l-.371-.22-3.847 1.007 1.031-3.757-.242-.386A9.961 9.961 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg> WhatsApp'ta Paylaş</a>
+</div>
+
+<div class="sec">
+  <div class="sec-label" style="color:var(--blue);">Tek Yumurtayı Tek Sepete Koyma</div>
+  <h2>Ama Her Sepet Aynı Çatı Altında mı?</h2>
+  <div class="body">
+    <p>Çeşitlendirme finansal planlamanın temel kavramlarından biri olmasının yanında en çok yanlış anlaşılan konulardandır. "Tüm yumurtaları tek sepete koyma" metaforunu hepimiz biliriz ancak pratikte pek çok yatırımcı çeşitlendirme yaptığını sanırken aynı büyük riski sadece farklı paketlerde tutmaya devam eder.</p>
+    <p>Gerçek çeşitlendirme <strong>korelasyon</strong> dinamiği üzerine kuruludur. Birlikte hareket etme eğilimindeki varlıkları ne kadar çok biriktirirsen, aslında o kadar az çeşitlendirme yapmış olursun.</p>
+  </div>
+  <div class="analogy">
+    <div class="analogy-tag">Temel Mantık</div>
+    <p class="analogy-text">"10 farklı şirketin hissesini almak tek başına bir çeşitlendirme sayılmaz. Eğer hepsi aynı sektördeyse, sektörel bir kriz geldiğinde hepsi birlikte düşer. Gerçek çeşitlendirme birlikte hareket etmeyen varlıkları portföyde buluşturmaktır."</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="sec-label" style="color:var(--blue);">Korelasyon Nedir?</div>
+  <h2>Birlikte Hareket Eden Şeyleri Ayırmak</h2>
+  <div class="body">
+    <p>Korelasyon iki varlığın fiyatlarının birbirine paralel hareket etme derecesidir. +1 tam paralel hareketi (biri yükselirken diğeri de yükselir), -1 tam zıt hareketi (biri yükselirken diğeri düşer), 0 ise tamamen bağımsız bir piyasa hareketini temsil eder.</p>
+    <p><strong>Peki korelasyon neden bu kadar kritiktir?</strong> Çünkü ciddi piyasa krizlerinde genellikle tüm varlıkların korelasyonları yükselir; normalde çok farklı görünen enstrümanlar panik anında aniden aynı yönde değer kaybetmeye başlar. 2020 Mart ayındaki çöküşte hisse senetleri, tahviller, altın ve kripto paraların tümü aynı anda düştüğünde, sadece ismen çeşitlendirme yapanlar büyük bir sürpriz yaşadı. İşte bu duruma "korelasyon tuzağı" diyoruz.</p>
+    <p>Sadece Türkiye piyasasına özgü bir örnek verelim: 5 farklı BİST şirketi, 3 farklı bankanın TL mevduatı ve BIST100 endeks fonu taşıyan bir portföy temelde tek bir yöne bakar. Bunların tümü TL cinsi varlıklardır ve ülke ekonomisine pozitif korelasyon taşır. Herhangi bir kur şokunda hepsi aynı anda sarsılır.</p>
+  </div>
+</div>
+<div class="sec">
+  <div class="sec-label" style="color:var(--amber);">Sık Yapılan Hatalar</div>
+  <h2>Çeşitlendirdiğini Sanmak ama Sanmamak</h2>
+  <h3>① Aynı sektörde çok sayıda hisse tutmak</h3>
+  <div class="body"><p>10 farklı bankanın hissesini tutmak tek bir bankaya yatırım yapmaktan daha güvenli görünebilir. Ancak bankacılık krizinde veya sürpriz bir faiz şokunda o 10 hisse de hızla düşer. Sektör dağılımı yapmadan salt hisse sayısını artırmak riski bölmez.</p></div>
+  <h3>② Aynı para birimi cinsinden kalmak</h3>
+  <div class="body"><p>Tüm birikimi TL varlıklarında (mevduat, BIST, TÜFEX) tutmak, her birinde farklı bir finansal araç kullansan bile totalde devasa bir kur riskine maruz kalmak demektir. Portföyde döviz bazlı sert bir varlık olmadan kur şoklarına karşı koruma sağlanamaz.</p></div>
+  <h3>③ Fon içinde fon yanılgısı</h3>
+  <div class="body"><p>Birden fazla yatırım fonu aldığında portföyünün bölündüğünü düşünebilirsin. Ancak birçok değişken fon aslında piyasadaki aynı büyük hacimli hisselere yatırım yapar. İki farklı isimdeki fonun içeriği %80 aynı olabilir. Fonların etiketini değil KAP üzerinden içeriklerini okumak gerekir.</p></div>
+  <h3>④ Aşırı çeşitlendirmek (diworsification)</h3>
+  <div class="body"><p>Yetersiz dağılım kadar, ipin ucunu kaçırmak da bir hatadır. Portföyde 50 farklı varlık tutmak yönetilmesi imkansız bir tablo yaratır ve toplam getiriyi sürekli olarak pazar ortalamasına çeker. İdeal çeşitlendirme, birbirleriyle düşük korelasyona sahip az sayıda varlık sınıfını stratejik olarak konumlandırmaktır.</p></div>
+</div>
+<div class="sec">
+  <div class="sec-label" style="color:var(--green);">Gerçek Çeşitlendirme Nasıl Yapılır?</div>
+  <h2>Üç Boyutlu Koruma Kalkanı</h2>
+  <div class="body">
+    <p><strong>1. Varlık Sınıfı:</strong> Hisse senetleri, tahviller, altın, gayrimenkul ve nakit rezervleri. Bu sınıfların kriz anlarındaki hareket tarzları birbirinden oldukça farklıdır. Örneğin altın, piyasalar stres altındayken hisse senetleri düşerken genellikle yatırımcısına güvenli liman sağlar.</p>
+    <p><strong>2. Para Birimi:</strong> Yerel varlıklar ile döviz bazlı global varlıkların dengesi. TL değer kaybettiğinde, portföyündeki döviz bazlı varlıklar TL cinsinden değer kazanarak toplam bakiyeni korur. Bu, enflasyonist ortamlarda en temel tampon mekanizmasıdır.</p>
+    <p><strong>3. Coğrafya:</strong> Ülkeye özgü jeopolitik riskleri, sürpriz faiz kararlarını veya kur şoklarını dengeleyebilmek için global enstrümanlara yer açmak. Yurt dışı hisse senetleri, eurobond yatırımları veya yabancı fonlar bu stratejinin bir parçasıdır.</p>
+    <p>Bu üç boyutta sağlanan makul bir denge, krizlere karşı mükemmel bir kalkan olmasa da son derece anlamlıdır.</p>
+  </div>
+  <div class="tq">
+    <div class="tq-text">"Çeşitlendirme aynı anda her şeyi tutmak değil, kriz geldiğinde hepsinin aynı anda düşmemesini sağlamaktır."</div>
+    <a class="tq-share" href="https://twitter.com/intent/tweet?text=%22%C3%87e%C5%9Fitlenme%20ayn%C4%B1%20anda%20her%20%C5%9Feyi%20tutmak%20de%C4%9Fil%2C%20kriz%20geldi%C4%9Finde%20hepsinin%20ayn%C4%B1%20anda%20d%C3%BC%C5%9Fmemesini%20sa%C4%9Flamakt%C4%B1r.%22%20-%20CAK%20B%C3%BClten&url=https%3A%2F%2Fcakbulten.github.io%2Fkavram-11-cesitlendirme.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X'te Paylaş</a>
+  </div>
+</div>
+<div class="sec">
+  <div class="sec-label" style="color:var(--gold);">Türkiye'den Bakan Yatırımcı İçin</div>
+  <h2>Pratik Çerçeve ve Uyku Testi</h2>
+  <div class="body">
+    <p>Türkiye dinamiklerinde yatırım yapan biri için çeşitlendirmenin daha kritik bir ek boyutu bulunur: <strong>Ülke ve kur riski yönetimi.</strong> Bütün varlıkları yalnızca TL cinsi ve sadece yurt içi piyasalarda tutmak, tek bir merkezin riskine teslim olmaktır. Geçmiş yıllardaki tecrübeler bu hatanın bedelini ağır bir şekilde göstermiştir.</p>
+    <p>Makul bir başlangıç formülü şöyle kurulabilir: Toplam portföyün %40-50'si TL odaklı varlıklarda (BIST hisseleri, TÜFEX, BES vb.), %30-40'ı döviz odaklı enstrümanlarda (döviz mevduatı, altın, eurobond, yabancı hisse fonları) ve kalan %10-20'si de fırsatları değerlendirmek için nakit benzeri likit araçlarda konumlanabilir. Tabii ki bu şablon kesin bir kural değildir ancak bütün riski tek masaya sürmekten kesinlikle daha sağlam bir mimaridir.</p>
+  </div>
+  <div class="box b-blue">
+    <div class="box-title">Portföyünüz Uyku Testini Geçebiliyor Mu?</div>
+    <p>Kurduğunuz yatırım dağılımının ne kadar doğru olduğunu anlamanın en basit yolu uyku testidir. Piyasalar bir gecede %30 düştüğünde sabah paniklemeden hayatınıza devam edebiliyor musunuz? Eğer cevabınız hayır ise o zaman ya aldığınız risk karakterinize uymuyordur ya da portföyünüzdeki çeşitlendirme yetersizdir.</p>
+  </div>
+</div>
+<div class="sec" style="border-bottom:none;">
+  <div class="summary">
+    <div class="summary-label">Bu Bültenden 5 Not</div>
+    <ul>
+      <li><strong>Gerçek çeşitlendirme sahip olduğun ürün sayısıyla değil, ürünlerin korelasyonuyla ölçülür.</strong> Aynı sektörden 20 hisse senedi almak riski düşürmez.</li>
+      <li><strong>Kriz anında korelasyonlar yükselir,</strong> farklı görünen varlıklar aynı yönde çakılabilir. Buna korelasyon tuzağı denir.</li>
+      <li><strong>Üç boyutta yelpazeyi açmak gerekir:</strong> Varlık sınıfı, para birimi ve coğrafya. Türkiye koşullarında döviz bazlı denge kritik önem taşır.</li>
+      <li><strong>Çok fazla çeşitlendirme de ayrı bir sorundur (diworsification).</strong> Kargaşaya boğulmak yerine az sayıda, birbirinden bağımsız varlıklar yeterlidir.</li>
+      <li><strong>Uyku testi:</strong> Piyasa sert bir şekilde çöktüğünde rahatça uyuyabiliyorsan portföy tasarımın doğru yoldadır.</li>
+    </ul>
+  </div>
+</div>
+
+<div style="background:var(--s1);border:1px solid var(--bd2);border-top:2px solid var(--gold-bd);padding:22px 24px;margin:0 0 1px;">
+  <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">◈ Bu Analizi Beğendiyseniz</div>
+  <div style="font-size:13px;color:var(--t2);margin-bottom:14px;line-height:1.6;">Yeni bülten yayınlandığında e-posta ile haber alın. Aylık veya önemli gelişmelerde gönderilir, fazlası değil.</div>
+  <form style="display:flex;gap:8px;flex-wrap:wrap;" action="https://github.us12.list-manage.com/subscribe/post?u=4e0a4cc05f9505038495691af&amp;id=420b8aa109&amp;f_id=00b8e4e0f0" method="post" target="_blank">
+    <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text" name="b_4e0a4cc05f9505038495691af_420b8aa109" tabindex="-1" value=""></div>
+    <input type="email" name="EMAIL" required placeholder="e-posta adresiniz" style="flex:1;min-width:180px;background:var(--bg);border:1px solid var(--bd2);color:var(--t1);font-family:'DM Mono',monospace;font-size:12px;padding:9px 12px;outline:none;">
+    <button type="submit" style="background:var(--gold-bd);color:var(--bg);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;border:none;cursor:pointer;white-space:nowrap;">Abone Ol →</button>
+  </form>
+</div>
+<div class="nav-bottom">
+  <a href="kavram-10-varliklarim-ne-kadar-guvende.html" class="nav-card">
+    <div class="nav-dir">← Önceki Kavram</div>
+    <div class="nav-title">Varlık Güvencesi</div>
+  </a>
+  <a href="kavram-12-bilesik-faiz.html" class="nav-card next">
+    <div class="nav-dir">Sonraki Kavram →</div>
+    <div class="nav-title">Bileşik Faiz</div>
+  </a>
+</div>
+<div class="ft">
+  <div class="ft-brand">CAK · Kavram · Yatırım · Mart 2026</div>
+  <div class="ft-disc">Kişisel araştırma notudur.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+</body>
+</html>

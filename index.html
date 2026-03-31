@@ -175,7 +175,7 @@ body {
   padding: 2px 8px;
   border: 1px solid;
 }
-.tag-crisis  { color: var(--red);   border-color: var(--red-border);  background: var(--red-bg); }
+.tag-crisis  { color: var(--red);  border-color: var(--red-border);  background: var(--red-bg); }
 .tag-monthly { color: var(--blue);  border-color: #1a3650; background: #0e1e2e; }
 .tag-special { color: var(--green); border-color: #1e4030; background: #122318; }
 .tag-concept { color: var(--gold);  border-color: var(--gold-dim); background: #1a1508; }
@@ -278,7 +278,6 @@ body {
 <body>
 <main class="wrapper">
 
-  <!-- ══════════ MASTHEAD ══════════ -->
   <div class="masthead">
     <div class="masthead-eyebrow">CAK · Kişisel Araştırma Notları<a href="hakkinda.html" data-tags="hakkinda" data-title="Hakkında" style="margin-left:auto;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#c8c6e0;text-decoration:none;">Hakkında →</a></div>
     <h1 class="masthead-title">Bülten<br><em>Arşivi</em></h1>
@@ -286,10 +285,8 @@ body {
   </div>
 
 
-  <!-- ══════════ ARAMA + FİLTRE ══════════ -->
   <div id="search-area" style="padding:0 0 4px;">
 
-    <!-- Arama çubuğu -->
     <div style="position:relative;border-bottom:2px solid var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:10px;">
       <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:.12em;flex-shrink:0;">SEARCH</span>
       <input
@@ -302,7 +299,6 @@ body {
       <span id="search-clear" style="display:none;cursor:pointer;color:var(--text3);font-family:'DM Mono',monospace;font-size:14px;flex-shrink:0;" onclick="clearSearch()">✕</span>
     </div>
 
-    <!-- Filtre butonları -->
     <div id="filter-bar" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px;">
       <button class="ftag ftag-active" data-filter="*" onclick="setFilter(this,'*')">Tümü</button>
       <button class="ftag" data-filter="flash" onclick="setFilter(this,'flash')">⚡ Flash</button>
@@ -312,11 +308,9 @@ body {
       <button class="ftag" data-filter="editör" onclick="setFilter(this,'editör')">★ Editörün Seçtikleri</button>
     </div>
 
-    <!-- Sonuç sayacı -->
     <div id="search-count" style="display:none;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:12px;"></div>
   </div>
 
-  <!-- ══════════ 2026 ══════════ -->
   <div class="year-label">2026</div>
 
   <div class="card-list">
@@ -335,7 +329,6 @@ body {
  </a>
 
 
-    <!-- Pazar Okuması #3 — pinned -->
     <a class="bcard" href="pazar-03-savas-tirmanirken-28mart2026.html" data-tags="pazar savas petrol altin editör" data-title="Savaş Haftasında Portföy">
       <div class="bcard-date">
         <div class="bcard-day">28</div>
@@ -349,11 +342,7 @@ body {
       <div class="bcard-arrow">→</div>
     </a>
 
- <!-- Flash — Devalüasyon Tartışması -->
- 
 
-
-    <!-- Fon Stopaj Flash -->
     <a class="bcard" href="flash-fon-stopaj-mart2026.html" data-tags="flash vergi stopaj fon" data-title="Fon Stopajında Son Durum">
       <div class="bcard-date">
         <div class="bcard-day">27</div>
@@ -367,7 +356,6 @@ body {
       <div class="bcard-arrow">→</div>
     </a>
 
-    <!-- Flash EMA 200 -->
     <a class="bcard" href="flash-altin-ema200-23mart2026.html" data-tags="flash altin teknik" data-title="Altın EMA 200 Altına Kırıldı">
       <div class="bcard-date">
         <div class="bcard-day">23</div>
@@ -381,7 +369,6 @@ body {
       <div class="bcard-arrow">→</div>
     </a>
 
-    <!-- Pazar Okuması #2 -->
     <a class="bcard" href="pazar-02-altin-neden-dusuyor-19mart2026.html" data-tags="pazar altin gumus" data-title="Altın Neden Satılıyor">
       <div class="bcard-date">
         <div class="bcard-day">21</div>
@@ -396,7 +383,6 @@ body {
     </a>
 
 
-    <!-- FOMC Flash -->
     <a class="bcard" href="fomc-flash-18mart2026.html" data-tags="flash fed tcmb faiz" data-title="Fed Sabit Powell Endişeli">
       <div class="bcard-date">
         <div class="bcard-day">19</div>
@@ -410,7 +396,6 @@ body {
       <div class="bcard-arrow">→</div>
     </a>
 
-    <!-- Yeşil Çelik Fizibilite -->
     <a class="bcard" href="fizibilite-yesil-celik.html" data-tags="fizibilite celik cbam" data-title="Yeşil Çelik Fizibil mi">
       <div class="bcard-date">
         <div class="bcard-day">24</div>
@@ -424,7 +409,6 @@ body {
       <div class="bcard-arrow">→</div>
     </a>
 
-    <!-- Dekarbonizasyon -->
     <a class="bcard" href="analiz-dekarbonizasyon.html" data-tags="analiz celik enerji" data-title="Dekarbonizasyon">
       <div class="bcard-date">
         <div class="bcard-day">19</div>
@@ -438,7 +422,6 @@ body {
       <div class="bcard-arrow">→</div>
     </a>
 
-    <!-- Kara Cuma -->
     <a class="bcard" href="bulten-kara-cuma-13mart2026.html" data-tags="ara bulten kriz" data-title="Kara Cuma">
       <div class="bcard-date">
         <div class="bcard-day">13</div>
@@ -452,7 +435,6 @@ body {
       <div class="bcard-arrow">→</div>
     </a>
 
-    <!-- Pazar Okuması #1 -->
     <a class="bcard" href="pazar-01-savas-15mart2026.html" data-tags="pazar savas" data-title="Savaşta Kim Kazanıyor">
       <div class="bcard-date">
         <div class="bcard-day">15</div>
@@ -466,7 +448,6 @@ body {
       <div class="bcard-arrow">→</div>
     </a>
 
-    <!-- PPK Flash -->
     <a class="bcard" href="ppk-flash-12mart2026.html" data-tags="flash tcmb faiz ppk" data-title="PPK Flash">
       <div class="bcard-date">
         <div class="bcard-day">12</div>
@@ -480,7 +461,6 @@ body {
       <div class="bcard-arrow">→</div>
     </a>
 
-    <!-- Kriz Bülteni -->
     <a class="bcard" href="bulten-mart-savas-2026.html" data-tags="bulten kriz savas" data-title="Savaş Bülteni">
       <div class="bcard-date">
         <div class="bcard-day">12</div>
@@ -495,7 +475,6 @@ body {
     </a>
 
 
-    <!-- Aylık Bülten -->
     <a class="bcard" href="bulten-mart-2026.html" data-tags="bulten aylik mart" data-title="Mart 2026 Bülteni">
       <div class="bcard-date">
         <div class="bcard-day">09</div>
@@ -511,10 +490,8 @@ body {
 
   </div>
 
-  <!-- ══════════ KAVRAM DİZİSİ ══════════ -->
   <div class="year-label" style="margin-top:48px;">Kavram Dizisi</div>
 
-  <!-- Temel -->
   <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin:20px 0 8px;display:flex;align-items:center;gap:10px;">Temel<span style="flex:1;height:1px;background:var(--border);display:inline-block;"></span></div>
   <div class="card-list">
     <a class="bcard" href="kavram-04-para-nedir.html" data-tags="kavram temel para editör" data-title="Para Nedir">
@@ -579,7 +556,6 @@ body {
     </a>
   </div>
 
-  <!-- Yatırım -->
   <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin:28px 0 8px;display:flex;align-items:center;gap:10px;">Yatırım<span style="flex:1;height:1px;background:var(--border);display:inline-block;"></span></div>
   <div class="card-list">
     <a class="bcard" href="kavram-06-risk.html" data-tags="kavram yatirim risk editör" data-title="Risk Nedir">
@@ -618,20 +594,47 @@ body {
       </div>
       <div class="bcard-arrow">→</div>
     </a>
-    <div class="bcard" style="opacity:.7;pointer-events:none;">
+    
+    <a class="bcard" href="kavram-10-varliklarim-ne-kadar-guvende.html" data-tags="kavram yatirim guvence varlik tmsf bes kripto" data-title="Varlıklarım Ne Kadar Güvende?">
       <div class="bcard-date" style="background:var(--surface2);">
         <div class="bcard-day" style="font-size:20px;color:var(--blue);font-family:'DM Mono',monospace;">✦</div>
-        <div class="bcard-month">Yakında</div>
+        <div class="bcard-month">Mar 26</div>
       </div>
       <div class="bcard-body">
-        <div class="bcard-tag" style="color:#d0ceea;border-color:var(--border);background:transparent;">Kavram · Yatırım</div>
-        <div class="bcard-title" style="color:#d8d6ec;">Varlıklarım Ne Kadar Güvende? · Çeşitlendirme · Bileşik Faiz</div>
-        <div class="bcard-desc" style="color:#c8c6e0;">Hazırlanıyor</div>
+        <div class="bcard-tag tag-concept">Kavram · Yatırım</div>
+        <div class="bcard-title">Varlıklarım Ne Kadar Güvende?</div>
+        <div class="bcard-desc">Banka batar mı, hissem ne olur, BES'im kaybolur mu, kripto borsası kapanırsa risk nedir? Her varlık sınıfının gerçek güvence yapısı.</div>
       </div>
-    </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+
+    <a class="bcard" href="kavram-11-cesitlendirme.html" data-tags="kavram yatirim cesitlendirme portfoy korelasyon risk" data-title="Çeşitlendirme">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--blue);font-family:'DM Mono',monospace;">✦</div>
+        <div class="bcard-month">Mar 26</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-concept">Kavram · Yatırım</div>
+        <div class="bcard-title">Çeşitlendirme: Hepsi Aynı Anda Düşerse Ne Olur?</div>
+        <div class="bcard-desc">Gerçek çeşitlendirme nedir? Korelasyon tuzağı, 'her şeye biraz koy' yanılgısı ve portföyde anlamlı dağılımın yolu.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+
+    <a class="bcard" href="kavram-12-bilesik-faiz.html" data-tags="kavram yatirim bilesik faiz getiri zaman enflasyon" data-title="Bileşik Faiz">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--blue);font-family:'DM Mono',monospace;">✦</div>
+        <div class="bcard-month">Mar 26</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-concept">Kavram · Yatırım</div>
+        <div class="bcard-title">Bileşik Faiz: Paranın Kendi Kendine Büyümesi</div>
+        <div class="bcard-desc">Dünyanın sekizinci harikası. Erken başlamanın farkı, zaman değişkeninin gücü ve bileşik faizin portföyde nasıl çalıştığı.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
   </div>
 
-  <!-- Büyük Resim -->
   <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:28px 0 8px;display:flex;align-items:center;gap:10px;">Büyük Resim<span style="flex:1;height:1px;background:var(--border);display:inline-block;"></span></div>
   <div class="card-list">
     <a class="bcard" href="kavram-09-para-illuzyonu.html" data-tags="kavram buyuk-resim para enflasyon" data-title="Para İllüzyonu">
@@ -660,7 +663,6 @@ body {
       <div class="bcard-arrow">→</div>
     </a>
 
-  <!-- ══════════ HAKKINDA ══════════ -->
   <div class="year-label" style="margin-top:48px;">Hakkında</div>
 
   <div class="card-list">
@@ -677,7 +679,6 @@ body {
     </a>
   </div>
 
-  <!-- ══════════ SÖZLÜK ══════════ -->
   <div class="year-label" style="margin-top:48px;">Sözlük</div>
 
   <div class="card-list">
@@ -694,7 +695,6 @@ body {
     </a>
   </div>
 
-  <!-- ══════════ ARAÇLAR ══════════ -->
   <div class="year-label" style="margin-top:48px;">Finansal Araçlar</div>
 
   <div class="card-list">
@@ -722,7 +722,6 @@ body {
     </a>
   </div>
 
-  <!-- ══════════ ABONE FORMU ══════════ -->
   <div style="margin-bottom:48px;padding:32px 36px;border:1px solid var(--border);background:var(--surface);">
     <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color: #c8c6e0;margin-bottom:14px;display:flex;align-items:center;gap:10px;">
       Bültene Abone Ol
@@ -732,7 +731,6 @@ body {
       Yeni bülten yayınlandığında e-posta ile haber al. Aylık veya önemli gelişmelerde gönderilir.
     </p>
     <form action="https://github.us12.list-manage.com/subscribe/post?u=4e0a4cc05f9505038495691af&amp;id=420b8aa109&amp;f_id=00b8e4e0f0" method="post" target="_blank" style="display:flex;gap:10px;flex-wrap:wrap;">
-      <!-- Bot koruması — dokunma -->
       <div aria-hidden="true" style="position:absolute;left:-5000px;">
         <input type="text" name="b_4e0a4cc05f9505038495691af_420b8aa109" tabindex="-1" value="">
       </div>
@@ -755,14 +753,12 @@ body {
     </p>
   </div>
 
-  <!-- ══════════ FOOTER ══════════ -->
   <div class="site-footer">
     <div class="site-footer-brand">CAK · Arşiv</div>
     <div class="site-footer-disc">Kişisel araştırma notları.<br>Yatırım tavsiyesi değildir.</div>
   </div>
 
 </div>
-<!-- ══════════ SLIDE-IN ABONE KARTI ══════════ -->
 <div id="sub-card" style="
   position:fixed;
   bottom:24px;
@@ -778,7 +774,6 @@ body {
   transition:transform .4s cubic-bezier(.22,.68,0,1.2), opacity .3s ease;
   pointer-events:none;
 ">
-  <!-- Kapat -->
   <button onclick="kapat()" style="
     position:absolute;top:10px;right:12px;
     background:none;border:none;cursor:pointer;
