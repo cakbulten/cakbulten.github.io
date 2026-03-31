@@ -180,6 +180,7 @@ body {
 .tag-special { color: var(--green); border-color: #1e4030; background: #122318; }
 .tag-concept { color: var(--gold);  border-color: var(--gold-dim); background: #1a1508; }
 .tag-pazar   { color: var(--purple, #9b7fd4); border-color: #352850; background: #1a1428; }
+.tag-filtresiz { color: var(--red); border-color: var(--red-border); background: var(--red-bg); }
 
 .bcard-title {
   font-family: 'Instrument Serif', serif;
@@ -304,6 +305,7 @@ body {
       <button class="ftag" data-filter="flash" onclick="setFilter(this,'flash')">⚡ Flash</button>
       <button class="ftag" data-filter="bulten" onclick="setFilter(this,'bulten')">Aylık Bülten</button>
       <button class="ftag" data-filter="kavram" onclick="setFilter(this,'kavram')">Kavram</button>
+      <button class="ftag" data-filter="filtresiz" onclick="setFilter(this,'filtresiz')">🔥 Filtresiz</button>
       <button class="ftag" data-filter="pazar" onclick="setFilter(this,'pazar')">Pazar Okuması</button>
       <button class="ftag" data-filter="editör" onclick="setFilter(this,'editör')">★ Editörün Seçtikleri</button>
     </div>
@@ -377,7 +379,7 @@ body {
       <div class="bcard-body">
         <div class="bcard-tag" style="color:#9b7fd4;border-color:#352850;background:#1a1428;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:inline-block;padding:2px 8px;border:1px solid;">Pazar Okuması #2</div>
         <div class="bcard-title">Altın Neden Satılıyor?</div>
-        <div class="bcard-desc">Savaş varken yılların en kötü haftası. Kâğıt vs fiziksel ayrımı, zorla satış mekanizması, Dubai paradoksu ve yapısal tez — 21 Mart güncel verileriyle.</div>
+        <div class="bcard-desc">Savaş varken yılların en kötü haftası. Kâğıt vs fiziksel ayrımı, zorla satış mekanizması, Dubai paradoksu ve yapısal tez, 21 Mart güncel verileriyle.</div>
       </div>
       <div class="bcard-arrow">→</div>
     </a>
@@ -390,7 +392,7 @@ body {
       </div>
       <div class="bcard-body">
         <div class="bcard-tag tag-special">⚡ Flash Analiz · FOMC + TCMB</div>
-        <div class="bcard-title">Fed Sabit, Powell Endişeli — TCMB Hesap Verdi</div>
+        <div class="bcard-title">Fed Sabit, Powell Endişeli - TCMB Hesap Verdi</div>
         <div class="bcard-desc">Nokta grafiği, SEP projeksiyonları, Powell'ın üç kritik cümlesi. TCMB'nin Hazine'ye yazdığı 2025 hesap mektubu ve 22 Nisan PPK senaryoları.</div>
       </div>
       <div class="bcard-arrow">→</div>
@@ -416,7 +418,7 @@ body {
       </div>
       <div class="bcard-body">
         <div class="bcard-tag tag-special">◈ Derinlemesine Analiz</div>
-        <div class="bcard-title">Dünyanın En Büyük Bahsi — Dekarbonizasyon</div>
+        <div class="bcard-title">Dünyanın En Büyük Bahsi - Dekarbonizasyon</div>
         <div class="bcard-desc">Neden gerekli, nasıl yapılacak, ne kadar mümkün? Scope 1-2-3, zor sektörler, Çin-ABD-AB stratejik tablosu ve portföye etkisi.</div>
       </div>
       <div class="bcard-arrow">→</div>
@@ -469,7 +471,7 @@ body {
       <div class="bcard-body">
         <div class="bcard-tag tag-crisis">⚠ Olağandışı · Kriz</div>
         <div class="bcard-title">Savaş Gündemi: Ne Oluyor, Ne Yapalım?</div>
-        <div class="bcard-desc">ABD–İsrail–İran çatışması, Hürmüz Boğazı kapanışı, petrol şoku ve portföy tutumu. Güncel piyasa tablosu ile 2 haftalık kritik gündem.</div>
+        <div class="bcard-desc">ABD-İsrail-İran çatışması, Hürmüz Boğazı kapanışı, petrol şoku ve portföy tutumu. Güncel piyasa tablosu ile 2 haftalık kritik gündem.</div>
       </div>
       <div class="bcard-arrow">→</div>
     </a>
@@ -482,12 +484,68 @@ body {
       </div>
       <div class="bcard-body">
         <div class="bcard-tag tag-monthly">Aylık Rehber</div>
-        <div class="bcard-title">Bu Ay Ne Alınır? — Mart 2026</div>
+        <div class="bcard-title">Bu Ay Ne Alınır? - Mart 2026</div>
         <div class="bcard-desc">BES, gayrimenkul, altın ve hisse tarafında konjonktür rehberi. Risk/fırsat haritası, 3 hazır plan şablonu, TEFAS/BEFAS pratik seçim çerçevesi.</div>
       </div>
       <div class="bcard-arrow">→</div>
     </a>
 
+  </div>
+
+<div class="year-label" style="margin-top:48px;">Filtresiz Kürsü</div>
+
+  <div class="card-list">
+    <a class="bcard" href="filtresiz-ev-araba-hayali.html" data-tags="filtresiz gayrimenkul enflasyon mulkiyet" data-title="Ev ve Araba Hayali Bitti: Yeni Oyunu Görmek">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--red);font-family:'DM Mono',monospace;">!</div>
+        <div class="bcard-month">Mar 26</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-filtresiz" style="color:var(--red);border-color:var(--red-border);background:var(--red-bg);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:inline-block;padding:2px 8px;border:1px solid;">Filtresiz · Gerçekler</div>
+        <div class="bcard-title">Ev ve Araba Hayali Bitti: Yeni Oyunu Görmek</div>
+        <div class="bcard-desc">10 yıllık krediyle ev alma devri kapandı. Sistem orta sınıfı mülksüzleştiriyor. Beton fetişizmini bırakıp yeni oyunu oynama vakti.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+
+    <a class="bcard" href="filtresiz-vurgun-pesinde.html" data-tags="filtresiz kripto borsa fomo tuyo" data-title="Vurgun Peşinde Nasıl Çarpılıyorsun?">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--red);font-family:'DM Mono',monospace;">!</div>
+        <div class="bcard-month">Mar 26</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-filtresiz" style="color:var(--red);border-color:var(--red-border);background:var(--red-bg);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:inline-block;padding:2px 8px;border:1px solid;">Filtresiz · Gerçekler</div>
+        <div class="bcard-title">Vurgun Peşinde Nasıl Çarpılıyorsun?</div>
+        <div class="bcard-desc">Telegram grupları, uçacak-kaçacak coinler ve "içeriden tüyo" yalanı. Fillerin çıkış likiditesi olmayı bırakın.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+
+    <a class="bcard" href="filtresiz-kredi-karti-koleligi.html" data-tags="filtresiz borc banka kredi psikoloji" data-title="Banka Senin Dostun Değil: Kredi Kartı Köleliği">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--red);font-family:'DM Mono',monospace;">!</div>
+        <div class="bcard-month">Mar 26</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-filtresiz" style="color:var(--red);border-color:var(--red-border);background:var(--red-bg);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:inline-block;padding:2px 8px;border:1px solid;">Filtresiz · Gerçekler</div>
+        <div class="bcard-title">Banka Senin Dostun Değil: Kredi Kartı Köleliği</div>
+        <div class="bcard-desc">Asgari tutarı ödeyerek sistemi kandırdığını sanıyorsun. Aslında bankanın en sevdiği, en kârlı "sağılan ineği" sensin.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
+
+    <a class="bcard" href="filtresiz-sistemin-kirli-sirri.html" data-tags="filtresiz psikoloji enflasyon yatirim nakit sir" data-title="Sistemin Kirli Sırrı: Neden Zengin Olamayacaksın">
+      <div class="bcard-date" style="background:var(--surface2);">
+        <div class="bcard-day" style="font-size:20px;color:var(--red);font-family:'DM Mono',monospace;">!</div>
+        <div class="bcard-month">Mar</div>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-tag tag-filtresiz" style="color:var(--red);border-color:var(--red-border);background:var(--red-bg);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:inline-block;padding:2px 8px;border:1px solid;">Filtresiz · Gerçekler</div>
+        <div class="bcard-title">Sistemin Kirli Sırrı: Sadece "Biriktirerek" Zengin Olamazsın</div>
+        <div class="bcard-desc">"Nakit kraldır" yalanı, fillerin borçlanma oyunu ve enflasyon vergisinden kurtulup finansal matrix'ten çıkış yolu. Akademik jargon yok.</div>
+      </div>
+      <div class="bcard-arrow">→</div>
+    </a>
   </div>
 
   <div class="year-label" style="margin-top:48px;">Kavram Dizisi</div>
@@ -525,8 +583,8 @@ body {
       </div>
       <div class="bcard-body">
         <div class="bcard-tag tag-concept">Kavram · Temel</div>
-        <div class="bcard-title">Enflasyon — Paranın değeri neden erir</div>
-        <div class="bcard-desc">TÜFE, stagflasyon, merkez bankası sınırları. Kim kazanır, kim kaybeder — ve hiç enflasyon olmaması neden iyi değildir.</div>
+        <div class="bcard-title">Enflasyon - Paranın değeri neden erir</div>
+        <div class="bcard-desc">TÜFE, stagflasyon, merkez bankası sınırları. Kim kazanır, kim kaybeder ve hiç enflasyon olmaması neden iyi değildir.</div>
       </div>
       <div class="bcard-arrow">→</div>
     </a>
@@ -537,7 +595,7 @@ body {
       </div>
       <div class="bcard-body">
         <div class="bcard-tag tag-concept">Kavram · Temel</div>
-        <div class="bcard-title">Faiz — Tek sayı nasıl her şeyi hareket ettirir</div>
+        <div class="bcard-title">Faiz - Tek sayı nasıl her şeyi hareket ettirir</div>
         <div class="bcard-desc">Nominal vs reel faiz, merkez bankası zincirleme etkisi, sıfır faizin tehlikeli yan etkileri ve portföye yansımaları.</div>
       </div>
       <div class="bcard-arrow">→</div>
@@ -549,7 +607,7 @@ body {
       </div>
       <div class="bcard-body">
         <div class="bcard-tag tag-concept">Kavram · Temel</div>
-        <div class="bcard-title">Kur — TL neden değer kaybeder, bu kaçınılmaz mı?</div>
+        <div class="bcard-title">Kur - TL neden değer kaybeder, bu kaçınılmaz mı?</div>
         <div class="bcard-desc">Döviz kurunu belirleyen 5 güç, kur rejimleri, dolarizasyon tuzağı ve Türkiye'nin 20 yıllık kur hafızası.</div>
       </div>
       <div class="bcard-arrow">→</div>
@@ -566,7 +624,7 @@ body {
       <div class="bcard-body">
         <div class="bcard-tag tag-concept">Kavram · Yatırım</div>
         <div class="bcard-title">Risk Nedir?</div>
-        <div class="bcard-desc">Volatilite mi, kayıp mı, fırsat maliyeti mi — risk profilini nasıl belirlersin ve insan beyni riski neden yanlış ölçer.</div>
+        <div class="bcard-desc">Volatilite mi, kayıp mı, fırsat maliyeti mi? Risk profilini nasıl belirlersin ve insan beyni riski neden yanlış ölçer.</div>
       </div>
       <div class="bcard-arrow">→</div>
     </a>
@@ -590,7 +648,7 @@ body {
       <div class="bcard-body">
         <div class="bcard-tag tag-concept">Kavram · Yatırım</div>
         <div class="bcard-title">Enflasyonda Borçlanmak</div>
-        <div class="bcard-desc">TL kredi çekip enflasyona karşı yatırım yapmak — araç, konut, altın, hisse. Ne zaman mantıklı, ne zaman tuzak? Gerçek hesaplarla.</div>
+        <div class="bcard-desc">TL kredi çekip enflasyona karşı yatırım yapmak: araç, konut, altın, hisse. Ne zaman mantıklı, ne zaman tuzak? Gerçek hesaplarla.</div>
       </div>
       <div class="bcard-arrow">→</div>
     </a>
@@ -644,7 +702,7 @@ body {
       </div>
       <div class="bcard-body">
         <div class="bcard-tag" style="color:#4a1880;border-color:#c0a0e8;background:#f3eeff;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:inline-block;padding:2px 8px;border:1px solid;">Kavram · Büyük Resim</div>
-        <div class="bcard-title">Para İllüzyonu — Maaşın Artıyor Ama Neden Yetmiyor?</div>
+        <div class="bcard-title">Para İllüzyonu - Maaşın Artıyor Ama Neden Yetmiyor?</div>
         <div class="bcard-desc">Paranın satın alma gücü, enflasyonun gizli vergisi, neden zenginleşemiyoruz ve illüzyonu kırmak için ne yapmak gerekiyor?</div>
       </div>
       <div class="bcard-arrow">→</div>
@@ -658,7 +716,7 @@ body {
       <div class="bcard-body">
         <div class="bcard-tag" style="color:var(--gold-dim);border-color:var(--gold-dim);background:#1a1508;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:inline-block;padding:2px 8px;border:1px solid;">Başucu Rehberi</div>
         <div class="bcard-title">Ortalama Yatırımcının El Kitabı</div>
-        <div class="bcard-desc">Tepeden almak, dibini beklememek, heyecanla karar vermemek — ve bunun yerine ne yapmak gerektiği. Profil bazlı yol haritası, başlangıç sepeti, trafik ışığı ve çıkış planı.</div>
+        <div class="bcard-desc">Tepeden almak, dibini beklememek, heyecanla karar vermemek ve bunun yerine ne yapmak gerektiği. Profil bazlı yol haritası, başlangıç sepeti, trafik ışığı ve çıkış planı.</div>
       </div>
       <div class="bcard-arrow">→</div>
     </a>
@@ -672,7 +730,7 @@ body {
       </div>
       <div class="bcard-body">
         <div class="bcard-tag" style="color: #c8c6e0;border-color:var(--border);background:var(--surface2);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:inline-block;padding:2px 8px;border:1px solid;">CAK Nedir</div>
-        <div class="bcard-title">Hakkında — Bu bülten neden var?</div>
+        <div class="bcard-title">Hakkında - Bu bülten neden var?</div>
         <div class="bcard-desc">CAK nedir, neden yazılıyor, nasıl okunmalı. Çalışma ilkeleri, kısıtlamalar ve metodoloji.</div>
       </div>
       <div class="bcard-arrow">→</div>
@@ -684,7 +742,7 @@ body {
   <div class="card-list">
     <a class="bcard" href="sozluk.html" data-tags="sozluk terimler" data-title="Sözlük">
       <div class="bcard-date" style="background:var(--surface2);justify-content:center;">
-        <div style="font-size:22px;color: #c8c6e0;">A–Z</div>
+        <div style="font-size:22px;color: #c8c6e0;">A-Z</div>
       </div>
       <div class="bcard-body">
         <div class="bcard-tag" style="color: #c8c6e0;border-color:var(--border);background:var(--surface2);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:inline-block;padding:2px 8px;border:1px solid;">148 Terim</div>
@@ -705,7 +763,7 @@ body {
       <div class="bcard-body">
         <div class="bcard-tag" style="color: #c8c6e0;border-color:var(--border);background:var(--surface2);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:inline-block;padding:2px 8px;border:1px solid;">5 Hesap Aracı</div>
         <div class="bcard-title">Finansal Hesap Araçları</div>
-        <div class="bcard-desc">Bileşik faiz · Paranın gerçek değeri · Kredi analizi · Emeklilik (BES) · Ne zaman emekli olabilirim?</div>
+        <div class="bcard-desc">Bileşik faiz, paranın gerçek değeri, kredi analizi, Emeklilik (BES), ne zaman emekli olabilirim?</div>
       </div>
       <div class="bcard-arrow">→</div>
     </a>
@@ -759,6 +817,7 @@ body {
   </div>
 
 </div>
+
 <div id="sub-card" style="
   position:fixed;
   bottom:24px;
@@ -783,7 +842,7 @@ body {
 
   <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#c9a84c;margin-bottom:8px;">CAK Bülteni</div>
   <p style="font-family:'Instrument Serif',serif;font-size:16px;color:#eae8f2;line-height:1.4;margin-bottom:14px;">Yeni bülten çıkınca<br>sana haber verelim</p>
-  <p style="font-size:12px;color:#5c5a6e;margin-bottom:14px;line-height:1.5;">Aylık bülten, flash analiz, kavram dizisi — e-postana gelsin.</p>
+  <p style="font-size:12px;color:#5c5a6e;margin-bottom:14px;line-height:1.5;">Aylık bülten, flash analiz, kavram dizisi, e-postana gelsin.</p>
 
   <form action="https://github.us12.list-manage.com/subscribe/post?u=4e0a4cc05f9505038495691af&amp;id=420b8aa109&amp;f_id=00b8e4e0f0" method="post" target="_blank" style="display:flex;flex-direction:column;gap:8px;">
     <div aria-hidden="true" style="position:absolute;left:-5000px;">
@@ -854,9 +913,7 @@ function kapat() {
   card.style.transform = 'translateY(120px)';
   card.style.opacity = '0';
   card.style.pointerEvents = 'none';
-  // Kapatan değişkeni dışarıdan erişilebilir yap
   window._subClosed = true;
-  // 30 dakika sonra tekrar gösterilebilir (oturum boyunca değil)
   setTimeout(() => { window._subClosed = false; }, 30 * 60 * 1000);
 }
 </script>
@@ -892,7 +949,6 @@ function applyFilters() {
 
   // Bölüm başlıklarını gizle (tüm kartları gizliyse)
   document.querySelectorAll('.year-label, [style*="year-label"]').forEach(label => {
-    // Sonraki card-list içinde görünen kart var mı?
     let next = label.nextElementSibling;
     let hasVisible = false;
     while (next && !next.classList.contains('year-label')) {
