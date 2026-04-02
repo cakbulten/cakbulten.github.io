@@ -1,179 +1,249 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://cakbulten.github.io/index.html</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/hakkinda.html</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/sozluk.html</loc>
-    <lastmod>2026-03-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/araclar.html</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/portfolyo-simulator.html</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/fizibilite-yesil-celik.html</loc>
-    <lastmod>2026-03-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/flash-fon-stopaj-mart2026.html</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/flash-altin-ema200-23mart2026.html</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/pazar-02-altin-neden-dusuyor-19mart2026.html</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/fomc-flash-18mart2026.html</loc>
-    <lastmod>2026-03-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
   <url>
     <loc>https://cakbulten.github.io/analiz-dekarbonizasyon.html</loc>
-    <lastmod>2026-03-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
   <url>
-    <loc>https://cakbulten.github.io/pazar-01-savas-15mart2026.html</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://cakbulten.github.io/araclar.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-  </url>
-
+    </url>
   <url>
     <loc>https://cakbulten.github.io/bulten-kara-cuma-13mart2026.html</loc>
-    <lastmod>2026-03-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/ppk-flash-12mart2026.html</loc>
-    <lastmod>2026-03-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/bulten-mart-savas-2026.html</loc>
-    <lastmod>2026-03-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
   <url>
     <loc>https://cakbulten.github.io/bulten-mart-2026.html</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/bulten-mart-savas-2026.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/filtresiz-day-trading-kumari.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/filtresiz-devlet-seni-kurtarmayacak.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/filtresiz-dolar-yatirim-degildir.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/filtresiz-ev-araba-hayali.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/filtresiz-herkesin-bildigi-sir.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/filtresiz-kredi-karti-koleligi.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/filtresiz-pasif-gelir-masali.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/filtresiz-sistemin-kirli-sirri.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/filtresiz-vurgun-pesinde.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/fizibilite-yesil-celik.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/flash-altin-ema200-23mart2026.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/flash-devaluasyon-tartismasi-mart2026.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/flash-fon-stopaj-mart2026.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/fomc-flash-18mart2026.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/hakkinda.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
-  </url>
-
+    </url>
   <url>
-    <loc>https://cakbulten.github.io/kavram-09-para-illuzyonu.html</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/kavram-08-en-pahaliyi-alan-sen.html</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/kavram-07-enflasyonda-borclanmak.html</loc>
-    <lastmod>2026-03-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/kavram-06-risk.html</loc>
-    <lastmod>2026-03-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/kavram-05-bankalar.html</loc>
-    <lastmod>2026-03-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/kavram-04-para-nedir.html</loc>
-    <lastmod>2026-03-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/kavram-03-kur.html</loc>
-    <lastmod>2026-03-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://cakbulten.github.io/kavram-02-faiz.html</loc>
-    <lastmod>2026-03-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
+    <loc>https://cakbulten.github.io/index.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    </url>
   <url>
     <loc>https://cakbulten.github.io/kavram-01-enflasyon.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/kavram-02-faiz.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/kavram-03-kur.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/kavram-04-para-nedir.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/kavram-05-bankalar.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/kavram-06-risk.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/kavram-07-enflasyonda-borclanmak.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/kavram-08-en-pahaliyi-alan-sen.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/kavram-09-para-illuzyonu.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/kavram-10-varliklarim-ne-kadar-guvende.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/kavram-11-cesitlendirme.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/kavram-12-bilesik-faiz.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/kavram-hizlanmak-ve-risk.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/pazar-01-savas-15mart2026.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/pazar-02-altin-neden-dusuyor-19mart2026.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/pazar-03-savas-tirmanirken-28mart2026.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/portfolyo-simulator.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/ppk-flash-12mart2026.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/sozluk.html</loc>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-</urlset>
+    <priority>0.7</priority>
+    </url>
+  <url>
+    <loc>https://cakbulten.github.io/yol-haritasi.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    </url>
+  </urlset>
