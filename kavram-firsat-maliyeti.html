@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<link href="https://cakbulten.github.io/kavram-firsat-maliyeti.html" rel="canonical"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CAK · Fırsat Maliyeti: Seçmediğin Şeyin Bedeli</title>
+<meta content="Nominal getiri nedir, ne değildir? Konut yatırımı neyle karşılaştırılmalı? Ne kadar birikmeli, ne kadar harcanmalı? Fırsat maliyeti sade ve dürüst anlatımla." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --red: #b03030;
+  --red-lt: #fdf0f0;
+  --red-bd: #e8a0a0;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --green-bd: #88cca8;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --blue-bd: #90b0e8;
+  --amber: #8a4c10;
+  --amber-lt: #fdf4ea;
+  --amber-bd: #e0b078;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--t1);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.82;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 0 100px;
+}
+
+/* NAV */
+.nav {
+  background: #18171a;
+  border-bottom: 1px solid #2a2830;
+  padding: 11px 40px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.nav a { color: #888; text-decoration: none; }
+.nav a:hover { color: #c9a84c; }
+.nav-tag {
+  color: var(--blue);
+  background: var(--blue-lt);
+  padding: 2px 8px;
+  margin-left: auto;
+  font-size: 9px;
+  border: 1px solid var(--blue-bd);
+}
+
+/* HEADER */
+.hd { padding: 48px 40px 36px; border-bottom: 2px solid var(--t1); }
+.kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.kicker::after { content: ''; flex: 1; height: 1px; background: var(--bd2); }
+h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  margin-bottom: 10px;
+}
+h1 em { font-style: italic; color: var(--blue); }
+.hd-sub {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--t2);
+  margin-bottom: 18px;
+  line-height: 1.45;
+}
+.hd-meta {
+  display: flex;
+  gap: 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  letter-spacing: .1em;
+  flex-wrap: wrap;
+}
+
+/* TOC */
+.toc { background: var(--s1); border-bottom: 1px solid var(--bd); padding: 18px 40px; }
+.toc-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 10px;
+}
+.toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; }
+.toc-item {
+  font-size: 13px;
+  color: var(--t2);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+  transition: color .12s;
+}
+.toc-item:hover { color: var(--blue); }
+.toc-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--t3); }
+
+/* SECTIONS */
+.sec { padding: 34px 40px; border-bottom: 1px solid var(--bd); }
+.sec-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--bd); }
+h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.22;
+  margin-bottom: 18px;
+}
+h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--t1);
+  margin: 26px 0 10px;
+}
+.body { font-size: 14.5px; color: var(--t2); line-height: 1.88; }
+.body p { margin-bottom: 15px; }
+.body p:last-child { margin-bottom: 0; }
+.body strong { color: var(--t1); font-weight: 500; }
+.body em { font-style: italic; }
+
+/* ANALOGY */
+.analogy {
+  background: var(--s1);
+  border-left: 3px solid var(--bd2);
+  padding: 20px 24px;
+  margin: 22px 0;
+}
+.analogy-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 10px;
+}
+.analogy-text {
+  font-family: 'Instrument Serif', serif;
+  font-size: 19px;
+  color: var(--t1);
+  line-height: 1.52;
+  font-style: italic;
+}
+
+/* BOX */
+.box {
+  border: 1px solid;
+  padding: 18px 22px;
+  margin: 22px 0;
+  font-size: 14px;
+  line-height: 1.72;
+}
+.box-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.b-blue { background: var(--blue-lt); border-color: var(--blue-bd); }
+.b-blue .box-title { color: var(--blue); }
+.b-blue p { color: var(--t2); }
+.b-gold { background: var(--gold-lt); border-color: var(--gold-bd); }
+.b-gold .box-title { color: var(--gold); }
+.b-gold p { color: var(--t2); }
+.b-red { background: var(--red-lt); border-color: var(--red-bd); }
+.b-red .box-title { color: var(--red); }
+.b-red p { color: var(--t2); }
+.b-green { background: var(--green-lt); border-color: var(--green-bd); }
+.b-green .box-title { color: var(--green); }
+.b-green p { color: var(--t2); }
+.b-amber { background: var(--amber-lt); border-color: var(--amber-bd); }
+.b-amber .box-title { color: var(--amber); }
+.b-amber p { color: var(--t2); }
+
+/* HESAP TABLOSU */
+.calc {
+  background: white;
+  border: 1px solid var(--bd);
+  margin: 22px 0;
+  overflow: hidden;
+}
+.calc-head {
+  background: var(--t1);
+  padding: 10px 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #888;
+}
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--bd);
+  font-size: 13.5px;
+}
+.calc-row:last-child { border-bottom: none; }
+.calc-label { color: var(--t2); }
+.calc-value {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--t1);
+  font-weight: 500;
+}
+.calc-value.red { color: var(--red); }
+.calc-value.green { color: var(--green); }
+.calc-note {
+  font-size: 11px;
+  color: var(--t3);
+  padding: 8px 16px;
+  border-top: 1px solid var(--bd);
+  background: var(--s1);
+  font-style: italic;
+}
+
+/* KARŞILAŞTIRMA TABLOSU */
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 22px 0;
+  font-size: 13.5px;
+}
+.compare th {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  text-align: left;
+  color: var(--t3);
+  border-bottom: 2px solid var(--t1);
+}
+.compare td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--bd);
+  vertical-align: top;
+  line-height: 1.65;
+  color: var(--t2);
+}
+.compare td:first-child { color: var(--t1); font-weight: 500; white-space: nowrap; }
+.compare tr:last-child td { border-bottom: none; }
+.compare tr:hover td { background: var(--s1); }
+.tag-yes { color: var(--green); font-family: 'DM Mono', monospace; font-size: 11px; }
+.tag-no { color: var(--red); font-family: 'DM Mono', monospace; font-size: 11px; }
+.tag-partial { color: var(--amber); font-family: 'DM Mono', monospace; font-size: 11px; }
+
+/* STEPS */
+.steps { display: flex; flex-direction: column; gap: 1px; background: var(--bd); margin: 20px 0; }
+.step { background: var(--s1); display: grid; grid-template-columns: 56px 1fr; }
+.step-num {
+  background: var(--t1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Instrument Serif', serif;
+  font-size: 26px;
+  font-style: italic;
+}
+.step-body { padding: 18px 20px; }
+.step-title { font-weight: 600; font-size: 14.5px; color: var(--t1); margin-bottom: 6px; }
+.step-desc { font-size: 13.5px; color: var(--t2); line-height: 1.7; }
+
+/* ÖZET */
+.summary { background: var(--t1); padding: 28px 32px; margin: 28px 0; }
+.summary-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 14px;
+}
+.summary ul { list-style: none; padding: 0; }
+.summary li {
+  font-size: 14px;
+  color: #c0bdcc;
+  padding: 7px 0 7px 16px;
+  border-bottom: 1px solid #28262e;
+  position: relative;
+  line-height: 1.65;
+}
+.summary li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--blue-bd);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #eae8f2; font-weight: 500; }
+
+/* FOOTER */
+.ft {
+  padding: 20px 40px;
+  border-top: 1px solid var(--bd);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ft-brand {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--t3);
+}
+.ft-disc { font-size: 11px; color: var(--t3); text-align: right; line-height: 1.5; }
+
+@media (max-width: 580px) {
+  .nav, .hd, .toc, .sec, .ft { padding-left: 20px; padding-right: 20px; }
+  h1 { font-size: 32px; }
+  .toc-grid { grid-template-columns: 1fr; }
+  .compare th:nth-child(3), .compare td:nth-child(3) { display: none; }
+}
+
+.share-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;padding:6px 14px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:12px;}
+.share-btn svg{width:14px;height:14px;fill:#fff;}
+</style>
+</head>
+<body>
+<div class="nav">
+<a href="index.html">← Tüm Bültenler</a>
+<span style="color:#444">|</span>
+<span class="nav-tag">Kavram · Yatırım</span>
+</div>
+<div class="hd">
+<div class="kicker">CAK · Kavram Dizisi · Yatırım</div>
+<h1>Fırsat<br/><em>Maliyeti</em></h1>
+<p class="hd-sub">Seçtiğin şeyin bedelini herkes sorar. Seçmediğin şeyin bedelini kimse sormaz. Oysa asıl kayıp orada.</p>
+<div class="hd-meta">
+<span>Nisan 2026</span>
+<span>·</span>
+<span>Temel ve Orta Seviye</span>
+<span>·</span>
+<span>~18 dk okuma</span>
+</div><a class="share-btn" href="https://wa.me/?text=F%C4%B1rsat%20maliyeti%3A%20se%C3%A7medi%C4%9Fin%20%C5%9Feyin%20bedeli.%20https%3A%2F%2Fcakbulten.github.io%2Fkavram-firsat-maliyeti.html" rel="noopener" target="_blank"><svg viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.554 4.108 1.523 5.83L.057 23.428a.5.5 0 0 0 .515.572l5.757-1.508A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.653-.518-5.165-1.42l-.371-.22-3.847 1.007 1.031-3.757-.242-.386A9.961 9.961 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"></path></svg> WhatsApp'ta Paylaş</a>
+</div>
+<div class="toc">
+<div class="toc-label">İçindekiler</div>
+<div class="toc-grid">
+<a class="toc-item" href="#fikir"><span class="toc-num">1</span>Fırsat maliyeti nedir?</a>
+<a class="toc-item" href="#nominal"><span class="toc-num">2</span>Nominal getiri: ne değildir?</a>
+<a class="toc-item" href="#konut"><span class="toc-num">3</span>Konut yatırımı nasıl ölçülür?</a>
+<a class="toc-item" href="#karsilastirma"><span class="toc-num">4</span>Neyle karşılaştırmalısın?</a>
+<a class="toc-item" href="#ne-kadar"><span class="toc-num">5</span>Ne kadar biriktirilmeli?</a>
+<a class="toc-item" href="#denge"><span class="toc-num">6</span>Yaşama ile birikim dengesi</a>
+<a class="toc-item" href="#ozet"><span class="toc-num">7</span>Sonuç</a>
+</div>
+</div>
+<!-- BÖLÜM 1 -->
+<div class="sec" id="fikir">
+<div class="sec-label" style="color:var(--blue);">Bölüm 1 · Temel Fikir</div>
+<h2>Fırsat Maliyeti: Seçmediğin Şeyin Bedeli</h2>
+<div class="body">
+<p>Bir arkadaşın sana şunu sorsaydı: "Arabamı sattım, 1 milyon liram var, ne yapayım?" Ne derdin? Muhtemelen birkaç seçenek sayardın. Ama sormaman gereken asıl soru şu: "Bu parayı nereye koyarsan koy, vazgeçtiğin seçeneğin sana ne kadar maliyeti var?"</p>
+<p>İşte bu, <strong>fırsat maliyeti</strong>. Ekonominin en temiz ve en az anlaşılan kavramlarından biri. Her karar bir şeyi seçmek değil, diğer her şeyden vazgeçmektir. Fırsat maliyeti, bu vazgeçişin sayısal karşılığıdır.</p>
+<p>Günlük hayatta kimse bunu hesaplamaz. "Aylık 10.000 TL kira alıyorum" dersin, kimse sormaz: "Ama o parayı başka yere koysaydın ne olurdu?" Banka faizine yatırsaydın? TEFAS'ta bir fona koysaydın? Dolar alıp tutsan ne olurdu? Bunları hesaplamadan kira getirisinden memnun olmak, bir resmin yalnızca yarısına bakmaktır.</p>
+</div>
+<div class="analogy">
+<div class="analogy-tag">Temel Analoji</div>
+<p class="analogy-text">"Fırsat maliyeti görmezden gelinen bir giderdir. Hesap defterine girmez ama portföyünden her ay sessizce kesilir."</p>
+</div>
+<div class="body">
+<p>Bu kavramı üç somut alanda ele alacağız: nominal getirinin yanıltıcı yüzü, konut yatırımının gerçek hesabı, ve yaşama ile birikim arasındaki kişisel denge. Her biri birbirini besliyor.</p>
+</div>
+</div>
+<!-- BÖLÜM 2 -->
+<div class="sec" id="nominal">
+<div class="sec-label" style="color:var(--red);">Bölüm 2 · Nominal Getiri</div>
+<h2>Nominal Getiri Nedir, Ne Değildir?</h2>
+<div class="body">
+<p>Birinin sana "yılda %30 kazandım" demesi, kazandığını kanıtlamaz. Çünkü bu rakamın tek başına hiçbir anlamı yoktur. Anlamlı hale gelmesi için üç süzgeçten geçmesi gerekir: enflasyon, vergi ve fırsat maliyeti.</p>
+</div>
+<h3>Süzgeç 1: Enflasyon</h3>
+<div class="body">
+<p>Türkiye'de enflasyon son birkaç yılda yüzde otuzlar, kırklar, seksenlerle gezindi. Yılda %30 getiri elde ettiğinde ama enflasyon %45 olduğunda, nominal olarak kazandın ama reel olarak kaybettin. Satın alma gücün düştü.</p>
+<p>Formül basittir. Reel getiri yaklaşık olarak: nominal getiri eksi enflasyon. %30 getiri, %45 enflasyonda yaklaşık eksi %15 reel getiri anlamına gelir. Paran büyüdü ama alacağın şeyler daha da büyüdü.</p>
+</div>
+<div class="calc">
+<div class="calc-head">Örnek Hesap A · Mevduat, Enflasyon Yüksek Dönem</div>
+<div class="calc-row">
+<span class="calc-label">Başlangıç sermayesi</span>
+<span class="calc-value">100.000 TL</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Mevduat faizi (yıllık nominal)</span>
+<span class="calc-value">%32</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Yıl sonu nominal değer</span>
+<span class="calc-value">132.000 TL</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Enflasyon (yıllık TÜFE)</span>
+<span class="calc-value">%48</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Paranın reel satın alma gücü</span>
+<span class="calc-value red">89.189 TL (2026 başı fiyatlarıyla)</span>
+</div>
+<div class="calc-note">Nominal kazanç +32.000 TL · Reel kayıp yaklaşık 10.811 TL · "Kazandım" dersin ama satın alma gücün düştü.</div>
+</div>
+<h3>Süzgeç 2: Vergi</h3>
+<div class="body">
+<p>Vergi genellikle nominal getiri üzerinden hesaplanır, reel getiri üzerinden değil. Bu büyük bir asimetridir. Nominal olarak kazandığın ama reel olarak kaybettiğin durumda bile vergi ödersin. Stopaj, gelir vergisi veya sermaye kazancı vergisi, nominal kazancını bir kez daha kırar.</p>
+<p>Türkiye'de TEFAS fonları, BES ve mevduatta vergilendirme oranları ve yapıları farklıdır. Hangi araçta ne kadar vergi ödediğini bilmeden net getiriyi hesaplamak mümkün değildir. Araç seçerken brüt getiri değil, vergi sonrası net getiri bakılmalıdır.</p>
+</div>
+<h3>Süzgeç 3: Fırsat Maliyeti</h3>
+<div class="body">
+<p>Üçüncü süzgeç en çok atlanan olandır. Diyelim ki mevduatta %32 aldın, enflasyon %48'di, reel olarak kaybettin. Ama bir de şunu sor: "Aynı parayı altına koysaydım ne olurdu? TÜFEX'e koysaydım?" Cevap, mevduatın kötü bir karar olduğunu gösteriyorsa, fırsat maliyetin enflasyon kaybının üstüne eklenir.</p>
+<p>Fırsat maliyeti hep geriye dönük hesaplanır çünkü gelecek bilinmez. Ama geriye dönük hesaplama yapmayı alışkanlık haline getirmek, ileride daha iyi kararlar vermeni sağlar.</p>
+</div>
+<div class="box b-red">
+<div class="box-title">Nominal Getiri Yanıltmacaları</div>
+<p>"Aylık 15.000 TL kira alıyorum." Güzel. Peki bu 15.000 TL'nin satın alma gücü iki yıl önce ne kadardı? "Arabam yüzde yüz değer kazandı." Tamam. Ama aynı dönemde enflasyon yüzde kaçtı? Dolar kaç oldu? "Hissem iki katına çıktı." Reel mi, nominal mi? Vergi ödendi mi? Bu soruları sormadan söylenen her getiri rakamı eksik bir tablodur.</p>
+</div>
+<h3>Reel Getiri Neden Önemli?</h3>
+<div class="body">
+<p>Reel getiri, servetinin gerçekten büyüyüp büyümediğini gösterir. Nominal getiri büyüdüğünde içi rahatlar. Ama reel getiri eksi ise, daha fazla sayıyla daha az şey alabiliyor demeksin. Refah düşüyor, istatistik yükseliyor.</p>
+<p>Türkiye gibi yüksek enflasyon tarihine sahip ülkelerde bu ayrım kritiktir. Çoğu ülkede enflasyon yüzde birkiler, ikilerdir ve nominal ile reel getiri birbirine yakın kalır. Burada öyle değil. Yatırım kararı verirken reel getiriyi görmezden gelmek, eksi işaretini hesaba katmamak demektir.</p>
+</div>
+</div>
+<!-- BÖLÜM 3 -->
+<div class="sec" id="konut">
+<div class="sec-label" style="color:var(--gold);">Bölüm 3 · Konut Yatırımı</div>
+<h2>Konut Yatırımının Gerçek Hesabı</h2>
+<div class="body">
+<p>Türkiye'de konut tartışmaları çoğunlukla yanlış başlar. "2018'de aldım, beş katına çıktı" denir. Bu doğru olabilir. Ama bu cümle tek başına anlamsızdır. Çünkü fırsat maliyetini, gizli giderleri ve alternatif senaryoları içermez.</p>
+<p>Konut yatırımını düzgün değerlendirmek için dört gider kalemi ve iki karşılaştırma noktası şarttır.</p>
+</div>
+<h3>Konutun Gerçek Maliyeti: Gizlenenler</h3>
+<div class="calc">
+<div class="calc-head">Örnek Hesap B · Kiralık Konut Yatırımı (1 Yıl)</div>
+<div class="calc-row">
+<span class="calc-label">Konut alım fiyatı</span>
+<span class="calc-value">3.000.000 TL</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Yıllık brüt kira geliri (aylık 15.000 TL)</span>
+<span class="calc-value">180.000 TL</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Nominal kira getirisi (brüt)</span>
+<span class="calc-value">%6,0</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Eksi: emlak vergisi</span>
+<span class="calc-value red">-6.000 TL</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Eksi: aidat, bakım, sigorta</span>
+<span class="calc-value red">-12.000 TL</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Eksi: boş kalma süresi (ortalama 1 ay)</span>
+<span class="calc-value red">-15.000 TL</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Eksi: kira gelir vergisi (basit ortalama)</span>
+<span class="calc-value red">-18.000 TL</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Net kira geliri</span>
+<span class="calc-value green">129.000 TL</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">Gerçek net kira getirisi</span>
+<span class="calc-value">%4,3</span>
+</div>
+<div class="calc-note">Brüt %6 değil, net %4,3. Henüz enflasyon ve fırsat maliyeti hesaba katılmadı.</div>
+</div>
+<div class="body">
+<p>Bu hesabın üstüne enflasyon oturduğunda net %4,3 getiri, yüksek enflasyon döneminde reel olarak eksi bölgeye düşer. 2022'de enflasyon %80'e çıktığında net kira getirisi %4-5 olan ev sahipleri reel olarak ciddi kayıp yaşadı. Nominal olarak para geldi. Reel olarak erime devam etti.</p>
+<p>Konut değer artışını da hesaba katmak gerekir elbette. Ama bu iki şeyle kısıtlanır: konutu satmadan bu değer artışı nakde dönmez (likiditesi yoktur), ve satışta da tapu harcı, vergi ve emlakçı komisyonu vardır.</p>
+</div>
+<h3>Konut Değer Artışı: Gerçek mi, Yanılsama mı?</h3>
+<div class="body">
+<p>Türkiye'de son on yılda konut fiyatları nominal olarak büyük ölçüde arttı. Bu gerçek. Ama aynı dönemde dolar karşısında TL'nin değeri de büyük ölçüde düştü. Dolar bazında konut fiyatları incelendiğinde, birçok şehirde reel kazanç çok daha sınırlı kaldı. Bazı dönemlerde reel kayıp bile yaşandı.</p>
+<p>Doğru soru şu: "Bu konut 2015'te 200.000 dolar değerindeydi, şimdi kaç dolar?" Cevap 200.000 dolar veya altındaysa, dolar bazında tutanlar ya da altına yatırım yapanlar konut sahibinden daha iyi performans gösterdi demektir.</p>
+</div>
+<div class="box b-amber">
+<div class="box-title">Konut Değerlendirmesinde Sık Yapılan Hatalar</div>
+<p>Alım fiyatını hatırlayıp satış fiyatını bulmak yeterli değildir. Aradaki süreçte ödenen vergi, aidat, bakım maliyeti, boş kalma süresi ve en önemlisi: aynı süre boyunca alternatif bir yatırımın getirisi hesaba katılmalıdır. Birini diğeri olmadan yapmak, eksik bir karşılaştırma yapmaktır.</p>
+</div>
+</div>
+<!-- BÖLÜM 4 -->
+<div class="sec" id="karsilastirma">
+<div class="sec-label" style="color:var(--blue);">Bölüm 4 · Doğru Karşılaştırma</div>
+<h2>Konut Yatırımı Neyle Karşılaştırılmalı?</h2>
+<div class="body">
+<p>Konut yatırımını sadece "kira gelirim var mıydı yoksa yok muydu" diye değerlendirmek yanlış bir çerçevedir. Doğru soru şudur: "Bu 3 milyon TL'yi farklı yerlere koysaydım, 5 yıl sonra hangisinde daha iyi durumda olurdum?"</p>
+<p>Bunun için aynı sermaye, aynı dönem, aynı başlangıç noktasını sabit tutarak karşılaştırma yapılmalıdır. İşte bu yüzden fırsat maliyeti analizinde en az üç alternatif senaryo kurulur.</p>
+</div>
+<table class="compare">
+<thead>
+<tr>
+<th>Araç</th>
+<th>Getiri Tipi</th>
+<th>Likidite</th>
+<th>Temel Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kiralık Konut</td>
+<td>Kira geliri + değer artışı (nominal)</td>
+<td><span class="tag-no">Çok düşük</span></td>
+<td>Boş kalma, bakım, yasal kısıtlamalar, reel getiri zayıflığı</td>
+</tr>
+<tr>
+<td>TÜFEX (enflasyona endeksli tahvil)</td>
+<td>TÜFE + reel faiz (pozitif reel garanti)</td>
+<td><span class="tag-yes">Yüksek</span></td>
+<td>TÜFE manipülasyonu riski, stopaj</td>
+</tr>
+<tr>
+<td>Altın (fiziksel veya BYF)</td>
+<td>Kur ve enflasyon koruması</td>
+<td><span class="tag-yes">Yüksek</span></td>
+<td>Kısa vadeli volatilite, faiz getirisi yok</td>
+</tr>
+<tr>
+<td>Dolar / Döviz mevduatı</td>
+<td>Kur değişimi + faiz</td>
+<td><span class="tag-yes">Yüksek</span></td>
+<td>Kur tahmininin zorluğu, TL değer kaybı yapısal sürebilir</td>
+</tr>
+<tr>
+<td>BIST Hisse Sepeti</td>
+<td>Temettü + değer artışı</td>
+<td><span class="tag-yes">Yüksek</span></td>
+<td>Volatilite yüksek, seçici analiz gerektirir</td>
+</tr>
+<tr>
+<td>Para Piyasası Fonu</td>
+<td>Günlük faiz geliri (likit)</td>
+<td><span class="tag-yes">Çok yüksek</span></td>
+<td>Enflasyonun gerisinde kalma, stopaj</td>
+</tr>
+</tbody>
+</table>
+<div class="body">
+<p>Bu tablonun bize söylediği şey, konutun rakiplerinin var olduğudur. Konut benzersiz değildir. Aksine, bazı boyutlarda ciddi dezavantajları vardır: likidite yoktur, bölünmez (1 milyon liralık hisseyi kolayca satarsın ama 3 milyon TL'lik evin yarısını satamazsın), yönetim ister, gider üretir.</p>
+<p>Konut yatırımının avantajı ise fiziksel bir varlık olması, kira geliri üretmesi ve genellikle uzun vadede enflasyonu takip etmesidir. Bu avantajlar gerçektir. Ama dezavantajları görmezden gelerek değerlendirme yapmak, yarım resme bakmaktır.</p>
+</div>
+<h3>Doğru Karşılaştırmanın Adımları</h3>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-body">
+<div class="step-title">Tüm giderleri dahil et</div>
+<div class="step-desc">Emlak vergisi, aidat, bakım, sigorta, boş kalma, vergi, alım-satım masrafı. Bunlar hesaba girmeden net getiri rakamı anlamsızdır.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-body">
+<div class="step-title">Reel getiriyi hesapla</div>
+<div class="step-desc">Net kira getirisi eksi enflasyon. Eğer enflasyon net getirinin üzerindeyse, reel kayıp var demektir. Değer artışını da aynı şekilde dolar bazında kontrol et.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-body">
+<div class="step-title">Alternatif senaryoyu hesapla</div>
+<div class="step-desc">Aynı sermaye aynı dönem için hangi araçta ne olurdu? TÜFEX, altın ve para piyasası fonu en az üç karşılaştırma noktası olmalıdır. En az biri likit olmalı.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-body">
+<div class="step-title">Likidite maliyetini hesaba kat</div>
+<div class="step-desc">Konut, gerektiğinde hızla nakde dönmeyen bir varlıktır. Acil paraya ihtiyaç duyduğunda zorla veya düşük fiyattan satmak zorunda kalabilirsin. Bu riskin bir maliyeti vardır.</div>
+</div>
+</div>
+<div class="step">
+<div class="step-num">5</div>
+<div class="step-body">
+<div class="step-title">Kişisel faktörleri ekle</div>
+<div class="step-desc">Kira takip etme zahmetine katlanabiliyor musun? Aidat toplama, kiracı bulma, bakım sorumluluğu senin için bir yük mü, yoksa tolere edilebilir mi? Bunlar getiri hesabına girmez ama kararı etkiler.</div>
+</div>
+</div>
+</div>
+<div class="box b-blue">
+<div class="box-title">Kira Mı, Kira Getirisi Mi?</div>
+<p>İki farklı konut sorusu var: birincisi, "kirada mı oturayım, konut mu alayım?" İkincisi ise, "yatırım amaçlı konut alsam mı?" Bu iki sorunun cevabı farklıdır ve çoğunlukla birbirine karıştırılır. Kira ödeyip yaşadığın konut, bir tüketim kararıdır. Yatırım amaçlı alıp kiraya verdiğin konut, bir yatırım kararıdır. Her ikisi için ayrı ayrı fırsat maliyeti analizi yapılmalıdır.</p>
+</div>
+</div>
+<!-- BÖLÜM 5 -->
+<div class="sec" id="ne-kadar">
+<div class="sec-label" style="color:var(--green);">Bölüm 5 · Ne Kadar Biriktirilmeli?</div>
+<h2>Birikimin Miktarı: Evrensel Kural Yok, Ama Çerçeve Var</h2>
+<div class="body">
+<p>İnternette "gelirinizin %20'sini biriktirin" ya da "50-30-20 kuralı" denen şeyler dolaşır. 50 gerekli harcamalar, 30 istekler, 20 birikim. Bu kural Kuzey Amerika orta sınıfı için tasarlanmış, nispeten düşük enflasyon ortamını varsayan bir şablondur. Türkiye'nin yüksek enflasyon gerçekliğine doğrudan uygulanamaz.</p>
+<p>Yine de bir çerçeve yararlıdır. Bu çerçeve dört soruya dayanır.</p>
+</div>
+<h3>Soru 1: Acil Fonun Var mı?</h3>
+<div class="body">
+<p>Birikim piramidinin tabanı acil fondur. Üç ile altı aylık temel yaşam giderini likit araçlarda tutmak, sonraki her şeyin sağlıklı çalışmasının ön koşuludur. Bu para yatırım değildir, sigortadır. Düşük ama likit bir araçta durur: para piyasası fonu veya mevduat. Getirisi öncelik değildir.</p>
+<p>Acil fon yokken yatırım yapmak, temelsiz bina inşa etmektir. İlk şok geldiğinde yatırımı erken bozmak zorunda kalırsın ve genellikle en kötü zamanlarda satış yaparsın.</p>
+</div>
+<h3>Soru 2: Borç Yükün Ne Kadar?</h3>
+<div class="body">
+<p>Yüksek faizli tüketici borcu varken yatırım yapmak matematiksel olarak çoğu zaman anlamsızdır. Kredi kartı borcu aylık yüzde birkaç faizle büyüyorsa, yıllık yüzde kırk veya elliye denk gelir. Yatırımda bu getiriyi sağlamak çok zordur. Önce borcu ödemek, net bir fırsat maliyeti kazancıdır.</p>
+<p>Konut kredisi gibi uzun vadeli borçlar bu hesabın içinde ayrı bir konumdadır. Sabit faizli konut kredisi enflasyonun altında kalabilir ve gerçek anlamda "eriyebilir." Değişken faizli veya yüksek faizli konut kredisi ise farklıdır. Her birinin kendi analizi gerekir.</p>
+</div>
+<h3>Soru 3: Hangi Hedefe Birikim Yapıyorsun?</h3>
+<div class="body">
+<p>Birikim miktarını belirleyen en önemli değişken hedeftir. Emeklilik için birikim mi yapıyorsun, ev peşinatı için mi, çocuk eğitimi için mi? Her hedefin vade yapısı farklıdır ve vade yapısı risk toleransını belirler. Kısa vadeli hedefler için düşük riskli likit araçlar, uzun vadeli hedefler için daha fazla oynaklığa katlanılabilir.</p>
+<p>Hedefsiz birikim genellikle yarım kalır. Para birikirken "ne için biriktiriyorum" sorusu yanıtsız kalırsa, ani bir harcama isteğinde ya da piyasa düşüşünde kolayca harcanır veya satılır.</p>
+</div>
+<h3>Soru 4: Enflasyonu Yenecek Mi?</h3>
+<div class="body">
+<p>Türkiye'de birikim, enflasyonu yenmek zorundadır. Aksi halde nakit biriktirmek servet inşası değil, yavaş erimedir. Bu gerçeği kabul etmek, birikim kararlarını enflasyona karşı getiri sağlayan araçlarla yapmayı zorunlu kılar. Vadesiz mevduat, yastık altı ya da değeri düşen TL'de tutmak, "biriktiriyorum" hissi verirken gerçekte satın alma gücü kaybettiriyor olabilir.</p>
+</div>
+<div class="box b-green">
+<div class="box-title">Somut Çerçeve: Katmanlı Birikim</div>
+<p>Her gelir grubuna uyan tek bir oran yoktur. Ama katmanlı bir düşünce faydalıdır. İlk katman: acil fon tamamlanana kadar gelirin minimum yüzde onbeş ile yirmisi oraya. İkinci katman: tüm yüksek faizli borçlar bitmeden yatırım aracı alınmaz. Üçüncü katman: hedefe göre araç seçilir, likit-likit olmayan denge kurulur. Dördüncü katman: enflasyona karşı hedge edilmemiş nakit sınırlı tutulur.</p>
+</div>
+<h3>Miktarın Sınırı: Gelire Göre Değişir</h3>
+<div class="body">
+<p>Düşük gelirde yüzde yirmi birikim hedefi uygulanamaz olabilir. Bu gerçektir ve suçlanacak bir durum değildir. Bu durumda yüzde beş ile on birikim bile, alışkanlık kurulması açısından değerlidir. Birikim alışkanlığı, miktarın kendisinden daha uzun vadeli bir etkiye sahiptir.</p>
+<p>Yüksek gelirde ise yüzde yirmi yetersiz kalabilir. Özellikle emeklilik planlamasında, hedef tarihe olan mesafe ve hedef gelir ihtiyacı birlikte hesaplandığında, daha yüksek birikimler gerekebilir.</p>
+</div>
+</div>
+<!-- BÖLÜM 6 -->
+<div class="sec" id="denge">
+<div class="sec-label" style="color:var(--amber);">Bölüm 6 · Yaşama ile Birikim Dengesi</div>
+<h2>Ne Kadar Yaşanmalı, Ne Kadar Biriktirilmeli?</h2>
+<div class="body">
+<p>Bu sorunun yanıtı finans literatüründe "tüketim ve tasarruf optimizasyonu" olarak geçer. Ama pratik hayatta çok daha basit bir gerilimdir: bugün için mi yaşa, yarın için mi biriktir?</p>
+<p>Her iki ucun aşırı versiyonu zararlıdır. Bugün hiç biriktirmeyip sadece harcamak, gelecek güvencesizliğidir. Her kuruşu biriktirip bugünden hiç zevk almamak ise, hayatın kendisini fırsat maliyeti olarak yazmak demektir.</p>
+</div>
+<div class="analogy">
+<div class="analogy-tag">Kavramsal Çerçeve</div>
+<p class="analogy-text">"Birikimde asıl kayıp, paranın değil zamanın harcanmasıdır. Zaman geri alınamaz, para bazı durumlarda yeniden kazanılabilir."</p>
+</div>
+<h3>Yaşam Kalitesinin de Fırsat Maliyeti Var</h3>
+<div class="body">
+<p>Çocukluğun beş yılı boyunca seyahat etmemek, deneyim yaşamamak, ailenle zaman geçirmemek ve her şeyi biriktirmek bir kayıp üretir. Bu kaybın parasal değeri ölçülemez ama gerçektir. Para kazanmak ya da biriktirmek için harcanan zamanın ve enerjinin fırsat maliyeti, yaşanmamış deneyimlerdir.</p>
+<p>Bu duygusal bir argüman değildir. Davranışsal ekonomi araştırmaları, insanların yaşanan deneyimlerden (tatil, aile yemeği, seyahat) maddi satın alımlara kıyasla çok daha uzun süreli mutluluk elde ettiğini göstermektedir. Deneyime harcanan para, genellikle eşyaya harcanan paradan daha yüksek "mutluluk verimi" üretir.</p>
+</div>
+<h3>Birikim Optimumunu Nasıl Bulursun?</h3>
+<div class="body">
+<p>Herkes için geçerli tek bir cevap yoktur. Ama düşünce sürecini yapılandıran birkaç soru var.</p>
+<p>Birincisi: Gerçekten ihtiyaç mı, yoksa harcama alışkanlığı mı? Harcamaların önemli bir kısmı rutin olarak tekrarlanan ve sorgulanmayan giderlerdir. Abonelikler, dışarıda yenen yemekler, sık yenilenen elektronik. Bunları sorgulamak hem birikim kapasitesini artırır hem de gerçekten değer verilen harcamalara daha fazla pay bırakır.</p>
+<p>İkincisi: Birikim ile neyi satın alıyorsun? Birikim soyut değil, somut bir amacın finansmanıdır. Güvence satın alıyorsun, seçenek satın alıyorsun, gelecekteki özgürlüğü satın alıyorsun. Bu amacı netleştirdiğinde, ne kadar biriktirmen gerektiği daha açık hale gelir.</p>
+<p>Üçüncüsü: Hangi harcamalar seni gerçekten mutlu ediyor? Geri dönüp son altı ayın harcamalarına baktığında, "buna değdi" dediğin kalemler hangisi? Bunları korumak, düşük memnuniyet harcamalarını kesmek, birikim miktarını artırırken yaşam kalitesini düşürmeden sağlanabilir.</p>
+</div>
+<h3>Yaş ve Birikim: Zaman Gerçekten Önemli</h3>
+<div class="body">
+<p>Bileşik faizin gücü, erken başlamanın matematiksel üstünlüğünü tartışmasız ortaya koyar. 25 yaşında aylık 1.000 TL birikim başlatan biri, 35 yaşında aynı birikime başlayana kıyasla, aynı yaşta emekli olduğunda çok daha büyük bir birikime sahip olur. Sadece on yıl fark, bileşik faiz sayesinde büyük bir uçurum yaratır.</p>
+<p>Bu demek değildir ki 35 veya 45 yaşında başlamak geç kalmaktır. Hiç başlamamaktan iyidir. Ama erken başlamanın avantajı rakamsal olarak çok büyüktür ve bu gerçeği erken anlamanın kendisi de bir fırsat maliyetidir.</p>
+</div>
+<div class="calc">
+<div class="calc-head">Örnek Hesap C · Erken Başlamanın Farkı (Yıllık %12 Bileşik Getiri Varsayımı)</div>
+<div class="calc-row">
+<span class="calc-label">A kişisi: 25 yaşında başlar, aylık 1.000 TL, 60 yaşında durur</span>
+<span class="calc-value">35 yıl katkı</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">B kişisi: 35 yaşında başlar, aylık 1.000 TL, 60 yaşında durur</span>
+<span class="calc-value">25 yıl katkı</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">A'nın toplam katkısı</span>
+<span class="calc-value">420.000 TL</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">B'nin toplam katkısı</span>
+<span class="calc-value">300.000 TL</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">A'nın 60 yaşındaki birikimi (yaklaşık)</span>
+<span class="calc-value green">~5.200.000 TL</span>
+</div>
+<div class="calc-row">
+<span class="calc-label">B'nin 60 yaşındaki birikimi (yaklaşık)</span>
+<span class="calc-value">~1.900.000 TL</span>
+</div>
+<div class="calc-note">A, B'den 120.000 TL daha fazla katkı yaptı ama sonuçta yaklaşık 3.300.000 TL daha fazla birikime sahip. Fark: bileşik faizin zamanla büyümesi. (Bu hesap nominal ve gerçek getiri değil, kavramsal gösterim için kurulmuştur.)</div>
+</div>
+<h3>Tüketim Borçlanması: Fırsat Maliyetinin Tersine Çalışması</h3>
+<div class="body">
+<p>Kredi kartı taksiti veya tüketici kredisiyle satın alınan her şey, o ürünün gerçek fiyatından daha pahalıdır. Faiz ödendiği için değil, aynı zamanda o ödeme gücünün başka bir yerde kullanılamaması nedeniyle. Aylık 2.000 TL kredi taksidi hem faiz maliyeti hem de 2.000 TL'nin yatırım fırsatından mahrum kalma maliyeti taşır.</p>
+<p>Tüketim borçlanması ile yatırım amaçlı borçlanmayı ayırt etmek önemlidir. Değer artışı beklenen ve gelir üreten bir varlık için yapılan borçlanma ile tüketim malı için yapılan borçlanma, tamamen farklı finansal kararlardır.</p>
+</div>
+<div class="box b-gold">
+<div class="box-title">Pratik Denge Sorusu</div>
+<p>Şu soruyu kendinle dürüstçe konuş: "Eğer bugün emekli olsam, sahip olduğum birikimle rahat bir hayat sürdürebilir miyim?" Cevap hayır ise, birikim hızın arttırılması gerekiyor demektir. Ama bu arttırmayı yaparken hangi harcamalardan vazgeçtiğini fark et. Gerçekten değer verdiğin şeyleri değil, rutin veya alışkanlıkla süren harcamaları kesmek, hem birikimi artırır hem yaşam kalitesini düşürmez.</p>
+</div>
+</div>
+<!-- ÖZET -->
+<div class="sec" id="ozet" style="border-bottom:none;">
+<div class="summary">
+<div class="summary-label">Bu Bültenden 8 Çerçeve</div>
+<ul>
+<li><strong>Fırsat maliyeti hesaba girmez ama her kararın içinde gizlidir.</strong> Seçtiğin şeyin maliyetini değil, seçmediğinin maliyetini sormak, gerçek maliyet analizinin başlangıcıdır.</li>
+<li><strong>Nominal getiri tek başına anlamsızdır.</strong> Enflasyon, vergi ve fırsat maliyeti süzgecinden geçmeden hiçbir getiri rakamı değerlendirilemez.</li>
+<li><strong>Reel getiri negatife düşebilir.</strong> Özellikle yüksek enflasyon dönemlerinde, nominal olarak kazanan pek çok araç reel olarak kaybettirir. Satın alma gücü asıl ölçüttür.</li>
+<li><strong>Konut net getirisi brüt getirisinden ciddi ölçüde farklıdır.</strong> Tüm giderler hesaplandığında, özellikle yüksek enflasyon dönemlerinde net kira getirisi reel olarak negatife dönebilir.</li>
+<li><strong>Konut yatırımı en az üç alternatifle karşılaştırılmalıdır.</strong> TÜFEX, altın ve para piyasası fonu minimum karşılaştırma noktalarıdır. Likidite farkı ayrıca hesaba katılmalıdır.</li>
+<li><strong>Birikim miktarı evrensel bir kurala bağlanamaz.</strong> Acil fon, borç yapısı, hedef ve enflasyona karşı konum, kişiden kişiye değişen dört temel değişkendir.</li>
+<li><strong>Yaşama da fırsat maliyeti vardır.</strong> Birikimin fırsatı olduğu gibi, yaşanmamış deneyimlerin de fırsatı vardır. İkisi arasındaki denge, finansal değil kişisel bir karardır.</li>
+<li><strong>Erken başlamak, miktardan daha belirleyicidir.</strong> Bileşik faiz zamanla katlanır. Bu matematiği anlamak ve erken uygulamak, uzun vadede en değerli finansal karar olabilir.</li>
+</ul>
+</div>
+</div>
+<div class="ft">
+<div class="ft-brand">CAK · Kavram Dizisi · Nisan 2026</div>
+<div class="ft-disc">Kişisel araştırma notu.<br/>Yatırım tavsiyesi değildir.</div>
+</div>
+</body>
+</html>
