@@ -327,8 +327,108 @@ h3 {
 }
 .ft-disc { font-size: 11px; color: var(--t3); text-align: right; line-height: 1.5; }
 
+/* İÇİNDEKİLER */
+.toc {
+  padding: 20px 40px 24px;
+  border-bottom: 1px solid var(--bd);
+}
+.toc-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 12px;
+}
+.toc-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  list-style: none;
+  padding: 0;
+}
+.toc-list a {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .06em;
+  color: var(--t2);
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid var(--bd);
+  transition: all .15s;
+}
+.toc-list a:hover {
+  border-color: var(--gold2);
+  color: var(--gold);
+  background: var(--gold-bg);
+}
+
+/* PORTFÖY DEĞİŞİM TABLOSU */
+.ptable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13.5px;
+}
+.ptable th {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--t1);
+  text-align: left;
+  color: var(--t3);
+}
+.ptable td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--bd);
+  vertical-align: top;
+  line-height: 1.6;
+  color: var(--t2);
+}
+.ptable td:first-child { color: var(--t1); font-weight: 500; font-size: 13px; }
+.ptable tr:last-child td { border-bottom: none; }
+.ptable tr:hover td { background: var(--s1); }
+.sig-al { color: var(--green); font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 600; }
+.sig-tut { color: var(--amber); font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 600; }
+.sig-izle { color: var(--blue); font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 600; }
+.sig-dikkat { color: var(--red); font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 600; }
+
+/* ÖNCEKİ SAYI */
+.prev-issue {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  margin: 24px 0 0;
+  border: 1px solid var(--bd);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .15s, background .15s;
+}
+.prev-issue:hover { border-color: var(--gold2); background: var(--s1); }
+.prev-issue-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--t3);
+}
+.prev-issue-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 16px;
+  color: var(--t1);
+}
+.prev-issue-arrow {
+  margin-left: auto;
+  color: var(--bd2);
+  font-size: 16px;
+}
+
 @media (max-width: 580px) {
-  .nav, .hd, .sec, .ft { padding-left: 20px; padding-right: 20px; }
+  .nav, .hd, .sec, .ft, .toc { padding-left: 20px; padding-right: 20px; }
   h1 { font-size: 32px; }
   .scoreboard { grid-template-columns: 1fr 1fr; }
   .countdown-box { flex-direction: column; gap: 10px; }
@@ -401,8 +501,24 @@ h3 {
 </div>
 </div>
 
+<!-- İÇİNDEKİLER -->
+<div class="toc">
+<div class="toc-label">&#304;&ccedil;indekiler</div>
+<div class="toc-list">
+<a href="#ateskes">Ate&#351;kes</a>
+<a href="#kronoloji">Haftan&#305;n Kronolojisi</a>
+<a href="#brent">Brent'in D&uuml;&#351;&uuml;&#351;&uuml;</a>
+<a href="#celik">&Ccedil;elik Rallisi</a>
+<a href="#piyasa">Piyasa Rallisi</a>
+<a href="#portfoy">Portf&ouml;y De&#287;i&#351;imi</a>
+<a href="#turkiye">T&uuml;rkiye Ba&#287;lam&#305;</a>
+<a href="#liberation">Liberation Day</a>
+<a href="#onumuzdeki">&Ouml;n&uuml;m&uuml;zdeki Hafta</a>
+</div>
+</div>
+
 <!-- BÖLÜM 1: ATEŞKES -->
-<div class="sec">
+<div class="sec" id="ateskes">
 <div class="sec-label" style="color:var(--green);">Haftal&#305;k Odak Noktas&#305;</div>
 <h2>Ate&#351;kes Geldi. Ama Herkes Farkl&#305; Bir &#350;ey Anlad&#305;.</h2>
 <div class="countdown-box">
@@ -429,34 +545,7 @@ h3 {
 </div>
 </div>
 
-<!-- BÖLÜM 2: BRENT ÇÖKÜŞÜ -->
-<div class="sec">
-<div class="sec-label" style="color:var(--red);">Haftal&#305;k Derinlemesine</div>
-<h2>Brent'in 14 Dolarl&#305;k D&uuml;&#351;&uuml;&#351;&uuml;: Ne Oldu, Ne Anlama Geliyor?</h2>
-<div class="body">
-<p>8 Nisan &Ccedil;ar&#351;amba g&uuml;n&uuml; piyasalara ate&#351;kes haberi geldi&#287;inde, Brent petrol tek g&uuml;nde yakla&#351;&#305;k 14 dolar d&uuml;&#351;t&uuml;: 109 dolardan 95 dolara. Bu, <strong>Nisan 2020'den bu yana en sert tek g&uuml;nl&uuml;k d&uuml;&#351;&uuml;&#351;.</strong> Pandemi ba&#351;lang&#305;c&#305;ndan bu yana g&ouml;r&uuml;lmemi&#351; bir hareket.</p>
-<p>Haftan&#305;n ba&#351;&#305;nda Brent 111 dolardayd&#305;. Haftan&#305;n sonunda 94 dolar civar&#305;nda kapatt&#305;. Tek haftada y&uuml;zde on be&#351; d&uuml;&#351;&uuml;&#351;. Ama arada bir toparlanma da ya&#351;and&#305;: 9 Nisan'da ate&#351;kes ihlal iddialar&#305;yla Brent 97 dolara geri s&#305;&ccedil;rad&#305;, 10 Nisan'da yeniden 94'e indi.</p>
-</div>
-<h3>Neden bu kadar sert?</h3>
-<div class="body">
-<p>Piyasa H&uuml;rm&uuml;z'&uuml;n a&ccedil;&#305;laca&#287;&#305;n&#305; fiyatlamaya ba&#351;lad&#305;. Alt&#305; haftad&#305;r kapan&#305;k olan bo&#287;az&#305;n a&ccedil;&#305;lma ihtimali, enerji piyasas&#305;ndaki risk primini tek seansta buharla&#351;t&#305;rd&#305;. Ama burada kritik bir ayr&#305;m var: <strong>fiyat d&uuml;&#351;t&uuml; ama arz hen&uuml;z d&ouml;nmedi.</strong></p>
-<p>Ge&ccedil;en hafta Goldman Sachs'&#305;n uyar&#305;s&#305;n&#305; aktarm&#305;&#351;t&#305;k: H&uuml;rm&uuml;z a&ccedil;&#305;lsa bile tam normalleşme iki ila d&ouml;rt ay alacak. Tanker g&uuml;zergah de&#287;i&#351;imi, liman t&#305;kan&#305;kl&#305;&#287;&#305;, sigorta maliyetleri ve Katar Ras Laffan ile &#304;ran G&uuml;ney Pars tesislerindeki hasar bu s&uuml;recin ba&#351;l&#305;ca nedenleri. Yani piyasa gelece&#287;i fiyatlad&#305; ama fiziksel ger&ccedil;eklik hâlâ s&#305;k&#305;&#351;&#305;k.</p>
-</div>
-<div class="box b-amber">
-<div class="box-title">Petrol Fiyat Hareketi: 6-11 Nisan</div>
-<p><strong>6 Nisan Pzt:</strong> $111.02 &mdash; &Uuml;ltimatom &ouml;ncesi gerilim fiyatland&#305;.<br/>
-<strong>7 Nisan Sal:</strong> $109.14 &mdash; G&uuml;ney Pars vuruldu, IRGC &#351;efi &ouml;ld&uuml;r&uuml;ld&uuml;.<br/>
-<strong>8 Nisan &Ccedil;ar:</strong> $94.67 &mdash; Ate&#351;kes ilan&#305;. Tek g&uuml;nde &minus;$14.47.<br/>
-<strong>9 Nisan Per:</strong> $95.87 &mdash; &#304;hlal iddialar&#305;yla k&#305;smi toparlanma.<br/>
-<strong>10 Nisan Cum:</strong> $94.26 &mdash; Netanyahu-L&uuml;bnan m&uuml;zakeresi olumlu ama belirsizlik s&uuml;r&uuml;yor.</p>
-</div>
-<div class="analogy">
-<div class="analogy-tag">Perspektif</div>
-<p class="analogy-text">"Piyasa ate&#351;kesi 'bar&#305;&#351; olacak' diye fiyatlad&#305;. Ama hen&uuml;z bar&#305;&#351; yok, sadece ate&#351;kes var. Aradaki fark&#305; &ouml;n&uuml;m&uuml;zdeki hafta &ouml;&#287;renece&#287;iz."</p>
-</div>
-</div>
-
-<!-- BÖLÜM 3: HAFTANIN KRONOLOJİSİ -->
+<!-- BÖLÜM 2: HAFTANIN KRONOLOJİSİ -->
 <div class="sec">
 <div class="sec-label" style="color:var(--t3);">Haftan&#305;n Kronolojisi</div>
 <h2>Pazartesiden Cumaya: Ne Oldu?</h2>
@@ -492,8 +581,35 @@ h3 {
 </div>
 </div>
 
+<!-- BÖLÜM 3: BRENT ÇÖKÜŞÜ -->
+<div class="sec" id="brent">
+<div class="sec-label" style="color:var(--red);">Haftal&#305;k Derinlemesine</div>
+<h2>Brent'in 14 Dolarl&#305;k D&uuml;&#351;&uuml;&#351;&uuml;: Ne Oldu, Ne Anlama Geliyor?</h2>
+<div class="body">
+<p>8 Nisan &Ccedil;ar&#351;amba g&uuml;n&uuml; piyasalara ate&#351;kes haberi geldi&#287;inde, Brent petrol tek g&uuml;nde yakla&#351;&#305;k 14 dolar d&uuml;&#351;t&uuml;: 109 dolardan 95 dolara. Bu, <strong>Nisan 2020'den bu yana en sert tek g&uuml;nl&uuml;k d&uuml;&#351;&uuml;&#351;.</strong> Pandemi ba&#351;lang&#305;c&#305;ndan bu yana g&ouml;r&uuml;lmemi&#351; bir hareket.</p>
+<p>Haftan&#305;n ba&#351;&#305;nda Brent 111 dolardayd&#305;. Haftan&#305;n sonunda 94 dolar civar&#305;nda kapatt&#305;. Tek haftada y&uuml;zde on be&#351; d&uuml;&#351;&uuml;&#351;. Ama arada bir toparlanma da ya&#351;and&#305;: 9 Nisan'da ate&#351;kes ihlal iddialar&#305;yla Brent 97 dolara geri s&#305;&ccedil;rad&#305;, 10 Nisan'da yeniden 94'e indi.</p>
+</div>
+<h3>Neden bu kadar sert?</h3>
+<div class="body">
+<p>Piyasa H&uuml;rm&uuml;z'&uuml;n a&ccedil;&#305;laca&#287;&#305;n&#305; fiyatlamaya ba&#351;lad&#305;. Alt&#305; haftad&#305;r kapan&#305;k olan bo&#287;az&#305;n a&ccedil;&#305;lma ihtimali, enerji piyasas&#305;ndaki risk primini tek seansta buharla&#351;t&#305;rd&#305;. Ama burada kritik bir ayr&#305;m var: <strong>fiyat d&uuml;&#351;t&uuml; ama arz hen&uuml;z d&ouml;nmedi.</strong></p>
+<p>Ge&ccedil;en hafta Goldman Sachs'&#305;n uyar&#305;s&#305;n&#305; aktarm&#305;&#351;t&#305;k: H&uuml;rm&uuml;z a&ccedil;&#305;lsa bile tam normalle&#351;me iki ila d&ouml;rt ay alacak. Tanker g&uuml;zergah de&#287;i&#351;imi, liman t&#305;kan&#305;kl&#305;&#287;&#305;, sigorta maliyetleri ve Katar Ras Laffan ile &#304;ran G&uuml;ney Pars tesislerindeki hasar bu s&uuml;recin ba&#351;l&#305;ca nedenleri. Yani piyasa gelece&#287;i fiyatlad&#305; ama fiziksel ger&ccedil;eklik h&acirc;l&acirc; s&#305;k&#305;&#351;&#305;k.</p>
+</div>
+<div class="box b-amber">
+<div class="box-title">Petrol Fiyat Hareketi: 6-11 Nisan</div>
+<p><strong>6 Nisan Pzt:</strong> $111.02 &mdash; &Uuml;ltimatom &ouml;ncesi gerilim fiyatland&#305;.<br/>
+<strong>7 Nisan Sal:</strong> $109.14 &mdash; G&uuml;ney Pars vuruldu, IRGC &#351;efi &ouml;ld&uuml;r&uuml;ld&uuml;.<br/>
+<strong>8 Nisan &Ccedil;ar:</strong> $94.67 &mdash; Ate&#351;kes ilan&#305;. Tek g&uuml;nde &minus;$14.47.<br/>
+<strong>9 Nisan Per:</strong> $95.87 &mdash; &#304;hlal iddialar&#305;yla k&#305;smi toparlanma.<br/>
+<strong>10 Nisan Cum:</strong> $94.26 &mdash; Netanyahu-L&uuml;bnan m&uuml;zakeresi olumlu ama belirsizlik s&uuml;r&uuml;yor.</p>
+</div>
+<div class="analogy">
+<div class="analogy-tag">Perspektif</div>
+<p class="analogy-text">"Piyasa ate&#351;kesi 'bar&#305;&#351; olacak' diye fiyatlad&#305;. Ama hen&uuml;z bar&#305;&#351; yok, sadece ate&#351;kes var. Aradaki fark&#305; &ouml;n&uuml;m&uuml;zdeki hafta &ouml;&#287;renece&#287;iz."</p>
+</div>
+</div>
+
 <!-- BÖLÜM 4: ÇELİK RALLİSİ -->
-<div class="sec">
+<div class="sec" id="celik">
 <div class="sec-label" style="color:var(--gold);">Sekt&ouml;r Odak</div>
 <h2>&Ccedil;eli&#287;in Sessiz Rallisi: HRC 26 Ay&#305;n Zirvesinde</h2>
 <div class="body">
@@ -517,7 +633,7 @@ h3 {
 </div>
 
 <!-- BÖLÜM 5: PİYASA RALLİSİ -->
-<div class="sec">
+<div class="sec" id="piyasa">
 <div class="sec-label" style="color:var(--purple);">Pazar Perspektifi</div>
 <h2>Yedi G&uuml;nl&uuml;k Ralli: Dip mi, Toparlanma m&#305;?</h2>
 <div class="body">
@@ -552,8 +668,63 @@ h3 {
 </div>
 </div>
 
+<!-- BÖLÜM 5.5: PORTFÖY DEĞİŞİM TABLOSU -->
+<div class="sec" id="portfoy">
+<div class="sec-label" style="color:var(--gold);">Portf&ouml;y De&#287;i&#351;imi</div>
+<h2>Bu Hafta Ne De&#287;i&#351;ti?</h2>
+<div class="body">
+<p>Ate&#351;kes piyasalar&#305;n y&ouml;n&uuml;n&uuml; de&#287;i&#351;tirdi ama kal&#305;c&#305;l&#305;&#287;&#305; belirsiz. A&#351;a&#287;&#305;daki tablo, ge&ccedil;en haftaya g&ouml;re portf&ouml;y sinyallerinde ne de&#287;i&#351;ti&#287;ini &ouml;zetliyor. <strong>Yat&#305;r&#305;m tavsiyesi de&#287;ildir</strong> &mdash; ki&#351;isel de&#287;erlendirme notlar&#305;d&#305;r.</p>
+</div>
+<table class="ptable">
+<thead>
+<tr>
+<th>Varl&#305;k</th>
+<th>Sinyal</th>
+<th>De&#287;erlendirme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Petrol (Brent)</td>
+<td><span class="sig-dikkat">D&#304;KKAT</span></td>
+<td>$94'e d&uuml;&#351;t&uuml; ama ate&#351;kes k&#305;r&#305;lgan. H&uuml;rm&uuml;z tam a&ccedil;&#305;lmad&#305;. Yukar&#305; veya a&#351;a&#287;&#305; sert hareket riski y&uuml;ksek.</td>
+</tr>
+<tr>
+<td>Alt&#305;n</td>
+<td><span class="sig-tut">TUT</span></td>
+<td>$4.765, ate&#351;kes bask&#305;lad&#305; ama t&uuml;ketici g&uuml;veni dibe vurdu. JP Morgan y&#305;l sonu $5.000 hedefinde. Yap&#305;sal tez sa&#287;lam.</td>
+</tr>
+<tr>
+<td>G&uuml;m&uuml;&#351;</td>
+<td><span class="sig-izle">&#304;ZLE</span></td>
+<td>~$76, ate&#351;kes end&uuml;striyel talebi canland&#305;rd&#305;. ATH'den %37 a&#351;a&#287;&#305;da. DCA devam. Ate&#351;kes kal&#305;c&#305; olursa h&#305;zl&#305; toparlan&#305;r.</td>
+</tr>
+<tr>
+<td>BIST 100</td>
+<td><span class="sig-tut">TUT</span></td>
+<td>13.824, haftal&#305;k +%5.4. &#350;ubat zirvesine yakla&#351;&#305;yor. Ate&#351;kes kal&#305;c&#305;l&#305;&#287;&#305; BIST i&ccedil;in belirleyici. Panik sat&#305;&#351;&#305;na gerek yok.</td>
+</tr>
+<tr>
+<td>&Ccedil;elik / Erdemir</td>
+<td><span class="sig-izle">&#304;ZLE</span></td>
+<td>HRC $1.087 (26 ay&#305;n zirvesi). Gelir y&uuml;kseliyor ama enerji maliyeti de. Marja ne kald&#305;&#287;&#305; anahtar soru.</td>
+</tr>
+<tr>
+<td>TL Mevduat</td>
+<td><span class="sig-tut">TUT</span></td>
+<td>Politika faizi %37. Reel getiri hâlâ pozitif. 22 Nisan PPK'ya kadar mevcut konumu koru.</td>
+</tr>
+<tr>
+<td>DCA (D&uuml;zenli Al&#305;m)</td>
+<td><span class="sig-al">DEVAM</span></td>
+<td>Liberation Day dersi: panikle satan %16 getiriyi kaybetti. DCA disiplini bu oynak ortamda en sa&#287;lam strateji.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
 <!-- BÖLÜM 6: TÜRKİYE BAĞLAMI -->
-<div class="sec">
+<div class="sec" id="turkiye">
 <div class="sec-label" style="color:var(--blue);">Yerli Ba&#287;lam</div>
 <h2>T&uuml;rkiye: Ate&#351;kesin Kazan&#305;c&#305; m&#305;, Kurban&#305; m&#305;?</h2>
 <div class="body">
@@ -576,7 +747,7 @@ h3 {
 </div>
 
 <!-- BÖLÜM 7: LIBERATION DAY YIL DÖNÜMÜ -->
-<div class="sec">
+<div class="sec" id="liberation">
 <div class="sec-label" style="color:var(--amber);">Finansal Okuma</div>
 <h2>Liberation Day Bir Ya&#351;&#305;nda: Ne &Ouml;&#287;rendik?</h2>
 <div class="body">
@@ -595,7 +766,7 @@ h3 {
 </div>
 
 <!-- BÖLÜM 8: ÖNÜMÜZDEKİ HAFTA -->
-<div class="sec">
+<div class="sec" id="onumuzdeki">
 <div class="sec-label" style="color:var(--red);">&Ouml;n&uuml;m&uuml;zdeki Hafta</div>
 <h2>&#304;zleme Listesi: 13&ndash;19 Nisan</h2>
 <div class="body">
@@ -623,6 +794,16 @@ h3 {
 <li><strong>&Ouml;n&uuml;m&uuml;zdeki haftay&#305; ate&#351;kesin kaderi belirleyecek.</strong> &#304;slamabad g&ouml;r&uuml;&#351;meleri, H&uuml;rm&uuml;z trafi&#287;i ve ABD CPI verisi &uuml;&ccedil; kritik g&ouml;sterge. Olumlu sonu&ccedil; piyasay&#305; h&#305;zla yukar&#305; &ccedil;eker, olumsuz h&#305;zla a&#351;a&#287;&#305;.</li>
 </ul>
 </div>
+</div>
+
+<div style="padding:0 40px;">
+<a class="prev-issue" href="pazar-05-nisan2026.html">
+<div>
+<div class="prev-issue-label">&Ouml;nceki Say&#305;</div>
+<div class="prev-issue-title">Pazar Okumas&#305; #4 &mdash; 48 Saat, Bir &Uuml;ltimatom ve G&uuml;m&uuml;&#351;&uuml;n D&uuml;&#351;&uuml;&#351;&uuml;</div>
+</div>
+<div class="prev-issue-arrow">&rarr;</div>
+</a>
 </div>
 
 <div class="ft">
